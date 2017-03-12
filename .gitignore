@@ -1,0 +1,15 @@
+/.idea/
+/project/boot/
+/project/plugins/project
+target/
+lib_managed/
+src_managed/
+test-output/
+*.iml
+/backend/target/
+/cli/target/
+/frontend/target/
+/shared/.js/
+/shared/.jvm/
+/project/target/
+/project/project/target
