@@ -1,9 +1,11 @@
-# Akka HTTP / Scala.js / Websocket Chat App
+# Akka HTTP / Scala.js / Websocket Chat App / IRC log bot
 
-A simple chat app that uses akka-http backend and a scala.js frontend to implement a simple
-websocket based chat application.
+Used project examples:
+[akka-http-scala-js-websocket-chat](https://github.com/jrudolph/akka-http-scala-js-websocket-chat/)
 
-To run:
+[ircLogBot](https://github.com/Jiri-Kremser/ircLogBot)
+
+## To run:
 
 ```
 sbt
@@ -34,8 +36,6 @@ will start the server listening on all interfaces.
 The `cli` project contains a command line client for the chat to demonstrate the Websocket client and
 how to deal with console input in a streaming way.
 
-![CLI Screencast](https://github.com/jrudolph/akka-http-scala-js-websocket-chat/raw/master/docs/cli-screencast.gif)
-
 It runs best directly from a terminal.
 
 Start the server as explained above. Then, to build a fat jar use
@@ -58,10 +58,6 @@ or
 ```
 ./chat
 ```
-
-Here's another screencast that shows live tab completion in action:
-
-![CLI completion screencast](https://github.com/jrudolph/akka-http-scala-js-websocket-chat/raw/master/docs/cli-completion.gif)
 
 ## Known issues
 
