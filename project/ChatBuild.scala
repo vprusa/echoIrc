@@ -6,6 +6,10 @@ import ScalaJSPlugin._
 import autoImport._
 import sbtassembly.AssemblyKeys
 
+//import play.PlayScala
+import com.typesafe.sbt.web.SbtWeb
+
+
 
 object ChatBuild extends Build {
   lazy val scalaV = "2.11.8"
@@ -15,13 +19,24 @@ object ChatBuild extends Build {
 
   lazy val root =
     Project("root", file("."))
+      //.enablePlugins(play.PlayScala)
+      //.enablePlugins()
+      //.enablePlugins(PlayScala)
+      .enablePlugins(SbtWeb)
       .aggregate(frontend, backend, cli)
+
+  //root.enablePlugins(SbtWeb)
+
+  //enablePlugins(play.SbtWeb)
 
   // Scala-Js frontend
   lazy val frontend =
     Project("frontend", file("frontend"))
       .enablePlugins(ScalaJSPlugin)
+      //.enablePlugins(PlayScala)
+      .enablePlugins(SbtWeb)
       .settings(commonSettings: _*)
+      //.enablePlugins(SbtWeb)
       .settings(
         persistLauncher in Compile := true,
         persistLauncher in Test := false,
@@ -34,6 +49,8 @@ object ChatBuild extends Build {
       )
       .dependsOn(sharedJs)
 
+  //lazy val root = (project in file(".")).enablePlugins(SbtWeb)
+
   // Akka Http based backend
   lazy val backend =
     Project("backend", file("backend"))
@@ -45,7 +62,7 @@ object ChatBuild extends Build {
           "com.lihaoyi" %% "upickle" % upickleV,
           "org.pircbotx" % "pircbotx" % "2.1",
           "ch.qos.logback" % "logback-classic" % "1.1.3" % Runtime
-  ),
+        ),
         resourceGenerators in Compile += Def.task {
           val f1 = (fastOptJS in Compile in frontend).value
           val f2 = (packageScalaJSLauncher in Compile in frontend).value

@@ -14,7 +14,7 @@ sbt
 > re-start
 ```
 
-Navigate to [http://localhost:8080/](http://localhost:8080/).
+Navigate to [http://localhost.localdomain:8080/](http://localhost.localdomain:8080/).
 
 You can build a fully self-contained jar using `assembly` in the backend project.
 
@@ -81,4 +81,11 @@ There isn't more than absolutely necessary there right now.
 du -sh --exclude=./backend/target --exclude=./cli/target --exclude=./frontend/target --exclude=./target --exclude=./shared/.js --exclude=./shared/.jvm --exclude=./project/target --exclude=./project/project/target ./
 
 du -sh --exclude=./backend/target --exclude=./cli/target --exclude=./frontend/target --exclude=./target --exclude=./shared/.js --exclude=./shared/.jvm --exclude=./project/target --exclude=./project/project/target --exclude=./.idea ./
+```
+
+### Docker
+
+from https://hub.docker.com/r/hseeberger/scala-sbt/
+```
+FROM hseeberger/scala-sbt
 ```
