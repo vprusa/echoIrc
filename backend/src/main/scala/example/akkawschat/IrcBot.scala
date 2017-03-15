@@ -6,16 +6,16 @@ import scala.util.{ Success, Failure }
 
 import org.pircbotx.{ Configuration, PircBotX }
 
-class IrcLogBot(config: Configuration, listener: IrcBotListener) extends PircBotX(config) {
+class IrcLogBot(config: Configuration, listener: IrcBotListener2) extends PircBotX(config) {
 
   val TRUSTSTORE_NAME = "cacerts.jks"
 
-  def IrcLogBot(bot: IrcBotListener) {
+  def IrcLogBot(bot: IrcBotListener2) {
     setNick(System.getProperty("bot.name", "ircLogBot"))
   }
 
 }
-
+/*
 object IrcBot {
 
   println("starting calculation ...")
@@ -23,7 +23,7 @@ object IrcBot {
     val server: String = "localhost"
     val channel: String = "#TheName"
 
-    val botListener: IrcBotListener = new IrcBotListener(server, channel)
+    val botListener: IrcBotListener2 = new IrcBotListener2(server, channel)
     val bot: PircBotX = new IrcLogBot(getConfig(server, channel), botListener)
     bot.startBot()
     42
@@ -38,7 +38,7 @@ object IrcBot {
     new Configuration.Builder()
       .addAutoJoinChannel(channel)
       .setServer(server, 6667)
-      .addListener(new IrcBotListener(server, channel))
+      .addListener(new IrcBotListener2(server, channel))
       .setName(System.getProperty("bot.name", "ircLogBot"))
       .setRealName(System.getProperty("bot.name", "ircLogBot") + " (http://git.io/v3twr)")
       .setAutoReconnect(true)
@@ -48,3 +48,4 @@ object IrcBot {
       .setSocketTimeout(1 * 60 * 1000)
       .buildConfiguration()
 }
+*/ 
