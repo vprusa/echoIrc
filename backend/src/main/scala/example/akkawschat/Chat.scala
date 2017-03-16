@@ -5,7 +5,7 @@ import akka.stream.OverflowStrategy
 import akka.stream.scaladsl._
 import shared.Protocol
 
-trait Chat {
+abstract class Chat {
   def chatFlow(sender: String): Flow[String, Protocol.Message, Any]
 
   def injectMessage(message: Protocol.ChatMessage): Unit

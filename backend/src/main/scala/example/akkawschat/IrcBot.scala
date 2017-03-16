@@ -3,16 +3,30 @@ package example.akkawschat
 import scala.concurrent.{ Future }
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{ Success, Failure }
+import org.pircbotx.output.{ OutputIRC }
 
 import org.pircbotx.{ Configuration, PircBotX }
 
-class IrcLogBot(config: Configuration, listener: IrcBotListener2) extends PircBotX(config) {
+class IrcLogBot(defaultChannel: String, config: Configuration) extends PircBotX(config) {
 
   val TRUSTSTORE_NAME = "cacerts.jks"
 
-  def IrcLogBot(bot: IrcBotListener2) {
-    setNick(System.getProperty("bot.name", "ircLogBot"))
+  /*def IrcLogBot(config: Configuration): Unit = {
+    val listener: IrcBotListener2 = config.getListenerManager()
+    val listener.send: OutputIRC = sendIRC()
+  }*/
+
+  def IrcLogBot(defaultChannel: String, config: Configuration) {
+    _defaultChannel = defaultChannel
   }
+
+  var _defaultChannel: String = null
+
+  // Getter
+  def defaultChannel = _defaultChannel
+
+  // Setter
+  def defaultChannel_=(value: String): Unit = _defaultChannel = value
 
 }
 /*

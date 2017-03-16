@@ -6,4 +6,4 @@ RUN git clone --depth=1 https://github.com/vprusa/echoIrc\
 
 EXPOSE 8080
 
-CMD cd echoIrc/ && sbt 'project backend;run'
+CMD cd echoIrc/ && sbt 'project backend' run

@@ -26,14 +26,40 @@ import org.pircbotx.{ Configuration, PircBotX }
 
 class Webservice(implicit fm: Materializer, system: ActorSystem) extends Directives {
   //  val theChat = Chat.create(system)
-  val theChat = Chat.create(system)
+  //val theChat = Chat.create(system)
 
   //val ircChat = IrcChat
-
+  /*
   import system.dispatcher
+
   system.scheduler.schedule(15.second, 15.second) {
     theChat.injectMessage(ChatMessage(sender = "clock", s"Bling! The time is ${new Date().toString}."))
-  }
+  }*/
+
+  val server: String = "localhost"
+  val channel: String = "#TheName"
+
+  //val botListener: IrcBotListener2 = new IrcBotListener2(theChat, server, channel)
+
+  val listener: IrcBotListener2 = new IrcBotListener2(system, server, channel)
+
+  val config = new Configuration.Builder()
+    .addAutoJoinChannel(channel)
+    .setServer(server, 6667)
+    .addListener(listener)
+    .setName(System.getProperty("bot.name", "ircLogBot"))
+    .setRealName(System.getProperty("bot.name", "ircLogBot") + " (http://git.io/v3twr)")
+    .setAutoReconnect(true)
+    .setVersion("0.0.1")
+    .setFinger("ircLogBot (source code here http://git.io/v3twr)")
+    .setAutoNickChange(true)
+    .setSocketTimeout(1 * 60 * 1000)
+    .buildConfiguration()
+
+  val bot: IrcLogBot = new IrcLogBot(channel, config)
+  //listener.setSend(bot.send())
+  listener._bot = bot
+  listener._send = bot.sendIRC()
 
   def route =
     get {
@@ -60,7 +86,7 @@ class Webservice(implicit fm: Materializer, system: ActorSystem) extends Directi
         // unlikely because chat messages are small) but absolutely possible
         // FIXME: We need to handle TextMessage.Streamed as well.
       }
-      .via(theChat.chatFlow(sender)) // ... and route them through the chatFlow ...
+      .via(listener.chatFlow(sender)) // ... and route them through the chatFlow ...
       .map {
         case msg: Protocol.Message ⇒
           TextMessage.Strict(write(msg)) // ... pack outgoing messages into WS JSON messages ...
@@ -78,16 +104,16 @@ class Webservice(implicit fm: Materializer, system: ActorSystem) extends Directi
         }
       })
 
-  val server: String = "localhost"
-  val channel: String = "#TheName"
-
-  val botListener: IrcBotListener2 = new IrcBotListener2(theChat, server, channel)
-  val bot: PircBotX = new IrcLogBot(getConfig(server, channel), botListener)
+  import scala.concurrent._
+  import ExecutionContext.Implicits.global
 
   println("starting calculation ...")
   val f = Future {
     bot.startBot()
-    42
+    bot.send()
+    listener._bot = bot
+    listener._send = bot.sendIRC()
+    0
   }
   println("before onComplete")
   f.onComplete {
@@ -95,16 +121,5 @@ class Webservice(implicit fm: Materializer, system: ActorSystem) extends Directi
     case Failure(e)     => e.printStackTrace
   }
 
-  def getConfig(server: String, channel: String): Configuration = new Configuration.Builder()
-    .addAutoJoinChannel(channel)
-    .setServer(server, 6667)
-    //.addListener(new IrcBotListener2(theChat, server, channel))
-    .setName(System.getProperty("bot.name", "ircLogBot"))
-    .setRealName(System.getProperty("bot.name", "ircLogBot") + " (http://git.io/v3twr)")
-    .setAutoReconnect(true)
-    .setVersion("0.0.1")
-    .setFinger("ircLogBot (source code here http://git.io/v3twr)")
-    .setAutoNickChange(true)
-    .setSocketTimeout(1 * 60 * 1000)
-    .buildConfiguration()
+  //def getConfig(server: String, channel: String): Configuration =
 }
