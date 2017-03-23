@@ -6,8 +6,6 @@ import akka.http.scaladsl.model.ws.{ TextMessage, Message }
 import akka.stream.OverflowStrategy
 import akka.stream.scaladsl._
 
-//import example.akkawschat.User.Connected
-
 import shared.Protocol
 
 import java.net._
@@ -32,9 +30,6 @@ import org.pircbotx.{ Configuration, PircBotX }
 import shared.Protocol
 import shared.Protocol._
 
-class MyActorRef(val actorRef: ActorRef, val listener: IrcListener) {
-}
-
 class IrcListener(server: String, channel: String) extends ListenerAdapter {
 
   //Usage: for getting configuration and sending messages from Websocket chat in child classes
@@ -46,28 +41,9 @@ class IrcListener(server: String, channel: String) extends ListenerAdapter {
   // Setter IrcLogBot
   def bot_=(value: IrcLogBot): Unit = _bot = value
 
-  // so i could send messages from IRC to Webclient
-  var _actorRef: ActorRef = null
-
-  // Getter ActorRef
-  def actorRef = _actorRef
-
-  // Setter ActorRef
-  def actorRef_=(value: ActorRef): Unit = _actorRef = value
-
   val logger: Logger = LoggerFactory.getLogger(this.getClass.getName)
 
   val ECHO_PATTERN = Pattern.compile("(?i)echo[ ]+(.+)")
-
-  //TODO:  override def onGenericMessage(event: GenericMessageEvent)
-  override def onGenericMessage(event: GenericMessageEvent) {
-
-    logger.info(s"onGenericMessage: ${event.getUser.getNick} ${event.getMessage}")
-
-    _actorRef ! ChatMessage(sender = s"${event.getUser.getNick}", s"${event.getMessage}")
-
-    // injectMessage(ChatMessage(sender = s"${event.getUser.getNick}", s"${event.getUser.getNick} ${event.getMessage}"))
-  }
 
 }
 
@@ -112,27 +88,19 @@ object Chat {
 
             logger.info(s"onGenericMessage: ${event.getUser.getNick} ${event.getMessage}")
 
-            sub ! ChatMessage(sender = s"${event.getUser.getNick}", s"${event.getUser.getNick} ${event.getMessage}")
-
-            // _actorRef ! ChatMessage(sender = s"${event.getUser.getNick}", s"${event.getMessage}")
-
-            // injectMessage(ChatMessage(sender = s"${event.getUser.getNick}", s"${event.getUser.getNick} ${event.getMessage}"))
+            sub ! ChatMessage(sender = s"${event.getUser.getNick}", s"${event.getMessage}")
           }
-
         }
 
         var configParams: Configuration.Builder = new Configuration.Builder()
           .addAutoJoinChannel("#TheName")
           .setServer("localhost", 6667)
-          //.setName("botName")
           .setRealName("ircBotB2")
           .setAutoReconnect(true)
           .setVersion("0.0.1")
           .setFinger("ircLogBot (source code here http://git.io/v3twr)")
           .setAutoNickChange(true)
           .setSocketTimeout(1 * 60 * 1000)
-
-        //var listener: IrcListener = subscriber.listener
 
         var ircBot: IrcLogBot = new IrcLogBot(configParams.setName(name).addListener(listener).buildConfiguration())
 
@@ -152,7 +120,6 @@ object Chat {
         println("s Start bot in future...")
         val f = Future {
           ircBot.startBot()
-
           0
         }
         f.onComplete {
@@ -160,7 +127,6 @@ object Chat {
           case Failure(e)     => e.printStackTrace
         }
         //Protocol.Joined(name, members)
-
         null
 
       case msg: ReceivedMessage ⇒ {
@@ -213,19 +179,6 @@ object Chat {
 
     }
 
-    /*
-      def connected(outgoing: ActorRef): Receive = {
-        chatRoom ! ChatRoom.Join
-
-        {
-          case IncomingMessage(text) =>
-            chatRoom ! ChatRoom.ChatMessage(text)
-
-          case ChatRoom.ChatMessage(text) =>
-            outgoing ! OutgoingMessage(text)
-        }
-      }*/
-
   }
 
   val server: String = "localhost"
@@ -235,14 +188,10 @@ object Chat {
 
   class MyActor extends Actor {
     var subscribers = Set.empty[(String, ActorRef)]
-    //  var subscribers = Set.empty[(String, ActorRef)]
-
+    //TODO change
     def receive: Receive = {
-
       case NewParticipant(name, subscriber) ⇒
         logger.info(s"MyActor NewParticipant(name, subscriber) ")
-
-        //subscriber.
 
         logger.info(s" msg ${context}")
 
@@ -251,9 +200,6 @@ object Chat {
         dispatch(Protocol.Joined(name, members))
       case msg: ReceivedMessage ⇒ {
         logger.info(s"MyActor msg: ReceivedMessage ${msg.toChatMessage}")
-        //val entry@(name, ref) = subscribers.find(_._1 == msg.sender).get
-
-        //listener._bot.send().message(channel, s"${msg.sender} ${msg.message}")
 
         dispatch(msg.toChatMessage)
       }
@@ -315,21 +261,8 @@ object Chat {
             .mapMaterializedValue(
               //  chatActor ! NewParticipant(sender, _)
               // give the user actor a way to send messages out
-              //outActor =>
               userActor ! NewParticipant(sender, _)
-            //  userActor.tell(NewParticipant(sender, chatActor), _) // User.Connected(outActor)
             )
-
-        /*
-       val out =
-         Source.actorRef[Protocol.ChatMessage](1, OverflowStrategy.fail)
-           .mapMaterializedValue(chatActor.tell(NewParticipant(
-             sender,
-             //new MyActorRef(_._: ActorRef, new IrcListener(server, channel))
-             new MyActorRef(chatActor,null)
-           //_
-           ), _))
-*/
         logger.info(s"\n\n\n\n\n ll ${in} \n${out}\n")
         Flow.fromSinkAndSource(in, out)
       }
