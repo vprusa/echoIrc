@@ -48,7 +48,7 @@ class IrcListener(server: String, channel: String) extends ListenerAdapter {
 }
 
 trait Chat {
-  def chatFlow(sender: String): Flow[String, Protocol.Message, Any]
+  def chatFlow(sender: String, channel: String): Flow[String, Protocol.Message, Any]
 
   def injectMessage(message: Protocol.ChatMessage): Unit
 }
@@ -65,12 +65,11 @@ object Chat {
 
   }
 
-  class User(chatRoom: ActorRef, name: String) extends Actor {
+  class User(chatRoom: ActorRef, system: ActorSystem, name: String, channel: String) extends Actor {
 
     import User._
 
-    val server: String = "localhost"
-    val channel: String = "#TheName"
+    val server = system.settings.config.getString("app.irc.server")
 
     val logger: Logger = LoggerFactory.getLogger(this.getClass.getName)
 
@@ -93,12 +92,12 @@ object Chat {
         }
 
         var configParams: Configuration.Builder = new Configuration.Builder()
-          .addAutoJoinChannel("#TheName")
-          .setServer("localhost", 6667)
-          .setRealName("ircBotB2")
+          .addAutoJoinChannel(channel)
+          .setServer(server, 6667)
+          .setRealName(name)
           .setAutoReconnect(true)
           .setVersion("0.0.1")
-          .setFinger("ircLogBot (source code here http://git.io/v3twr)")
+          .setFinger("ircLogBot (source code here TODO)")
           .setAutoNickChange(true)
           .setSocketTimeout(1 * 60 * 1000)
 
@@ -242,8 +241,8 @@ object Chat {
     import akka.NotUsed
 
     new Chat {
-      def chatFlow(sender: String): Flow[String, Protocol.ChatMessage, Any] = {
-        val userActor: ActorRef = system.actorOf(Props(new User(chatActor, name = sender)))
+      def chatFlow(sender: String, channel: String): Flow[String, Protocol.ChatMessage, Any] = {
+        val userActor: ActorRef = system.actorOf(Props(new User(chatActor, system = system, name = sender, channel = channel)))
 
         val in =
           Flow[String]

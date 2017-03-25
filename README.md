@@ -5,13 +5,21 @@ Used project examples:
 
 [ircLogBot](https://github.com/Jiri-Kremser/ircLogBot)
 
+## Installation notes:
+
+### Notable issues
+
+I have encountered some problems related to [this](https://groups.google.com/forum/#!topic/simple-build-tool/f6ngum3pMMs) and [this](https://issues.scala-lang.org/browse/SI-9199) when running ```sbt``` cmd
+
+To solve this I removed ~/.m2 , ~/.ivy2 and ~/.sbt dirs (idk which one was causing dependency problems) and installed latest zip version of sbt provided [here](http://www.scala-sbt.org/download.html)
+
 ## To run:
 
 ```
 sbt
 
 > project backend
-> re-start
+> run
 ```
 
 Navigate to [http://localhost.localdomain:8080/](http://localhost.localdomain:8080/).

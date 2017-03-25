@@ -90,6 +90,7 @@ object ChatBuild extends Build {
     (crossProject.crossType(CrossType.Pure) in file ("shared"))
       .settings(
         scalaVersion := scalaV
+
       )
 
 

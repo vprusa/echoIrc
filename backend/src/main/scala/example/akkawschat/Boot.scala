@@ -12,8 +12,8 @@ object Boot extends App {
   implicit val materializer = ActorMaterializer()
 
   val config = system.settings.config
-  val interface = config.getString("app.interface")
-  val port = config.getInt("app.port")
+  val interface = config.getString("app.web.interface")
+  val port = config.getInt("app.web.port")
 
   val service = new Webservice
 

@@ -14,8 +14,10 @@ object Frontend extends js.JSApp {
 
   def main(): Unit = {
     val nameField = dom.document.getElementById("name").asInstanceOf[HTMLInputElement]
+    val channelField = dom.document.getElementById("channel").asInstanceOf[HTMLInputElement]
     joinButton.onclick = { (event: MouseEvent) ⇒
-      joinChat(nameField.value)
+      // pass the channel and encode hash char
+      joinChat(nameField.value, channelField.value)
       event.preventDefault()
     }
     nameField.focus()
@@ -27,11 +29,11 @@ object Frontend extends js.JSApp {
     }
   }
 
-  def joinChat(name: String): Unit = {
+  def joinChat(name: String, channel: String): Unit = {
     joinButton.disabled = true
     val playground = dom.document.getElementById("playground")
-    playground.innerHTML = s"Trying to join chat as '$name'..."
-    val chat = new WebSocket(getWebsocketUri(dom.document, name))
+    playground.innerHTML = s"Trying to join chat as '$name' to '$channel'..."
+    val chat = new WebSocket(getWebsocketUri(dom.document, name, channel.replace("#", "%23")))
     chat.onopen = { (event: Event) ⇒
       playground.insertBefore(p("Chat connection was successful!"), playground.firstChild)
       sendButton.disabled = false
@@ -77,10 +79,10 @@ object Frontend extends js.JSApp {
       playground.insertBefore(p(text), playground.firstChild)
   }
 
-  def getWebsocketUri(document: Document, nameOfChatParticipant: String): String = {
+  def getWebsocketUri(document: Document, nameOfChatParticipant: String, channel: String): String = {
     val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
 
-    s"$wsProtocol://${dom.document.location.host}/chat?name=$nameOfChatParticipant"
+    s"$wsProtocol://${dom.document.location.host}/chat?name=$nameOfChatParticipant&channel=$channel"
   }
 
   def p(msg: String) = {
