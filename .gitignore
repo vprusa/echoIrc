@@ -1,0 +1,8 @@
+.idea
+target
+project/project
+project/target
+shared/.js
+shared/.jvm
+server/public/javascripts/flot
+server/public/images
