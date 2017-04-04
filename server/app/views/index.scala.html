@@ -1,0 +1,14 @@
+@(message: String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
+
+@main("Welcome to Play") {
+	<div class="container">
+    	<div class="demo-headline">
+        	<h1 class="demo-logo">
+          		<div class="logo"></div>
+          		User Service
+          		<small>User Service is the platform where user can find their details.</small>
+          		<a href="@routes.BaseController.dashboard">Dashboard</a>
+        	</h1>
+      	</div>
+	</div>
+}

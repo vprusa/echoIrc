@@ -1,0 +1,21 @@
+@(websocketUrl: String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Irc Chat Room</title>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-template-jsdeps.js")"></script>
+    </head>
+
+    <body>
+        <div id="websocketUrl" webchat-wesocket-url="@websocketUrl"></div>
+        <div id="reactRoot" webchat-wesocket-url="@websocketUrl"></div>
+            <!-- Include Scala.js compiled code -->
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-template-opt.js")"></script>
+            <!-- Run JSApp -->
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-template-launcher.js")"></script>
+    </body>
+
+</html>
