@@ -23,17 +23,4 @@ object Footer {
     )
   )
 
- /*
-
-  val component = ScalaComponent.static("TopNav",
-      <.header(
-        "asd"
-      )
-  )
-
-  */
-
-  //val component = ScalaComponent.static("No args")(<.div("Hello!"))
-
-  //def apply() = component()
 }

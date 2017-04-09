@@ -53,13 +53,18 @@ lazy val server = (project in file("server")).settings(
   dependsOn(sharedJvm)
 
 //val scalaJSReactVersion = "0.10.1"
+//val scalaJSReactVersion = "0.11.3"
 val scalaJSReactVersion = "1.0.0-RC2"
 
 
 //val scalaCssVersion = "0.3.1"
-val scalaCssVersion = "0.5.1"
+//val scalaCssVersion = "0.5.1"
+//val scalaCssVersion = "0.5.0"
 
-val reactJSVersion = "0.14.2"
+//val reactJSVersion = "0.14.2"
+
+val scalaCssVersion = "0.5.3-RC1"
+val reactJSVersion = "15.4.2"
 
 val jsOutDir = "server/public/javascripts/reactjs"
 
@@ -67,9 +72,6 @@ lazy val client = (project in file("client")).settings(
   scalaVersion := scalaV,
   persistLauncher := true,
   persistLauncher in Test := false,
-  libraryDependencies ++= Seq(
-    "org.scala-js" %%% "scalajs-dom" % "0.9.1"
-  ),
 
   name := "scalajs-react-template",
 
@@ -82,23 +84,20 @@ lazy val client = (project in file("client")).settings(
 
   persistLauncher in Test := false,
 
-  libraryDependencies ++= Seq("com.github.japgolly.scalajs-react" %%% "core" % scalaJSReactVersion,
+  libraryDependencies ++= Seq(
+    "com.github.japgolly.scalajs-react" %%% "core" % scalaJSReactVersion,
     "com.github.japgolly.scalajs-react" %%% "extra" % scalaJSReactVersion,
     "com.github.japgolly.scalacss" %%% "core" % scalaCssVersion,
-    "com.github.japgolly.scalacss" %%% "ext-react" % scalaCssVersion
-    ,"com.github.japgolly.scalacss" %%% "ext-scalatags" % scalaCssVersion
-),
-
-  //libraryDependencies += "com.github.japgolly.scalajs-react" %%% "core" % "1.0.0-RC1"
+    "com.github.japgolly.scalacss" %%% "ext-react" % scalaCssVersion,
+    "com.olvind" %%% "scalajs-react-components" % "0.6.0",
+    "com.lihaoyi" %%% "upickle" % "0.4.3"
+  ),
 
   // React itself
   //   (react-with-addons.js can be react.js, react.min.js, react-with-addons.min.js)
   //DOM, which doesn't exist by default in the Rhino runner. To make the DOM available in Rhino
   jsDependencies ++= Seq(
-    //"org.webjars.npm" % "react" % reactJSVersion / "react-with-addons.js" commonJSName "React" minified "react-with-addons.min.js",
-    //"org.webjars.npm" % "react-dom" % reactJSVersion / "react-dom.js" commonJSName "ReactDOM" minified "react-dom.min.js" dependsOn "react-with-addons.js"
 
-    //,
     "org.webjars.bower" % "react" % "15.4.2" / "react-with-addons.js"
       minified "react-with-addons.min.js"
       commonJSName "React",

@@ -7,6 +7,7 @@ import play.api.mvc._
 import play.api.libs.json.{JsArray, JsValue, Json}
 import java.util.UUID
 
+import upickle.default._
 
 import scala.concurrent.duration._
 import models._
@@ -14,18 +15,17 @@ import play.api.data._
 import play.api.data.Forms._
 import java.util.concurrent.TimeoutException
 import javax.inject.{Inject, Singleton}
+
 import play.api.Logger
-
 import play.api.libs.concurrent.Promise
-
-
 import org.pircbotx.hooks.ListenerAdapter
-import org.pircbotx.hooks.types.{GenericMessageEvent}
+import org.pircbotx.hooks.types.{GenericChannelEvent, GenericMessageEvent}
 import org.pircbotx.hooks.events.{IncomingChatRequestEvent, MessageEvent, PrivateMessageEvent}
-import org.pircbotx.output.{OutputIRC}
+import org.pircbotx.output.OutputIRC
 import org.pircbotx.{Configuration, PircBotX}
-import scala.util.{Success, Failure}
 
+import scala.util.{Failure, Success}
+import shared.SharedMessages.{JsMessageBase, _}
 //
 
 import java.net.URL
@@ -42,7 +42,6 @@ import utils.{IrcListener, IrcLogBot, Protocol}
 import scala.concurrent.{ExecutionContext, Future}
 import javax.inject.Inject
 import play.api.i18n.{Messages, I18nSupport, MessagesApi}
-
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 
@@ -85,30 +84,39 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
 
     def receive = {
       case IrcNewParticipant(name, subscriber) => {
-        Logger.info(s"IrcNewParticipant(name, subscriber) ")
-        Logger.info(s"IrcNewParticipant( ${name} ,  ${subscriber}) ")
-        Logger.info(s"this ${this} ")
-        Logger.info(s"sub ${sub} ")
+        Logger.info(s"IrcNewParticipant( name: ${name} ,subscriber: ${subscriber} )")
+        Logger.info(s"this ${this} and sub ${sub} ")
 
-        // TODO im sure that there is more pretty way how to dirrect messages from websocket to/from irc
-        sub = subscriber //subscriber
+        // TODO im sure that there is more pretty way how to redirrect messages from/to websocket to/from irc
+        sub = subscriber
 
         // welcome message
-        //subscriber ! Json.parse(s"{\"message\":\"${system.settings.config.getString("app.irc.welcomeMessage").replace("%user",name).replace("%channel",channel).replace("%server",server)}\"}")
-        subscriber ! Json.parse(s"""{\"sender\":\"${name}\",\"message\":\"${name}\"}""")
+        subscriber ! Json.parse(write[JsMessage](JsMessage(
+          sender = name, target = channel, msg = "Welcome!!!")))
 
         listener = new IrcListener(server, channel, subscriber) {
-          override def onGenericMessage(event: GenericMessageEvent) {
-            Logger.info(s"onGenericMessage: ${event.getUser.getNick} ${event.getMessage}")
-            Logger.info(s"onGenericMessage sub is: ${subscriber}")
-            if (listenersUerActor!= null) {
-              Logger.info(s"onGenericMessage sub is: ${listenersUerActor}")
-              listenersUerActor ! Json.parse(s"""{\"sender\":\"${event.getUser.getNick}\",\"message\":\"${event.getMessage}\"}""")
+          /*override def onGenericMessage(event: GenericMessageEvent) {
+            Logger.info(s"onGenericMessage: ${event.getUser.getNick} ${event.getMessage} sub is: ${subscriber}")
+            if (listenersUerActor != null) {
+              listenersUerActor ! Json.parse(write(JsMessage(
+                sender = event.getUser.getNick, target = channel, msg = event.getMessage)))
             } else {
               Logger.info(s"onGenericMessage sub missing")
             }
+          }*/
 
-            Logger.info(s"onGenericMessage leaving")
+          override def onGenericChannel(event: GenericChannelEvent) {
+            Logger.info(s"onGenericChannel: ${event.getChannel.getBot[IrcLogBot].getNick} ${event.toString} sub is: ${subscriber}")
+            val chatMsgEv: GenericMessageEvent = event.asInstanceOf[GenericMessageEvent]
+            Logger.info(s"onGenericChannel1 casted to GenericMessageEvent ${chatMsgEv}")
+            Logger.info(s"onGenericChannel2 casted to GenericMessageEvent ${chatMsgEv.getMessage}")
+            Logger.info(s"onGenericChannel3 channel ${event.getChannel.getName} ${event.getChannel.toString}")
+            if (listenersUerActor != null) {
+              listenersUerActor ! Json.parse(write(JsMessage(
+                sender = chatMsgEv.getUser.getNick, target = event.getChannel.getName, msg = chatMsgEv.getMessage)))
+            } else {
+              Logger.info(s"onGenericMessage sub missing")
+            }
           }
         }
 
@@ -148,7 +156,6 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
         }
 
         //Protocol.Joined(name, members)
-
       }
       case msg: IrcReceivedMessage ⇒ {
         Logger.info(s"msg: IrcReceivedMessage ${msg} jsvalues: ${msg.message}")
@@ -156,16 +163,34 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
         Logger.info(s"sub  ${sub} ")
 
         if (sub != null) {
-
           Logger.info(s"sub is: ${sub}")
           sub ! msg.message
         } else {
           Logger.info(s"sub missing")
-
         }
         Logger.info(s"Sending message to irc")
-        listener._bot.send().message(channel, s"${msg.message}")
 
+        val incommingMsg = read[JsMessageBase](msg.message.toString())
+        val incommingMsgClass = incommingMsg.getClass
+
+        Logger.info(s"incommingMsg ${incommingMsg}")
+
+        incommingMsg match {
+          case JsMessage(sender, target, msg) => {
+            // handle the JsMessage
+            listener._bot.send().message(target, s"${msg}")
+          }
+          case JsMessageJoinChannel(sender, target) => {
+            // handle the JsMessageJoinChannel
+            Logger.info(s"JsMessageJoinChannel")
+            listener._bot.sendIRC().joinChannel(target)
+          }
+          case JsMessageLeaveChannel(sender, target) => {
+            // handle the JsMessageLeaveChannel
+            // TODO rly?
+            listener._bot.sendIRC().action(target, "/LEAVE")
+          }
+        }
       }
       case msg => {
         Logger.info(s"msg: ${msg}")
@@ -179,8 +204,11 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
         listener._bot.stopBotReconnect()
         listener._bot.close()
       }
-      case Terminated(sub) ⇒
+      case Terminated(sub) ⇒ {
         Logger.info(s"Terminated(sub) ")
+        listener._bot.stopBotReconnect()
+        listener._bot.close()
+      }
 
       case Connected(outgoing) => {
         Logger.info(s"Connected(outgoing) ")
@@ -195,9 +223,7 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
       case msg: JsValue => {
         Logger.info(s"JsValue ${msg}")
         //sender() ! msg
-
       }
-
 
     }
 

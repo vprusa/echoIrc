@@ -20,7 +20,7 @@ import vdom.html_<^._
 import japgolly.scalajs.react.extra._
 import japgolly.scalajs.react.extra.router._
 
-import scalacss.ScalatagsCss._
+//import scalacss.ScalatagsCss._
 
 
 object TopNav {
@@ -58,26 +58,16 @@ object TopNav {
       <.header(
         <.nav(
           <.ul(
+            Style.navMenu,
             P.menus.map(
               item => <.li(^.key := item.name,
-                //Style.menuItem(
-                //  item.route.getClass == P.selectedPage.getClass
-                //),
+                Style.menuItem(
+                  item.route.getClass == P.selectedPage.getClass
+                ),
                 item.name,
                 P.ctrl setOnClick item.route
               )
             ).toTagMod
-
-            //Style.navMenu,
-            //P.menus.map(
-            //  item => <.li(^.key := item.name,
-            //    Style.menuItem(
-            //      item.route.getClass == P.selectedPage.getClass
-            //    ),
-            //    item.name,
-            //    P.ctrl setOnClick item.route
-            //  )
-            // )
           )
         )
       )

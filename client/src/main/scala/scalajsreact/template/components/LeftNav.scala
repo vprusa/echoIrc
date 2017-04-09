@@ -12,6 +12,7 @@ import scalacss.ScalaCssReact._
 
 object LeftNav {
 
+  /*
   object Style extends StyleSheet.Inline {
 
     import dsl._
@@ -34,6 +35,7 @@ object LeftNav {
               backgroundColor(c"#ecf0f1")))
     ))
   }
+  */
   /*
     case class Props(menus: Vector[Item], selectedPage: Item, ctrl: RouterCtl[Item])
 

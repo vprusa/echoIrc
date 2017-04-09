@@ -11,8 +11,9 @@ object HomePage {
     <.div(
       <.h1(
         <.a(
-          ^.color := "#000",
-          ^.href := "https://github.com/japgolly/scalajs-react",
+          ^.color := "#FFFFFF",
+//          ^.href := "https://github.com/japgolly/scalajs-react",
+          ^.href := "https://github.com/vprusa/echoIrc",
           "echoIrc"
         )
       ),
@@ -20,7 +21,7 @@ object HomePage {
       <.section(
         ^.marginTop := "2.2em",
         ^.fontSize := "115%",
-        ^.color := "#333",
+        ^.color := "#FFFFFF",
         "Homepage of IRC chat over Websocket, bot and admin"
       )
     )

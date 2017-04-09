@@ -5,7 +5,7 @@ import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterC
 import scalajsreact.template.pages.{ErrorPage, HomePage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
-import scalajsreact.template.models.Menu
+import scalajsreact.template.models.{IrcChatProps, Menu}
 import org.scalajs.dom
 
 import scala.scalajs.js.JSApp
@@ -24,7 +24,9 @@ object AppRouter {
 
   case object Home extends AppPage
 
-  case class IrcChat(websocketUrl: String) extends AppPage
+  case object IrcChat extends AppPage
+
+  //case class IrcChat(username: String) extends AppPage
 
   case object Error extends AppPage
 
@@ -33,19 +35,19 @@ object AppRouter {
 
     (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
-      //| staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp())
-      | dynamicRouteCT(root ~ string("[a-z]+").caseClass[IrcChat]) ~> render(IrcChatPage.WebSocketsApp("asdasd"))
+      | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(IrcChatProps(username = "UserBot", url = "ws://localhost:9000/chat")))
+      //| dynamicRouteCT(root ~ string("[a-z]+").caseClass[IrcChat]) ~> render(IrcChatPage.WebSocketsApp("asdasd"))
       | staticRoute("error", Error) ~> render(ErrorPage.component())
       )
       .notFound(redirectToPage(Error)(Redirect.Replace))
       .renderWith(layout)
-      //.verify(Home, Error)
+    //.verify(Home, Error)
   }
 
   val mainMenu = Vector(
     Menu("Home", Home),
     Menu("Error", Error),
-    Menu("IrcChat", new IrcChat(s"xsx"))
+    Menu("IrcChat", IrcChat)
     //, Menu("Items", Items(Item.Info))
   )
 
