@@ -1,21 +1,15 @@
 package scalajsreact.template.pages
 
-import com.sun.demo.jvmti.hprof.Tracker
-import org.scalajs.dom._
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
-import japgolly.scalajs.react.component.ScalaBuilder.defaultToNoBackend
-import japgolly.scalajs.react.internal.Effect
-import shared.SharedMessages
-import upickle.default.read
-import vdom.html_<^._
-import japgolly.scalajs.react.component.Generic.MountedWithRoot
+import japgolly.scalajs.react.vdom.html_<^._
+import org.scalajs.dom._
+import shared.SharedMessages._
+import upickle.default.{read, _}
 
+import scala.collection.mutable.ListBuffer
 import scala.util.{Failure, Success}
 import scalajsreact.template.models.IrcChatProps
-import upickle.default._
-import shared.SharedMessages._
-import scala.collection.mutable.ListBuffer
 
 object IrcChatPage {
 
@@ -44,7 +38,7 @@ object IrcChatPage {
       org.scalajs.dom.console.log("logTargetLine ")
       var state: ChatState = this
       if (targets.isEmpty) {}
-      org.scalajs.dom.console.log("logLinesPerChannel " + targets)
+      org.scalajs.dom.console.log("targets " + targets)
 
       targets.filter(_.target == msg.target).foreach(f => {
         f.tsi.logLines = f.tsi.logLines :+ msg
@@ -52,7 +46,7 @@ object IrcChatPage {
 
       state = copy(targets = targets)
 
-      org.scalajs.dom.console.log("last state")
+      org.scalajs.dom.console.log("logTargetLine last state")
       org.scalajs.dom.console.log(state.toString)
 
       state
@@ -247,20 +241,16 @@ object IrcChatPage {
           val incommingMsg = read[JsMessageBase](e.data.toString)
 
           def addTarget(targets : ListBuffer[TargetProps], newTarget : TargetProps): ListBuffer[TargetProps] = {
-            org.scalajs.dom.console.log(s"JsMessageJoinChannelx targets ${newTarget.toString}")
-            org.scalajs.dom.console.log(s"JsMessageJoinChannel2 targets ${targets.toString}")
-            //var newTargets : Vector[TargetProps] = targets.clone()
-            //org.scalajs.dom.console.log(s"JsMessageJoinChannelc targets ${newTargets.toString}")
+            org.scalajs.dom.console.log(s"addTarget newTarget ${newTarget.toString}")
             targets += newTarget
-            org.scalajs.dom.console.log(s"JsMessageJoinChannel3 targets ${targets.toString}")
+            org.scalajs.dom.console.log(s"addTarget targets ${targets.toString}")
             targets
           }
 
           incommingMsg match {
             case k : JsMessage => {
               // handle the JsMessage
-              org.scalajs.dom.console.log(s"JsMessage1 ${k.toString}")
-              //direct.modState(_.copy(targets = Vector.empty[TargetProps])) // logTargetLine(k)
+              org.scalajs.dom.console.log(s"JsMessage ${k.toString}")
               direct.modState(_.logTargetLine(k))
             }
             case JsMessageJoinChannel(sender, target) => {
@@ -269,7 +259,6 @@ object IrcChatPage {
               direct.modState(f => {
                 f.copy(targets = addTarget(f.targets,TargetProps(target = target, password = "", TargetStateInside(Vector.empty[JsMessage], ""))))
               })
-              // direct.modState(_.logLine(s"JsMessageJoinChannel: ${e.data.toString}"))
             }
             case JsMessageLeaveChannel(sender, target) => {
               // handle the JsMessageLeaveChannel
@@ -277,7 +266,6 @@ object IrcChatPage {
               direct.modState(_.logLine(s"JsMessageLeaveChannel: ${e.data.toString}"))
             }
           }
-          //direct.modState(_.logLine(s"Echo: ${e.data.toString}"))
         }
 
         def onerror(e: ErrorEvent): Unit = {

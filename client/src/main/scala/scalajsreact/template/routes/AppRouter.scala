@@ -36,19 +36,16 @@ object AppRouter {
     (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
       | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(IrcChatProps(username = "UserBot", url = "ws://localhost:9000/chat")))
-      //| dynamicRouteCT(root ~ string("[a-z]+").caseClass[IrcChat]) ~> render(IrcChatPage.WebSocketsApp("asdasd"))
       | staticRoute("error", Error) ~> render(ErrorPage.component())
       )
       .notFound(redirectToPage(Error)(Redirect.Replace))
       .renderWith(layout)
-    //.verify(Home, Error)
   }
 
   val mainMenu = Vector(
     Menu("Home", Home),
     Menu("Error", Error),
     Menu("IrcChat", IrcChat)
-    //, Menu("Items", Items(Item.Info))
   )
 
 
@@ -60,40 +57,10 @@ object AppRouter {
     )
   }
 
-  /*
-  def layout(c: RouterCtl[Page], r: Resolution[Page]) =
-    <.div(
-      navMenu(c),
-      <.div(^.cls := "container", r.render()))
-
-
-  val navMenu = ScalaComponent.builder[RouterCtl[AppPage]]("Menu")
-    .render_P { ctl =>
-
-      def nav(name: String, target: AppPage) =
-        <.li(
-          ^.cls := "navbar-brand active",
-          ctl setOnClick target,
-          name)
-
-      <.div(
-        ^.cls := "navbar navbar-default",
-        <.ul(
-          ^.cls := "navbar-header",
-          nav("Home", Home)
-        )
-      )
-    }
-    .configure(Reusability.shouldComponentUpdate)
-    .build
-*/
-
   val baseUrl =
     if (dom.window.location.hostname == "localhost") {
       BaseUrl.fromWindowOrigin_/ / "react/"
-      // BaseUrl.fromWindowOrigin / "react/"
     } else
       BaseUrl.fromWindowOrigin / "react/"
-
 
 }

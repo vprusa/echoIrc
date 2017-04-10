@@ -1,7 +1,5 @@
 package scalajsreact.template.css
 
-import japgolly.scalajs.react.vdom
-
 import scalacss.Defaults._
 
 /*

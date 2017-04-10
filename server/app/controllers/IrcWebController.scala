@@ -1,47 +1,29 @@
 package controllers
 
-import java.net.URL
+import javax.inject.Singleton
 
-import play.api._
-import play.api.mvc._
-import play.api.libs.json.{JsArray, JsValue, Json}
-import java.util.UUID
-
+import org.pircbotx.Configuration
+import org.pircbotx.hooks.types.{GenericChannelEvent, GenericMessageEvent}
+import play.api.Logger
+import play.api.libs.json.Json
+import shared.SharedMessages.{JsMessageBase, _}
 import upickle.default._
 
-import scala.concurrent.duration._
-import models._
-import play.api.data._
-import play.api.data.Forms._
-import java.util.concurrent.TimeoutException
-import javax.inject.{Inject, Singleton}
-
-import play.api.Logger
-import play.api.libs.concurrent.Promise
-import org.pircbotx.hooks.ListenerAdapter
-import org.pircbotx.hooks.types.{GenericChannelEvent, GenericMessageEvent}
-import org.pircbotx.hooks.events.{IncomingChatRequestEvent, MessageEvent, PrivateMessageEvent}
-import org.pircbotx.output.OutputIRC
-import org.pircbotx.{Configuration, PircBotX}
-
 import scala.util.{Failure, Success}
-import shared.SharedMessages.{JsMessageBase, _}
 //
 
 import java.net.URL
+import javax.inject.Inject
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props, Status, Terminated}
-import akka.event.Logging
+import akka.actor.{Actor, ActorRef, ActorSystem, Props, Terminated}
+import akka.stream.scaladsl.{Flow, Sink, Source}
 import akka.stream.{Materializer, OverflowStrategy}
-import akka.stream.scaladsl.{BroadcastHub, Flow, Keep, MergeHub, Sink, Source}
-
+import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.JsValue
 import play.api.mvc._
 import utils.{IrcListener, IrcLogBot, Protocol}
 
 import scala.concurrent.{ExecutionContext, Future}
-import javax.inject.Inject
-import play.api.i18n.{Messages, I18nSupport, MessagesApi}
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 

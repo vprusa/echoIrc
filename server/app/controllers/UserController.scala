@@ -7,29 +7,20 @@ import models._
 import play.api.Logger
 import play.api.data.Form
 import play.api.data.Forms.{ignored, mapping}
-import play.api.libs.concurrent.Promise
 import play.api.libs.json.Json
-
-import scala.concurrent.duration._
 
 
 //
 
-import java.net.URL
 import javax.inject.Inject
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props, Terminated}
-import akka.stream.scaladsl.{Flow, Sink, Source}
-import akka.stream.{Materializer, OverflowStrategy}
+import akka.actor.ActorSystem
+import akka.stream.Materializer
+import play.api.data.Forms._
 import play.api.i18n.{I18nSupport, MessagesApi}
-import play.api.libs.json.JsValue
 import play.api.mvc._
-import utils.{IrcListener, Protocol}
 
 import scala.concurrent.{ExecutionContext, Future}
-
-import play.api.data._
-import play.api.data.Forms._
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 

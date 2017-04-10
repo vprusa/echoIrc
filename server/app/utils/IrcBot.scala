@@ -2,19 +2,12 @@ package utils
 
 import java.util.regex.Pattern
 
+import akka.actor.ActorRef
 import org.pircbotx.hooks.ListenerAdapter
-
-import scala.concurrent.Future
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Failure, Success}
-import org.pircbotx.output.OutputIRC
 import org.pircbotx.{Configuration, PircBotX}
-import akka.actor.{Actor, ActorRef, ActorSystem, Props, Status, Terminated}
 
 class IrcLogBot(config: Configuration) extends PircBotX(config) {
-
-  val TRUSTSTORE_NAME = "cacerts.jks"
-
+  //val TRUSTSTORE_NAME = "cacerts.jks"
 }
 
 

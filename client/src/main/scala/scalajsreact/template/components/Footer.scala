@@ -1,17 +1,7 @@
 package scalajsreact.template.components
 
-import org.scalajs.dom
-
-import scala.scalajs.js.JSApp
-import scala.scalajs.js.annotation.JSExport
 import japgolly.scalajs.react._
-import vdom.html_<^._
-import japgolly.scalajs.react.extra._
-import japgolly.scalajs.react.extra.router._
-
-
-
-import scalajsreact.template.components.TopNav.Props //.prefix_<^._
+import japgolly.scalajs.react.vdom.html_<^._
 
 object Footer {
 
