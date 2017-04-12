@@ -27,16 +27,22 @@ object AppRouter {
   case object IrcChat extends AppPage
 
   //case class IrcChat(username: String) extends AppPage
+  case class Items(p: MenuItem) extends AppPage
 
   case object Error extends AppPage
 
   val routerConfig = RouterConfigDsl[AppPage].buildConfig { dsl =>
     import dsl._
 
+    val itemRoutes: Rule =
+      MenuItem.routes.prefixPath_/("#items").pmap[AppPage](Items) {
+        case Items(p) => p
+      }
     (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
       | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(IrcChatProps(username = "UserBot", url = "ws://localhost:9000/chat")))
       | staticRoute("error", Error) ~> render(ErrorPage.component())
+      | itemRoutes
       )
       .notFound(redirectToPage(Error)(Redirect.Replace))
       .renderWith(layout)
@@ -45,7 +51,8 @@ object AppRouter {
   val mainMenu = Vector(
     Menu("Home", Home),
     Menu("Error", Error),
-    Menu("IrcChat", IrcChat)
+    Menu("IrcChat", IrcChat),
+      Menu("Stats", IrcChat)
   )
 
 

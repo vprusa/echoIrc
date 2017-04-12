@@ -11,7 +11,7 @@ class IrcLogBot(config: Configuration) extends PircBotX(config) {
 }
 
 
-class IrcListener(server: String, channel: String, val listenersUerActor: ActorRef) extends ListenerAdapter {
+class IrcListener(server: String, channel: String, val listenersUserActor: ActorRef) extends ListenerAdapter {
 
   //Usage: for getting configuration and sending messages from Websocket chat in child classes
   var _bot: IrcLogBot = null

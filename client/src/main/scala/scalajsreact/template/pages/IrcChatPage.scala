@@ -5,119 +5,168 @@ import japgolly.scalajs.react.component.Generic.MountedWithRoot
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom._
 import shared.SharedMessages._
+import sun.text.normalizer.Utility
 import upickle.default.{read, _}
 
 import scala.collection.mutable.ListBuffer
+import scala.reflect.runtime
 import scala.util.{Failure, Success}
 import scalajsreact.template.models.IrcChatProps
 
 object IrcChatPage {
+  //def currentMethodName(): String = Thread.currentThread.getStackTrace()(2).getMethodName
+
+  // should log stack trace of parent method?
+  def logThisMethodJs(): Unit = {
+    org.scalajs.dom.console.log(Thread.currentThread.getStackTrace().toString)
+  }
 
   // contains live info about channel
-  case class TargetStateInside(var logLines: Vector[JsMessage], message: String) {
+  case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String) {
+
+    def callOnLeaveButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
+      for (ws <- s.ws)
+        yield sendLeaveTargetMessage(ws, props, s, this)
+    }
+
+    def isSendLeaveButtonDisabled(s: ChatState): Boolean = {
+      s.ws.isEmpty  || !s.isReady
+    }
+
+    def sendLeaveTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState, ts: TargetState): Callback = {
+      logThisMethodJs()
+      // send join message to websocket
+      val msg: JsMessageLeaveChannel = JsMessageLeaveChannel(s.sender, ts.target)
+
+      def send = Callback(ws.send(write(msg)))
+
+      //this.channelJoin = ""
+
+      logThisMethodJs()
+      org.scalajs.dom.console.log(msg.toString)
+
+      send // >> updateState
+    }
+
+    //send Messages to Targets methods - <input
+
+    // this call unpack WebSocket instance from Call and
+    def callSendTargetMessage(props: IrcChatProps, s: ChatState): Option[Callback] = {
+      for (ws <- s.ws if this.inputMessage.nonEmpty)
+        yield sendTargetMessage(ws, props, s)
+    }
+
+    // checks if WebSocket instance is connected
+    def callSendTargetMessageDisabled(s: ChatState): Boolean = {
+      s.ws.isEmpty || this.inputMessage.isEmpty ||  !s.isReady
+    }
+
+    //sends Message to Target using unpacked WebSocket instance
+    def sendTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
+      // send join message to websocket
+      val msg: JsMessage = JsMessage(s.sender, this.target, this.inputMessage)
+
+      def send = Callback(ws.send(write(msg)))
+
+      logThisMethodJs()
+      org.scalajs.dom.console.log(msg.toString)
+
+      this.inputMessage = ""
+
+      send // >> updateState
+    }
+
+    //js call Targets <input onchange/>
+    def callOnChangeTargetInput($: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState],
+                                props: IrcChatProps, target: TargetState)(e: ReactEventFromInput): Callback = {
+      // logThisMethodJs()
+      val targetInput = e.target.value
+      //target.inputMessage = targetInput
+      $.modState(state => {
+        state.copy(targets = state.setInputMessageAndReturnAllTargets(target, targetInput ))
+      })
+    }
+
+
   }
 
-  // contains passive info about channel with pointer to live info
-  case class TargetProps(target: String, password: String, tsi: TargetStateInside) {
-  }
+  val defaultTargetStateInside = TargetState("#TheName", "", logLines = ListBuffer.empty[JsMessage], inputMessage = "")
 
-  case class TargetWrapper(targetState: TargetProps, chatState: ChatState, ircChatProps: IrcChatProps) {
-  }
+  case class ChatState(ws: Option[WebSocket], var targets: ListBuffer[TargetState], sender: String, var channelJoin: String /*, channelJoinPassword : String*/ , selectedTarget: Option[TargetState], var ready : Boolean) {
+    def setInputMessageAndReturnAllTargets(target: TargetState, inputMessage: String): ListBuffer[TargetState] = {
+      // logThisMethodJs()
+      targets.filter(_ == target).foreach(_.inputMessage = inputMessage)
+      targets
+    }
 
-  val defaultTargetStateInside = TargetStateInside(logLines = Vector.empty[JsMessage], message = "")
-  val defaultTargetProps = TargetProps(target = "#TheName", password = "", defaultTargetStateInside)
-
-  case class ChatState(ws: Option[WebSocket], var targets: ListBuffer[TargetProps], sender: String, channelJoin: String /*, channelJoinPassword : String*/) {
     // Create a new state with a line added to the log
     def logLine(line: String): ChatState = {
-      org.scalajs.dom.console.log("state " + this)
+      org.scalajs.dom.console.log("ChatState:logLine: " + this)
       this
     }
 
     def logTargetLine(msg: JsMessage): ChatState = {
-      org.scalajs.dom.console.log("logTargetLine ")
+      logThisMethodJs()
       var state: ChatState = this
       if (targets.isEmpty) {}
-      org.scalajs.dom.console.log("targets " + targets)
 
       targets.filter(_.target == msg.target).foreach(f => {
-        f.tsi.logLines = f.tsi.logLines :+ msg
+        f.logLines = f.logLines += msg
       })
 
       state = copy(targets = targets)
 
-      org.scalajs.dom.console.log("logTargetLine last state")
       org.scalajs.dom.console.log(state.toString)
 
       state
     }
-  }
 
-  class ChannelBackend($c: BackendScope[TargetWrapper, TargetStateInside]) {
-
-    def onChangeChannelInput(e: ReactEventFromInput): Callback = {
-      val newMessage = e.target.value
-      org.scalajs.dom.console.log("onChangeChannelInput " + newMessage)
-
-      $c.modState(_.copy(message = newMessage))
+    def isReady(): Boolean ={
+      this.ready
     }
 
-    def sendChatMessage2Target(ws: WebSocket, targetWrapper: TargetWrapper, tsi: TargetStateInside): Callback = {
-      // Send a message to the WebSocket
-      org.scalajs.dom.console.log("sendChatMessage2Target")
+    def leaveTarget(target: String): ChatState = {
+      // TODO change so just 1 specific target would be removed and not all ow them with same name
+      this.targets = this.targets.filterNot(_.target == target)
+      this
+    }
 
-      val msg: JsMessage = JsMessage(sender = targetWrapper.chatState.sender, target = targetWrapper.targetState.target, msg = tsi.message)
+    def callSendJoinTargetMessage(props: IrcChatProps): Option[Callback] = {
+      for (ws <- this.ws if this.channelJoin.nonEmpty)
+        yield sendJoinTargetMessage(ws, props, this)
+    }
+
+    def isSendJoinTargetMessageDisabled(): Boolean = {
+      this.ws.isEmpty || this.channelJoin.isEmpty || !this.isReady
+    }
+
+    def sendJoinTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
+      logThisMethodJs()
+      // send join message to websocket
+      val msg: JsMessageJoinChannel = JsMessageJoinChannel(s.sender, s.channelJoin)
 
       def send = Callback(ws.send(write(msg)))
 
-      // Update the log, clear the text box
-      def updateState = $c.modState(s => {
-        s.copy(message = "")
-      })
+      this.channelJoin = ""
 
-      send >> updateState
+      logThisMethodJs()
+      org.scalajs.dom.console.log(msg.toString)
+
+      send // >> updateState
     }
 
-    def render(tp: TargetWrapper, tsi: TargetStateInside) = {
-      // Can only send if WebSocket is connected and user has entered text
-      val sendMsg2Target: Option[Callback] = {
-        for (ws <- tp.chatState.ws if tsi.message.nonEmpty)
-          yield sendChatMessage2Target(ws, tp, tsi)
-      }
-
-      <.div(
-        <.label(tp.targetState.target)
-        ,
-        <.input( // channel input
-          ^.width := 250.px,
-          ^.onChange ==> onChangeChannelInput,
-          ^.value := tsi.message
-        )
-        ,
-        <.button(
-          ^.disabled := sendMsg2Target.isEmpty, // Disable button if unable to send
-          ^.onClick -->? sendMsg2Target, // --> suffixed by ? because it's for Option[Callback]
-          "Send"
-        )
-      )
+    def callOnChangeInputJoinChannel($: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState])(e: ReactEventFromInput): Callback = {
+      val channelInput = e.target.value
+      $.modState(state => {
+        state.copy(channelJoin = channelInput )
+      })
     }
 
   }
-
-  val ChannelChat = ScalaComponent.builder[TargetWrapper]("ChannelChat")
-    .initialState(defaultTargetStateInside)
-    .renderBackend[ChannelBackend]
-    //.componentWillMount(f => { f.modState(_.copy(logLines = f.))})
-    .build
 
   class Backend($: BackendScope[IrcChatProps, ChatState]) {
 
     def render(props: IrcChatProps, s: ChatState) = {
-      val sendJoinMsg2Target: Option[Callback] = {
-        for (ws <- s.ws if s.channelJoin.nonEmpty)
-          yield sendJoinTargetMessage(ws, props, s)
-      }
-
 
       <.div(
         <.h3("Type a message and get an echo:"),
@@ -137,82 +186,65 @@ object IrcChatPage {
             "Channel"
           ),
           <.input(
-            ^.onChange ==> onChangeInputChannel,
+           // ^.onChange ==> targetState.callOnChangeTargetInput($, props, targetState),
+            ^.onChange ==> s.callOnChangeInputJoinChannel($),
             ^.value := s.channelJoin
           ),
-
           <.button(
-            ^.disabled := sendJoinMsg2Target.isEmpty, // Disable button if unable to send
-            ^.onClick -->? sendJoinMsg2Target, // --> suffixed by ? because it's for Option[Callback]
+            ^.disabled := s.isSendJoinTargetMessageDisabled(), // Disable button if unable to send
+            ^.onClick -->? s.callSendJoinTargetMessage(props), // --> suffixed by ? because it's for Option[Callback]
             "Join channel"),
-          <.br
-          ,
-          <.h4("Irc chat channels")
-          ,
+          <.br,
+          <.h4("Irc chat channels"),
           <.div(
             ^.minWidth := 500.px,
             ^.minHeight := 300.px,
             ^.border := "1px solid",
             <.div(
               s.targets.map(
-                f => {
-                  <.div(
-                    ChannelChat(TargetWrapper(chatState = s, targetState = f, ircChatProps = props))
-                  )
-                }
-              ).toTagMod
-
-              // print info and messages
-              ,
-              s.targets.map(
-                f => {
+                targetState => {
                   <.div(
                     <.div(
-                      <.h4(f.target),
-                      <.div(s"Info for target: ${f.target}"),
-                      f.tsi.logLines.map(g => {
-                        <.p(
-                          <.span(g.sender),
-                          ": ",
-                          <.span(g.msg)
-                        )
-                      }).toTagMod
-                    )
+                      <.label(targetState.target),
+                      <.input( // channel input
+                        ^.width := 250.px,
+                        ^.onChange ==> targetState.callOnChangeTargetInput($, props, targetState),
+                        ^.value := targetState.inputMessage
+                      ),
+                      <.button(
+                        ^.disabled := targetState.callSendTargetMessageDisabled(s), // Disable button if unable to send
+                        ^.onClick -->? targetState.callSendTargetMessage(props, s), // --> suffixed by ? because it's for Option[Callback]
+                        "Send"
+                      ),
+                      <.button(
+                        ^.disabled := targetState.isSendLeaveButtonDisabled(s), // Disable button if unable to send
+                        ^.onClick -->? s.callSendJoinTargetMessage(props),
+                        ^.onClick -->? targetState.callOnLeaveButton(props, s), // --> suffixed by ? because it's for Option[Callback]
+                        "Leave"
+                      )
+                    ),
+                    <.h4(targetState.target),
+                    <.div(s"Info for target: ${targetState.target}"),
+                    targetState.logLines.map(g => {
+                      <.p(
+                        <.span(g.sender),
+                        ": ",
+                        <.span(g.msg)
+                      )
+                    }).toTagMod
                   )
                 }
               ).toTagMod
-
+              // print info and messages
             )
-
           ) // Display log
         )
       )
     }
 
-    def onChangeInputChannel(e: ReactEventFromInput): Callback = {
-      val channel: String = e.target.value
-
-      $.modState(_.copy(
-        channelJoin = channel
-      ))
-    }
-
-    def sendJoinTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
-      org.scalajs.dom.console.log("sendJoinTargetMessage")
-      // send join message to websocket
-      val msg: JsMessageJoinChannel = JsMessageJoinChannel(s.sender, s.channelJoin)
-
-      def send = Callback(ws.send(write(msg)))
-
-      // Update the log, clear the text box
-      def updateState = $.modState(s => {
-        s.copy(channelJoin = "")
-      })
-
-      org.scalajs.dom.console.log("sendJoinTargetMessage")
-      org.scalajs.dom.console.log(msg.toString)
-
-      send >> updateState
+    // to get $ loaded with Everything
+    def getDirect(): MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState] = {
+      $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState]]
     }
 
     def start(url: String, props: IrcChatProps, s: ChatState): Callback = {
@@ -224,7 +256,7 @@ object IrcChatPage {
         // (for access outside of a normal DOM/React callback).
         // This means that calls like .setState will now return Unit instead of Callback.
         // casting to MountedWithRoot[...] type for syntax support
-        val direct: MountedWithRoot[CallbackTo,IrcChatProps,ChatState,IrcChatProps,ChatState] = $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo,IrcChatProps,ChatState,IrcChatProps,ChatState]]
+        val direct: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState] = this.getDirect()
 
         // These are message-receiving events from the WebSocket "thread".
         def onopen(e: Event): Unit = {
@@ -240,15 +272,16 @@ object IrcChatPage {
 
           val incommingMsg = read[JsMessageBase](e.data.toString)
 
-          def addTarget(targets : ListBuffer[TargetProps], newTarget : TargetProps): ListBuffer[TargetProps] = {
-            org.scalajs.dom.console.log(s"addTarget newTarget ${newTarget.toString}")
+          def addTarget(targets: ListBuffer[TargetState], newTarget: TargetState): ListBuffer[TargetState] = {
+            logThisMethodJs()
+            org.scalajs.dom.console.log(s" newTarget ${newTarget.toString}")
             targets += newTarget
-            org.scalajs.dom.console.log(s"addTarget targets ${targets.toString}")
+            org.scalajs.dom.console.log(s" targets ${targets.toString}")
             targets
           }
 
           incommingMsg match {
-            case k : JsMessage => {
+            case k: JsMessage => {
               // handle the JsMessage
               org.scalajs.dom.console.log(s"JsMessage ${k.toString}")
               direct.modState(_.logTargetLine(k))
@@ -257,13 +290,17 @@ object IrcChatPage {
               // handle the JsMessageJoinChannel
               org.scalajs.dom.console.log("JsMessageJoinChannel")
               direct.modState(f => {
-                f.copy(targets = addTarget(f.targets,TargetProps(target = target, password = "", TargetStateInside(Vector.empty[JsMessage], ""))))
+                f.copy(targets = addTarget(f.targets, TargetState(target = target, password = "", ListBuffer.empty[JsMessage], "")))
               })
             }
             case JsMessageLeaveChannel(sender, target) => {
               // handle the JsMessageLeaveChannel
               org.scalajs.dom.console.log("JsMessageLeaveChannel")
-              direct.modState(_.logLine(s"JsMessageLeaveChannel: ${e.data.toString}"))
+
+              direct.modState(_.leaveTarget(target))
+            }
+            case JsMessageIrcBotReady() => {
+              direct.modState(_.copy(ready = true))
             }
           }
         }
@@ -304,7 +341,7 @@ object IrcChatPage {
   }
 
   val WebSocketsApp = ScalaComponent.builder[IrcChatProps]("WebSocketsApp")
-    .initialState(ChatState(None, ListBuffer(defaultTargetProps), "", "#TheName2"))
+    .initialState(ChatState(None, ListBuffer(defaultTargetStateInside), "", "#TheName2", None, false))
     .renderBackend[Backend]
     // set username (username has to be as chat state atr because it can be changed via /anick command)
     .componentWillMount(f => {
