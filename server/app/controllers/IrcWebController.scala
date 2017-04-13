@@ -77,8 +77,6 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
         listener = new IrcListener(server, channel, subscriber) {
           override def onAction(event: ActionEvent): Unit ={
             Logger.debug(s"onAction: ${event.toString}")
-            Logger.debug(s"onAction getAction: ${event.getAction}")
-            Logger.debug(s"onAction getMessage: ${event.getMessage}")
             if(event.getAction == "/part" || event.getAction == "/leave"){
               Logger.debug(s"onAction if: ${event.toString}")
               // TODO leave channel
@@ -175,19 +173,21 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
           case JsMessageLeaveChannel(sender, target) => {
             // handle the JsMessageLeaveChannel
             // TODO how?
-          /*  listener._bot.sendIRC().ctcpCommand(target,"/part")//action(target, "/part")
-            listener._bot.sendIRC().ctcpResponse(target,"/part")//action(target, "/part")
-            listener._bot.sendIRC().action(target,"/part")//action(target, "/part")
-            listener._bot.sendIRC().ctcpCommand(target,"/leave")//action(target, "/part")
-            listener._bot.sendIRC().ctcpResponse(target,"/leave")//action(target, "/part")
-            listener._bot.sendIRC().action(target,"/leave")//action(target, "/part")
+            listener._bot.send().ctcpCommand(target,"/part")//action(target, "/part")
+            listener._bot.send().ctcpResponse(target,"/part")//action(target, "/part")
+            listener._bot.send().action(target,"/part")//action(target, "/part")
+            listener._bot.send().ctcpCommand(target,"/leave")//action(target, "/part")
+            listener._bot.send().ctcpResponse(target,"/leave")//action(target, "/part")
+            listener._bot.send().action(target,"/leave")//action(target, "/part")
 
-            listener._bot.sendIRC().ctcpCommand(sender,"/part")//action(target, "/part")
-            listener._bot.sendIRC().ctcpResponse(sender,"/part")//action(target, "/part")
-            listener._bot.sendIRC().action(sender,"/part")//action(target, "/part")
-            listener._bot.sendIRC().ctcpCommand(sender,"/leave")//action(target, "/part")
-            listener._bot.sendIRC().ctcpResponse(sender,"/leave")//action(target, "/part")
-            listener._bot.sendIRC().action(sender,"/leave")//action(target, "/part")*/
+            listener._bot.send().ctcpCommand(sender,"/part")//action(target, "/part")
+            listener._bot.send().ctcpResponse(sender,"/part")//action(target, "/part")
+            listener._bot.send().action(sender,"/part")//action(target, "/part")
+            listener._bot.send().ctcpCommand(sender,"/leave")//action(target, "/part")
+            listener._bot.send().ctcpResponse(sender,"/leave")//action(target, "/part")
+            listener._bot.send().action(sender,"/leave")//action(target, "/part")
+
+            //listener._bot.send().part("/leave")//action(target, "/part")
           }
         }
       }

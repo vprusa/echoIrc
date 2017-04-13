@@ -4,7 +4,7 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom._
-import shared.SharedMessages._
+import shared.SharedMessages.{_}
 import sun.text.normalizer.Utility
 import upickle.default.{read, _}
 
@@ -13,6 +13,13 @@ import scala.reflect.runtime
 import scala.util.{Failure, Success}
 import scalajsreact.template.models.IrcChatProps
 
+/**
+  * Information base
+  * WebSocket communication works as ClientRequest-ServerResponse so all client actions can be authenticated on server side
+  * Methods of case classes ChatState and TargetState:
+  *   - starts with "call.*" : js call and unpack Option[WebSocket] and run all input checks
+  *   - starts with "send.*" : sends WebSocket message
+  */
 object IrcChatPage {
   //def currentMethodName(): String = Thread.currentThread.getStackTrace()(2).getMethodName
 
@@ -24,19 +31,20 @@ object IrcChatPage {
   // contains live info about channel
   case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String) {
 
+    // call on leave button
     def callOnLeaveButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
       for (ws <- s.ws)
-        yield sendLeaveTargetMessage(ws, props, s, this)
+        yield sendLeaveTargetMessage(ws, props, s)
     }
 
     def isSendLeaveButtonDisabled(s: ChatState): Boolean = {
-      s.ws.isEmpty  || !s.isReady
+      s.ws.isEmpty || !s.isReady
     }
 
-    def sendLeaveTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState, ts: TargetState): Callback = {
+    def sendLeaveTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
       logThisMethodJs()
       // send join message to websocket
-      val msg: JsMessageLeaveChannel = JsMessageLeaveChannel(s.sender, ts.target)
+      val msg: JsMessageLeaveChannel = JsMessageLeaveChannel(s.sender, this.target)
 
       def send = Callback(ws.send(write(msg)))
 
@@ -58,7 +66,7 @@ object IrcChatPage {
 
     // checks if WebSocket instance is connected
     def callSendTargetMessageDisabled(s: ChatState): Boolean = {
-      s.ws.isEmpty || this.inputMessage.isEmpty ||  !s.isReady
+      s.ws.isEmpty || this.inputMessage.isEmpty || !s.isReady
     }
 
     //sends Message to Target using unpacked WebSocket instance
@@ -83,16 +91,30 @@ object IrcChatPage {
       val targetInput = e.target.value
       //target.inputMessage = targetInput
       $.modState(state => {
-        state.copy(targets = state.setInputMessageAndReturnAllTargets(target, targetInput ))
+        state.copy(targets = state.setInputMessageAndReturnAllTargets(target, targetInput))
       })
     }
-
 
   }
 
   val defaultTargetStateInside = TargetState("#TheName", "", logLines = ListBuffer.empty[JsMessage], inputMessage = "")
 
-  case class ChatState(ws: Option[WebSocket], var targets: ListBuffer[TargetState], sender: String, var channelJoin: String /*, channelJoinPassword : String*/ , selectedTarget: Option[TargetState], var ready : Boolean) {
+  case class ChatState(ws: Option[WebSocket], var targets: ListBuffer[TargetState], sender: String,
+                       var channelJoin: String, /*channelJoinPassword : String,*/ var selectedTarget: Option[TargetState], var ready: Boolean) {
+
+    // if no target view is selected and targets list is not empty then set the first target as selected view
+    def setDefaultSelectedTargetIfNone(): Unit = {
+      if (targets.nonEmpty && this.selectedTarget.isEmpty) {
+        this.selectedTarget = Some(targets(0))
+      }
+    }
+
+    // js call for setting selected target view, shoudl change state and render again?
+    def callSetSelectedTarget(): Callback = {
+      // TODO the magic
+      Callback(this)
+    }
+
     def setInputMessageAndReturnAllTargets(target: TargetState, inputMessage: String): ListBuffer[TargetState] = {
       // logThisMethodJs()
       targets.filter(_ == target).foreach(_.inputMessage = inputMessage)
@@ -121,7 +143,7 @@ object IrcChatPage {
       state
     }
 
-    def isReady(): Boolean ={
+    def isReady(): Boolean = {
       this.ready
     }
 
@@ -129,6 +151,30 @@ object IrcChatPage {
       // TODO change so just 1 specific target would be removed and not all ow them with same name
       this.targets = this.targets.filterNot(_.target == target)
       this
+    }
+
+    def sendStartIrcBotRequest(): ChatState = {
+      val request: JsMessageStarBot = JsMessageStarBot(this.sender, Array[String]("#TheName", "#TheName2"))
+      this.logLine("Connected.")
+
+      this.callJsMessageAndReturnCallback(request)
+      this
+    }
+
+    def callJsMessageAndReturnCallback[T <: JsMessage](msg: T): Option[Callback] = {
+      for (ws <- this.ws)
+        yield sendJsMessageAndReturnCallback(ws, msg)
+    }
+
+    def sendJsMessageAndReturnCallback[T <: JsMessage](ws: WebSocket, msg: T): Callback = {
+      logThisMethodJs()
+      // send join message to websocket
+
+      def send = Callback(ws.send(write(msg)))
+
+      org.scalajs.dom.console.log(msg.toString)
+
+      send // >> updateState
     }
 
     def callSendJoinTargetMessage(props: IrcChatProps): Option[Callback] = {
@@ -158,7 +204,7 @@ object IrcChatPage {
     def callOnChangeInputJoinChannel($: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState])(e: ReactEventFromInput): Callback = {
       val channelInput = e.target.value
       $.modState(state => {
-        state.copy(channelJoin = channelInput )
+        state.copy(channelJoin = channelInput)
       })
     }
 
@@ -167,6 +213,9 @@ object IrcChatPage {
   class Backend($: BackendScope[IrcChatProps, ChatState]) {
 
     def render(props: IrcChatProps, s: ChatState) = {
+      // TODO check selected target
+      // set default selected target
+      s.setDefaultSelectedTargetIfNone()
 
       <.div(
         <.h3("Type a message and get an echo:"),
@@ -186,7 +235,7 @@ object IrcChatPage {
             "Channel"
           ),
           <.input(
-           // ^.onChange ==> targetState.callOnChangeTargetInput($, props, targetState),
+            // ^.onChange ==> targetState.callOnChangeTargetInput($, props, targetState),
             ^.onChange ==> s.callOnChangeInputJoinChannel($),
             ^.value := s.channelJoin
           ),
@@ -196,6 +245,16 @@ object IrcChatPage {
             "Join channel"),
           <.br,
           <.h4("Irc chat channels"),
+          <.ul(
+            // create list menu for selecting targets view
+            s.targets.map(
+              targetState => {
+                <.li(
+                  ^.onClick ==> s.callSetSelectedTarget(targetState),
+                  targetState.target
+                )
+              }).toTagMod
+          ),
           <.div(
             ^.minWidth := 500.px,
             ^.minHeight := 300.px,
@@ -261,6 +320,9 @@ object IrcChatPage {
         // These are message-receiving events from the WebSocket "thread".
         def onopen(e: Event): Unit = {
           // Indicate the connection is open
+          //TODO message containing default information
+
+          direct.modState(_.sendStartIrcBotRequest())
           direct.modState(_.logLine("Connected."))
         }
 
