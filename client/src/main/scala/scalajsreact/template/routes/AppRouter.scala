@@ -55,7 +55,6 @@ object AppRouter {
       Menu("Stats", IrcChat)
   )
 
-
   def layout(c: RouterCtl[AppPage], r: Resolution[AppPage]) = {
     <.div(
       TopNav.component(TopNav.Props(mainMenu, r.page, c)),

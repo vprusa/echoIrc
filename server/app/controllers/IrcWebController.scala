@@ -70,7 +70,7 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
         // TODO im sure that there is better way how to redirrect messages from/to websocket to/from irc
         sub = subscriber
 
-        // welcome message
+        // welcome message - but ircbot may not be ready yet
         subscriber ! Json.parse(write[JsMessage](JsMessage(
           sender = name, target = channel, msg = "Welcome!!!")))
 

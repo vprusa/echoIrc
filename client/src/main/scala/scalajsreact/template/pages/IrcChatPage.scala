@@ -2,16 +2,23 @@ package scalajsreact.template.pages
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
+import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom._
-import shared.SharedMessages.{_}
+import shared.SharedMessages._
 import sun.text.normalizer.Utility
 import upickle.default.{read, _}
 
 import scala.collection.mutable.ListBuffer
 import scala.reflect.runtime
+import scala.scalajs.js.JSConverters.genTravConvertible2JSRichGenTrav
+import scala.util.control.TailCalls.Call
 import scala.util.{Failure, Success}
+import scalajsreact.template.components.LeftNav.Style.{&, style, styleF}
 import scalajsreact.template.models.IrcChatProps
+import scalajsreact.template.pages.IrcChatPage.ChatState
+import scalacss.Defaults._
+import scalacss.ScalaCssReact._
 
 /**
   * Information base
@@ -56,7 +63,15 @@ object IrcChatPage {
       send // >> updateState
     }
 
+    import org.scalajs.dom.ext.KeyCode
+
     //send Messages to Targets methods - <input
+    /* def callOnEnterSendTargetMessage(props: IrcChatProps, s: ChatState)(e: ReactKeyboardEventFromHtml): Callback = {
+       if (e.keyCode == KeyCode.Enter) {
+       } else {
+         Option[Callback[None]]
+       }
+     }*/
 
     // this call unpack WebSocket instance from Call and
     def callSendTargetMessage(props: IrcChatProps, s: ChatState): Option[Callback] = {
@@ -84,15 +99,23 @@ object IrcChatPage {
       send // >> updateState
     }
 
+    def callOnChangeTargetInputEnter($: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState],
+                                     props: IrcChatProps, s: ChatState)(e: ReactKeyboardEventFromHtml): Callback = {
+      if (e.keyCode == KeyCode.Enter) {
+        callSendTargetMessage(props, s).getOrElse(Callback.empty)
+      } else {
+        Callback.empty
+      }
+    }
+
     //js call Targets <input onchange/>
     def callOnChangeTargetInput($: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState],
-                                props: IrcChatProps, target: TargetState)(e: ReactEventFromInput): Callback = {
-      // logThisMethodJs()
+                                props: IrcChatProps, s: ChatState)(e: ReactEventFromInput): Callback = {
       val targetInput = e.target.value
-      //target.inputMessage = targetInput
       $.modState(state => {
-        state.copy(targets = state.setInputMessageAndReturnAllTargets(target, targetInput))
+        state.copy(targets = state.setInputMessageAndReturnAllTargets(this, targetInput))
       })
+
     }
 
   }
@@ -109,11 +132,6 @@ object IrcChatPage {
       }
     }
 
-    // js call for setting selected target view, shoudl change state and render again?
-    def callSetSelectedTarget(): Callback = {
-      // TODO the magic
-      Callback(this)
-    }
 
     def setInputMessageAndReturnAllTargets(target: TargetState, inputMessage: String): ListBuffer[TargetState] = {
       // logThisMethodJs()
@@ -161,16 +179,16 @@ object IrcChatPage {
       this
     }
 
-    def callJsMessageAndReturnCallback[T <: JsMessage](msg: T): Option[Callback] = {
+    def callJsMessageAndReturnCallback[T <: JsMessageBase](msg: T): Option[Callback] = {
       for (ws <- this.ws)
         yield sendJsMessageAndReturnCallback(ws, msg)
     }
 
-    def sendJsMessageAndReturnCallback[T <: JsMessage](ws: WebSocket, msg: T): Callback = {
+    def sendJsMessageAndReturnCallback[T <: JsMessageBase](ws: WebSocket, msg: T): Callback = {
       logThisMethodJs()
       // send join message to websocket
 
-      def send = Callback(ws.send(write(msg)))
+      def send = Callback(ws.send(write[JsMessageBase](msg)))
 
       org.scalajs.dom.console.log(msg.toString)
 
@@ -210,14 +228,58 @@ object IrcChatPage {
 
   }
 
+  object TargetStyle extends StyleSheet.Inline {
+
+    import dsl._
+
+    val chatContainer = style(minHeight(600.px), padding(15.px))
+
+    val nav =
+      style(display.block, float.left, width(200.px), borderRight :=! "1px solid rgb(223, 220, 220)")
+
+    val targetContent = style(marginTop(30.px),padding(30.px), display.inlineBlock, width(700.px))
+
+    val targetListContainer = style(display.flex,
+      flexDirection.column,
+      listStyle := "none",
+      padding.`0`,
+      width(150.px),
+      float.left
+    )
+
+    val targetHidden = styleF.bool { selected =>
+      styleS(
+        mixinIf(selected)(display.none)
+      )
+    }
+
+
+    val targetListItem = styleF.bool { selected =>
+      styleS(
+        lineHeight(48.px),
+        padding :=! "0 10px",
+        cursor.pointer,
+        textDecoration := "none",
+        mixinIf(selected)(color.red, fontWeight._500)
+      )
+    }
+  }
+
+
   class Backend($: BackendScope[IrcChatProps, ChatState]) {
 
     def render(props: IrcChatProps, s: ChatState) = {
       // TODO check selected target
       // set default selected target
       s.setDefaultSelectedTargetIfNone()
+      org.scalajs.dom.console.log("selected")
+      org.scalajs.dom.console.log(s.selectedTarget.isEmpty)
+      org.scalajs.dom.console.log(s.selectedTarget.getOrElse(this).toString)
+      org.scalajs.dom.console.log(s.selectedTarget.getOrElse(this).equals(s.selectedTarget.getOrElse(false)))
+
 
       <.div(
+        TargetStyle.chatContainer,
         <.h3("Type a message and get an echo:"),
         <.div(
           <.label(
@@ -227,10 +289,9 @@ object IrcChatPage {
             ^.value := s.sender
           ),
           <.button(
-            ^.onClick --> start(props.url, props, s), // --> suffixed by ? because it's for Option[Callback]
+            ^.onClick --> start(props.url, props, s, None), // --> suffixed by ? because it's for Option[Callback]
             "Connect"),
           <.br,
-
           <.label(
             "Channel"
           ),
@@ -242,63 +303,81 @@ object IrcChatPage {
           <.button(
             ^.disabled := s.isSendJoinTargetMessageDisabled(), // Disable button if unable to send
             ^.onClick -->? s.callSendJoinTargetMessage(props), // --> suffixed by ? because it's for Option[Callback]
-            "Join channel"),
-          <.br,
-          <.h4("Irc chat channels"),
-          <.ul(
-            // create list menu for selecting targets view
-            s.targets.map(
-              targetState => {
-                <.li(
-                  ^.onClick ==> s.callSetSelectedTarget(targetState),
+            "Join channel")
+        ),
+        <.ul(TargetStyle.targetListContainer,
+          // create list menu for selecting targets view
+          <.li(
+            TargetStyle.targetListItem(false),
+            <.h4("Irc chat channels")
+          ),
+          s.targets.map(
+            targetState => {
+              <.li(
+                TargetStyle.targetListItem(targetState.equals(s.selectedTarget.getOrElse(true))),
+                <.button(
+                  ^.onClick --> callSetSelectedTarget(targetState),
                   targetState.target
                 )
-              }).toTagMod
-          ),
+              )
+            }).toTagMod
+        ),
+        <.div(
+          TargetStyle.targetContent,
+          ^.minWidth := 500.px,
+          ^.minHeight := 300.px,
+          ^.border := "1px solid",
           <.div(
-            ^.minWidth := 500.px,
-            ^.minHeight := 300.px,
-            ^.border := "1px solid",
-            <.div(
-              s.targets.map(
-                targetState => {
+            s.targets.map(
+              targetState => {
+                <.div(
+                  TargetStyle.targetHidden(!targetState.equals(s.selectedTarget.getOrElse(true))),
                   <.div(
-                    <.div(
-                      <.label(targetState.target),
-                      <.input( // channel input
-                        ^.width := 250.px,
-                        ^.onChange ==> targetState.callOnChangeTargetInput($, props, targetState),
-                        ^.value := targetState.inputMessage
-                      ),
-                      <.button(
-                        ^.disabled := targetState.callSendTargetMessageDisabled(s), // Disable button if unable to send
-                        ^.onClick -->? targetState.callSendTargetMessage(props, s), // --> suffixed by ? because it's for Option[Callback]
-                        "Send"
-                      ),
-                      <.button(
-                        ^.disabled := targetState.isSendLeaveButtonDisabled(s), // Disable button if unable to send
-                        ^.onClick -->? s.callSendJoinTargetMessage(props),
-                        ^.onClick -->? targetState.callOnLeaveButton(props, s), // --> suffixed by ? because it's for Option[Callback]
-                        "Leave"
-                      )
+                    <.label(targetState.target),
+                    <.input( // channel input
+                      ^.width := 250.px,
+                      ^.onChange ==> targetState.callOnChangeTargetInput($, props, s),
+                      ^.onKeyDown ==> targetState.callOnChangeTargetInputEnter($, props, s),
+                      ^.value := targetState.inputMessage
                     ),
-                    <.h4(targetState.target),
-                    <.div(s"Info for target: ${targetState.target}"),
-                    targetState.logLines.map(g => {
-                      <.p(
-                        <.span(g.sender),
-                        ": ",
-                        <.span(g.msg)
-                      )
-                    }).toTagMod
-                  )
-                }
-              ).toTagMod
-              // print info and messages
-            )
-          ) // Display log
-        )
+                    <.button(
+                      ^.disabled := targetState.callSendTargetMessageDisabled(s), // Disable button if unable to send
+                      ^.onSubmit -->? targetState.callSendTargetMessage(props, s), // --> suffixed by ? because it's for Option[Callback]
+                      ^.onClick -->? targetState.callSendTargetMessage(props, s),
+                      "Send"
+                    ),
+                    <.button(
+                      ^.disabled := targetState.isSendLeaveButtonDisabled(s),
+                      ^.onClick -->? s.callSendJoinTargetMessage(props),
+                      ^.onClick -->? targetState.callOnLeaveButton(props, s),
+                      "Leave"
+                    )
+                  ),
+                  <.h4(targetState.target),
+                  <.div(s"Info for target: ${targetState.target}"),
+                  targetState.logLines.map(g => {
+                    <.p(
+                      <.span(g.sender),
+                      ": ",
+                      <.span(g.msg)
+                    )
+                  }).toTagMod
+                )
+              }
+            ).toTagMod
+            // print info and messages
+          )
+        ) // Display log
       )
+    }
+
+    // js call for setting selected target view, should change state and render again?
+    def callSetSelectedTarget(ts: TargetState): Callback = {
+      logThisMethodJs()
+      org.scalajs.dom.console.log(s" newTarget ${ts.toString}")
+      $.modState(state => {
+        state.copy(selectedTarget = Some(ts))
+      })
     }
 
     // to get $ loaded with Everything
@@ -306,7 +385,7 @@ object IrcChatPage {
       $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState]]
     }
 
-    def start(url: String, props: IrcChatProps, s: ChatState): Callback = {
+    def start(url: String, props: IrcChatProps, s: ChatState, optWs: Option[WebSocket]): Callback = {
 
       // This will establish the connection and return the WebSocket
       def connect = CallbackTo[WebSocket] {
