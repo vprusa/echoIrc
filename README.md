@@ -12,6 +12,8 @@
 
 [play-scala-chatroom-example](https://github.com/playframework/play-scala-chatroom-example)
 
+[play-rest-security](https://github.com/jamesward/play-rest-security)
+
 ## How to run
 
 ```

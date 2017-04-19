@@ -2,10 +2,10 @@ package scalajsreact.template.routes
 
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 
-import scalajsreact.template.pages.{ErrorPage, HomePage}
+import scalajsreact.template.pages.{ErrorPage, HomePage, LoginPage, TodoPage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
-import scalajsreact.template.models.{IrcChatProps, Menu}
+import scalajsreact.template.models.{AppConfig, Menu}
 import org.scalajs.dom
 
 import scala.scalajs.js.JSApp
@@ -24,6 +24,10 @@ object AppRouter {
 
   case object Home extends AppPage
 
+  case object Login extends AppPage
+
+  case object Todo extends AppPage
+
   case object IrcChat extends AppPage
 
   //case class IrcChat(username: String) extends AppPage
@@ -40,7 +44,9 @@ object AppRouter {
       }
     (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
-      | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(IrcChatProps(username = "UserBot", url = "ws://localhost:9000/chat")))
+      | staticRoute("login", Login) ~> render(LoginPage.component())
+      | staticRoute("todo", Todo) ~> render(TodoPage.component())
+      | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(AppConfig.ircChatProps))
       | staticRoute("error", Error) ~> render(ErrorPage.component())
       | itemRoutes
       )
@@ -50,9 +56,11 @@ object AppRouter {
 
   val mainMenu = Vector(
     Menu("Home", Home),
+    Menu("Login", Login),
+    Menu("Todo", Todo),
     Menu("Error", Error),
     Menu("IrcChat", IrcChat),
-      Menu("Stats", IrcChat)
+    Menu("Stats", IrcChat)
   )
 
   def layout(c: RouterCtl[AppPage], r: Resolution[AppPage]) = {

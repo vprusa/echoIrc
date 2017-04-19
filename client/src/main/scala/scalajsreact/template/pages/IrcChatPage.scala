@@ -55,11 +55,7 @@ object IrcChatPage {
 
       def send = Callback(ws.send(write(msg)))
 
-      //this.channelJoin = ""
-
-      logThisMethodJs()
       org.scalajs.dom.console.log(msg.toString)
-
       send // >> updateState
     }
 

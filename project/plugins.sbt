@@ -47,3 +47,6 @@ addSbtPlugin("com.github.ddispaltro" % "sbt-reactjs" % "0.5.2")
 //addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.5")
 
 addSbtPlugin("com.lihaoyi" % "workbench" % "0.2.3")
+
+// https://github.com/jamesward/play-rest-security/
+addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "3.0.0")

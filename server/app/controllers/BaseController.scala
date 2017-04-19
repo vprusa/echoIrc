@@ -50,7 +50,6 @@ class BaseController @Inject()(implicit actorSystem: ActorSystem, webJarAssets: 
     Ok(views.html.dashboard("Your new application is ready."))
   }
 
-
   object TimeoutFuture {
 
     def apply[A](block: => A)(implicit timeout: FiniteDuration): Future[A] = {

@@ -5,12 +5,14 @@ import org.scalajs.dom
 
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
+import scalajsreact.template.models.IrcChatProps
 
 //import scalacss.ScalatagsCss._
 import scalajsreact.template.css.AppCSS
 import scalajsreact.template.routes.AppRouter.{baseUrl, routerConfig}
 
 //import chandu0101.scalajs.react.components.Implicits._
+
 
 @JSExport
 object ReactApp extends JSApp {

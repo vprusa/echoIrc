@@ -1,3 +1,5 @@
+import sbt.Keys.resolvers
+
 val scalaV = "2.11.8"
 
 lazy val akkaVersion = "2.4.11"
@@ -47,9 +49,23 @@ lazy val server = (project in file("server")).settings(
   libraryDependencies += "org.pircbotx" % "pircbotx" % "2.1",
   libraryDependencies += "com.lihaoyi" %% "upickle" % "0.4.4",
 
+  resolvers += Resolver.sonatypeRepo("releases"),
+
+  resolvers += Resolver.sonatypeRepo("snapshots"),
+  resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases",
+  resolvers += "jboss repo" at "https://repository.jboss.org/nexus/content/repositories/public/",
+
+  //libraryDependencies += "ws.securesocial" %% "securesocial" % "2.1.4",
+
+  //use this version for scalaVersion 2.11.8"
+  //
+  // libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
+  libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M3",
+  //libraryDependencies += "ws.securesocial" %% "securesocial" % "master-SNAPSHOT",
+
   // Compile the project before generating Eclipse files, so that generated .scala or .class files for views and routes are present
   EclipseKeys.preTasks := Seq(compile in Compile)
-).enablePlugins(PlayScala).
+).enablePlugins(PlayScala, PlayEbean).
   dependsOn(sharedJvm)
 
 //val scalaJSReactVersion = "0.10.1"
