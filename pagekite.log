@@ -1,0 +1,50 @@
+optfile_/home/vprusa/.pagekite.rc=ok; started=/usr/bin/pagekite.py; ll=0; ts=58f7d3ef; argv=9000 echoirc.pagekite.me; platform=linux2; version=0.5.9.0; t=2017-04-19T23:17:35; ca_certs=/etc/pki/tls/certs/ca-bundle.crt
+info=Collecting entropy for a secure secret.; ll=1; ts=58f7d3ef; t=2017-04-19T23:17:35
+debug=Seeded signatures using /dev/urandom, hooray!; ll=2; ts=58f7d3ef; t=2017-04-19T23:17:35
+debug=UiComm: Created; ll=3; ts=58f7d3ef; t=2017-04-19T23:17:35
+ts=58f7d3ef; t=2017-04-19T23:17:35; ll=4; debug=TunnelManager: loop #1, interval=5
+ts=58f7d3ef; t=2017-04-19T23:17:35; ll=5; debug=Entering main epoll loop
+ts=58f7d3f0; t=2017-04-19T23:17:36; ll=6; debug=Pinged 45.79.196.141:443: 0.248162 [win=2, uuid=f05e3953248220ae6a13b097b57ee98abb5f74e5]
+ts=58f7d3f0; t=2017-04-19T23:17:36; ll=7; debug=Pinged 88.198.198.93:443: 1.055967 [win=2, uuid=c4a28591f16dbcc08c3d8f9f59655478d67e936d]
+ts=58f7d3f0; t=2017-04-19T23:17:36; ll=8; debug=Pinged 52.58.23.44:443: 0.122494 [win=2, uuid=b48a2660ba6a34fa92302bf7d301c7e1fe9dcaa7]
+ts=58f7d3f0; t=2017-04-19T23:17:36; ll=9; debug=Pinged 50.116.41.25:443: 1.252140 [win=2, uuid=0e9c07f838bcc4a779288255772569e04eb6af55]
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=a; debug=Pinged 54.183.178.65:443: 0.501326 [win=2, uuid=fd864320481f56b934b221839c7f56f8940dd4e4]
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=b; debug=Pinged 180.235.133.100:443: 0.551051 [win=2, uuid=4ba4e67f7348a7c81890b295a6c02a440b4edb41]
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=c; debug=Pinged 139.162.5.63:443: 0.654562 [win=2, uuid=52a24fafcf784ff07859f35fb7f402092b493ad2]
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=d; debug=Pinged 13.54.10.122:443: 0.726440 [win=2, uuid=283c703a47e43d97686b4aa20702bf6ca5947b54]
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=e; debug=Preferred: 52.58.23.44:443
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=f; debug=Connecting to 52.58.23.44:443; id=s0
+ts=58f7d3f1; t=2017-04-19T23:17:37; ll=10; debug=Connecting to 45.79.196.141:443; id=s1
+ts=58f7d3f2; t=2017-04-19T23:17:38; ll=11; connect=52.58.23.44:443
+ts=58f7d3f2; t=2017-04-19T23:17:38; ll=12; connect=45.79.196.141:443
+ts=58f7d3f2; t=2017-04-19T23:17:38; ll=13; debug=TunnelManager: problem=0, connecting=2
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=14; FE=52.58.23.44:443
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=15; FE=52.58.23.44:443; err=Rejected; proto=http; reason=quota; domain=echoirc.pagekite.me; id=s0
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=16; bid=http:echoirc.pagekite.me; status=0x1
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=17; wrote=401; wbps=181; read=978; eof=1; id=s0
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=18; FE=45.79.196.141:443
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=19; FE=45.79.196.141:443; err=Rejected; proto=http; reason=quota; domain=echoirc.pagekite.me; id=s1
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=1a; bid=http:echoirc.pagekite.me; status=0x1
+ts=58f7d3f3; t=2017-04-19T23:17:39; ll=1b; wrote=401; wbps=181; read=978; eof=1; id=s1
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=1c; debug=Pinged 45.79.196.141:443: 0.248162 [win=2, uuid=f05e3953248220ae6a13b097b57ee98abb5f74e5]
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=1d; debug=Pinged 52.58.23.44:443: 0.122494 [win=2, uuid=b48a2660ba6a34fa92302bf7d301c7e1fe9dcaa7]
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=1e; debug=Pinged 180.235.133.100:443: 0.551051 [win=2, uuid=4ba4e67f7348a7c81890b295a6c02a440b4edb41]
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=1f; debug=Pinged 13.54.10.122:443: 0.726440 [win=2, uuid=283c703a47e43d97686b4aa20702bf6ca5947b54]
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=20; debug=Pinged 88.198.198.93:443: 1.055967 [win=2, uuid=c4a28591f16dbcc08c3d8f9f59655478d67e936d]
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=21; debug=Pinged 139.162.5.63:443: 0.654562 [win=2, uuid=52a24fafcf784ff07859f35fb7f402092b493ad2]ts=58f7d3fb; t=2017-04-19T23:17:47; ll=22; debug=Pinged 50.116.41.25:443: 1.252140 [win=2, uuid=0e9c07f838bcc4a779288255772569e04eb6af55]
+
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=23; debug=Pinged 54.183.178.65:443: 0.501326 [win=2, uuid=fd864320481f56b934b221839c7f56f8940dd4e4]
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=24; debug=Preferred: 52.58.23.44:443
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=25; debug=Connecting to 52.58.23.44:443; id=s1
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=26; debug=Connecting to 45.79.196.141:443; id=s2
+ts=58f7d3fb; t=2017-04-19T23:17:47; ll=27; connect=52.58.23.44:443
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=28; connect=45.79.196.141:443
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=29; debug=TunnelManager: problem=0, connecting=2
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=2a; FE=52.58.23.44:443
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=2b; FE=52.58.23.44:443; err=Rejected; proto=http; reason=quota; domain=echoirc.pagekite.me; id=s1
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=2c; bid=http:echoirc.pagekite.me; status=0x1
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=2d; wrote=472; wbps=305; read=978; eof=1; id=s1
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=2e; FE=45.79.196.141:443
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=2f; FE=45.79.196.141:443; err=Rejected; proto=http; reason=quota; domain=echoirc.pagekite.me; id=s2
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=30; bid=http:echoirc.pagekite.me; status=0x1
+ts=58f7d3fc; t=2017-04-19T23:17:48; ll=31; wrote=472; wbps=305; read=978; eof=1; id=s2

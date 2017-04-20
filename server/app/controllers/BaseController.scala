@@ -7,8 +7,11 @@ import models._
 import play.api.Logger
 import play.api.data.Forms._
 import play.api.data._
+import play.api.i18n.I18nSupport
 import play.api.libs.concurrent.Promise
 import play.api.libs.json.Json
+import play.api.mvc.Controller
+import service.MyEnvironment
 
 import scala.concurrent.duration._
 
@@ -35,16 +38,32 @@ import scala.concurrent.{ExecutionContext, Future}
   * A very simple chat client using websockets.
   */
 @Singleton
-class BaseController @Inject()(implicit actorSystem: ActorSystem, webJarAssets: WebJarAssets,
-                                mat: Materializer,
-                                executionContext: ExecutionContext, val messagesApi: MessagesApi)
-  extends Controller with I18nSupport {
+class BaseController @Inject()  (
+                                override implicit val env: MyEnvironment,
+                                override implicit val webJarAssets: WebJarAssets,
+                                override implicit val messagesApi: MessagesApi
+                              )
 
+//  extends Controller with I18nSupport {
+//  extends Application(env)(actorSystem, webJarAssets, mat, messagesApi) {
+//extends Application(env, actorSystem, webJarAssets, mat, executionContext, messagesApi) {
+  extends Application()(env, webJarAssets, messagesApi) {
+
+  /*
+
+  override implicit val env: MyEnvironment,
+                                 override implicit val actorSystem: ActorSystem,
+                                 override implicit val webJarAssets: WebJarAssets,
+                                 override implicit val mat: Materializer,
+                                 override implicit val executionContext: ExecutionContext,
+                                 override val messagesApi: MessagesApi
+
+  */
   implicit val timeout = 10.seconds
 
-  def index = Action {
+  /*override def index = Action {
     Ok(views.html.index("Your new application is ready."))
-  }
+  }*/
 
   def dashboard = Action {
     Ok(views.html.dashboard("Your new application is ready."))

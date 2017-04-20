@@ -60,8 +60,8 @@ lazy val server = (project in file("server")).settings(
   //use this version for scalaVersion 2.11.8"
   //
   // libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
-  libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M3",
-  //libraryDependencies += "ws.securesocial" %% "securesocial" % "master-SNAPSHOT",
+  //libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
+  libraryDependencies += "ws.securesocial" %% "securesocial" % "master-SNAPSHOT",
 
   // Compile the project before generating Eclipse files, so that generated .scala or .class files for views and routes are present
   EclipseKeys.preTasks := Seq(compile in Compile)

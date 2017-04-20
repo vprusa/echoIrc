@@ -7,6 +7,7 @@ import org.pircbotx.hooks.events.ActionEvent
 import org.pircbotx.hooks.types.{GenericChannelEvent, GenericMessageEvent}
 import play.api.Logger
 import play.api.libs.json.Json
+import service.MyEnvironment
 import shared.SharedMessages.{JsMessageBase, _}
 import upickle.default._
 
@@ -32,11 +33,21 @@ import scala.concurrent.{ExecutionContext, Future}
   * A very simple chat client using websockets.
   */
 @Singleton
-class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets: WebJarAssets,
-                                 mat: Materializer,
-                                 executionContext: ExecutionContext, override val messagesApi: MessagesApi)
-  extends BaseController with I18nSupport {
+class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
+                       override implicit val env: MyEnvironment,
+                       override implicit val webJarAssets: WebJarAssets,
+                       override implicit val messagesApi: MessagesApi
+                      )
 
+//  extends Controller with I18nSupport {
+//  extends Application(env)(actorSystem, webJarAssets, mat, messagesApi) {
+//extends Application(env, actorSystem, webJarAssets, mat, executionContext, messagesApi) {
+  extends BaseController()(env, webJarAssets, messagesApi) with I18nSupport {
+  /*class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets: WebJarAssets,
+                                   mat: Materializer,
+                                   executionContext: ExecutionContext, override val messagesApi: MessagesApi)
+    extends BaseController with I18nSupport {
+  */
   def ircChat: Action[AnyContent] = Action { implicit request =>
     val url = routes.IrcWebController.chat().webSocketURL()
     Ok(views.html.ircChat(url))
@@ -75,9 +86,9 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
           sender = name, target = channel, msg = "Welcome!!!")))
 
         listener = new IrcListener(server, channel, subscriber) {
-          override def onAction(event: ActionEvent): Unit ={
+          override def onAction(event: ActionEvent): Unit = {
             Logger.debug(s"onAction: ${event.toString}")
-            if(event.getAction == "/part" || event.getAction == "/leave"){
+            if (event.getAction == "/part" || event.getAction == "/leave") {
               Logger.debug(s"onAction if: ${event.toString}")
               // TODO leave channel
               // https://github.com/TheLQ/pircbotx/wiki/MigrationGuide2
@@ -85,6 +96,7 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
               event.getChannel.send().part("Leaving with love")
             }
           }
+
           override def onGenericChannel(event: GenericChannelEvent) {
             Logger.debug(s"onGenericChannel: ${event.getChannel.getBot[IrcLogBot].getNick} ${event.toString} sub is: ${subscriber}")
             val chatMsgEv: GenericMessageEvent = event.asInstanceOf[GenericMessageEvent]
@@ -135,7 +147,7 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
         f.onComplete {
           case Success(value) => {
             Logger.debug(s"Got the callback, meaning = $value")
-            listener.listenersUserActor  ! Json.parse(write(JsMessageIrcBotReady()))
+            listener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
           }
           case Failure(e) => e.printStackTrace
         }
@@ -173,19 +185,19 @@ class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets
           case JsMessageLeaveChannel(sender, target) => {
             // handle the JsMessageLeaveChannel
             // TODO how?
-            listener._bot.send().ctcpCommand(target,"/part")//action(target, "/part")
-            listener._bot.send().ctcpResponse(target,"/part")//action(target, "/part")
-            listener._bot.send().action(target,"/part")//action(target, "/part")
-            listener._bot.send().ctcpCommand(target,"/leave")//action(target, "/part")
-            listener._bot.send().ctcpResponse(target,"/leave")//action(target, "/part")
-            listener._bot.send().action(target,"/leave")//action(target, "/part")
+            listener._bot.send().ctcpCommand(target, "/part") //action(target, "/part")
+            listener._bot.send().ctcpResponse(target, "/part") //action(target, "/part")
+            listener._bot.send().action(target, "/part") //action(target, "/part")
+            listener._bot.send().ctcpCommand(target, "/leave") //action(target, "/part")
+            listener._bot.send().ctcpResponse(target, "/leave") //action(target, "/part")
+            listener._bot.send().action(target, "/leave") //action(target, "/part")
 
-            listener._bot.send().ctcpCommand(sender,"/part")//action(target, "/part")
-            listener._bot.send().ctcpResponse(sender,"/part")//action(target, "/part")
-            listener._bot.send().action(sender,"/part")//action(target, "/part")
-            listener._bot.send().ctcpCommand(sender,"/leave")//action(target, "/part")
-            listener._bot.send().ctcpResponse(sender,"/leave")//action(target, "/part")
-            listener._bot.send().action(sender,"/leave")//action(target, "/part")
+            listener._bot.send().ctcpCommand(sender, "/part") //action(target, "/part")
+            listener._bot.send().ctcpResponse(sender, "/part") //action(target, "/part")
+            listener._bot.send().action(sender, "/part") //action(target, "/part")
+            listener._bot.send().ctcpCommand(sender, "/leave") //action(target, "/part")
+            listener._bot.send().ctcpResponse(sender, "/leave") //action(target, "/part")
+            listener._bot.send().action(sender, "/leave") //action(target, "/part")
 
             //listener._bot.send().part("/leave")//action(target, "/part")
           }

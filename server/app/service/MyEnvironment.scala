@@ -17,18 +17,33 @@ package service
  *
  */
 
-import javax.inject.{Inject, Singleton}
+import javax.inject.{ Inject, Singleton }
 
 import controllers.CustomRoutesService
 import play.api.Configuration
 import play.api.i18n.MessagesApi
 import securesocial.core.RuntimeEnvironment
 
+import securesocial.core.providers._
+
+import scala.collection.immutable.ListMap
+
 @Singleton
-class MyEnvironment[DemoUser] @Inject() (override val configuration: Configuration, override val messagesApi: MessagesApi) extends RuntimeEnvironment.Default[DemoUser] {
+class MyEnvironment @Inject() (override val configuration: Configuration, override val messagesApi: MessagesApi) extends RuntimeEnvironment.Default {
   override type U = DemoUser
   override implicit val executionContext = play.api.libs.concurrent.Execution.defaultContext
-  //override lazy val routes = new CustomRoutesService(configuration)
+  override lazy val routes = new CustomRoutesService(configuration)
   override lazy val userService: InMemoryUserService = new InMemoryUserService()
   override lazy val eventListeners = List(new MyEventListener())
+
+  override lazy val providers = ListMap(
+    // oauth 2 client providers
+    include(new FacebookProvider(routes, cacheService, oauth2ClientFor(FacebookProvider.Facebook))),
+    include(new GitHubProvider(routes, cacheService,oauth2ClientFor(GitHubProvider.GitHub))),
+    include(new GoogleProvider(routes, cacheService,oauth2ClientFor(GoogleProvider.Google))),
+
+    // username password
+    include(new UsernamePasswordProvider[DemoUser](userService, avatarService, viewTemplates, passwordHashers))
+  )
+
 }
