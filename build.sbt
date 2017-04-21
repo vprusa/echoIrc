@@ -38,7 +38,6 @@ lazy val server = (project in file("server")).settings(
   // Play provides two styles of routers, one expects its actions to be injected, the
   // other, legacy style, accesses its actions statically.
 
-
   libraryDependencies += "com.typesafe.akka" %% "akka-http-core" % akkaVersion,
   libraryDependencies += "com.typesafe.akka" %% "akka-http-experimental" % akkaVersion,
   libraryDependencies += "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
@@ -172,3 +171,15 @@ lazy val sharedJs = shared.js
 
 // loads the server project at sbt startup
 onLoad in Global := (Command.process("project server", _: State)) compose (onLoad in Global).value
+//onLoad in Global := (Command.process("project server2", _: State)) compose (onLoad in Global).value
+
+/*
+name := "playtest"
+
+version := "1.0"
+
+scalaVersion := "2.11.7"
+
+libraryDependencies += "com.typesafe.play" %% "play" % "2.5.0-M1"
+libraryDependencies += "com.typesafe.play" %% "play-netty-server" % "2.5.0-M1"
+*/

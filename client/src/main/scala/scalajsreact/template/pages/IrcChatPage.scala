@@ -19,6 +19,9 @@ import scalajsreact.template.models.IrcChatProps
 import scalajsreact.template.pages.IrcChatPage.ChatState
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
+import org.scalajs.dom
+
+import scalacss.internal.Attrs.fontWeight
 
 /**
   * Information base
@@ -40,12 +43,12 @@ object IrcChatPage {
 
     // call on leave button
     def callOnLeaveButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
-      for (ws <- s.ws)
+      for (ws <- props.ws)
         yield sendLeaveTargetMessage(ws, props, s)
     }
 
-    def isSendLeaveButtonDisabled(s: ChatState): Boolean = {
-      s.ws.isEmpty || !s.isReady
+    def isSendLeaveButtonDisabled(props: IrcChatProps,s: ChatState): Boolean = {
+      props.ws.isEmpty || !s.isReady
     }
 
     def sendLeaveTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
@@ -71,13 +74,13 @@ object IrcChatPage {
 
     // this call unpack WebSocket instance from Call and
     def callSendTargetMessage(props: IrcChatProps, s: ChatState): Option[Callback] = {
-      for (ws <- s.ws if this.inputMessage.nonEmpty)
+      for (ws <- props.ws if this.inputMessage.nonEmpty)
         yield sendTargetMessage(ws, props, s)
     }
 
     // checks if WebSocket instance is connected
-    def callSendTargetMessageDisabled(s: ChatState): Boolean = {
-      s.ws.isEmpty || this.inputMessage.isEmpty || !s.isReady
+    def callSendTargetMessageDisabled(props: IrcChatProps,s: ChatState): Boolean = {
+      props.ws.isEmpty || this.inputMessage.isEmpty || !s.isReady
     }
 
     //sends Message to Target using unpacked WebSocket instance
@@ -118,7 +121,7 @@ object IrcChatPage {
 
   val defaultTargetStateInside = TargetState("#TheName", "", logLines = ListBuffer.empty[JsMessage], inputMessage = "")
 
-  case class ChatState(ws: Option[WebSocket], var targets: ListBuffer[TargetState], sender: String,
+  case class ChatState(var targets: ListBuffer[TargetState], sender: String,
                        var channelJoin: String, /*channelJoinPassword : String,*/ var selectedTarget: Option[TargetState], var ready: Boolean) {
 
     // if no target view is selected and targets list is not empty then set the first target as selected view
@@ -167,16 +170,16 @@ object IrcChatPage {
       this
     }
 
-    def sendStartIrcBotRequest(): ChatState = {
+    def sendStartIrcBotRequest(props: IrcChatProps): ChatState = {
       val request: JsMessageStarBot = JsMessageStarBot(this.sender, Array[String]("#TheName", "#TheName2"))
       this.logLine("Connected.")
 
-      this.callJsMessageAndReturnCallback(request)
+      this.callJsMessageAndReturnCallback(props, request)
       this
     }
 
-    def callJsMessageAndReturnCallback[T <: JsMessageBase](msg: T): Option[Callback] = {
-      for (ws <- this.ws)
+    def callJsMessageAndReturnCallback[T <: JsMessageBase](props: IrcChatProps, msg: T): Option[Callback] = {
+      for (ws <- props.ws)
         yield sendJsMessageAndReturnCallback(ws, msg)
     }
 
@@ -192,12 +195,12 @@ object IrcChatPage {
     }
 
     def callSendJoinTargetMessage(props: IrcChatProps): Option[Callback] = {
-      for (ws <- this.ws if this.channelJoin.nonEmpty)
+      for (ws <- props.ws if this.channelJoin.nonEmpty)
         yield sendJoinTargetMessage(ws, props, this)
     }
 
-    def isSendJoinTargetMessageDisabled(): Boolean = {
-      this.ws.isEmpty || this.channelJoin.isEmpty || !this.isReady
+    def isSendJoinTargetMessageDisabled(props: IrcChatProps): Boolean = {
+      props.ws.isEmpty || this.channelJoin.isEmpty || !this.isReady
     }
 
     def sendJoinTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
@@ -222,6 +225,13 @@ object IrcChatPage {
       })
     }
 
+    def callOnChangeInputSender($: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState])(e: ReactEventFromInput): Callback = {
+      val nickInput = e.target.value
+      $.modState(state => {
+        state.copy(sender = nickInput)
+      })
+    }
+
   }
 
   object TargetStyle extends StyleSheet.Inline {
@@ -233,7 +243,7 @@ object IrcChatPage {
     val nav =
       style(display.block, float.left, width(200.px), borderRight :=! "1px solid rgb(223, 220, 220)")
 
-    val targetContent = style(marginTop(30.px),padding(30.px), display.inlineBlock, width(700.px))
+    val targetContent = style(marginTop(30.px), padding(30.px), display.inlineBlock, width(700.px))
 
     val targetListContainer = style(display.flex,
       flexDirection.column,
@@ -256,7 +266,9 @@ object IrcChatPage {
         padding :=! "0 10px",
         cursor.pointer,
         textDecoration := "none",
-        mixinIf(selected)(color.red, fontWeight._500)
+        mixinIf(selected)(color.red
+          //, fontWeight._500
+          )
       )
     }
   }
@@ -282,10 +294,11 @@ object IrcChatPage {
             "Username"
           ),
           <.input(
-            ^.value := s.sender
+            ^.value := s.sender,
+            ^.onChange ==> s.callOnChangeInputSender($)
           ),
           <.button(
-            ^.onClick --> start(props.url, props, s, None), // --> suffixed by ? because it's for Option[Callback]
+            ^.onClick --> start(props.url, props, s), // --> suffixed by ? because it's for Option[Callback]
             "Connect"),
           <.br,
           <.label(
@@ -297,7 +310,7 @@ object IrcChatPage {
             ^.value := s.channelJoin
           ),
           <.button(
-            ^.disabled := s.isSendJoinTargetMessageDisabled(), // Disable button if unable to send
+            ^.disabled := s.isSendJoinTargetMessageDisabled(props), // Disable button if unable to send
             ^.onClick -->? s.callSendJoinTargetMessage(props), // --> suffixed by ? because it's for Option[Callback]
             "Join channel")
         ),
@@ -337,13 +350,13 @@ object IrcChatPage {
                       ^.value := targetState.inputMessage
                     ),
                     <.button(
-                      ^.disabled := targetState.callSendTargetMessageDisabled(s), // Disable button if unable to send
+                      ^.disabled := targetState.callSendTargetMessageDisabled(props, s), // Disable button if unable to send
                       ^.onSubmit -->? targetState.callSendTargetMessage(props, s), // --> suffixed by ? because it's for Option[Callback]
                       ^.onClick -->? targetState.callSendTargetMessage(props, s),
                       "Send"
                     ),
                     <.button(
-                      ^.disabled := targetState.isSendLeaveButtonDisabled(s),
+                      ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
                       ^.onClick -->? s.callSendJoinTargetMessage(props),
                       ^.onClick -->? targetState.callOnLeaveButton(props, s),
                       "Leave"
@@ -381,7 +394,7 @@ object IrcChatPage {
       $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState]]
     }
 
-    def start(url: String, props: IrcChatProps, s: ChatState, optWs: Option[WebSocket]): Callback = {
+    def start(url: String, props: IrcChatProps, s: ChatState): Callback = {
 
       // This will establish the connection and return the WebSocket
       def connect = CallbackTo[WebSocket] {
@@ -397,7 +410,7 @@ object IrcChatPage {
           // Indicate the connection is open
           //TODO message containing default information
 
-          direct.modState(_.sendStartIrcBotRequest())
+          direct.modState(_.sendStartIrcBotRequest(props))
           direct.modState(_.logLine("Connected."))
         }
 
@@ -449,11 +462,15 @@ object IrcChatPage {
 
         def onclose(e: CloseEvent): Unit = {
           // Close the connection
-          direct.modState(_.copy(ws = None).logLine(s"Closed: ${e.reason}"))
+
+          direct.modState(_.copy(/*ws = None*/).logLine(s"Closed: ${e.reason}"))
         }
 
         // Create WebSocket and setup listeners
-        val ws: WebSocket = new WebSocket(url)
+        props.username = s.sender
+
+        val urlWithUserName = url + "/" + s.sender //props.username
+        val ws: WebSocket = new WebSocket(urlWithUserName)
         ws.onopen = onopen _
         ws.onclose = onclose _
         ws.onmessage = onmessage _
@@ -463,22 +480,78 @@ object IrcChatPage {
 
       // Here use attemptTry to catch any exceptions in connect.
       connect.attemptTry.flatMap {
-        case Success(ws) => $.modState(_.logLine(s"Connecting to ${url}").copy(ws = Some(ws)))
+        case Success(ws) => {
+          props.ws = Some(ws)
+          $.modState(_.logLine(s"Connecting to ${url}").copy(/*ws = Some(ws)*/))
+        }
         case Failure(error) => $.modState(_.logLine(error.toString))
       }
     }
 
     def end: Callback = {
-      def closeWebSocket = $.state.map(_.ws.foreach(_.close()))
+      val direct: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState] = this.getDirect()
+      org.scalajs.dom.console.log("method: end")
+      org.scalajs.dom.console.log(direct.toString)
+      org.scalajs.dom.console.log($.toString)
+      setPersistentChatState(direct)
 
-      def clearWebSocket = $.modState(_.copy(ws = None))
+      //def closeWebSocket = $.state.map(_.ws.foreach(_.close()))
+      //def clearWebSocket = $.modState(_.copy(ws = None))
+      //closeWebSocket >> clearWebSocket
 
-      closeWebSocket >> clearWebSocket
+      $.modState(f => {
+        f.copy()
+      })
+    }
+  }
+
+  /*
+  // http://blog.mgechev.com/2015/03/05/persistent-state-reactjs/
+
+  getInitialState: function () {
+    return JSON.parse(localStorage.getItem('ticker') || '{}');
+  },
+  componentDidMount: function () {
+    var self = this;
+    setInterval(function () {
+      this.setState({
+        ticks: this.state.ticks + 1
+      });
+      localStorage.setItem('ticker', JSON.stringify(this.state));
+    }, 1000);
+  },
+  render: function () {
+    return (
+      <span>{this.state.ticks}</span>
+    );
+  }
+
+   */
+
+
+  //  def setPersistentChatState(chatState: ChatState) = {
+  def setPersistentChatState(direct: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState]) = {
+    org.scalajs.dom.console.log("method: setPersistentChatState")
+    dom.window.localStorage.setItem(
+      "chatState", direct.toString
+    )
+  }
+
+  def getPersistentChatState(): ChatState = {
+    org.scalajs.dom.console.log("method: getPersistentChatState")
+    //   ChatState(None, ListBuffer(defaultTargetStateInside), "", "#TheName2", None, false)
+    val chatStateRaw = dom.window.localStorage.getItem("chatState")
+    if (chatStateRaw.isInstanceOf[ChatState]) {
+      org.scalajs.dom.console.log("t: chatStateRaw")
+      chatStateRaw.asInstanceOf[ChatState]
+    } else {
+      org.scalajs.dom.console.log("t: ChatState")
+      ChatState(ListBuffer(defaultTargetStateInside), "", "#TheName2", None, false)
     }
   }
 
   val WebSocketsApp = ScalaComponent.builder[IrcChatProps]("WebSocketsApp")
-    .initialState(ChatState(None, ListBuffer(defaultTargetStateInside), "", "#TheName2", None, false))
+    .initialState(getPersistentChatState())
     .renderBackend[Backend]
     // set username (username has to be as chat state atr because it can be changed via /anick command)
     .componentWillMount(f => {

@@ -24,14 +24,16 @@ For irc chat/bot go to [http://localhost:9000/ircChat](http://localhost:9000/irc
 
 or ReactJS on top of Scala.js [http://localhost:9000/react](http://localhost:9000/react)
 
-or database example [http://localhost:9000/react](http://localhost:9000)
-
 ### SecureSocial examples
 https://github.com/jandro-es/demo-securesocial
 https://github.com/search?utf8=%E2%9C%93&q=securesocial&type=
 
 ## TODO
-[Everything](https://en.wikipedia.org/wiki/Everything)
+- Add logging irc to files in dirs by userId
+- and rotate logs using by parallel/Future task 
+-- on server start, 
+-- on cli command
+- add cli (change this to multiproject)
 
 ### to get size of project
 ```bash

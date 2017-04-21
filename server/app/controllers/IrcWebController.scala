@@ -7,9 +7,12 @@ import org.pircbotx.hooks.events.ActionEvent
 import org.pircbotx.hooks.types.{GenericChannelEvent, GenericMessageEvent}
 import play.api.Logger
 import play.api.libs.json.Json
+import securesocial.core.SecureSocial
 import service.MyEnvironment
+import shared.Shared
 import shared.SharedMessages.{JsMessageBase, _}
 import upickle.default._
+import utils.IrcLogBot
 
 import scala.util.{Failure, Success}
 //
@@ -33,24 +36,17 @@ import scala.concurrent.{ExecutionContext, Future}
   * A very simple chat client using websockets.
   */
 @Singleton
-class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
-                       override implicit val env: MyEnvironment,
-                       override implicit val webJarAssets: WebJarAssets,
-                       override implicit val messagesApi: MessagesApi
-                      )
-
-//  extends Controller with I18nSupport {
-//  extends Application(env)(actorSystem, webJarAssets, mat, messagesApi) {
-//extends Application(env, actorSystem, webJarAssets, mat, executionContext, messagesApi) {
+class IrcWebController @Inject()(
+                                  implicit val actorSystem: ActorSystem,
+                                  override implicit val env: MyEnvironment,
+                                  override implicit val webJarAssets: WebJarAssets,
+                                  override implicit val messagesApi: MessagesApi
+                                )
   extends BaseController()(env, webJarAssets, messagesApi) with I18nSupport {
-  /*class IrcWebController @Inject()(implicit actorSystem: ActorSystem, webJarAssets: WebJarAssets,
-                                   mat: Materializer,
-                                   executionContext: ExecutionContext, override val messagesApi: MessagesApi)
-    extends BaseController with I18nSupport {
-  */
-  def ircChat: Action[AnyContent] = Action { implicit request =>
-    val url = routes.IrcWebController.chat().webSocketURL()
-    Ok(views.html.ircChat(url))
+
+  def ircChat = SecuredAction { implicit request =>
+    //val url = routes.IrcWebController.chat().webSocketURL()
+    Ok(views.html.ircChat("url"))
   }
 
   object User {
@@ -63,7 +59,7 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
 
   }
 
-  class User(system: ActorSystem, name: String, channel: String) extends Actor {
+  class User(system: ActorSystem, name: String, channel: String, userId: String) extends Actor {
 
     import User._
 
@@ -72,20 +68,23 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
     var sub: ActorRef = null
 
     var listener: IrcListener = null
+    var ircBot: IrcLogBot = null
 
     def receive = {
       case IrcNewParticipant(name, subscriber) => {
         Logger.debug(s"IrcNewParticipant( name: ${name} ,subscriber: ${subscriber} )")
         Logger.debug(s"this ${this} and sub ${sub} ")
+        Shared.setData(Shared.getData + "1")
+        Logger.debug(s"Shared.getData() ${Shared.getData} ")
 
         // TODO im sure that there is better way how to redirrect messages from/to websocket to/from irc
         sub = subscriber
 
         // welcome message - but ircbot may not be ready yet
         subscriber ! Json.parse(write[JsMessage](JsMessage(
-          sender = name, target = channel, msg = "Welcome!!!")))
+          sender = name, target = channel, msg = "Connected to web server")))
 
-        listener = new IrcListener(server, channel, subscriber) {
+        listener = new IrcListener(server, channel, name, subscriber) {
           override def onAction(event: ActionEvent): Unit = {
             Logger.debug(s"onAction: ${event.toString}")
             if (event.getAction == "/part" || event.getAction == "/leave") {
@@ -93,6 +92,7 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
               // TODO leave channel
               // https://github.com/TheLQ/pircbotx/wiki/MigrationGuide2
               //event.getBot[IrcLogBot].partChannel(event.getChannel, "Goodbye")
+              logs.logLine("Leaving channel")
               event.getChannel.send().part("Leaving with love")
             }
           }
@@ -103,9 +103,16 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
             Logger.debug(s"onGenericChannel1 casted to GenericMessageEvent ${chatMsgEv}")
             Logger.debug(s"onGenericChannel2 casted to GenericMessageEvent ${chatMsgEv.getMessage}")
             Logger.debug(s"onGenericChannel3 channel ${event.getChannel.getName} ${event.getChannel.toString}")
+
+            Shared.setData(Shared.getData + "2")
+            Logger.debug(s"Shared.getData() ${Shared.getData} ")
+
+            val jsmsg: JsMessage = JsMessage(
+              sender = chatMsgEv.getUser.getNick, target = event.getChannel.getName, msg = chatMsgEv.getMessage)
+
             if (listenersUserActor != null) {
-              listenersUserActor ! Json.parse(write(JsMessage(
-                sender = chatMsgEv.getUser.getNick, target = event.getChannel.getName, msg = chatMsgEv.getMessage)))
+              logs.logLine(jsmsg.toString)
+              listenersUserActor ! Json.parse(write(jsmsg))
             } else {
               Logger.debug(s"onGenericMessage sub missing")
             }
@@ -114,15 +121,15 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
 
         var configParams: Configuration.Builder = new Configuration.Builder()
           .addAutoJoinChannel(channel)
-          .setServer(server, 6667)
           .setRealName(name)
           .setAutoReconnect(true)
           .setVersion("0.0.1")
-          .setFinger("ircLogBot (TODO source link)")
+          .setFinger("echoIrc (TODO source link)")
           .setAutoNickChange(true)
           .setSocketTimeout(1 * 60 * 1000)
 
-        var ircBot: IrcLogBot = new IrcLogBot(configParams.setName(name).addListener(listener).buildConfiguration())
+        // TODO change setServer() to setWebIrcHostname() & Port?
+        ircBot = new IrcLogBot(configParams.setServer(server, 6667).setName(name).addListener(listener).buildConfiguration())
 
         Logger.debug(s"NewParicipant ${name}")
 
@@ -131,15 +138,14 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
         val config = configParams.buildConfiguration()
 
         ircBot = new IrcLogBot(config)
-
-        listener._bot = ircBot
+        ircBot._defaultListener = listener
 
         import scala.concurrent._
         import ExecutionContext.Implicits.global
 
         println("s Start bot in future...")
         val f = Future {
-          listener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
+          ircBot.defaultListener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
           Logger.debug(s"Future -> ircBot.startBot()")
           ircBot.startBot()
           0
@@ -147,7 +153,7 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
         f.onComplete {
           case Success(value) => {
             Logger.debug(s"Got the callback, meaning = $value")
-            listener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
+            ircBot.defaultListener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
           }
           case Failure(e) => e.printStackTrace
         }
@@ -173,33 +179,37 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
         Logger.debug(s"incommingMsg ${incommingMsg}")
 
         incommingMsg match {
+          case JsMessageStarBot(botName, autoJoinChannels) => {
+            Logger.debug(s"JsMessageStarBot")
+          }
           case JsMessage(sender, target, msg) => {
             // handle the JsMessage
-            listener._bot.send().message(target, s"${msg}")
+            Logger.debug(s"JsMessage")
+            ircBot.send().message(target, s"${msg}")
           }
           case JsMessageJoinChannel(sender, target) => {
             // handle the JsMessageJoinChannel
             Logger.debug(s"JsMessageJoinChannel")
-            listener._bot.sendIRC().joinChannel(target)
+            ircBot.sendIRC().joinChannel(target)
           }
           case JsMessageLeaveChannel(sender, target) => {
             // handle the JsMessageLeaveChannel
             // TODO how?
-            listener._bot.send().ctcpCommand(target, "/part") //action(target, "/part")
-            listener._bot.send().ctcpResponse(target, "/part") //action(target, "/part")
-            listener._bot.send().action(target, "/part") //action(target, "/part")
-            listener._bot.send().ctcpCommand(target, "/leave") //action(target, "/part")
-            listener._bot.send().ctcpResponse(target, "/leave") //action(target, "/part")
-            listener._bot.send().action(target, "/leave") //action(target, "/part")
+            ircBot.send().ctcpCommand(target, "/part") //action(target, "/part")
+            ircBot.send().ctcpResponse(target, "/part") //action(target, "/part")
+            ircBot.send().action(target, "/part") //action(target, "/part")
+            ircBot.send().ctcpCommand(target, "/leave") //action(target, "/part")
+            ircBot.send().ctcpResponse(target, "/leave") //action(target, "/part")
+            ircBot.send().action(target, "/leave") //action(target, "/part")
 
-            listener._bot.send().ctcpCommand(sender, "/part") //action(target, "/part")
-            listener._bot.send().ctcpResponse(sender, "/part") //action(target, "/part")
-            listener._bot.send().action(sender, "/part") //action(target, "/part")
-            listener._bot.send().ctcpCommand(sender, "/leave") //action(target, "/part")
-            listener._bot.send().ctcpResponse(sender, "/leave") //action(target, "/part")
-            listener._bot.send().action(sender, "/leave") //action(target, "/part")
+            ircBot.send().ctcpCommand(sender, "/part") //action(target, "/part")
+            ircBot.send().ctcpResponse(sender, "/part") //action(target, "/part")
+            ircBot.send().action(sender, "/part") //action(target, "/part")
+            ircBot.send().ctcpCommand(sender, "/leave") //action(target, "/part")
+            ircBot.send().ctcpResponse(sender, "/leave") //action(target, "/part")
+            ircBot.send().action(sender, "/leave") //action(target, "/part")
 
-            //listener._bot.send().part("/leave")//action(target, "/part")
+            //ircBot.send().part("/leave")//action(target, "/part")
           }
         }
       }
@@ -212,13 +222,13 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
       }
       case IrcParticipantLeft(person) ⇒ {
         Logger.debug(s"ParticipantLeft(person) ")
-        listener._bot.stopBotReconnect()
-        listener._bot.close()
+        ircBot.stopBotReconnect()
+        ircBot.close()
       }
       case Terminated(sub) ⇒ {
         Logger.debug(s"Terminated(sub) ")
-        listener._bot.stopBotReconnect()
-        listener._bot.close()
+        ircBot.stopBotReconnect()
+        ircBot.close()
       }
 
       case Connected(outgoing) => {
@@ -261,7 +271,7 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
   }
 
   def myChatFlow(sender: String, channel: String): Flow[JsValue, JsValue, _] = {
-    val userActor: ActorRef = actorSystem.actorOf(Props(new User(system = actorSystem, name = sender, channel = channel)))
+    val userActor: ActorRef = actorSystem.actorOf(Props(new User(system = actorSystem, name = sender,, channel = channel)))
     Logger.debug("IrcController.myChatFlow")
 
     val in =
@@ -285,12 +295,22 @@ class IrcWebController @Inject() (implicit val actorSystem: ActorSystem,
     Flow.fromSinkAndSource(in, out)
   }
 
-  def chat: WebSocket = {
+  def chat(botName: String): WebSocket = {
+    val fUser = SecureSocial.currentUser
+    fUser.onComplete {
+      case Success(maybeCurUser) => {
+        import service.DemoUser
+        Logger.debug(s"maybeCurUser.toString ${maybeCurUser.toString}")
+        val user: DemoUser = maybeCurUser.asInstanceOf[DemoUser]
+        Logger.debug(s"user.main.userId ${user.main.userId}")
+      }
+      case Failure(e) => e.printStackTrace
+    }
     Logger.debug("IrcController.chat")
     WebSocket.acceptOrResult[JsValue, JsValue] {
       case rh if sameOriginCheck(rh) =>
         //Future.successful(websocketChatFlow("userBot","#TheName")).map { flow =>
-        Future.successful(myChatFlow("userBot", "#TheName")).map { flow =>
+        Future.successful(myChatFlow(botName, "#TheName")).map { flow =>
           Right(flow)
         }.recover {
           case e: Exception =>

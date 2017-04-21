@@ -4,6 +4,7 @@ import javax.inject.Singleton
 
 import play.api.Logger
 import service.MyEnvironment
+import shared.Shared
 
 //
 
@@ -30,21 +31,35 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem, webJarAsset
 */
 
 @Singleton
-class ReactJsController  @Inject() ( implicit actorSystem: ActorSystem,
-                       override implicit val env: MyEnvironment,
-                       override implicit val webJarAssets: WebJarAssets,
-                       override implicit val messagesApi: MessagesApi
-                      )
+class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
+                                  override implicit val env: MyEnvironment,
+                                  override implicit val webJarAssets: WebJarAssets,
+                                  override implicit val messagesApi: MessagesApi
+                                 )
 
 //  extends Controller with I18nSupport {
 //  extends Application(env)(actorSystem, webJarAssets, mat, messagesApi) {
 //extends Application(env, actorSystem, webJarAssets, mat, executionContext, messagesApi) {
   extends IrcWebController()(actorSystem, env, webJarAssets, messagesApi) with I18nSupport {
 
-  def react(any: String) = Action {
-    Logger.info(this.getClass.getName)
-    Logger.info("Path:" + any)
-    Ok(views.html.reactJsExample("Info Message"))
+  def securedTest = SecuredAction {
+    implicit request =>
+      Ok(views.html.login.linkResult(request.user))
+  }
+
+
+  def react(any: String) = SecuredAction {
+    implicit request =>
+
+      Logger.info(this.getClass.getName)
+      Logger.info(request.toString())
+      Logger.info("Path:" + any)
+      //persistanObj += "2"
+      //Logger.info(s"persistanObj: ${persistanObj}")
+      Shared.setData(Shared.getData + "0")
+      Logger.debug(s"Shared.getData() ${Shared.getData} ")
+
+      Ok(views.html.reactJsExample(request.user,any))
   }
 
 }

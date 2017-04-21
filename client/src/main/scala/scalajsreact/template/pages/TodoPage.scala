@@ -23,7 +23,7 @@ object TodoPage {
         ^.marginTop := "2.2em",
         ^.fontSize := "115%",
         ^.color := "#FFFFFF",
-        "Homepage of IRC chat over Websocket, bot and admin"
+        "Todo page of echoIrc"
       )
     )
   )

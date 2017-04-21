@@ -2,7 +2,7 @@ package scalajsreact.template.routes
 
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 
-import scalajsreact.template.pages.{ErrorPage, HomePage, LoginPage, TodoPage}
+import scalajsreact.template.pages.{ErrorPage, HomePage, TodoPage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
 import scalajsreact.template.models.{AppConfig, Menu}
@@ -17,18 +17,17 @@ import japgolly.scalajs.react.extra.router._
 
 import scalajsreact.template.pages.IrcChatPage
 
-
 object AppRouter {
 
   sealed trait AppPage
 
   case object Home extends AppPage
 
-  case object Login extends AppPage
-
   case object Todo extends AppPage
 
   case object IrcChat extends AppPage
+
+  case object Logout extends AppPage
 
   //case class IrcChat(username: String) extends AppPage
   case class Items(p: MenuItem) extends AppPage
@@ -44,10 +43,10 @@ object AppRouter {
       }
     (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
-      | staticRoute("login", Login) ~> render(LoginPage.component())
       | staticRoute("todo", Todo) ~> render(TodoPage.component())
-      | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(AppConfig.ircChatProps))
+      | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(AppConfig.ircChatPropsTest))
       | staticRoute("error", Error) ~> render(ErrorPage.component())
+      //| staticRoute("logout", Logout) ~> Logout //render(ErrorPage.component())
       | itemRoutes
       )
       .notFound(redirectToPage(Error)(Redirect.Replace))
@@ -56,11 +55,11 @@ object AppRouter {
 
   val mainMenu = Vector(
     Menu("Home", Home),
-    Menu("Login", Login),
     Menu("Todo", Todo),
-    Menu("Error", Error),
+    // Menu("Error", Error),
     Menu("IrcChat", IrcChat),
-    Menu("Stats", IrcChat)
+    Menu("Stats", IrcChat),
+    Menu("Logout", Logout)
   )
 
   def layout(c: RouterCtl[AppPage], r: Resolution[AppPage]) = {

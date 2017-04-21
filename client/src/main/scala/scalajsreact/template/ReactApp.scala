@@ -36,6 +36,7 @@ object ReactApp extends JSApp {
       e.hasMoreElements
     }) {
       val key = e.nextElement.asInstanceOf[String]
+      dom.console.info(key + " -- " + props.getProperty(key))
       System.out.println(key + " -- " + props.getProperty(key))
     }
 

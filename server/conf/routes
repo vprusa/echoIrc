@@ -13,7 +13,7 @@ GET        /assets/*file             controllers.Assets.versioned(path="/public"
 GET        /webjars/*file            controllers.WebJarAssets.at(file)
 
 
-GET        /chat                     controllers.IrcWebController.chat
+GET        /chat/:botName            controllers.IrcWebController.chat(botName:String)
 GET        /ircChat                  controllers.IrcWebController.ircChat
 
 # ReactJs Example
