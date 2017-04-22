@@ -47,7 +47,7 @@ object IrcChatPage {
         yield sendLeaveTargetMessage(ws, props, s)
     }
 
-    def isSendLeaveButtonDisabled(props: IrcChatProps,s: ChatState): Boolean = {
+    def isSendLeaveButtonDisabled(props: IrcChatProps, s: ChatState): Boolean = {
       props.ws.isEmpty || !s.isReady
     }
 
@@ -79,7 +79,7 @@ object IrcChatPage {
     }
 
     // checks if WebSocket instance is connected
-    def callSendTargetMessageDisabled(props: IrcChatProps,s: ChatState): Boolean = {
+    def callSendTargetMessageDisabled(props: IrcChatProps, s: ChatState): Boolean = {
       props.ws.isEmpty || this.inputMessage.isEmpty || !s.isReady
     }
 
@@ -268,7 +268,7 @@ object IrcChatPage {
         textDecoration := "none",
         mixinIf(selected)(color.red
           //, fontWeight._500
-          )
+        )
       )
     }
   }
@@ -285,6 +285,8 @@ object IrcChatPage {
       org.scalajs.dom.console.log(s.selectedTarget.getOrElse(this).toString)
       org.scalajs.dom.console.log(s.selectedTarget.getOrElse(this).equals(s.selectedTarget.getOrElse(false)))
 
+      // needs to be called here as well because of refreshing non-persistent stuff
+      direct = this.getDirect()
 
       <.div(
         TargetStyle.chatContainer,
@@ -394,16 +396,18 @@ object IrcChatPage {
       $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState]]
     }
 
+    var direct: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState] = this.getDirect()
+
     def start(url: String, props: IrcChatProps, s: ChatState): Callback = {
 
       // This will establish the connection and return the WebSocket
       def connect = CallbackTo[WebSocket] {
+        direct = this.getDirect()
 
         // Get direct access so WebSockets API can modify state directly
         // (for access outside of a normal DOM/React callback).
         // This means that calls like .setState will now return Unit instead of Callback.
         // casting to MountedWithRoot[...] type for syntax support
-        val direct: MountedWithRoot[CallbackTo, IrcChatProps, ChatState, IrcChatProps, ChatState] = this.getDirect()
 
         // These are message-receiving events from the WebSocket "thread".
         def onopen(e: Event): Unit = {
@@ -451,6 +455,9 @@ object IrcChatPage {
             }
             case JsMessageIrcBotReady() => {
               direct.modState(_.copy(ready = true))
+            }
+            case other => {
+              //direct.modState(_.copy(ready = true))
             }
           }
         }

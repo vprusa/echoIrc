@@ -9,6 +9,7 @@ object SharedMessages {
 
   sealed trait JsMessageBase
   case class JsMessage(sender: String, target: String, msg: String) extends JsMessageBase
+  case class JsMessageOther(sender: String, target: String, msg: String) extends JsMessageBase
   case class JsMessageCmd(sender: String, target: String) extends JsMessageBase // remove example cmd
   case class JsMessageJoinChannel(sender: String, target: String) extends JsMessageBase
   case class JsMessageLeaveChannel(sender: String, target: String) extends JsMessageBase

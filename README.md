@@ -34,6 +34,7 @@ https://github.com/search?utf8=%E2%9C%93&q=securesocial&type=
 -- on server start, 
 -- on cli command
 - add cli (change this to multiproject)
+- login template with menu
 
 ### to get size of project
 ```bash

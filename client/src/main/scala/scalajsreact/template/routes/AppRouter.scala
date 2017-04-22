@@ -2,7 +2,7 @@ package scalajsreact.template.routes
 
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 
-import scalajsreact.template.pages.{ErrorPage, HomePage, TodoPage}
+import scalajsreact.template.pages.{ErrorPage, HomePage, TodoPage, StatsPage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
 import scalajsreact.template.models.{AppConfig, Menu}
@@ -26,6 +26,8 @@ object AppRouter {
   case object Todo extends AppPage
 
   case object IrcChat extends AppPage
+
+  //case object Stats extends AppPage
 
   case object Logout extends AppPage
 
@@ -56,9 +58,10 @@ object AppRouter {
   val mainMenu = Vector(
     Menu("Home", Home),
     Menu("Todo", Todo),
+    Menu("Stats", Items(MenuItem.Info)),
     // Menu("Error", Error),
     Menu("IrcChat", IrcChat),
-    Menu("Stats", IrcChat),
+    //Menu("Stats", Stats),
     Menu("Logout", Logout)
   )
 

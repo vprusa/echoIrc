@@ -175,4 +175,3 @@ class InMemoryUserService extends UserService[DemoUser] {
 
 // a simple User class that can have multiple identities
 case class DemoUser(main: BasicProfile, identities: List[BasicProfile])
-
