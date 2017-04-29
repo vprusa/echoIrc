@@ -24,38 +24,24 @@ import play.api.i18n.{I18nSupport, MessagesApi}
 import securesocial.core._
 import service.{DemoUser, MyEnvironment, MyEventListener}
 import play.api.mvc.{Action, RequestHeader}
+//import play.api.db.slick.DatabaseConfigProvider
+import play.db.NamedDatabase
+//import slick.jdbc.JdbcProfile
+import slick.driver.JdbcProfile
 
 import scala.concurrent.ExecutionContext
 
 //class Application @Inject() (override implicit val env: MyEnvironment)
 class Application @Inject()
 (
+  //@NamedDatabase("<db-name>")
+  //dbConfigProvider: DatabaseConfigProvider,
   override implicit val env: MyEnvironment,
   implicit val webJarAssets: WebJarAssets,
   implicit val messagesApi: MessagesApi
 )
-/*(
-                   override implicit val env: MyEnvironment,
-                   implicit val actorSystem: ActorSystem,
-                   implicit val webJarAssets: WebJarAssets,
-                   implicit val mat: Materializer,
-                   override implicit val executionContext: ExecutionContext,
-                   val messagesApi: MessagesApi
-                 )*/
   extends securesocial.core.SecureSocial with I18nSupport {
-
-  /*@Inject
-  override implicit val env: MyEnvironment
-  @Inject
-  implicit val actorSystem: ActorSystem
-  @Inject
-  implicit val webJarAssets: WebJarAssets
-  @Inject
-  implicit val mat: Materializer
-  //   executionContext: ExecutionContext,
-  @Inject
-  implicit val messagesApi: MessagesApi
-  */
+  //val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   def index = SecuredAction {
     implicit request =>

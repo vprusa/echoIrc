@@ -22,11 +22,15 @@ class IrcLogBot(config: Configuration) extends PircBotX(config) {
 
 }
 
-class IrcListener(server: String, channel: String, name: String, val listenersUserActor: ActorRef) extends ListenerAdapter {
+class IrcListener(server: String, channel: String, name: String, var listenersUserActor: ActorRef) extends ListenerAdapter {
 
   //private val logger = org.slf4j.LoggerFactory.getLogger(this.getClass)
 
-  val ECHO_PATTERN = Pattern.compile("(?i)echo[ ]+(.+)")
-  val logs: Logs = new Logs(name)
+  //val ECHO_PATTERN = Pattern.compile("(?i)echo[ ]+(.+)")
+  var logs: Logs = new Logs(name)
+
+  def setUserActor(newListenersUserActor: ActorRef): Unit = {
+    listenersUserActor = newListenersUserActor
+  }
 
 }

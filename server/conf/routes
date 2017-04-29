@@ -3,34 +3,45 @@
 # ~~~~
 
 # Home page
-GET        /                         controllers.BaseController.index
+GET        /                                controllers.BaseController.index
 
 #GET         /dashboard                controllers.BaseController.dashboard
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file             controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file                    controllers.Assets.versioned(path="/public", file: Asset)
 
-GET        /webjars/*file            controllers.WebJarAssets.at(file)
+GET        /webjars/*file                   controllers.WebJarAssets.at(file)
 
 
-GET        /chat/:botName            controllers.IrcWebController.chat(botName:String)
-GET        /ircChat                  controllers.IrcWebController.ircChat
+GET        /chat/:botName                   controllers.IrcWebController.chat(botName:String)
+GET        /ircChat                         controllers.IrcWebController.ircChat
+
+# ReactJs Example - not secured (testing only)
+GET        /react                           controllers.ReactJsController.react(reactRoute = "")
+GET        /react/                          controllers.ReactJsController.react(reactRoute = "/")
+GET        /react/*reactRoute               controllers.ReactJsController.react(reactRoute : String)
 
 # ReactJs Example
-GET        /react                    controllers.ReactJsController.react(reactRoute = "")
-GET        /react/                   controllers.ReactJsController.react(reactRoute = "/")
-GET        /react/*reactRoute        controllers.ReactJsController.react(reactRoute : String)
+#GET        /reactSecured                    controllers.ReactJsController.reactSecured(reactRoute = "")
+#GET        /reactSecured/                   controllers.ReactJsController.reactSecured(reactRoute = "/")
+#GET        /reactSecured/*reactRoute        controllers.ReactJsController.reactSecured(reactRoute : String)
+
+# Rest Example
+GET        /rest                            controllers.RestController.index()
+GET        /rest/                           controllers.RestController.index()
+GET        /rest/rotateNow                  controllers.RestController.rotateLogsNow
+GET        /rest/getLogSnippet              controllers.RestController.getLogSnippet
 
 # Home page
-GET        /secsoc                   @controllers.Application.index
-GET        /only-twitter             @controllers.Application.onlyTwitter
-GET        /link-result              @controllers.Application.linkResult
-GET        /current-user             @controllers.Application.currentUser
-GET        /custom/login             @controllers.CustomLoginController.login
-GET        /custom/logout            @controllers.CustomLoginController.logout
+GET        /secsoc                          @controllers.Application.index
+GET        /only-twitter                    @controllers.Application.onlyTwitter
+GET        /link-result                     @controllers.Application.linkResult
+GET        /current-user                    @controllers.Application.currentUser
+GET        /custom/login                    @controllers.CustomLoginController.login
+GET        /custom/logout                   @controllers.CustomLoginController.logout
 #GET        /custom/logout            securesocial.controllers.
 
 # Map static resources from the /public folder to the /assets URL path
 # GET        /assets/*file        controllers.Assets.at(path="/public", file)
 #->         /auth                     models.MyRoutes
-->         /auth                     securesocial.Routes
+->         /auth                            securesocial.Routes

@@ -13,7 +13,7 @@ object TodoPage {
       <.h1(
         <.a(
           ^.color := "#FFFFFF",
-//          ^.href := "https://github.com/japgolly/scalajs-react",
+          // ^.href := "https://github.com/japgolly/scalajs-react",
           ^.href := "https://github.com/vprusa/echoIrc",
           "echoIrc"
         )

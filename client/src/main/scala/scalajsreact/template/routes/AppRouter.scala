@@ -2,10 +2,10 @@ package scalajsreact.template.routes
 
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 
-import scalajsreact.template.pages.{ErrorPage, HomePage, TodoPage, StatsPage}
+import scalajsreact.template.pages.{AdminPage, ErrorPage, HomePage, StatsPage, TodoPage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
-import scalajsreact.template.models.{AppConfig, Menu}
+import scalajsreact.template.models.{AppConfig, Menu, MenuInner, MenuOutisde}
 import org.scalajs.dom
 
 import scala.scalajs.js.JSApp
@@ -27,9 +27,13 @@ object AppRouter {
 
   case object IrcChat extends AppPage
 
+  case object Admin extends AppPage
+
   //case object Stats extends AppPage
 
   case object Logout extends AppPage
+
+  case object Login extends AppPage
 
   //case class IrcChat(username: String) extends AppPage
   case class Items(p: MenuItem) extends AppPage
@@ -47,23 +51,35 @@ object AppRouter {
       | staticRoute("home", Home) ~> render(HomePage.component())
       | staticRoute("todo", Todo) ~> render(TodoPage.component())
       | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(AppConfig.ircChatPropsTest))
+      | staticRoute("admin", Admin) ~> render(AdminPage.WebSocketsApp(AppConfig.ircChatPropsTest))
       | staticRoute("error", Error) ~> render(ErrorPage.component())
-      //| staticRoute("logout", Logout) ~> Logout //render(ErrorPage.component())
+      //   | staticRoute("login", Login) ~> redirectToPath("/custom/login")
+      //   | staticRoute("logout", Logout) ~> redirectToPath("/custom/logout")
       | itemRoutes
       )
       .notFound(redirectToPage(Error)(Redirect.Replace))
       .renderWith(layout)
   }
 
-  val mainMenu = Vector(
-    Menu("Home", Home),
-    Menu("Todo", Todo),
-    Menu("Stats", Items(MenuItem.Info)),
-    // Menu("Error", Error),
-    Menu("IrcChat", IrcChat),
-    //Menu("Stats", Stats),
-    Menu("Logout", Logout)
+  var mainMenu = List(
+    MenuInner("Home", Home),
+    MenuInner("Todo", Todo),
+    MenuInner("Stats", Items(MenuItem.Info)),
+    // MenuInner("Error", Error),
+    MenuInner("IrcChat", IrcChat),
+    // MenuInner("Logout", Logout),
+    // MenuOutisde("Logout", Logout, "/custom/logout"),
+    MenuOutisde("Logout", Logout, "/auth/logout"),
+    MenuOutisde("Login", Login, "/custom/login")
+
   )
+
+  def loadReactElementVarData(): Unit = {
+    val element = dom.document.getElementById("reactData")
+
+    dom.console.info("element -- " + element.toString)
+    System.out.println("element -- " + element.toString)
+  }
 
   def layout(c: RouterCtl[AppPage], r: Resolution[AppPage]) = {
     <.div(

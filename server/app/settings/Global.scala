@@ -25,6 +25,10 @@ object Global extends GlobalSettings {
     Logger.info("test2")
     persistanObj += "1"
     Logger.info(s"persistanObj: ${persistanObj}")
+
+    // start default bot
+
+   // Shared.adminIrcBot = new IrcBotBackendProcess(app)
   }
 
 }

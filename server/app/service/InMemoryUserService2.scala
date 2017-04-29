@@ -14,16 +14,16 @@
   * limitations under the License.
   *
   */
-package service
 
-//import akka.http.javadsl.server.RoutingJavaMapping.Implicits.AddAsJava
+package service
+/*
+import akka.http.javadsl.server.RoutingJavaMapping.Implicits.AddAsJava
 import play.api.Logger
 import securesocial.core._
 import securesocial.core.providers.{MailToken, UsernamePasswordProvider}
 
 import scala.concurrent.Future
 import securesocial.core.services.{SaveMode, UserService}
-/*
 
 /**
   * A Sample In Memory user service in Scala
@@ -181,6 +181,7 @@ class InMemoryUserService extends UserService[DemoUser] {
 
 
 import dao.DBUser
-*/
+
 // a simple User class that can have multiple identities
-case class DemoUser(main: BasicProfile /*, identities: List[GenericProfile]*/)
+case class DemoUser(main: GenericProfile/*, identities: List[GenericProfile]*/)
+*/

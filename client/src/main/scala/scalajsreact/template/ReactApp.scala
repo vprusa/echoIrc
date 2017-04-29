@@ -13,7 +13,6 @@ import scalajsreact.template.routes.AppRouter.{baseUrl, routerConfig}
 
 //import chandu0101.scalajs.react.components.Implicits._
 
-
 @JSExport
 object ReactApp extends JSApp {
 
@@ -21,6 +20,10 @@ object ReactApp extends JSApp {
   override def main(): Unit = {
     AppCSS.load
     dom.console.info("Router logging is enabled. Enjoy!")
+    val element = dom.document.getElementById("reactData")
+
+    dom.console.info("element -- " + element.toString)
+    System.out.println("element -- " + element.toString)
 
     /*
     val environmentVars : java.util.Map[String,String] = System.getenv()
@@ -39,6 +42,12 @@ object ReactApp extends JSApp {
       dom.console.info(key + " -- " + props.getProperty(key))
       System.out.println(key + " -- " + props.getProperty(key))
     }
+
+
+    /*var globalJsVars = {
+      websocketUrl : "@websocketUrl",
+      currentUser: "@currentUser.toString"
+    }*/
 
     val router = Router(baseUrl, routerConfig.logToConsole)
     val rootNode = dom.document.createElement("div")

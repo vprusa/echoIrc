@@ -2,26 +2,17 @@ package scalajsreact.template.pages
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
-import japgolly.scalajs.react.extra.Reusability
-import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import japgolly.scalajs.react.vdom.html_<^._
+import org.scalajs.dom
 import org.scalajs.dom._
 import shared.SharedMessages._
-import sun.text.normalizer.Utility
 import upickle.default.{read, _}
 
 import scala.collection.mutable.ListBuffer
-import scala.reflect.runtime
-import scala.scalajs.js.JSConverters.genTravConvertible2JSRichGenTrav
-import scala.util.control.TailCalls.Call
 import scala.util.{Failure, Success}
-import scalajsreact.template.components.LeftNav.Style.{&, style, styleF}
-import scalajsreact.template.models.IrcChatProps
-import scalajsreact.template.pages.IrcChatPage.ChatState
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
-import org.scalajs.dom
-
-import scalacss.internal.Attrs.fontWeight
+import scalajsreact.template.models.IrcChatProps
 
 /**
   * Information base
@@ -30,7 +21,7 @@ import scalacss.internal.Attrs.fontWeight
   *   - starts with "call.*" : js call and unpack Option[WebSocket] and run all input checks
   *   - starts with "send.*" : sends WebSocket message
   */
-object IrcChatPage {
+object AdminPage {
   //def currentMethodName(): String = Thread.currentThread.getStackTrace()(2).getMethodName
 
   // should log stack trace of parent method?
@@ -40,24 +31,6 @@ object IrcChatPage {
 
   // contains live info about channel
   case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String) {
-
-    // call on leave button
-    def callRotateNowButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
-      for (ws <- props.ws)
-        yield sendRestMessageRotateNow(ws, props, s)
-    }
-
-    def sendRestMessageRotateNow(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
-      logThisMethodJs()
-      // send join message to websocket
-      val msg: JsMessageLeaveChannel = JsMessageLeaveChannel(s.sender, this.target)
-
-      def send = Callback(ws.send(write(msg)))
-
-      org.scalajs.dom.console.log(msg.toString)
-      send // >> updateState
-    }
-
 
     // call on leave button
     def callOnLeaveButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
@@ -377,13 +350,9 @@ object IrcChatPage {
                     ),
                     <.button(
                       ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
+                      ^.onClick -->? s.callSendJoinTargetMessage(props),
                       ^.onClick -->? targetState.callOnLeaveButton(props, s),
                       "Leave"
-                    ),
-                    <.button(
-                      ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
-                      ^.onClick -->? targetState.callRotateNowButton(props, s),
-                      "Rotate logs now"
                     )
                   ),
                   <.h4(targetState.target),

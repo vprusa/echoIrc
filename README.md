@@ -14,6 +14,8 @@
 
 [play-rest-security](https://github.com/jamesward/play-rest-security)
 
+[gist/strobe/8515423](https://gist.github.com/strobe/8515423)
+
 ## How to run
 
 ```

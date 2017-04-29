@@ -13,13 +13,37 @@ import java.nio.file.{Paths, Files}
   * Created by vprusa on 4/21/17.
   */
 
+case class LogSnippetRequest(fromDateTime: String, toDateTime: String, fromLine: Int, linesCount: Int, logLines: Array[String])
+
+object LogSnippet {
+
+  //var logSnippet : LogSnippet = LogSnippet
+
+  def get() = {
+
+  }
+
+}
+
 class Logs(userId: String) {
+
+  import java.util.Calendar
+  import java.text.SimpleDateFormat
+
+  val now = Calendar.getInstance().getTime()
+  val dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss")
+  var currentTime = dateFormat.format(now)
 
   def getCurrentDirectory = new java.io.File(".").getCanonicalPath
 
-  val LOG_FILENAME: String = "ircLog.log"
+  val LOG_FILENAME: String = s"ircLog-${currentTime}.log"
   val LOG_FILEPATH: String = s"./ircLogs/${userId}/${LOG_FILENAME}"
   val LOG_DIR: String = s"${getCurrentDirectory}/ircLogs/${userId}/"
+
+  def rotateNow(): Unit = {
+    Logger.debug("rotateLogsNow.jsonBody.map .rotateNow")
+    currentTime = dateFormat.format(now)
+  }
 
   def createLogFileIfNotExists(): Unit = {
     val file = new File(LOG_FILEPATH)
@@ -32,10 +56,8 @@ class Logs(userId: String) {
     }
   }
 
-
   def createDirIfNotExists(): Unit = {
     val dir = new File(LOG_DIR)
-
 
     Logger.debug(s"getCurrentDirectory ${getCurrentDirectory}")
     Logger.debug(s"LOG_DIR ${LOG_DIR}")

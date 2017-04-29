@@ -7,10 +7,8 @@ import japgolly.scalajs.react.extra.router.RouterCtl
 import scala.scalajs.js
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
-
-import scalajsreact.template.models.Menu
-import scalajsreact.template.routes.AppRouter.AppPage
-
+import scalajsreact.template.models.{Menu, MenuInner, MenuOutisde}
+import scalajsreact.template.routes.AppRouter.{AppPage, mainMenu}
 import org.scalajs.dom
 
 import scala.scalajs.js.JSApp
@@ -19,6 +17,7 @@ import japgolly.scalajs.react._
 import vdom.html_<^._
 import japgolly.scalajs.react.extra._
 import japgolly.scalajs.react.extra.router._
+import jdk.nashorn.internal.parser.JSONParser
 
 //import scalacss.ScalatagsCss._
 
@@ -48,7 +47,24 @@ object TopNav {
 
   }
 
-  case class Props(menus: Vector[Menu], selectedPage: AppPage, ctrl: RouterCtl[AppPage])
+  import upickle.default._
+  import scalajsreact.template.models.User
+  import scalajsreact.template.models.UserPermissions
+  import scalajsreact.template.routes.AppRouter
+
+  def getCurrentUser(): User = {
+
+    // anonym user with no permission
+    User("anonym", List(AppRouter.Home, AppRouter.Logout, AppRouter.Login))
+  }
+
+  def hasUserPermissionForMenuItem(item: Menu): Boolean = {
+    // TODO rest call
+    val user: User = getCurrentUser
+    user.topNavPermission.contains(item)
+  }
+
+  case class Props(menus: List[Menu], selectedPage: AppPage, ctrl: RouterCtl[AppPage])
 
   implicit val currentPageReuse = Reusability.by_==[AppPage]
   implicit val propsReuse = Reusability.by((_: Props).selectedPage)
@@ -60,13 +76,43 @@ object TopNav {
           <.ul(
             Style.navMenu,
             P.menus.map(
-              item => <.li(^.key := item.name,
-                Style.menuItem(
-                  item.route.getClass == P.selectedPage.getClass
-                ),
-                item.name,
-                P.ctrl setOnClick item.route
-              )
+              unknownItem => {
+                unknownItem match {
+                  case item: MenuInner => {
+
+                    if (hasUserPermissionForMenuItem(item)) {
+                      <.li(^.display := "none")
+                      //""
+                    } else {
+                      <.li(^.key := item.name,
+                        Style.menuItem(
+                          item.route.getClass == P.selectedPage.getClass
+                        ),
+                        item.name,
+                        P.ctrl setOnClick item.route
+                      )
+                    }
+
+                  }
+                  case item: MenuOutisde => {
+                    if (hasUserPermissionForMenuItem(item)) {
+                      <.li(^.display := "none")
+                      //""
+                    } else {
+                      <.li(^.key := item.name,
+                        Style.menuItem(
+                          item.route.getClass == P.selectedPage.getClass
+                        ),
+                        <.a(
+                          ^.href := item.staticRedirect,
+                          item.name
+                        )
+                      )
+                    }
+                  }
+                }
+
+              }
             ).toTagMod
           )
         )
@@ -75,55 +121,6 @@ object TopNav {
     .configure(Reusability.shouldComponentUpdate)
     .build
 
-  //def apply(props: Props, ref: js.UndefOr[String] = "", key: js.Any = {}) = component.set(key, ref)(props)
-
-
-  /*
-    val component = ScalaComponent.builder[Props]("TopNav")
-      .render_P { P =>
-        <.header(
-          <.nav(
-            <.ul(
-              //Style.navMenu,
-             // P.menus.map(item => <.li(^.key := item.name,
-                //Style.menuItem(
-                //  item.route.getClass == P.selectedPage.getClass),
-               //   item.name,
-               //   P.ctrl setOnClick item.route)
-              )
-            )
-          )
-        )
-      }
-      .configure(Reusability.shouldComponentUpdate)
-      .build
-  */
-  // def apply(props: Props, ref: js.UndefOr[String] = "", key: js.Any = {}) = component.set(key, ref)(props)
-
-  /*
-    case class Props(menus: Vector[Menu], selectedPage: AppPage, ctrl: RouterCtl[AppPage])
-
-    implicit val currentPageReuse = Reusability.by_==[AppPage]
-    implicit val propsReuse = Reusability.by((_:Props).selectedPage)
-
-    val component = ReactComponentB[Props]("TopNav")
-      .render_P { P =>
-        <.header(
-          <.nav(
-            <.ul(Style.navMenu,
-              P.menus.map(item => <.li(^.key := item.name,
-                Style.menuItem(
-                  item.route.getClass == P.selectedPage.getClass),
-                item.name,
-                P.ctrl setOnClick item.route)))
-          )
-        )
-      }
-      .configure(Reusability.shouldComponentUpdate)
-      .build
-
-    def apply(props: Props, ref: js.UndefOr[String] = "", key: js.Any = {}) = component.set(key, ref)(props)
-  */
 }
 
 
