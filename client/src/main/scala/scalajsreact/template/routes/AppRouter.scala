@@ -68,9 +68,15 @@ object AppRouter {
     MenuOutisde("Logout", Logout, "/auth/logout")
   )
 
+  var mainMenuBefore = ListBuffer[Menu](
+    MenuInner("Home", Home)
+  )
+
+  var mainMenuAfter = ListBuffer[Menu](
+    MenuOutisde("Logout", Logout, "/auth/logout")
+  )
 
   var mainMenu = ListBuffer[Menu](
-    MenuInner("Home", Home),
     /* MenuInner("Todo", Todo),
      MenuInner("Stats", Items(MenuItem.Info)),
      // MenuInner("Error", Error),
@@ -78,7 +84,6 @@ object AppRouter {
      // MenuInner("Logout", Logout),
      // MenuOutisde("Logout", Logout, "/custom/logout"),
      MenuOutisde("Login", Login, "/custom/login")*/
-    MenuOutisde("Logout", Logout, "/auth/logout")
   )
 
   def loadReactElementVarData(): Unit = {
@@ -97,6 +102,9 @@ object AppRouter {
     val topMenu: upickle.Js.Value = loadFromDom("reactData")
     org.scalajs.dom.console.log("loadMenuFromDom")
     org.scalajs.dom.console.log(topMenu.toString())
+
+    mainMenu ++= mainMenuBefore
+
     topMenu.arr.foreach(item => {
       org.scalajs.dom.console.log(item.toString())
       if (item.str.matches("todo")) {
@@ -117,7 +125,7 @@ object AppRouter {
           mainMenu += newMenuItem
       }
     })
-    mainMenu += MenuOutisde("Logout", Logout, "/auth/logout")
+    mainMenu ++= mainMenuAfter //MenuOutisde("Logout", Logout, "/auth/logout")
 
 
     org.scalajs.dom.console.log(mainMenu.toString())

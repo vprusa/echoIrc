@@ -580,7 +580,8 @@ object IrcChatPage {
   }
 
   val WebSocketsApp = ScalaComponent.builder[IrcChatProps]("WebSocketsApp")
-    .initialState(getPersistentChatState())
+    //    .initialState(getPersistentChatState())
+    .initialState(ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false))
     .renderBackend[Backend]
     // set username (username has to be as chat state atr because it can be changed via /anick command)
     .componentWillMount(f => {

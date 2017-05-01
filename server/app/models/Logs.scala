@@ -25,7 +25,7 @@ object LogSnippet {
 
 }
 
-class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss") format (Calendar.getInstance().getTime())}.log") {
+class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss").format(Calendar.getInstance().getTime())}.log") {
 
   import java.util.Calendar
   import java.text.SimpleDateFormat
@@ -33,7 +33,6 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
   val now = Calendar.getInstance().getTime()
   val dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss")
   var currentTime = dateFormat.format(now)
-
 
   def getCurrentDirectory = new java.io.File(".").getCanonicalPath
 

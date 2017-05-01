@@ -1,4 +1,4 @@
-@(data:utils.ReactViewData, dataStr:String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
+@(data: utils.ReactViewData, dataStr: String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,21 +11,25 @@
 
     <body>
 
-        <div id="websocketUrl" webchat-wesocket-url="@data.websocketUrl"></div>
-        <div id="reactRoot" webchat-wesocket-url="@data.websocketUrl"></div>
-        <div id="reactData" currentUser="@(if(data.userName == null){""}else{data.userName.toString})">
-            @dataStr
+        <div id="websocketUrl" style="display: none" webchat-wesocket-url="@data.websocketUrl"></div>
+        <div id="reactRoot" style="display: none" webchat-wesocket-url="@data.websocketUrl"></div>
+        <div id="reactData" style="display: none" currentUser="@(if(data.userName == null) {
+            ""
+        } else {
+            data.userName.toString
+        })">
+        @dataStr
         </div>
-        <script type="text/javascript" >
-            var globalJsVars = {
-                websocketUrl: "@data.websocketUrl"
-            }
+        <script type="text/javascript">
+                var globalJsVars = {
+                    websocketUrl: "@data.websocketUrl"
+                }
         </script>
 
             <!-- Include Scala.js compiled code -->
-        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-template-opt.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-opt.js")"></script>
             <!-- Run JSApp -->
-        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-template-launcher.js")"></script>
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/reactjs/scalajs-react-launcher.js")"></script>
     </body>
 
 </html>

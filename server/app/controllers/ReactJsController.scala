@@ -7,6 +7,8 @@ import securesocial.core.SecureSocial
 import service.MyEnvironment
 import shared.Shared
 
+import scala.collection.mutable.ListBuffer
+
 //
 
 import javax.inject.Inject
@@ -67,11 +69,12 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
 
       val list = actorSystem.settings.config.getStringList("app.client.adminPages")
 
-      var topMenuItems = List.empty[String]
-      while(list.iterator().hasNext){
-        topMenuItems +: list.iterator().next()
+      var topMenuItems = ListBuffer.empty[String]
+      val i = list.iterator()
+      while (i.hasNext) {
+        val v: String = i.next()
+        topMenuItems += v
       }
-
       val topMenuItemsStr = upickle.default.write(topMenuItems)
 
       Ok(views.html.reactJs(data, topMenuItemsStr))

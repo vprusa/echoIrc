@@ -49,10 +49,10 @@ object ReactApp extends JSApp {
       currentUser: "@currentUser.toString"
     }*/
 
-   // val router = Router(baseUrl, routerConfig.logToConsole)
+    val router = Router(baseUrl, routerConfig.logToConsole)
     val rootNode = dom.document.createElement("div")
     rootNode.setAttribute("id", "reactAppRootNode")
     dom.document.body.appendChild(rootNode)
-  //  router() renderIntoDOM rootNode
+    router() renderIntoDOM rootNode
   }
 }

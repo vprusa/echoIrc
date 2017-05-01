@@ -47,11 +47,11 @@ object TopNav {
       (&.hover(backgroundColor(c"#FF6203")))
     ))
 
+    val outerMenuItem = style(color.white, textDecorationLine.none, width.maxContent, height.maxContent)
+
   }
 
-  import upickle.default._
   import scalajsreact.template.models.User
-  import scalajsreact.template.models.UserPermissions
   import scalajsreact.template.routes.AppRouter
 
   def getCurrentUser(): User = {
@@ -82,35 +82,26 @@ object TopNav {
                 unknownItem match {
                   case item: MenuInner => {
 
-                    if (hasUserPermissionForMenuItem(item)) {
-                      <.li(^.display := "none")
-                      //""
-                    } else {
-                      <.li(^.key := item.name,
-                        Style.menuItem(
-                          item.route.getClass == P.selectedPage.getClass
-                        ),
-                        item.name,
-                        P.ctrl setOnClick item.route
-                      )
-                    }
+                    <.li(^.key := item.name,
+                      Style.menuItem(
+                        item.route.getClass == P.selectedPage.getClass
+                      ),
+                      item.name,
+                      P.ctrl setOnClick item.route
+                    )
 
                   }
                   case item: MenuOutisde => {
-                    if (hasUserPermissionForMenuItem(item)) {
-                      <.li(^.display := "none")
-                      //""
-                    } else {
-                      <.li(^.key := item.name,
-                        Style.menuItem(
-                          item.route.getClass == P.selectedPage.getClass
-                        ),
-                        <.a(
-                          ^.href := item.staticRedirect,
-                          item.name
-                        )
+                    <.li(^.key := item.name,
+                      Style.menuItem(
+                        item.route.getClass == P.selectedPage.getClass
+                      ),
+                      <.a(
+                        Style.outerMenuItem(),
+                        ^.href := item.staticRedirect,
+                        item.name
                       )
-                    }
+                    )
                   }
                 }
 
