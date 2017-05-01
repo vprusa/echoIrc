@@ -19,6 +19,8 @@ import japgolly.scalajs.react.extra._
 import japgolly.scalajs.react.extra.router._
 import jdk.nashorn.internal.parser.JSONParser
 
+import scala.collection.mutable.ListBuffer
+
 //import scalacss.ScalatagsCss._
 
 
@@ -64,7 +66,7 @@ object TopNav {
     user.topNavPermission.contains(item)
   }
 
-  case class Props(menus: List[Menu], selectedPage: AppPage, ctrl: RouterCtl[AppPage])
+  case class Props(menus: ListBuffer[Menu], selectedPage: AppPage, ctrl: RouterCtl[AppPage])
 
   implicit val currentPageReuse = Reusability.by_==[AppPage]
   implicit val propsReuse = Reusability.by((_: Props).selectedPage)

@@ -40,6 +40,8 @@ class RestController @Inject()(
     val body: AnyContent = request.body
     val jsonBody: Option[JsValue] = body.asJson
 
+    // TODO json needs to contian
+    // from & to: DateTime
     // Expecting json body
     jsonBody.map { json =>
       Ok("Got: " + (json \ "name").as[String])

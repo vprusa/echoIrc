@@ -1,4 +1,4 @@
-@(currentUser: service.DemoUser, websocketUrl: String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
+@(data:utils.ReactViewData, dataStr:String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,12 +11,14 @@
 
     <body>
 
-        <div id="websocketUrl" webchat-wesocket-url="@websocketUrl"></div>
-        <div id="reactRoot" webchat-wesocket-url="@websocketUrl"></div>
-        <div id="reactData" currentUser="@(if(currentUser == null){""}else{currentUser.toString})"></div>
+        <div id="websocketUrl" webchat-wesocket-url="@data.websocketUrl"></div>
+        <div id="reactRoot" webchat-wesocket-url="@data.websocketUrl"></div>
+        <div id="reactData" currentUser="@(if(data.userName == null){""}else{data.userName.toString})">
+            @dataStr
+        </div>
         <script type="text/javascript" >
             var globalJsVars = {
-                websocketUrl: "@websocketUrl"
+                websocketUrl: "@data.websocketUrl"
             }
         </script>
 

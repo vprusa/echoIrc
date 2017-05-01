@@ -123,7 +123,7 @@ val jsOutDir = "server/public/javascripts/reactjs"
 
 lazy val client = (project in file("client")).settings(
   scalaVersion := scalaV,
-  persistLauncher := true,
+  persistLauncher := false,
   persistLauncher in Test := false,
 
   name := "scalajs-react",

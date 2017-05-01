@@ -1,13 +1,13 @@
 package models
 
 import play.api.Logger
-
 import java.io.File
+
 import scala.io.Source
-
 import java.io._
-
-import java.nio.file.{Paths, Files}
+import java.nio.file.{Files, Paths}
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 /**
   * Created by vprusa on 4/21/17.
@@ -25,7 +25,7 @@ object LogSnippet {
 
 }
 
-class Logs(userId: String) {
+class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss") format (Calendar.getInstance().getTime())}.log") {
 
   import java.util.Calendar
   import java.text.SimpleDateFormat
@@ -34,10 +34,12 @@ class Logs(userId: String) {
   val dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss")
   var currentTime = dateFormat.format(now)
 
+
   def getCurrentDirectory = new java.io.File(".").getCanonicalPath
 
-  val LOG_FILENAME: String = s"ircLog-${currentTime}.log"
-  val LOG_FILEPATH: String = s"./ircLogs/${userId}/${LOG_FILENAME}"
+  //val LOG_FILENAME: String = s"ircLog-${currentTime}.log"
+  val LOG_USERDIR: String = s"./ircLogs/${userId}/"
+  val LOG_FILEPATH: String = s"${LOG_USERDIR}${LOG_FILENAME}"
   val LOG_DIR: String = s"${getCurrentDirectory}/ircLogs/${userId}/"
 
   def rotateNow(): Unit = {
@@ -94,6 +96,19 @@ class Logs(userId: String) {
       arr :+ line
     }
     return arr
+  }
+
+  def getLogsFiles(): List[File] = {
+    val d = new File(LOG_DIR)
+    if (d.exists && d.isDirectory) {
+      d.listFiles.filter(_.isFile).toList
+    } else {
+      List[File]()
+    }
+  }
+
+  def getLogFile(f: File): Unit = {
+
   }
 
 }

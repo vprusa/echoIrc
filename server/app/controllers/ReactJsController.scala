@@ -3,6 +3,7 @@ package controllers
 import javax.inject.Singleton
 
 import play.api.Logger
+import securesocial.core.SecureSocial
 import service.MyEnvironment
 import shared.Shared
 
@@ -43,7 +44,10 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
       Logger.debug(request.toString())
       Logger.debug("Path: " + any)
 
-      Ok(views.html.reactJsExample(null, actorSystem.settings.config.getString("app.websocket.url")))
+      // Ok(views.html.reactJs(null, actorSystem.settings.config.getString("app.websocket.url")))
+      val data = utils.ReactViewData(null, actorSystem.settings.config.getString("app.websocket.url"),
+        "/rest", actorSystem.settings.config.getStringList("app.client.adminPages"))
+      Ok(views.html.reactJs(data, ""))
   }
 
 
@@ -54,7 +58,23 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
       Logger.info(request.toString())
       Logger.info("Path:" + any)
 
-      Ok(views.html.reactJsExample(request.user, actorSystem.settings.config.getString("app.websocket.url")))
+      // Ok(views.html.reactJs(request.user, actorSystem.settings.config.getString("app.websocket.url")))
+
+      val data = utils.ReactViewData(request.user.main.userId, actorSystem.settings.config.getString("app.websocket.url"),
+        "/rest", actorSystem.settings.config.getStringList("app.client.adminPages"))
+      //      val dataStr:String = upickle.default.write[](data)
+      //val dataStr:String = upickle.default.write(data)
+
+      val list = actorSystem.settings.config.getStringList("app.client.adminPages")
+
+      var topMenuItems = List.empty[String]
+      while(list.iterator().hasNext){
+        topMenuItems +: list.iterator().next()
+      }
+
+      val topMenuItemsStr = upickle.default.write(topMenuItems)
+
+      Ok(views.html.reactJs(data, topMenuItemsStr))
   }
 
 }

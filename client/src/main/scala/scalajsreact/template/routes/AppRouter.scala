@@ -15,6 +15,7 @@ import vdom.html_<^._
 import japgolly.scalajs.react.extra._
 import japgolly.scalajs.react.extra.router._
 
+import scala.collection.mutable.ListBuffer
 import scalajsreact.template.pages.IrcChatPage
 
 object AppRouter {
@@ -61,17 +62,23 @@ object AppRouter {
       .renderWith(layout)
   }
 
-  var mainMenu = List(
-    MenuInner("Home", Home),
-    MenuInner("Todo", Todo),
-    MenuInner("Stats", Items(MenuItem.Info)),
-    // MenuInner("Error", Error),
-    MenuInner("IrcChat", IrcChat),
-    // MenuInner("Logout", Logout),
-    // MenuOutisde("Logout", Logout, "/custom/logout"),
-    MenuOutisde("Logout", Logout, "/auth/logout"),
-    MenuOutisde("Login", Login, "/custom/login")
 
+  var mainMenuDefault = ListBuffer[Menu](
+    MenuInner("Home", Home),
+    MenuOutisde("Logout", Logout, "/auth/logout")
+  )
+
+
+  var mainMenu = ListBuffer[Menu](
+    MenuInner("Home", Home),
+    /* MenuInner("Todo", Todo),
+     MenuInner("Stats", Items(MenuItem.Info)),
+     // MenuInner("Error", Error),
+     MenuInner("IrcChat", IrcChat),
+     // MenuInner("Logout", Logout),
+     // MenuOutisde("Logout", Logout, "/custom/logout"),
+     MenuOutisde("Login", Login, "/custom/login")*/
+    MenuOutisde("Logout", Logout, "/auth/logout")
   )
 
   def loadReactElementVarData(): Unit = {
@@ -81,7 +88,44 @@ object AppRouter {
     System.out.println("element -- " + element.toString)
   }
 
+
+  def loadFromDom(name: String): upickle.Js.Value = {
+    upickle.json.read(dom.document.getElementById(name).textContent)
+  }
+
+  def loadMenuFromDom(): Unit = {
+    val topMenu: upickle.Js.Value = loadFromDom("reactData")
+    org.scalajs.dom.console.log("loadMenuFromDom")
+    org.scalajs.dom.console.log(topMenu.toString())
+    topMenu.arr.foreach(item => {
+      org.scalajs.dom.console.log(item.toString())
+      if (item.str.matches("todo")) {
+        org.scalajs.dom.console.log(".todo")
+        val newMenuItem = MenuInner("Todo", Todo)
+        if (!mainMenu.contains(newMenuItem))
+          mainMenu += newMenuItem
+
+      } else if (item.str.matches("stats")) {
+        org.scalajs.dom.console.log(".stats")
+        val newMenuItem = MenuInner("Stats", Items(MenuItem.Info))
+        if (!mainMenu.contains(newMenuItem))
+          mainMenu += newMenuItem
+      } else if (item.str.matches("ircchat")) {
+        org.scalajs.dom.console.log(".ircchat")
+        val newMenuItem = MenuInner("IrcChat", IrcChat)
+        if (!mainMenu.contains(newMenuItem))
+          mainMenu += newMenuItem
+      }
+    })
+    mainMenu += MenuOutisde("Logout", Logout, "/auth/logout")
+
+
+    org.scalajs.dom.console.log(mainMenu.toString())
+  }
+
   def layout(c: RouterCtl[AppPage], r: Resolution[AppPage]) = {
+    loadMenuFromDom()
+
     <.div(
       TopNav.component(TopNav.Props(mainMenu, r.page, c)),
       r.render(),
