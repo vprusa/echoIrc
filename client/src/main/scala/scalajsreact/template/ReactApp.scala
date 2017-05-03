@@ -9,7 +9,7 @@ import scalajsreact.template.models.IrcChatProps
 
 //import scalacss.ScalatagsCss._
 import scalajsreact.template.css.AppCSS
-import scalajsreact.template.routes.AppRouter.{baseUrl, routerConfig}
+import scalajsreact.template.routes.AppRouter.{baseUrl, routerConfig,loadMenuFromDom}
 
 //import chandu0101.scalajs.react.components.Implicits._
 
@@ -52,6 +52,9 @@ object ReactApp extends JSApp {
     val router = Router(baseUrl, routerConfig.logToConsole)
     val rootNode = dom.document.createElement("div")
     rootNode.setAttribute("id", "reactAppRootNode")
+
+    loadMenuFromDom()
+
     dom.document.body.appendChild(rootNode)
     router() renderIntoDOM rootNode
   }

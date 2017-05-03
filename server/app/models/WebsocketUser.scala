@@ -15,9 +15,10 @@ import play.api.libs.json.Json
 import securesocial.core.SecureSocial
 import service.{DemoUser, MyEnvironment}
 import shared.Shared
-import shared.SharedMessages.{JsMessageBase, _}
+import shared.SharedMessages.{JsMessage, JsMessageBase, _}
 import upickle.default._
 import utils.IrcLogBot
+import play.api.libs.json.{JsNull, JsString, JsValue, Json}
 
 import scala.util.{Failure, Success}
 //
@@ -54,9 +55,15 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
 
   val server = system.settings.config.getString("app.irc.server")
 
-  var sub: ActorRef = null
+  var userActor: ActorRef = null
 
   var listener: IrcListener = null
+
+  def sendJsMessage[T <: JsMessageBase](jsmsg: T): Unit = {
+    val jsval: JsValue = Json.parse(upickle.default.write[JsMessageBase](jsmsg))
+    Logger.debug(jsval.toString())
+    userActor ! jsval
+  }
 
   def receive = {
     case IrcNewParticipant(name, subscriber) => {
@@ -71,10 +78,10 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         ircBot.defaultListener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
       } else {
         Logger.debug(s"IrcNewParticipant( name: ${name} ,subscriber: ${subscriber} )")
-        Logger.debug(s"this ${this} and sub ${sub}")
+        Logger.debug(s"this ${this} and sub ${userActor}")
 
         // TODO im sure that there is better way how to redirrect messages from/to websocket to/from irc
-        sub = subscriber
+        userActor = subscriber
 
         // welcome message - but ircbot may not be ready yet
         subscriber ! Json.parse(write[JsMessage](JsMessage(
@@ -180,14 +187,9 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
     case msg: IrcReceivedMessage ⇒ {
       Logger.debug(s"msg: IrcReceivedMessage ${msg} jsvalues: ${msg.message}")
       Logger.debug(s"this ${this} ")
-      Logger.debug(s"sub  ${sub} ")
+      Logger.debug(s"sub  ${userActor} ")
 
-      if (sub != null) {
-        Logger.debug(s"sub is: ${sub}")
-        sub ! msg.message
-      } else {
-        Logger.debug(s"sub missing")
-      }
+
       Logger.debug(s"Sending message to irc")
 
       val incommingMsg = read[JsMessageBase](msg.message.toString())
@@ -195,43 +197,63 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
 
       Logger.debug(s"incommingMsg ${incommingMsg}")
 
-      incommingMsg match {
-        case JsMessageStarBot(botName, autoJoinChannels) => {
-          Logger.debug(s"JsMessageStarBot")
-        }
-        case JsMessage(sender, target, msg) => {
-          // handle the JsMessage
-          Logger.debug(s"JsMessage")
-          // log to file
-          ircBot.defaultListener.logs.logLine(JsMessage(sender, target, msg).toString)
-          // send to irc
-          ircBot.send().message(target, s"${msg}")
-        }
-        case JsMessageJoinChannel(sender, target) => {
-          // handle the JsMessageJoinChannel
-          Logger.debug(s"JsMessageJoinChannel")
-          ircBot.sendIRC().joinChannel(target)
-        }
-        case JsMessageLeaveChannel(sender, target) => {
-          // handle the JsMessageLeaveChannel
-          // TODO how?
-          ircBot.send().ctcpCommand(target, "/part") //action(target, "/part")
-          ircBot.send().ctcpResponse(target, "/part") //action(target, "/part")
-          ircBot.send().action(target, "/part") //action(target, "/part")
-          ircBot.send().ctcpCommand(target, "/leave") //action(target, "/part")
-          ircBot.send().ctcpResponse(target, "/leave") //action(target, "/part")
-          ircBot.send().action(target, "/leave") //action(target, "/part")
+      if (userActor != null) {
+        Logger.debug(s"sub is: ${userActor}")
+        //userActor ! msg.message
+        incommingMsg match {
+          case JsMessageStarBot(botName, autoJoinChannels) => {
+            Logger.debug(s"JsMessageStarBot")
+            sendJsMessage(JsMessageStarBot(botName, autoJoinChannels))
+          }
+          case jsmsg: JsMessage => {
+            // handle the JsMessage
+            Logger.debug(s"JsMessage")
+            // log to file
+            ircBot.defaultListener.logs.logLine(jsmsg.toString)
+            // send to irc
+            ircBot.send().message(jsmsg.target, s"${jsmsg.msg}")
+            sendJsMessage(jsmsg)
+          }
+          case jsmsg: JsMessageJoinChannelRequest => {
+            // handle the JsMessageJoinChannel
+            Logger.debug(s"JsMessageJoinChannel")
+            ircBot.sendIRC().joinChannel(jsmsg.target)
 
-          ircBot.send().ctcpCommand(sender, "/part") //action(target, "/part")
-          ircBot.send().ctcpResponse(sender, "/part") //action(target, "/part")
-          ircBot.send().action(sender, "/part") //action(target, "/part")
-          ircBot.send().ctcpCommand(sender, "/leave") //action(target, "/part")
-          ircBot.send().ctcpResponse(sender, "/leave") //action(target, "/part")
-          ircBot.send().action(sender, "/leave") //action(target, "/part")
+            sendJsMessage(JsMessageJoinChannelResponse(jsmsg.sender, jsmsg.target, Array.empty[TargetParticipant]))
+          }
+          case jsmsg: JsMessageRotateLogs => {
+            // handle the JsMessageRotateLogs
+            Logger.debug(s"JsMessageRotateLogs")
+            ircBot.defaultListener.logs = new Logs(jsmsg.sender)
+            sendJsMessage(jsmsg)
+          }
+          case jsmsg: JsMessageLeaveChannel => {
+            // handle the JsMessageLeaveChannel
+            // TODO how?
+            ircBot.send().ctcpCommand(jsmsg.target, "/part") //action(jsmsg.target, "/part")
+            ircBot.send().ctcpResponse(jsmsg.target, "/part") //action(jsmsg.target, "/part")
+            ircBot.send().action(jsmsg.target, "/part") //action(jsmsg.target, "/part")
+            ircBot.send().ctcpCommand(jsmsg.target, "/leave") //action(jsmsg.target, "/part")
+            ircBot.send().ctcpResponse(jsmsg.target, "/leave") //action(jsmsg.target, "/part")
+            ircBot.send().action(jsmsg.target, "/leave") //action(jsmsg.target, "/part")
 
-          //ircBot.send().part("/leave")//action(target, "/part")
+            ircBot.send().ctcpCommand(jsmsg.sender, "/part") //action(target, "/part")
+            ircBot.send().ctcpResponse(jsmsg.sender, "/part") //action(target, "/part")
+            ircBot.send().action(jsmsg.sender, "/part") //action(target, "/part")
+            ircBot.send().ctcpCommand(jsmsg.sender, "/leave") //action(target, "/part")
+            ircBot.send().ctcpResponse(jsmsg.sender, "/leave") //action(target, "/part")
+            ircBot.send().action(jsmsg.sender, "/leave") //action(target, "/part")
+
+            //ircBot.send().part("/leave") //action(target, "/part")
+            //userActor ! jsmsg
+            sendJsMessage(JsMessageLeaveChannelResponse(jsmsg.sender, jsmsg.target))
+          }
         }
+
+      } else {
+        Logger.debug(s"sub missing")
       }
+
     }
 
     case IrcParticipantLeft(person) ⇒ {

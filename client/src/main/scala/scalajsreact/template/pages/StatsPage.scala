@@ -7,6 +7,7 @@ import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.RouterCtl
 import japgolly.scalajs.react.vdom.html_<^._
 import scalajsreact.template.components.LeftNav
+import scalajsreact.template.models.IrcChatProps
 
 import scalacss.internal.Attrs
 
@@ -34,7 +35,7 @@ object StatsPage {
     }
     .build
 
-  case class Props(selectedPage: MenuItem, ctrl: RouterCtl[MenuItem])
+  case class Props(selectedPage: MenuItem, ctrl: RouterCtl[MenuItem], props: IrcChatProps)
 
   def apply(props: Props) = component(props).vdomElement
 

@@ -2,12 +2,13 @@ package scalajsreact.template.routes
 
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 
-import scalajsreact.template.pages.{AdminPage, ErrorPage, HomePage, StatsPage, TodoPage}
+import scalajsreact.template.pages.{LogsPage, AdminPage, ErrorPage, HomePage, StatsPage, TodoPage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
 import scalajsreact.template.models.{AppConfig, Menu, MenuInner, MenuOutisde}
 import org.scalajs.dom
-
+import scalacss.Defaults._
+import scalacss.ScalaCssReact._
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
 import japgolly.scalajs.react._
@@ -17,6 +18,8 @@ import japgolly.scalajs.react.extra.router._
 
 import scala.collection.mutable.ListBuffer
 import scalajsreact.template.pages.IrcChatPage
+import scalajsreact.template.models.IrcChatProps
+import scalajsreact.template.css.GlobalStyle
 
 object AppRouter {
 
@@ -29,6 +32,8 @@ object AppRouter {
   case object IrcChat extends AppPage
 
   case object Admin extends AppPage
+
+  case object Logs extends AppPage
 
   //case object Stats extends AppPage
 
@@ -51,8 +56,9 @@ object AppRouter {
     (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
       | staticRoute("todo", Todo) ~> render(TodoPage.component())
+      | staticRoute("logs", Logs) ~> render(LogsPage.component(AppConfig.ircChatPropsTest))
       | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(AppConfig.ircChatPropsTest))
-      | staticRoute("admin", Admin) ~> render(AdminPage.WebSocketsApp(AppConfig.ircChatPropsTest))
+      | staticRoute("admin", Admin) ~> render(AdminPage.component())
       | staticRoute("error", Error) ~> render(ErrorPage.component())
       //   | staticRoute("login", Login) ~> redirectToPath("/custom/login")
       //   | staticRoute("logout", Logout) ~> redirectToPath("/custom/logout")
@@ -131,12 +137,15 @@ object AppRouter {
     org.scalajs.dom.console.log(mainMenu.toString())
   }
 
+
   def layout(c: RouterCtl[AppPage], r: Resolution[AppPage]) = {
-    loadMenuFromDom()
 
     <.div(
       TopNav.component(TopNav.Props(mainMenu, r.page, c)),
-      r.render(),
+      <.div(
+        GlobalStyle.content,
+        r.render()
+      ),
       Footer.component()
     )
   }

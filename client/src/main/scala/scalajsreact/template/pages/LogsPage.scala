@@ -2,20 +2,16 @@ package scalajsreact.template.pages
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
-
-import scalacss.Defaults._
-import scalacss.ScalaCssReact._
-import scalajsreact.template.components.LeftNav.Style.style
-import scalajsreact.template.pages.IrcChatPage.TargetStyle.{style, styleF}
+import scalajsreact.template.components.SearchLogs
 
 /**
   * Created by chandrasekharkode on 11/16/14.
   */
-object AdminPage {
+object LogsPage {
 
+  val component = SearchLogs.searchLogsComponent
 
-
-  val component = ScalaComponent.static("Login")(
+  val component2 = ScalaComponent.static("Login")(
     <.div(
       <.h1(
         <.a(

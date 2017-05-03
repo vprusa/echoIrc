@@ -39,7 +39,7 @@ object IrcChatPage {
   }
 
   // contains live info about channel
-  case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String) {
+  case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String, participants: Array[TargetParticipant]) {
 
     // call on leave button
     def callRotateNowButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
@@ -50,7 +50,7 @@ object IrcChatPage {
     def sendRestMessageRotateNow(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
       logThisMethodJs()
       // send join message to websocket
-      val msg: JsMessageLeaveChannel = JsMessageLeaveChannel(s.sender, this.target)
+      val msg: JsMessageRotateLogs = JsMessageRotateLogs(s.sender, this.target)
 
       def send = Callback(ws.send(write(msg)))
 
@@ -137,7 +137,7 @@ object IrcChatPage {
 
   }
 
-  val defaultTargetStateInside = TargetState("#TheName", "", logLines = ListBuffer.empty[JsMessage], inputMessage = "")
+  val defaultTargetStateInside = TargetState("#TheName", "", logLines = ListBuffer.empty[JsMessage], inputMessage = "", Array.empty[TargetParticipant])
 
   case class ChatState(var targets: ListBuffer[TargetState], sender: String,
                        var channelJoin: String, /*channelJoinPassword : String,*/ var selectedTarget: Option[TargetState], var ready: Boolean) {
@@ -224,7 +224,7 @@ object IrcChatPage {
     def sendJoinTargetMessage(ws: WebSocket, props: IrcChatProps, s: ChatState): Callback = {
       logThisMethodJs()
       // send join message to websocket
-      val msg: JsMessageJoinChannel = JsMessageJoinChannel(s.sender, s.channelJoin)
+      val msg: JsMessageJoinChannelRequest = JsMessageJoinChannelRequest(s.sender, s.channelJoin)
 
       def send = Callback(ws.send(write(msg)))
 
@@ -462,11 +462,16 @@ object IrcChatPage {
               org.scalajs.dom.console.log(s"JsMessage ${k.toString}")
               direct.modState(_.logTargetLine(k))
             }
-            case JsMessageJoinChannel(sender, target) => {
+            case JsMessageRotateLogs(sender, target) => {
+              // handle the JsMessage
+              org.scalajs.dom.console.log(s"JsMessageRotateLogs ${target}")
+              direct.modState(_.logTargetLine(JsMessage(sender, target, "Logs rotated...")))
+            }
+            case JsMessageJoinChannelResponse(sender, target, participants) => {
               // handle the JsMessageJoinChannel
               org.scalajs.dom.console.log("JsMessageJoinChannel")
               direct.modState(f => {
-                f.copy(targets = addTarget(f.targets, TargetState(target = target, password = "", ListBuffer.empty[JsMessage], "")))
+                f.copy(targets = addTarget(f.targets, TargetState(target = target, password = "", ListBuffer.empty[JsMessage], "",participants)))
               })
             }
             case JsMessageLeaveChannel(sender, target) => {

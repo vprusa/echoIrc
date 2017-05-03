@@ -26,4 +26,7 @@ object GlobalStyle extends StyleSheet.Inline {
       fontFamily := "Roboto, sans-serif"
     )
   )
+
+  val content = style(margin := 30.px)
+
 }

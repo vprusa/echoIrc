@@ -171,12 +171,14 @@ class IrcWebController @Inject()(
     Shared.ircLogBotMap.getOrElse(userName, null)
   }
 
-
   def myChatFlow(sender: String, channel: String, demoUserFutOpt: Future[Option[MyEnvironment#U]]): Flow[JsValue, JsValue, _] = {
     var demoUserVar: DemoUser = null
     if (demoUserFutOpt != null) {
       demoUserVar = unpackUser(demoUserFutOpt)
     }
+    Logger.debug("demoUserFutOpt.toString")
+    Logger.debug(demoUserFutOpt.toString)
+    Logger.debug(demoUserVar.toString)
 
     var uniqueName: String = actorSystem.settings.config.getString("app.irc.defaultUserName")
     if (demoUserVar != null) {
@@ -231,6 +233,8 @@ class IrcWebController @Inject()(
         if (actorSystem.settings.config.getBoolean("app.server.users.authSecureSocialEnabled")) {
           demoUserFutOpt = SecureSocial.currentUser(request, env, executionContext)
         }
+        Logger.debug("demoUserFutOpt")
+        Logger.debug(demoUserFutOpt.toString)
         Future.successful(myChatFlow(botName, actorSystem.settings.config.getString("app.irc.defaultChannel"), demoUserFutOpt)).map { flow =>
           Right(flow)
         }.recover {
