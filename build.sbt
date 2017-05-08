@@ -71,8 +71,8 @@ lazy val server = (project in file("server")).settings(
   //
   // libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
   //libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
-  //libraryDependencies += "ws.securesocial" %% "securesocial" % "master-SNAPSHOT",
-  libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
+  libraryDependencies += "ws.securesocial" %% "securesocial" % "master-SNAPSHOT",
+  //libraryDependencies += "ws.securesocial" %% "securesocial" % "3.0-M8",
 
 
   //https://gist.github.com/strobe/8515423

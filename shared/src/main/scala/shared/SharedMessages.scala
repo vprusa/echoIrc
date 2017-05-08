@@ -33,7 +33,14 @@ object SharedMessages {
 
   case class JsMessageIrcBotReady() extends JsMessageBase
 
-  case class JsMessageStarBot(botName: String, autoJoinChannels: Array[String]) extends JsMessageBase
+  // TODO
+  //case class JsMessageStarBot(botName: String, autoJoinChannels: Array[String]) extends JsMessageBase
 
+  case class JsMessageStarBotRequest(botName: String, targets: Array[String]) extends JsMessageBase
+
+  case class JsMessageStarBotResponse(targetsParticipants: Map[String, Array[TargetParticipant]]) extends JsMessageBase
+
+
+  //case class LogsStatsState(wordCount: java.lang.Integer) extends JsMessageBase
 
 }

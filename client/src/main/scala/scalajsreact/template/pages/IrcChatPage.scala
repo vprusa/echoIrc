@@ -22,6 +22,8 @@ import scalacss.ScalaCssReact._
 import org.scalajs.dom
 
 import scalacss.internal.Attrs.fontWeight
+import japgolly.scalajs.react.extra.Reusability
+import org.scalajs.dom.ext.Ajax
 
 /**
   * Information base
@@ -39,7 +41,7 @@ object IrcChatPage {
   }
 
   // contains live info about channel
-  case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String, participants: Array[TargetParticipant]) {
+  case class TargetState(target: String, password: String, var logLines: ListBuffer[JsMessage], var inputMessage: String, var participants: Array[TargetParticipant]) {
 
     // call on leave button
     def callRotateNowButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
@@ -57,7 +59,6 @@ object IrcChatPage {
       org.scalajs.dom.console.log(msg.toString)
       send // >> updateState
     }
-
 
     // call on leave button
     def callOnLeaveButton(props: IrcChatProps, s: ChatState): Option[Callback] = {
@@ -140,7 +141,46 @@ object IrcChatPage {
   val defaultTargetStateInside = TargetState("#TheName", "", logLines = ListBuffer.empty[JsMessage], inputMessage = "", Array.empty[TargetParticipant])
 
   case class ChatState(var targets: ListBuffer[TargetState], sender: String,
-                       var channelJoin: String, /*channelJoinPassword : String,*/ var selectedTarget: Option[TargetState], var ready: Boolean) {
+                       var channelJoin: String, /*channelJoinPassword : String,*/ var selectedTarget: Option[TargetState], var ready: Boolean, var props: Option[IrcChatProps]) {
+
+
+    def setReadyAndRequestParticipants() = {
+      org.scalajs.dom.console.log("setReadyAndGetParticipants")
+      var targetsArr = Array.empty[String]
+      targets.foreach(t => {
+        targetsArr +:= t.target
+      })
+      val msg: JsMessageStarBotRequest = JsMessageStarBotRequest(sender, targetsArr)
+      org.scalajs.dom.console.log("JsMessageIrcBotReady msg.toString")
+      org.scalajs.dom.console.log(msg.toString)
+      props.map(P => {
+        org.scalajs.dom.console.log("send JsMessageStarBotRequest")
+        P.ws.map(wsV => {
+          wsV.send(write(msg))
+        })
+      })
+      this
+    }
+
+
+    def updateTargetsParticipants(targetsParticipants: Map[String, Array[TargetParticipant]]) = {
+      org.scalajs.dom.console.log("updateTargetsParticipants ")
+      org.scalajs.dom.console.log(targetsParticipants.toString())
+      var newTargets = targets
+      targetsParticipants.foreach(i => {
+        val target = i._1
+        val participants = i._2
+        targets.foreach(f => {
+          if (f.target.matches(target)) {
+            f.participants = participants
+          }
+        })
+      })
+      org.scalajs.dom.console.log("updateTargetsParticipants ")
+      org.scalajs.dom.console.log(targets.toString)
+      targets
+    }
+
 
     // if no target view is selected and targets list is not empty then set the first target as selected view
     def setDefaultSelectedTargetIfNone(): Unit = {
@@ -189,7 +229,11 @@ object IrcChatPage {
     }
 
     def sendStartIrcBotRequest(props: IrcChatProps): ChatState = {
-      val request: JsMessageStarBot = JsMessageStarBot(this.sender, Array[String]("#TheName", "#TheName2"))
+      var arrayTargets = Array.empty[String]
+      targets.foreach(f => {
+        arrayTargets +:= f.target
+      })
+      val request: JsMessageStarBotRequest = JsMessageStarBotRequest(sender, arrayTargets)
       this.logLine("Connected.")
 
       this.callJsMessageAndReturnCallback(props, request)
@@ -273,7 +317,7 @@ object IrcChatPage {
 
     val targetHidden = styleF.bool { selected =>
       styleS(
-        mixinIf(selected)(display.none)
+        mixinIfElse(selected)(display.none)(float.left)
       )
     }
 
@@ -289,10 +333,50 @@ object IrcChatPage {
         )
       )
     }
+
+    val targetParticipants = style(float.right)
+
   }
 
 
   class Backend($: BackendScope[IrcChatProps, ChatState]) {
+
+    def mounted = {
+      org.scalajs.dom.console.log(s"mounted")
+      /*import scala.concurrent.ExecutionContext.Implicits.global
+      Ajax.get(s"/rest/getParticipants/${target}").foreach {
+        xhr =>
+          org.scalajs.dom.console.log(s"mounted ${xhr.responseText}")
+      }*/
+      direct = this.getDirect()
+      //direct.props.map(g => {
+      //})
+      //props.ws = Some(ws)
+      val pr: IrcChatProps = direct.props.asInstanceOf[IrcChatProps]
+      org.scalajs.dom.console.log("direct.toString")
+      org.scalajs.dom.console.log(direct.toString)
+      org.scalajs.dom.console.log(direct.props.toString)
+
+      $.modState(_.copy(props = Some(pr)))
+      /*
+           direct.props.map(q => {
+             org.scalajs.dom.console.log("q.toString")
+             org.scalajs.dom.console.log(q.toString)
+           })
+           direct.props.attemptTry.flatMap {
+             case Success(propsSuccess) => {
+               org.scalajs.dom.console.log(s"direct.props.attemptTry.flatMap Success")
+               $.modState(_.copy(props = Some(propsSuccess) /*ws = Some(ws)*/))
+             }
+             case Failure(error) => {
+               org.scalajs.dom.console.log("error")
+               org.scalajs.dom.console.log(error.toString)
+               $.modState(_.copy())
+             }
+           }*/
+      //s.props = Some(props)
+      //org.scalajs.dom.console.log(s.props)
+    }
 
     def render(props: IrcChatProps, s: ChatState) = {
       // TODO check selected target
@@ -362,39 +446,54 @@ object IrcChatPage {
                 <.div(
                   TargetStyle.targetHidden(!targetState.equals(s.selectedTarget.getOrElse(true))),
                   <.div(
-                    <.label(targetState.target),
-                    <.input( // channel input
-                      ^.width := 250.px,
-                      ^.onChange ==> targetState.callOnChangeTargetInput($, props, s),
-                      ^.onKeyDown ==> targetState.callOnChangeTargetInputEnter($, props, s),
-                      ^.value := targetState.inputMessage
+                    ^.float.left,
+                    ^.marginRight(10.px),
+                    <.div(
+                      <.label(targetState.target),
+                      <.input( // channel input
+                        ^.width := 250.px,
+                        ^.onChange ==> targetState.callOnChangeTargetInput($, props, s),
+                        ^.onKeyDown ==> targetState.callOnChangeTargetInputEnter($, props, s),
+                        ^.value := targetState.inputMessage
+                      ),
+                      <.button(
+                        // ^.disabled := targetState.callSendTargetMessageDisabled(props, s), // Disable button if unable to send
+                        ^.onSubmit -->? targetState.callSendTargetMessage(props, s), // --> suffixed by ? because it's for Option[Callback]
+                        ^.onClick -->? targetState.callSendTargetMessage(props, s),
+                        "Send"
+                      ),
+                      <.button(
+                        ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
+                        ^.onClick -->? targetState.callOnLeaveButton(props, s),
+                        "Leave"
+                      ),
+                      <.button(
+                        ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
+                        ^.onClick -->? targetState.callRotateNowButton(props, s),
+                        "Rotate logs now"
+                      )
                     ),
-                    <.button(
-                      ^.disabled := targetState.callSendTargetMessageDisabled(props, s), // Disable button if unable to send
-                      ^.onSubmit -->? targetState.callSendTargetMessage(props, s), // --> suffixed by ? because it's for Option[Callback]
-                      ^.onClick -->? targetState.callSendTargetMessage(props, s),
-                      "Send"
-                    ),
-                    <.button(
-                      ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
-                      ^.onClick -->? targetState.callOnLeaveButton(props, s),
-                      "Leave"
-                    ),
-                    <.button(
-                      ^.disabled := targetState.isSendLeaveButtonDisabled(props, s),
-                      ^.onClick -->? targetState.callRotateNowButton(props, s),
-                      "Rotate logs now"
-                    )
+                    <.h4(targetState.target),
+                    <.div(s"Info for target: ${targetState.target}"),
+                    targetState.logLines.map(g => {
+                      <.p(
+                        <.span(g.sender),
+                        ": ",
+                        <.span(g.msg)
+                      )
+                    }).toTagMod
                   ),
-                  <.h4(targetState.target),
-                  <.div(s"Info for target: ${targetState.target}"),
-                  targetState.logLines.map(g => {
-                    <.p(
-                      <.span(g.sender),
-                      ": ",
-                      <.span(g.msg)
+                  <.div(
+                    TargetStyle.targetParticipants(),
+                    <.span("Participants"),
+                    <.ul(
+                      targetState.participants.map(participant => {
+                        <.li(
+                          participant.name
+                        )
+                      }).toTagMod
                     )
-                  }).toTagMod
+                  )
                 )
               }
             ).toTagMod
@@ -437,6 +536,7 @@ object IrcChatPage {
           //TODO message containing default information
 
           direct.modState(_.sendStartIrcBotRequest(props))
+          // direct.modState(_.sendStartIrcBotRequest(props))
           direct.modState(_.logLine("Connected."))
         }
 
@@ -471,7 +571,7 @@ object IrcChatPage {
               // handle the JsMessageJoinChannel
               org.scalajs.dom.console.log("JsMessageJoinChannel")
               direct.modState(f => {
-                f.copy(targets = addTarget(f.targets, TargetState(target = target, password = "", ListBuffer.empty[JsMessage], "",participants)))
+                f.copy(targets = addTarget(f.targets, TargetState(target = target, password = "", ListBuffer.empty[JsMessage], "", participants)))
               })
             }
             case JsMessageLeaveChannel(sender, target) => {
@@ -481,7 +581,19 @@ object IrcChatPage {
               direct.modState(_.leaveTarget(target))
             }
             case JsMessageIrcBotReady() => {
+              org.scalajs.dom.console.log("JsMessageIrcBotReady")
+              //  direct.modState(_.copy(ready = true))
+              this.direct = getDirect()
+              direct.modState(_.setReadyAndRequestParticipants())
+
               direct.modState(_.copy(ready = true))
+            }
+            case jsmsg: JsMessageStarBotResponse => {
+              org.scalajs.dom.console.log("JsMessageStarBotResponse")
+
+              direct.modState(g => {
+                g.copy(ready = true, targets = g.updateTargetsParticipants(jsmsg.targetsParticipants))
+              })
             }
             case other => {
               //direct.modState(_.copy(ready = true))
@@ -527,12 +639,15 @@ object IrcChatPage {
       org.scalajs.dom.console.log("method: end")
       org.scalajs.dom.console.log(direct.toString)
       org.scalajs.dom.console.log($.toString)
-      setPersistentChatState(direct)
+      // setPersistentChatState(direct)
 
       //def closeWebSocket = $.state.map(_.ws.foreach(_.close()))
       //def clearWebSocket = $.modState(_.copy(ws = None))
       //closeWebSocket >> clearWebSocket
-
+      //$.state.map(_.ws.foreach(_.close()))
+      //direct.props.g
+      //$.state.map(_.ws.foreach(_.close()))
+      //getDirect().props.map(_.ws = None)
       $.modState(f => {
         f.copy()
       })
@@ -580,19 +695,21 @@ object IrcChatPage {
       chatStateRaw.asInstanceOf[ChatState]
     } else {
       org.scalajs.dom.console.log("t: ChatState")
-      ChatState(ListBuffer(defaultTargetStateInside), "", "#TheName2", None, false)
+      ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false, None)
     }
   }
 
   val WebSocketsApp = ScalaComponent.builder[IrcChatProps]("WebSocketsApp")
-    //    .initialState(getPersistentChatState())
-    .initialState(ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false))
+    // .initialState(getPersistentChatState())
+    .initialState(ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false, None))
     .renderBackend[Backend]
     // set username (username has to be as chat state atr because it can be changed via /anick command)
     .componentWillMount(f => {
     f.modState(_.copy(sender = f.props.username))
   })
+    .componentDidMount(_.backend.mounted)
     .componentWillUnmount(_.backend.end)
+    //.configure(Reusability.shouldComponentUpdate)
     .build
 
 }

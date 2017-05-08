@@ -20,6 +20,7 @@ import upickle.default._
 import utils.IrcLogBot
 import play.api.libs.json.{JsNull, JsString, JsValue, Json}
 
+import scala.collection.mutable.ListBuffer
 import scala.util.{Failure, Success}
 //
 
@@ -69,6 +70,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
     case IrcNewParticipant(name, subscriber) => {
 
       if (ircBot != null) {
+        Logger.debug(s"IrcNewParticipant( name: ${name} ,subscriber: ${subscriber} ) with running ircBot")
         // already created ircLogBot
         // update subscriber for listener
         ircBot.defaultListener.listenersUserActor = subscriber
@@ -92,6 +94,8 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
           Logger.debug(s"demoUser ${demoUser.toString}")
           uniqueName = demoUser.main.userId
         }
+        Logger.debug(s"SecureSocial User id ( name: ${name} )")
+        // Logger.debug(demoUser.toString)
 
         listener = new IrcListener(server, channel, uniqueName, subscriber) {
           override def onAction(event: ActionEvent): Unit = {
@@ -113,6 +117,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
 
               val jsmsg: JsMessage = JsMessage(
                 sender = chatMsgEv.getUser.getNick, target = event.getChannel.getName, msg = chatMsgEv.getMessage)
+              //    Logger.debug("JsMessage")
 
               if (listenersUserActor != null) {
                 logs.logLine(jsmsg.toString)
@@ -123,6 +128,21 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
             } else if (event.isInstanceOf[GenericChannelUserEvent]) {
               // any other kind of event, log anyway
               val eventGeneric: GenericChannelUserEvent = event.asInstanceOf[GenericChannelUserEvent]
+              if (event.getClass.getSimpleName.contains("JoinEvent")) {
+
+                var targets = Array.empty[String]
+                var iterator = event.getBot[IrcLogBot].getUserBot.getChannels.iterator()
+                while (iterator.hasNext) {
+                  val n = iterator.next()
+                  targets +:= n.getName
+                }
+
+                val jsmsg = JsMessageStarBotRequest(event.getBot[IrcLogBot].getNick, targets)
+                val resp = getJsMessageStarBotResponse(jsmsg, event.getBot[IrcLogBot])
+                //sendJsMessage(resp)
+                //JsMessageStarBotRequest
+                listenersUserActor ! Json.parse(write(resp))
+              }
               val jsmsg: JsMessageOther = JsMessageOther(
                 sender = eventGeneric.getUser.getNick, target = event.getChannel.getName, msg = event.getClass.getName)
 
@@ -201,13 +221,15 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         Logger.debug(s"sub is: ${userActor}")
         //userActor ! msg.message
         incommingMsg match {
-          case JsMessageStarBot(botName, autoJoinChannels) => {
-            Logger.debug(s"JsMessageStarBot")
-            sendJsMessage(JsMessageStarBot(botName, autoJoinChannels))
-          }
+
+          /*    case jsmsg: JsMessageStarBot => {
+                Logger.debug(s"JsMessageStarBot")
+                sendJsMessage(jsmsg)
+              }*/
           case jsmsg: JsMessage => {
             // handle the JsMessage
             Logger.debug(s"JsMessage")
+
             // log to file
             ircBot.defaultListener.logs.logLine(jsmsg.toString)
             // send to irc
@@ -224,10 +246,11 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
           case jsmsg: JsMessageRotateLogs => {
             // handle the JsMessageRotateLogs
             Logger.debug(s"JsMessageRotateLogs")
-            ircBot.defaultListener.logs = new Logs(jsmsg.sender)
+            ircBot.defaultListener.logs.rotateNow() // = new Logs(jsmsg.sender)
             sendJsMessage(jsmsg)
           }
           case jsmsg: JsMessageLeaveChannel => {
+            Logger.debug("JsMessageLeaveChannel")
             // handle the JsMessageLeaveChannel
             // TODO how?
             ircBot.send().ctcpCommand(jsmsg.target, "/part") //action(jsmsg.target, "/part")
@@ -248,6 +271,18 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
             //userActor ! jsmsg
             sendJsMessage(JsMessageLeaveChannelResponse(jsmsg.sender, jsmsg.target))
           }
+          case jsmsg: JsMessageStarBotRequest => {
+            Logger.debug("JsMessageStarBotRequest")
+
+            var resp = ircBot.defaultListener.getJsMessageStarBotResponse(jsmsg, ircBot)
+            sendJsMessage(resp)
+
+          }
+          case jsmsg: JsMessageStarBotResponse => {
+            // nothing
+            Logger.debug("JsMessageStarBotResponse")
+          }
+
         }
 
       } else {

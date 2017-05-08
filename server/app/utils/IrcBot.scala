@@ -6,6 +6,8 @@ import akka.actor.ActorRef
 import org.pircbotx.hooks.ListenerAdapter
 import org.pircbotx.{Configuration, PircBotX}
 import models.Logs
+import play.api.Logger
+import shared.SharedMessages.{JsMessageStarBotRequest, JsMessageStarBotResponse, TargetParticipant}
 
 class IrcLogBot(config: Configuration) extends PircBotX(config) {
 
@@ -32,5 +34,53 @@ class IrcListener(server: String, channel: String, name: String, var listenersUs
   def setUserActor(newListenersUserActor: ActorRef): Unit = {
     listenersUserActor = newListenersUserActor
   }
+
+
+  def getJsMessageStarBotResponse(jsmsg: JsMessageStarBotRequest, ircBot: IrcLogBot): JsMessageStarBotResponse = {
+    var map = Map.empty[String, Array[TargetParticipant]]
+
+    Logger.debug("bot not null")
+    val iterator = ircBot.getUserBot.getChannels.iterator()
+    Logger.debug("ircBot.getUserBot.getChannels")
+    Logger.debug(ircBot.getUserBot.getChannels.toArray.toString)
+    Logger.debug(ircBot.getUserBot.getChannels.toString)
+    /*Logger.debug(ircBot.getUserBot.getChannels.first().toString)
+    Logger.debug(ircBot.getUserBot.getChannels.first().getName)
+    Logger.debug("ircBot.getUserBot.getChannels.toarr.foreach")
+    ircBot.getUserBot.getChannels.toArray.foreach(i=>{
+      Logger.debug(i.toString)
+
+    })*/
+    Logger.debug("iterator")
+    Logger.debug(iterator.toString)
+    jsmsg.targets.foreach(target => {
+      Logger.debug("target")
+      Logger.debug(target.toString)
+      while (iterator.hasNext) {
+        Logger.debug("iterator.hasNext")
+        var participantsNames: Array[TargetParticipant] = Array.empty[TargetParticipant]
+        val channel = iterator.next()
+        Logger.debug(channel.toString)
+        Logger.debug(s"channel: ${channel.getName}")
+        if (channel.getName.matches(target)) {
+          Logger.debug(s"hannel.getName.matches(target)")
+          var channelIterator = channel.getUsers.iterator()
+          Logger.debug(s"channelIterator")
+          while (channelIterator.hasNext) {
+            val user = channelIterator.next
+            Logger.debug("user.toString")
+            Logger.debug(user.toString)
+            participantsNames +:= TargetParticipant(name = user.getNick)
+          }
+        }
+        map += (channel.getName -> participantsNames)
+      }
+    })
+    //ircBot.getUserBot.getChannels
+    Logger.debug("map")
+    Logger.debug(map.toString)
+    JsMessageStarBotResponse(map)
+  }
+
 
 }

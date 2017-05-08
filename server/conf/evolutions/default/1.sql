@@ -1,5 +1,4 @@
-# --- Created by Slick DDL
-# To stop Slick DDL generation, remove this comment and start using Evolutions
+# Users schema
 
 # --- !Ups
 
@@ -31,5 +30,5 @@ create table "user" (
 
 # --- !Downs
 
-drop table "token";
 drop table "user";
+drop table "token"

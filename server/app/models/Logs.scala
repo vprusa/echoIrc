@@ -37,9 +37,14 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
   def getCurrentDirectory = new java.io.File(".").getCanonicalPath
 
   //val LOG_FILENAME: String = s"ircLog-${currentTime}.log"
-  val LOG_USERDIR: String = s"./ircLogs/${userId}/"
-  val LOG_FILEPATH: String = s"${LOG_USERDIR}${LOG_FILENAME}"
-  val LOG_DIR: String = s"${getCurrentDirectory}/ircLogs/${userId}/"
+  val conf = play.api.Play.current.configuration
+
+  val DATA_DIR: String = s"${conf.getString("app.server.dataDir").getOrElse("data")}"
+  val USER_DATA_DIR: String = s"${getCurrentDirectory}/${DATA_DIR}/${userId}/"
+  val USER_LOG_JS_DIR: String = s"${USER_DATA_DIR}default/"
+  val USER_LOG_JS_FILEPATH: String = s"${USER_LOG_JS_DIR}${LOG_FILENAME}"
+  val USER_LOG_SIMPLE_DIR: String = s"${USER_DATA_DIR}/simple/"
+  val USER_LOG_SIMPLE_FILEPATH: String = s"${USER_LOG_SIMPLE_DIR}${LOG_FILENAME}"
 
   def rotateNow(): Unit = {
     Logger.debug("rotateLogsNow.jsonBody.map .rotateNow")
@@ -47,7 +52,7 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
   }
 
   def createLogFileIfNotExists(): Unit = {
-    val file = new File(LOG_FILEPATH)
+    val file = new File(USER_LOG_JS_FILEPATH)
     val successful = file.createNewFile
     if (successful) { // creating the directory succeeded
       Logger.debug("file was created successfully")
@@ -57,12 +62,12 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
     }
   }
 
-  def createDirIfNotExists(): Unit = {
-    val dir = new File(LOG_DIR)
+  def createDirIfNotExists(dirPath: String = USER_LOG_JS_DIR): Unit = {
+    val dir = new File(dirPath)
 
     Logger.debug(s"getCurrentDirectory ${getCurrentDirectory}")
-    Logger.debug(s"LOG_DIR ${LOG_DIR}")
-
+    Logger.debug(s"LOG_DIR ${dirPath}")
+    dir.mkdirs
     if (!dir.exists) {
       val successful = dir.mkdir
       if (successful) { // creating the directory succeeded
@@ -79,9 +84,9 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
     createLogFileIfNotExists()
     Logger.debug(s"LogLine: ${line}")
 
-    val fw = new FileWriter(LOG_FILEPATH, true)
+    val fw = new FileWriter(USER_LOG_JS_FILEPATH, true)
     try {
-      Logger.debug(s"Added line: '${line}' to ${LOG_FILEPATH}")
+      Logger.debug(s"Added line: '${line}' to ${USER_LOG_JS_FILEPATH}")
       fw.write(line + '\n')
     }
     finally fw.close()
@@ -89,16 +94,18 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
 
   def loadLogLines(linesCount: Int, startAt: Int): List[String] = {
     val arr: List[String] = List.empty[String]
-    Logger.debug(s"Loading logs file: ${LOG_FILEPATH}, lines count: ${linesCount}, starting at line: ${startAt}")
-    for (line <- Source.fromFile(LOG_FILEPATH).getLines()) {
+    Logger.debug(s"Loading logs file: ${USER_LOG_JS_FILEPATH}, lines count: ${linesCount}, starting at line: ${startAt}")
+    for (line <- Source.fromFile(USER_LOG_JS_FILEPATH).getLines()) {
       Logger.debug(line)
       arr :+ line
     }
     return arr
   }
 
-  def getLogsFiles(): List[File] = {
-    val d = new File(LOG_DIR)
+  def getLogsFiles(dir: String = USER_LOG_JS_DIR): List[File] = {
+    val d = new File(dir)
+    Logger.debug("Dir: USER_LOG_JS_DIR")
+    Logger.debug(dir)
     if (d.exists && d.isDirectory) {
       d.listFiles.filter(_.isFile).toList
     } else {
@@ -106,8 +113,13 @@ class Logs(userId: String, LOG_FILENAME: String = s"ircLog-${new SimpleDateForma
     }
   }
 
-  def getLogFile(f: File): Unit = {
+  // parse JsMessages to Human-readable text (ignore all bot messages except JsMessage)
+  def createSimpleIfNotExist(): Unit = {
+    createDirIfNotExists(USER_LOG_SIMPLE_DIR)
+  }
 
+  def getSimpleLogsFiles(): List[File] = {
+    getLogsFiles(USER_LOG_SIMPLE_DIR)
   }
 
 }

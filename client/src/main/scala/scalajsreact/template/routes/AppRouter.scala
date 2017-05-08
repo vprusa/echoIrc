@@ -2,11 +2,12 @@ package scalajsreact.template.routes
 
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
 
-import scalajsreact.template.pages.{LogsPage, AdminPage, ErrorPage, HomePage, StatsPage, TodoPage}
+import scalajsreact.template.pages.{AdminPage, ErrorPage, HomePage, LogsPage, StatsPage, TodoPage}
 import scalajsreact.template.components.TopNav
 import scalajsreact.template.components.Footer
 import scalajsreact.template.models.{AppConfig, Menu, MenuInner, MenuOutisde}
 import org.scalajs.dom
+
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
 import scala.scalajs.js.JSApp
@@ -15,6 +16,7 @@ import japgolly.scalajs.react._
 import vdom.html_<^._
 import japgolly.scalajs.react.extra._
 import japgolly.scalajs.react.extra.router._
+import upickle.Js
 
 import scala.collection.mutable.ListBuffer
 import scalajsreact.template.pages.IrcChatPage
@@ -34,6 +36,8 @@ object AppRouter {
   case object Admin extends AppPage
 
   case object Logs extends AppPage
+
+  case object LogsStats extends AppPage
 
   //case object Stats extends AppPage
 
@@ -105,7 +109,12 @@ object AppRouter {
   }
 
   def loadMenuFromDom(): Unit = {
-    val topMenu: upickle.Js.Value = loadFromDom("reactData")
+    val data: upickle.Js.Value = loadFromDom("reactData")
+    val topMenu: upickle.Js.Value = data.obj.get("topMenuList").getOrElse(null)
+    // TODO should not happen
+    if (topMenu == null)
+      return
+
     org.scalajs.dom.console.log("loadMenuFromDom")
     org.scalajs.dom.console.log(topMenu.toString())
 
@@ -119,9 +128,20 @@ object AppRouter {
         if (!mainMenu.contains(newMenuItem))
           mainMenu += newMenuItem
 
-      } else if (item.str.matches("stats")) {
+      } /*else if (item.str.matches("stats")) {
         org.scalajs.dom.console.log(".stats")
         val newMenuItem = MenuInner("Stats", Items(MenuItem.Info))
+        if (!mainMenu.contains(newMenuItem))
+          mainMenu += newMenuItem
+      }*/
+      else if (item.str.matches("stats")) {
+        org.scalajs.dom.console.log(".stats")
+        val newMenuItem = MenuInner("Stats", LogsStats)
+        if (!mainMenu.contains(newMenuItem))
+          mainMenu += newMenuItem
+      } else if (item.str.matches("logs")) {
+        org.scalajs.dom.console.log(".logs")
+        val newMenuItem = MenuInner("Logs", Logs)
         if (!mainMenu.contains(newMenuItem))
           mainMenu += newMenuItem
       } else if (item.str.matches("ircchat")) {

@@ -11,7 +11,7 @@ object Global extends GlobalSettings {
   var persistanObj: String = "persistanObj"
 
   val system = ActorSystem("app")
-  Logger.info("test1")
+  Logger.info("Global")
 
   override def onStart(app: Application): Unit = {
     super.onStart(app)
@@ -22,13 +22,10 @@ object Global extends GlobalSettings {
     // set initial value for shared
     Shared.setData(initialValue)
 
-    Logger.info("test2")
-    persistanObj += "1"
     Logger.info(s"persistanObj: ${persistanObj}")
 
     // start default bot
-
-   // Shared.adminIrcBot = new IrcBotBackendProcess(app)
+    // Shared.adminIrcBot = new IrcBotBackendProcess(app)
   }
 
 }

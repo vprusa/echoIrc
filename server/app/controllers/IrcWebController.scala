@@ -64,6 +64,7 @@ class IrcWebController @Inject()(
 
   def unpackUser(demoUserFutOpt: Future[Option[MyEnvironment#U]]): DemoUser = {
     var demoUserVar: DemoUser = null //TODO ..hate to use null but should be safe cause of Exception below
+    Logger.debug("unpackUser")
 
     val maybeCurUser = for {
       f1Result <- demoUserFutOpt
@@ -76,8 +77,12 @@ class IrcWebController @Inject()(
         Logger.debug(s"maaybeCurUser all done ${f.toString}")
       }
     }
-    Logger.debug(s"maybeCurUser1 ${maybeCurUser.toString}")
+    Logger.debug(s"maybeCurUser1 ${maybeCurUser}")
     maybeCurUser // this will make it wait for result
+    if(maybeCurUser == None){
+      Logger.debug(s"maybeCurUser1 None")
+      return null
+    }
     Logger.debug(s"maybeCurUser2 ${maybeCurUser.toString}")
     import scala.concurrent.duration.Duration
 
@@ -177,8 +182,7 @@ class IrcWebController @Inject()(
       demoUserVar = unpackUser(demoUserFutOpt)
     }
     Logger.debug("demoUserFutOpt.toString")
-    Logger.debug(demoUserFutOpt.toString)
-    Logger.debug(demoUserVar.toString)
+    //Logger.debug(demoUserFutOpt.toString)
 
     var uniqueName: String = actorSystem.settings.config.getString("app.irc.defaultUserName")
     if (demoUserVar != null) {
@@ -187,12 +191,30 @@ class IrcWebController @Inject()(
 
     // val userActor: ActorRef = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar, channel = channel)), uniqueName)
     var userActor: ActorRef = null
+    var anchor = actorSystem.actorSelection(uniqueName)
+
+    /*
+    import scala.concurrent.duration.Duration
+    import akka.pattern.ask
+    import akka.util.Timeout
+    import scala.concurrent.duration._
+
+    implicit val timeout = Timeout(5 seconds)
+
+    if (anchor != null) {
+      val futRes = anchor.resolveOne()
+      Await.result(futRes, Duration.Inf)
+      val actOpt = futRes.value.getOrElse(null)
+      if (actOpt != null)
+        userActor = actOpt.get
+
+    }*/
     //userActor = getActor(uniqueName, actorSystem)
     // here i need to check if bot for this user already started or start new stared
     if (userActor == null) {
       userActor = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar, channel = channel,
-        //        ircBot = getIrcBotByUser(demoUserVar)
-        ircBot = getIrcBotByUserName(uniqueName)
+        ircBot = getIrcBotByUser(demoUserVar)
+        //ircBot = getIrcBotByUserName(uniqueName)
       )), uniqueName)
     }
 
@@ -230,20 +252,21 @@ class IrcWebController @Inject()(
 
         // actorSystem.settings.config.getString("app.irc.server")
         var demoUserFutOpt: Future[Option[MyEnvironment#U]] = null
-        if (actorSystem.settings.config.getBoolean("app.server.users.authSecureSocialEnabled")) {
-          demoUserFutOpt = SecureSocial.currentUser(request, env, executionContext)
-        }
+        //if (actorSystem.settings.config.getBoolean("app.server.users.authSecureSocialEnabled")) {
+        demoUserFutOpt = SecureSocial.currentUser(request, env, executionContext)
+        //}
         Logger.debug("demoUserFutOpt")
-        Logger.debug(demoUserFutOpt.toString)
+        //   Logger.debug(demoUserFutOpt)
         Future.successful(myChatFlow(botName, actorSystem.settings.config.getString("app.irc.defaultChannel"), demoUserFutOpt)).map { flow =>
           Right(flow)
-        }.recover {
-          case e: Exception =>
-            val msg = "Cannot create websocket"
-            Logger.error(msg, e)
-            val result = InternalServerError(msg)
-            Left(result)
         }
+          .recover {
+            case e: Exception =>
+              val msg = "Cannot create websocket"
+              Logger.error(msg, e)
+              val result = InternalServerError(msg)
+              Left(result)
+          }
 
       case rejected =>
         Logger.error(s"Request ${rejected} failed same origin check")
@@ -267,7 +290,9 @@ class IrcWebController @Inject()(
         true
 
       case Some(badOrigin) =>
-        Logger.error(s"originCheck: rejecting request because Origin header value ${badOrigin} is not in the same origin")
+        Logger.error(s"originCheck: rejecting request because Origin header value ${
+          badOrigin
+        } is not in the same origin")
         false
 
       case None =>

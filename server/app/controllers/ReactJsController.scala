@@ -7,6 +7,7 @@ import securesocial.core.SecureSocial
 import service.MyEnvironment
 import shared.Shared
 
+import scala.collection.Iterator
 import scala.collection.mutable.ListBuffer
 
 //
@@ -46,10 +47,23 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
       Logger.debug(request.toString())
       Logger.debug("Path: " + any)
 
-      // Ok(views.html.reactJs(null, actorSystem.settings.config.getString("app.websocket.url")))
-      val data = utils.ReactViewData(null, actorSystem.settings.config.getString("app.websocket.url"),
-        "/rest", actorSystem.settings.config.getStringList("app.client.adminPages"))
-      Ok(views.html.reactJs(data, ""))
+      // Ok(views.html.reactJs(request.user, actorSystem.settings.config.getString("app.websocket.url")))
+
+      //      val dataStr:String = upickle.default.write[](data)
+      //val dataStr:String = upickle.default.write(data)
+
+      val topMenuList = actorSystem.settings.config.getStringList("app.client.adminPages")
+      val channelsList = actorSystem.settings.config.getStringList("app.irc.defaultChannels")
+      Logger.info("lists:")
+      Logger.info(topMenuList.toString)
+      Logger.info(channelsList.toString)
+
+      val asJson: String = s"""["topMenuList":${upickle.default.write(listToListBuffer(topMenuList))}, "channelsList":${upickle.default.write(listToListBuffer(channelsList))}]"""
+      Logger.info(asJson)
+
+      val data = utils.ReactViewData(null, actorSystem.settings.config.getString("app.websocket.url"), "/rest", topMenuList, channelsList, asJson)
+
+      Ok(views.html.reactJs(data))
   }
 
 
@@ -62,22 +76,31 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
 
       // Ok(views.html.reactJs(request.user, actorSystem.settings.config.getString("app.websocket.url")))
 
-      val data = utils.ReactViewData(request.user.main.userId, actorSystem.settings.config.getString("app.websocket.url"),
-        "/rest", actorSystem.settings.config.getStringList("app.client.adminPages"))
       //      val dataStr:String = upickle.default.write[](data)
       //val dataStr:String = upickle.default.write(data)
 
-      val list = actorSystem.settings.config.getStringList("app.client.adminPages")
+      val topMenuList = actorSystem.settings.config.getStringList("app.client.adminPages")
+      val channelsList = actorSystem.settings.config.getStringList("app.irc.defaultChannels")
+      Logger.info("lists:")
+      Logger.info(topMenuList.toString)
+      Logger.info(channelsList.toString)
 
-      var topMenuItems = ListBuffer.empty[String]
-      val i = list.iterator()
-      while (i.hasNext) {
-        val v: String = i.next()
-        topMenuItems += v
-      }
-      val topMenuItemsStr = upickle.default.write(topMenuItems)
+      val asJson: String = s"""{"topMenuList":${upickle.default.write(listToListBuffer(topMenuList))}, "channelsList":${upickle.default.write(listToListBuffer(channelsList))}}"""
 
-      Ok(views.html.reactJs(data, topMenuItemsStr))
+      val data = utils.ReactViewData(request.user.main.userId, actorSystem.settings.config.getString("app.websocket.url"), "/rest", topMenuList, channelsList, asJson)
+
+      Ok(views.html.reactJs(data))
   }
 
+  def listToListBuffer(list: java.util.List[String]): ListBuffer[String] = {
+    var topMenuItems = ListBuffer.empty[String]
+    val i = list.iterator()
+    while (i.hasNext) {
+      val v: String = i.next()
+      topMenuItems += v
+    }
+    topMenuItems
+  }
+
+  //actorSystem.settings.config.getString("app.irc.defaultChannel")
 }

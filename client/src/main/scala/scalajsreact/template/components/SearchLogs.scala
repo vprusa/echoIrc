@@ -6,6 +6,7 @@ import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import org.scalajs.dom.ext.Ajax
 
 import scalajsreact.template.models.IrcChatProps
+import scalajsreact.template.pages.IrcChatPage.ChatState
 
 object SearchLogs {
 
@@ -23,7 +24,7 @@ object SearchLogs {
       )
     }).build
 
-  case class SearchState(inputRegex: String, files: Array[String], logContent: String) {
+  case class SearchState(var inputRegex: String, var files: Array[String], var logContent: String) {
     def callOnChangeInputRegex($: MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState],
                                props: IrcChatProps)(e: ReactEventFromInput): Callback = {
 
@@ -44,6 +45,23 @@ object SearchLogs {
       Option(Callback.empty)
     }
 
+    def callSearchLogFiles(props: IrcChatProps): Option[Callback] = {
+      org.scalajs.dom.console.log(s"callOpenLogFile")
+      import scala.concurrent.ExecutionContext.Implicits.global
+      Ajax.get(s"/rest/searchLogs/${inputRegex}").foreach {
+        xhr =>
+          org.scalajs.dom.console.log(s"callOpenLogFile ${xhr.responseText}")
+      }
+
+      Option(Callback.empty)
+    }
+
+    def setNewFiles(newFiles: Array[String]) = {
+      org.scalajs.dom.console.log(s"setNewFiles ${newFiles.toString}")
+      org.scalajs.dom.console.log(this.toString)
+      newFiles
+    }
+
   }
 
   class SearchLogsBackend($: BackendScope[IrcChatProps, SearchState]) {
@@ -62,7 +80,8 @@ object SearchLogs {
                   file, " Open: ",
                   <.a(
                     "New tab",
-                    ^.target.blank
+                    ^.target.blank,
+                    ^.href := s"${props.restUrl}/getLogFile/${file}"
                   ),
                   " ",
                   <.button(
@@ -82,6 +101,7 @@ object SearchLogs {
             ^.value := s.inputRegex
           ),
           <.button(
+            ^.onClick -->? s.callSearchLogFiles(props), // --> suffixed by ? because it's for Option[Callback]
             "Search Now"
           ),
           <.label("On input change:"),
@@ -93,10 +113,30 @@ object SearchLogs {
     }
 
 
-    def loadLogs(): Callback = {
+    // to get $ loaded with Everything
+    def getDirect(): MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState] = {
+      $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState]]
+    }
+
+    def loadLogs() = {
       //f.modState(_.copy())
       //Ajax.get()
-      Callback(None)
+      //
+      org.scalajs.dom.console.log(s"loadLogs")
+      import scala.concurrent.ExecutionContext.Implicits.global
+      val futReq = Ajax.get(s"/rest/getLogsNames").foreach {
+        xhr => {
+          org.scalajs.dom.console.log(s"loadLogs ${xhr.responseText}")
+          val newFiles = upickle.default.read[Array[String]](xhr.responseText)
+          org.scalajs.dom.console.log(s"loadLogs ${newFiles.toString}")
+          var direct = getDirect()
+          direct.modState(g => {
+            g.copy(files = newFiles)
+          })
+        }
+      }
+      Callback(futReq)
+      // $.modState(_.copy(files = Array("experimental")))
     }
   }
 
@@ -104,7 +144,7 @@ object SearchLogs {
     .initialState(SearchState("", Array.empty[String], ""))
     // .initialState(ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false))
     .renderBackend[SearchLogsBackend]
-    .componentDidMount(_.backend.loadLogs())
+    .componentWillMount(_.backend.loadLogs())
     // set username (username has to be as chat state atr because it can be changed via /anick command)
     //    .componentDidMount(f => {
     //f.modState(_.copy())

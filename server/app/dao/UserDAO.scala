@@ -104,6 +104,16 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
     db.run(q.result.headOption) //.map { _ => () }
   }
 
+  def findByUserId(providerId: String, userId: String): Future[Option[BasicProfile]] = {
+    val q = for {
+      user <- Users
+      if user.userId === userId
+      if user.providerId === providerId
+    } yield user
+    //db.run(Users.filter(_.userId === userId).filter(_.providerId === providerId).result.headOption).map { _ => () }
+    db.run(q.result.headOption) //.map { _ => () }
+  }
+
   /*
   def waitForFuture[T](f: Future[T]): Unit = {
     val result: Try[T] = Await.ready(f, Duration.Inf).value.get
@@ -116,7 +126,8 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
 
   // def findByEmailAndProvider(email: String, providerId: String): Option[User] = withSession { implicit session =>
   def findByEmailAndProvider(email: String, providerId: String): Future[Option[BasicProfile]] = {
-    db.run(Users.filter(x => x.email === email && x.providerId === providerId).result.headOption)
+    val ret = db.run(Users.filter(x => x.email === email && x.providerId === providerId).result.headOption)
+    ret
   }
 
   // def findByIdentityId(userId: String, providerId: String = "userpass"): Option[User] = withSession { implicit session =>
@@ -261,7 +272,7 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
       }, { (u: BasicProfile) => {
         Option {
           (
-            Option(u.userId.toInt),
+            Option(0),
             u.userId,
             u.providerId,
             u.firstName.getOrElse(""),

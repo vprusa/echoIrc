@@ -20,9 +20,9 @@ import play.api.Logger
 import securesocial.core._
 import securesocial.core.providers.{MailToken, UsernamePasswordProvider}
 
-import scala.concurrent.Future
+import scala.concurrent.{Await, Future}
 import securesocial.core.services.{SaveMode, UserService}
-import dao.{TokenDAO /*, DBUser*/ , UserDAO}
+import dao.{TokenDAO, UserDAO}
 import javax.inject.Inject
 
 /**
@@ -49,8 +49,29 @@ class InDBUserService(
     * @param userId     the user id
     * @return an optional profile
     */
+  //def find(id: IdentityId):Option[Identity] = {
   def find(providerId: String, userId: String): Future[Option[BasicProfile]] = {
-    userDao.find(providerId, userId)
+    Logger.debug("InDBUserService find")
+    Logger.debug(s"providerId: ${providerId} userId: ${userId}")
+    if (userId.contains("@")) {
+      Logger.debug("userId.contains")
+      val ret = userDao.findByEmailAndProvider(userId, "db")
+      Logger.debug(userDao.toString)
+
+      import scala.concurrent.duration._
+      //val result = Await.result(maybeCurUser, Duration.Inf)
+
+      //Await.result(ret, Duration.Inf)
+      //val storedUsers = Await.result(ret, 1.second)
+      //Logger.debug(storedUsers.toString)
+      val storedUsers = Await.result(userDao.all(), 1.second)
+      Logger.debug(storedUsers.toString)
+      Logger.debug(storedUsers.isEmpty.toString)
+
+      ret
+    } else {
+      userDao.find(providerId, userId)
+    }
   }
 
   /**
@@ -61,11 +82,13 @@ class InDBUserService(
     * @return an optional profile
     */
   def findByEmailAndProvider(email: String, providerId: String): Future[Option[BasicProfile]] = {
+    Logger.debug("InDBUserService findByEmailAndProvider")
     userDao.findByEmailAndProvider(email, providerId)
   }
 
 
   private def findProfile(p: BasicProfile): /*Future[((String, String), DemoUser)] */ Future[Option[GenericProfile]] = {
+    Logger.debug("InDBUserService findProfile")
     userDao.find(p.providerId, p.userId).asInstanceOf[Future[Option[GenericProfile]]]
   }
 
@@ -91,6 +114,7 @@ class InDBUserService(
     * @param mode    a mode that tells you why the save method was called
     */
   def save(profile: BasicProfile, mode: SaveMode): Future[DemoUser] = {
+    Logger.debug("InDBUserService save")
     mode match {
       case SaveMode.SignUp =>
         // val newUser = DemoUser(profile, List(profile))
@@ -137,6 +161,7 @@ class InDBUserService(
     * @param to      the profile that needs to be linked to
     */
   def link(current: DemoUser, to: BasicProfile): Future[DemoUser] = {
+    Logger.debug("InDBUserService link")
     userDao.save(to)
     Future.successful(DemoUser(to))
   }
@@ -148,6 +173,7 @@ class InDBUserService(
     * @return returns an optional PasswordInfo
     */
   def passwordInfoFor(user: DemoUser): Future[Option[PasswordInfo]] = {
+    Logger.debug("InDBUserService passwordInfoFor")
     Future.successful(user.main.passwordInfo)
   }
 
@@ -159,6 +185,7 @@ class InDBUserService(
     * @return
     */
   def updatePasswordInfo(user: DemoUser, info: PasswordInfo): Future[Option[BasicProfile]] = {
+    Logger.debug("InDBUserService updatePasswordInfo")
     val profile: BasicProfile = user.main
     val newProfile: BasicProfile = profile.copy(passwordInfo = Some(info))
     userDao.save(newProfile)
@@ -175,6 +202,7 @@ class InDBUserService(
     * @param token The token to save
     */
   def saveToken(token: MailToken): Future[MailToken] = {
+    Logger.debug("InDBUserService saveToken")
     tokenDao.save(token)
     Future.successful(token)
   }
@@ -189,6 +217,7 @@ class InDBUserService(
     * @return
     */
   def findToken(token: String): Future[Option[MailToken]] = {
+    Logger.debug("InDBUserService findToken")
     tokenDao.findById(token)
   }
 
@@ -201,6 +230,7 @@ class InDBUserService(
     * @param uuid the token id
     */
   def deleteToken(uuid: String): Future[Option[MailToken]] = {
+    Logger.debug("InDBUserService deleteToken")
     tokenDao.delete(uuid)
     Future.successful(None)
   }
@@ -213,6 +243,7 @@ class InDBUserService(
     *
     */
   def deleteExpiredTokens() = {
+    Logger.debug("InDBUserService deleteExpiredTokens")
     tokenDao.deleteExpiredTokens()
   }
 

@@ -1,4 +1,4 @@
-@(data: utils.ReactViewData, dataStr: String)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
+@(data: utils.ReactViewData)(implicit m: Messages, webJarAssets: controllers.WebJarAssets)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,7 +18,7 @@
         } else {
             data.userName.toString
         })">
-        @dataStr
+        @data.asJson
         </div>
         <script type="text/javascript">
                 var globalJsVars = {
