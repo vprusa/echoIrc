@@ -3,6 +3,9 @@ package scalajsreact.template.pages
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 
+import japgolly.scalajs.react._
+import org.scalajs.dom
+
 /**
   * Created by chandrasekharkode on 11/16/14.
   */

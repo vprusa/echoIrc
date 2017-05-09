@@ -104,11 +104,10 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
     db.run(q.result.headOption) //.map { _ => () }
   }
 
-  def findByUserId(providerId: String, userId: String): Future[Option[BasicProfile]] = {
+  def findByUserId(userId: String): Future[Option[BasicProfile]] = {
     val q = for {
       user <- Users
       if user.userId === userId
-      if user.providerId === providerId
     } yield user
     //db.run(Users.filter(_.userId === userId).filter(_.providerId === providerId).result.headOption).map { _ => () }
     db.run(q.result.headOption) //.map { _ => () }

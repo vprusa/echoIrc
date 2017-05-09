@@ -4,8 +4,8 @@ import utils.IrcLogBot
 
 object Shared {
 
-  // persistent value
-  var ircLogBotMap: Map[String, IrcLogBot] = Map.empty[String, IrcLogBot]
+  // persistent value , Map[(userId,providerId),runningBot]
+  var ircLogBotMap: Map[(String, String), IrcLogBot] = Map.empty[(String, String), IrcLogBot]
 
   var adminIrcBot: IrcBotBackendProcess = null
 

@@ -45,7 +45,6 @@ object StatsPage {
   case class Props(selectedPage: MenuItem, ctrl: RouterCtl[MenuItem], props: IrcChatProps)
 
 
-
   def apply(props: Props) = component(props).vdomElement
 
 }

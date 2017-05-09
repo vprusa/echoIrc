@@ -10,6 +10,7 @@ object SharedMessages {
   case class TargetParticipant(name: String)
 
   sealed trait JsMessageBase
+  //  trait JsMessageBase
 
   case class JsMessage(sender: String, target: String, msg: String) extends JsMessageBase
 
@@ -39,6 +40,19 @@ object SharedMessages {
   case class JsMessageStarBotRequest(botName: String, targets: Array[String]) extends JsMessageBase
 
   case class JsMessageStarBotResponse(targetsParticipants: Map[String, Array[TargetParticipant]]) extends JsMessageBase
+
+  // REST
+  case class JsMessageSearchLogsRequest(regex: String, target: String) extends JsMessageBase
+
+  case class JsMessageGetLogsNamesRequest() extends JsMessageBase
+
+  case class JsMessageGetLogsNamesResponse(targetsWithFiles: Map[String, Array[String]]) extends JsMessageBase
+
+  case class JsMessageGetLogRequest(target:String, filename:String)
+
+  case class LogSnippet(line: Integer, target: String, filename: String /*, target: String*/ , msg: JsMessage)
+
+  case class SearchResults(request: JsMessageSearchLogsRequest, results: Array[LogSnippet])
 
 
   //case class LogsStatsState(wordCount: java.lang.Integer) extends JsMessageBase

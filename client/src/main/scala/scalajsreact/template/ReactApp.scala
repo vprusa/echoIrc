@@ -43,12 +43,6 @@ object ReactApp extends JSApp {
       System.out.println(key + " -- " + props.getProperty(key))
     }
 
-
-    /*var globalJsVars = {
-      websocketUrl : "@websocketUrl",
-      currentUser: "@currentUser.toString"
-    }*/
-
     val router = Router(baseUrl, routerConfig.logToConsole)
     val rootNode = dom.document.createElement("div")
     rootNode.setAttribute("id", "reactAppRootNode")

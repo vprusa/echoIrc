@@ -66,6 +66,11 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
     userActor ! jsval
   }
 
+  def shouldBotPersist(): Boolean = {
+    val v = system.settings.config.getBoolean("app.client.onWebJoinNewIrcJoin")
+    !v
+  }
+
   def receive = {
     case IrcNewParticipant(name, subscriber) => {
 
@@ -89,10 +94,10 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         subscriber ! Json.parse(write[JsMessage](JsMessage(
           sender = name, target = channel, msg = "Connected to web server")))
 
-        var uniqueName: String = system.settings.config.getString("app.irc.defaultUserName")
+        var uniqueName: (String, String) = (system.settings.config.getString("app.irc.defaultUserName"), "default")
         if (demoUser != null) {
           Logger.debug(s"demoUser ${demoUser.toString}")
-          uniqueName = demoUser.main.userId
+          uniqueName = (demoUser.main.userId, demoUser.main.providerId)
         }
         Logger.debug(s"SecureSocial User id ( name: ${name} )")
         // Logger.debug(demoUser.toString)
@@ -105,7 +110,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
               // TODO leave channel
               // https://github.com/TheLQ/pircbotx/wiki/MigrationGuide2
               //event.getBot[IrcLogBot].partChannel(event.getChannel, "Goodbye")
-              logs.logLine("Leaving channel")
+              getCurrentLog(event).logLine(JsMessage(event.getUser.getNick, event.getUser.getNick, "Leaving channel"))
               event.getChannel.send().part("Leaving with love")
             }
           }
@@ -120,7 +125,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
               //    Logger.debug("JsMessage")
 
               if (listenersUserActor != null) {
-                logs.logLine(jsmsg.toString)
+                getCurrentLog(event).logLine(jsmsg)
                 listenersUserActor ! Json.parse(write(jsmsg))
               } else {
                 Logger.debug(s"onGenericMessage sub missing")
@@ -128,7 +133,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
             } else if (event.isInstanceOf[GenericChannelUserEvent]) {
               // any other kind of event, log anyway
               val eventGeneric: GenericChannelUserEvent = event.asInstanceOf[GenericChannelUserEvent]
-              if (event.getClass.getSimpleName.contains("JoinEvent")) {
+              if (event.getClass.getSimpleName.contains("JoinEvent") || event.getClass.getSimpleName.contains("PartEvent")) {
 
                 var targets = Array.empty[String]
                 var iterator = event.getBot[IrcLogBot].getUserBot.getChannels.iterator()
@@ -147,7 +152,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
                 sender = eventGeneric.getUser.getNick, target = event.getChannel.getName, msg = event.getClass.getName)
 
               if (listenersUserActor != null) {
-                logs.logLine(jsmsg.toString)
+                getCurrentLog(event).logLine(jsmsg)
                 listenersUserActor ! Json.parse(write(jsmsg))
               } else {
                 Logger.debug(s"onGenericMessage sub missing")
@@ -158,7 +163,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
                 sender = "unknown", target = event.getChannel.getName, msg = event.toString)
 
               if (listenersUserActor != null) {
-                logs.logLine(jsmsg.toString)
+                getCurrentLog(event).logLine(jsmsg)
                 // listenersUserActor ! Json.parse(write(jsmsg))
               } else {
                 Logger.debug(s"onGenericMessage sub missing")
@@ -231,7 +236,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
             Logger.debug(s"JsMessage")
 
             // log to file
-            ircBot.defaultListener.logs.logLine(jsmsg.toString)
+            ircBot.defaultListener.getCurrentLog(jsmsg.target).logLine(jsmsg)
             // send to irc
             ircBot.send().message(jsmsg.target, s"${jsmsg.msg}")
             sendJsMessage(jsmsg)
@@ -246,7 +251,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
           case jsmsg: JsMessageRotateLogs => {
             // handle the JsMessageRotateLogs
             Logger.debug(s"JsMessageRotateLogs")
-            ircBot.defaultListener.logs.rotateNow() // = new Logs(jsmsg.sender)
+            ircBot.defaultListener.getCurrentLog(jsmsg.target).rotateNow() // = new Logs(jsmsg.sender)
             sendJsMessage(jsmsg)
           }
           case jsmsg: JsMessageLeaveChannel => {
@@ -295,8 +300,10 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
       Logger.debug(s"ParticipantLeft(person) ")
 
       // keep the bot running?
-      //ircBot.stopBotReconnect()
-      //ircBot.close()
+      if (!shouldBotPersist()) {
+        ircBot.stopBotReconnect()
+        ircBot.close()
+      }
 
       import akka.actor.PoisonPill
       this.self ! PoisonPill.getInstance

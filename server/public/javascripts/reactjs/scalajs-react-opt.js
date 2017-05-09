@@ -3181,6 +3181,36 @@ function $s_sci_StringLike$class__slice__sci_StringLike__I__I__O($$this, from, u
     return $as_scm_Builder(jsx$1.$$plus$plus$eq__sc_TraversableOnce__scg_Growable(new $c_sci_StringOps().init___T(x))).result__O()
   }
 }
+function $s_sci_StringLike$class__lines__sci_StringLike__sc_Iterator($$this) {
+  var this$2 = new $c_sci_StringLike$$anon$1().init___sci_StringLike($$this);
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($$this$1) {
+    return (function(line$2) {
+      var line = $as_T(line$2);
+      var this$1 = new $c_sci_WrappedString().init___T(line);
+      return $s_sci_StringLike$class__stripLineEnd__sci_StringLike__T(this$1)
+    })
+  })($$this));
+  return new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$2, f)
+}
+function $s_sci_StringLike$class__stripLineEnd__sci_StringLike__T($$this) {
+  var thiz = $$this.toString__T();
+  var len = $uI(thiz.length);
+  if ((len === 0)) {
+    return $$this.toString__T()
+  } else {
+    var last = $$this.apply__I__C((((-1) + len) | 0));
+    if ($s_sci_StringLike$class__scala$collection$immutable$StringLike$$isLineBreak__sci_StringLike__C__Z($$this, last)) {
+      var thiz$1 = $$this.toString__T();
+      var endIndex = ((((last === 10) && (len >= 2)) && ($$this.apply__I__C((((-2) + len) | 0)) === 13)) ? (((-2) + len) | 0) : (((-1) + len) | 0));
+      return $as_T(thiz$1.substring(0, endIndex))
+    } else {
+      return $$this.toString__T()
+    }
+  }
+}
+function $s_sci_StringLike$class__scala$collection$immutable$StringLike$$isLineBreak__sci_StringLike__C__Z($$this, c) {
+  return ((c === 10) || (c === 12))
+}
 function $s_sci_VectorPointer$class__gotoFreshPosWritable1__sci_VectorPointer__I__I__I__V($$this, oldIndex, newIndex, xor) {
   $s_sci_VectorPointer$class__stabilize__sci_VectorPointer__I__V($$this, oldIndex);
   $s_sci_VectorPointer$class__gotoFreshPosWritable0__sci_VectorPointer__I__I__I__V($$this, oldIndex, newIndex, xor)
@@ -6734,6 +6764,39 @@ $c_Ljapgolly_scalajs_react_vdom_Exports.prototype.init___ = (function() {
   this.VdomArray$1 = $m_Ljapgolly_scalajs_react_vdom_VdomArray$();
   return this
 });
+/** @constructor */
+function $c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$() {
+  $c_O.call(this)
+}
+$c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype = new $h_O();
+$c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype.constructor = $c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$;
+/** @constructor */
+function $h_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$() {
+  /*<skip>*/
+}
+$h_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype = $c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype;
+$c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype.init___ = (function() {
+  return this
+});
+$c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype.toTagMod$extension__sc_TraversableOnce__F1__Ljapgolly_scalajs_react_vdom_TagMod = (function($$this, f) {
+  var jsx$1 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+  var this$1 = $$this.toIterator__sc_Iterator();
+  return jsx$1.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$1, f))
+});
+var $d_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$ = new $TypeData().initClass({
+  Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$: 0
+}, false, "japgolly.scalajs.react.vdom.ImplicitsForVdomNode$TraversableOnceExt$", {
+  Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$: 1,
+  O: 1
+});
+$c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$.prototype.$classData = $d_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$;
+var $n_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$ = (void 0);
+function $m_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$() {
+  if ((!$n_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$)) {
+    $n_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$ = new $c_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$().init___()
+  };
+  return $n_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$
+}
 /** @constructor */
 function $c_Ljapgolly_scalajs_react_vdom_Style$() {
   $c_O.call(this)
@@ -15673,7 +15736,7 @@ $c_Lscalajsreact_template_components_SearchLogs$.prototype.init___ = (function()
   var p = $m_Ljapgolly_scalajs_react_CtorType$ProfunctorP$();
   this.component$1 = jsx$1.build__Ljapgolly_scalajs_react_CtorType$Summoner__Ljapgolly_scalajs_react_component_JsBaseComponentTemplate$ComponentWithRoot(new $c_Ljapgolly_scalajs_react_CtorType$Summoner$$anon$1().init___F1__Ljapgolly_scalajs_react_internal_Profunctor(f$1, p));
   var this$19 = ($m_Ljapgolly_scalajs_react_package$(), new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Step1().init___T("EchoLogs")).initialState__F0__Ljapgolly_scalajs_react_component_ScalaBuilder$Step2(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__AT__T("", $newArrayObject($d_T.getArrayOf(), [0]), "")
+    return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__sci_Map__T__T__sci_List("", $m_sci_Map$EmptyMap$(), "", "", ($m_sci_List$(), $m_sci_Nil$()))
   }))).backend__F1__Ljapgolly_scalajs_react_component_ScalaBuilder$Step3(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2) {
     var x = $as_Ljapgolly_scalajs_react_component_Generic$MountedWithRoot(x$2);
     return new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend().init___Ljapgolly_scalajs_react_component_Generic$MountedWithRoot(x)
@@ -15694,6 +15757,39 @@ $c_Lscalajsreact_template_components_SearchLogs$.prototype.init___ = (function()
   var p$1 = $m_Ljapgolly_scalajs_react_CtorType$ProfunctorP$();
   this.searchLogsComponent$1 = jsx$5.build__Ljapgolly_scalajs_react_CtorType$Summoner__Ljapgolly_scalajs_react_component_JsBaseComponentTemplate$ComponentWithRoot(new $c_Ljapgolly_scalajs_react_CtorType$Summoner$$anon$1().init___F1__Ljapgolly_scalajs_react_internal_Profunctor(f$4, p$1));
   return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$.prototype.renderLine__Lshared_SharedMessages$JsMessage__Ljapgolly_scalajs_react_vdom_VdomElement = (function(jsmsg) {
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$12 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$11 = $m_s_Predef$();
+  var this$2 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.display__Ljapgolly_scalajs_react_vdom_HtmlStyles$display$();
+  var jsx$10 = this$2.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("inline-block", $m_Ljapgolly_scalajs_react_vdom_PackageBase$().vdomAttrVtString$2);
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$9 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStylesStatic$AutoStyle().init___T("width");
+  var this$5 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var $$this = 100;
+  var jsx$8 = jsx$9.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$5.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this, "%"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+  var jsx$7 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$6 = $m_s_Predef$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$5 = new $c_Ljapgolly_scalajs_react_vdom_Style().init___T("paddingRight");
+  var this$10 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var $$this$1 = 10;
+  var jsx$4 = jsx$5.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$10.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this$1, "px"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var v = jsmsg.sender$1;
+  var jsx$3 = jsx$7.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", jsx$6.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$4, new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(":"))])));
+  var jsx$2 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$1 = $m_s_Predef$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var v$1 = jsmsg.msg$1;
+  var a = jsx$12.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", jsx$11.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$10, jsx$8, jsx$3, jsx$2.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("span", jsx$1.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v$1)])))])));
+  return a.render__Ljapgolly_scalajs_react_vdom_VdomElement()
 });
 var $d_Lscalajsreact_template_components_SearchLogs$ = new $TypeData().initClass({
   Lscalajsreact_template_components_SearchLogs$: 0
@@ -15722,47 +15818,37 @@ function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend() {
 }
 $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype;
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.render__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_components_SearchLogs$SearchState__Ljapgolly_scalajs_react_vdom_TagOf = (function(props, s) {
-  var jsx$14 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$21 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$13 = $m_s_Predef$();
+  var jsx$20 = $m_s_Predef$();
+  var jsx$19 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$18 = $m_s_Predef$();
+  var jsx$17 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "h3"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Files"))])));
+  var jsx$16 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$15 = $m_s_Predef$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var this$8 = s.files$1;
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_components_SearchLogs$SearchState(this, props, s);
+  var this$7 = $m_sci_Iterable$();
+  var bf = this$7.ReusableCBFInstance$2;
+  var as = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$8, f, bf));
+  var f$1 = $m_s_Predef$().singleton$und$less$colon$less$2;
+  var jsx$14 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+  var this$11 = as.toIterator__sc_Iterator();
+  var jsx$13 = jsx$19.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$18.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$17, jsx$16.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", jsx$15.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$14.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$11, f$1))])))])));
   var jsx$12 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   var jsx$11 = $m_s_Predef$();
-  var jsx$10 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "h3"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Files"))])));
-  var jsx$9 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$10 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "label"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Search regex input:"))])));
+  var jsx$9 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$8 = $m_s_Predef$();
+  var jsx$8 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStylesStatic$AutoStyle().init___T("width");
+  var this$18 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var xs = s.files$1;
-  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_components_SearchLogs$SearchState(this, props, s);
-  var elems$2 = [];
-  var i = 0;
-  var len = xs.u.length;
-  while ((i < len)) {
-    var index = i;
-    var arg1 = xs.u[index];
-    var elem = f.apply__T__Ljapgolly_scalajs_react_vdom_TagOf($as_T(arg1));
-    var unboxedElem = ((elem === null) ? null : elem);
-    elems$2.push(unboxedElem);
-    i = ((1 + i) | 0)
-  };
-  var as = $makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagOf.getArrayOf(), elems$2);
-  var $$this = $m_s_Predef$().genericArrayOps__O__scm_ArrayOps(as);
-  var f$1 = $m_s_Predef$().singleton$und$less$colon$less$2;
-  var jsx$7 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-  var this$17 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I($$this, 0, $$this.length__I());
-  var jsx$6 = jsx$12.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$11.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$10, jsx$9.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", jsx$8.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$7.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$17, f$1))])))])));
-  var jsx$5 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$4 = $m_s_Predef$();
-  var jsx$3 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "label"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Search regex input:"))])));
-  var jsx$2 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$1 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStylesStatic$AutoStyle().init___T("width");
-  var this$24 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var $$this$1 = 250;
-  return jsx$14.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$13.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$6, jsx$5.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$4.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$3, jsx$2.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$1.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$24.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this$1, "px"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, props$1, s$1) {
+  var $$this = 250;
+  var jsx$7 = jsx$12.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$11.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$10, jsx$9.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$8.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$18.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this, "px"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, props$1, s$1) {
     return (function(e$2) {
       return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(s$1.callOnChangeInputRegex__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot__Lscalajsreact_template_models_IrcChatProps__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(arg$outer.scalajsreact$template$components$SearchLogs$SearchLogsBackend$$$$f, props$1, e$2))
     })
@@ -15770,27 +15856,58 @@ $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.rend
     return (function() {
       return s$1$1.callSearchLogFiles__Lscalajsreact_template_models_IrcChatProps__s_Option(props$1$1)
     })
-  })(props, s)), $m_Ljapgolly_scalajs_react_internal_OptionLike$().optionInstance$1), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Search Now"))]))), $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "label"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("On input change:"))]))), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$().checkbox$2.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf($m_sci_Nil$())])))])))
+  })(props, s)), $m_Ljapgolly_scalajs_react_internal_OptionLike$().optionInstance$1), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Search Now"))])))])));
+  var jsx$6 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$5 = $m_s_Predef$();
+  var jsx$4 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "h3"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Log content"))])));
+  var jsx$3 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$2 = $m_s_Predef$();
+  var jsx$1 = $m_Ljapgolly_scalajs_react_vdom_ImplicitsForVdomNode$TraversableOnceExt$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var as$1 = s.jsMessagesContent$1;
+  return jsx$21.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$20.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$13, jsx$7, jsx$6.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$5.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$4, jsx$3.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$2.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$1.toTagMod$extension__sc_TraversableOnce__F1__Ljapgolly_scalajs_react_vdom_TagMod(as$1, new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(jsmsg$2) {
+    var jsmsg = $as_Lshared_SharedMessages$JsMessage(jsmsg$2);
+    return $m_Lscalajsreact_template_components_SearchLogs$().renderLine__Lshared_SharedMessages$JsMessage__Ljapgolly_scalajs_react_vdom_VdomElement(jsmsg)
+  })))])))])))])))
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.loadLogs__F0 = (function() {
   var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
   var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["loadLogs"])).s__sc_Seq__T($m_sci_Nil$());
   jsx$1.log(s);
   var this$4 = $m_Lorg_scalajs_dom_ext_Ajax$();
-  var url = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/getLogsNames"])).s__sc_Seq__T($m_sci_Nil$());
+  var url = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/getAllLogsNames"])).s__sc_Seq__T($m_sci_Nil$());
   var headers = $m_sci_Map$EmptyMap$();
   var this$5 = this$4.apply__T__T__Lorg_scalajs_dom_ext_Ajax$InputData__I__sci_Map__Z__T__s_concurrent_Future("GET", url, null, 0, headers, false, "");
-  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend(this);
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend(this);
   var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContextExecutor();
   $s_s_concurrent_Future$class__foreach__s_concurrent_Future__F1__s_concurrent_ExecutionContext__V(this$5, f, executor);
-  return $m_Ljapgolly_scalajs_react_Callback$().apply__F0__Ljapgolly_scalajs_react_Callback$ResultGuard__F0(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return (void 0)
-  })), null)
+  return $m_Ljapgolly_scalajs_react_Callback$().empty$1
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot = (function() {
   var this$1 = this.scalajsreact$template$components$SearchLogs$SearchLogsBackend$$$$f;
   var t = $m_Ljapgolly_scalajs_react_internal_Effect$Trans$().callbackToId$1;
   return this$1.withEffect__Ljapgolly_scalajs_react_internal_Effect$Trans__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot(t)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.callOpenLogFile__Lscalajsreact_template_components_SearchLogs$SearchState__Lscalajsreact_template_models_IrcChatProps__T__T__s_Option = (function(s, props, target, file) {
+  var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
+  var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callOpenLogFile"])).s__sc_Seq__T($m_sci_Nil$());
+  jsx$1.log(s$1);
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("target");
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log(target);
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("file");
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log(file);
+  var url = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/getLogFile/", "/", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_sjsr_RuntimeString$().replaceAll__T__T__T__T(target, "#", "%23"), file]));
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("url");
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log(url);
+  var this$10 = $m_Lorg_scalajs_dom_ext_Ajax$();
+  var headers = $m_sci_Map$EmptyMap$();
+  var this$11 = this$10.apply__T__T__Lorg_scalajs_dom_ext_Ajax$InputData__I__sci_Map__Z__T__s_concurrent_Future("GET", url, null, 0, headers, false, "");
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend(this);
+  var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContextExecutor();
+  $s_s_concurrent_Future$class__foreach__s_concurrent_Future__F1__s_concurrent_ExecutionContext__V(this$11, f, executor);
+  return $m_s_Option$().apply__O__s_Option(new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0($m_Ljapgolly_scalajs_react_Callback$().empty$1))
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.init___Ljapgolly_scalajs_react_component_Generic$MountedWithRoot = (function($$) {
   this.scalajsreact$template$components$SearchLogs$SearchLogsBackend$$$$f = $$;
@@ -15815,6 +15932,385 @@ var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend = new $Typ
   O: 1
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5() {
+  $c_O.call(this);
+  this.derive$macro$129$1 = null;
+  this.bitmap$0$1 = false
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype = new $h_O();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype.derive$macro$129$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if ((!this.bitmap$0$1)) {
+    this.derive$macro$129$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5(this));
+    this.bitmap$0$1 = true
+  };
+  return this.derive$macro$129$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype.derive$macro$129__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$129$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$129$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5: 1,
+  O: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1() {
+  $c_O.call(this);
+  this.derive$macro$92$1 = null;
+  this.derive$macro$4$1 = null;
+  this.derive$macro$79$1 = null;
+  this.derive$macro$72$1 = null;
+  this.derive$macro$53$1 = null;
+  this.derive$macro$69$1 = null;
+  this.derive$macro$22$1 = null;
+  this.derive$macro$32$1 = null;
+  this.derive$macro$64$1 = null;
+  this.derive$macro$11$1 = null;
+  this.derive$macro$59$1 = null;
+  this.derive$macro$38$1 = null;
+  this.derive$macro$43$1 = null;
+  this.derive$macro$1$1 = null;
+  this.derive$macro$48$1 = null;
+  this.derive$macro$85$1 = null;
+  this.derive$macro$27$1 = null;
+  this.bitmap$0$1 = 0
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype = new $h_O();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$22$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((64 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$22$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (64 | this.bitmap$0$1)
+  };
+  return this.derive$macro$22$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$53$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((16 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$53$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (16 | this.bitmap$0$1)
+  };
+  return this.derive$macro$53$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$72__Lupickle_Types$Reader = (function() {
+  return (((8 & this.bitmap$0$1) === 0) ? this.derive$macro$72$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$72$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$38__Lupickle_Types$Reader = (function() {
+  return (((2048 & this.bitmap$0$1) === 0) ? this.derive$macro$38$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$38$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$38$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((2048 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$38$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (2048 | this.bitmap$0$1)
+  };
+  return this.derive$macro$38$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$4__Lupickle_Types$Reader = (function() {
+  return (((2 & this.bitmap$0$1) === 0) ? this.derive$macro$4$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$4$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$59$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((1024 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$59$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (1024 | this.bitmap$0$1)
+  };
+  return this.derive$macro$59$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$59__Lupickle_Types$Reader = (function() {
+  return (((1024 & this.bitmap$0$1) === 0) ? this.derive$macro$59$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$59$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$43$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((4096 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$43$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (4096 | this.bitmap$0$1)
+  };
+  return this.derive$macro$43$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$92$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((1 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$92$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (1 | this.bitmap$0$1)
+  };
+  return this.derive$macro$92$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$43__Lupickle_Types$Reader = (function() {
+  return (((4096 & this.bitmap$0$1) === 0) ? this.derive$macro$43$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$43$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$27__Lupickle_Types$Reader = (function() {
+  return (((65536 & this.bitmap$0$1) === 0) ? this.derive$macro$27$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$27$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$11$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((512 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$11$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (512 | this.bitmap$0$1)
+  };
+  return this.derive$macro$11$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$22__Lupickle_Types$Reader = (function() {
+  return (((64 & this.bitmap$0$1) === 0) ? this.derive$macro$22$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$22$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$69__Lupickle_Types$Reader = (function() {
+  return (((32 & this.bitmap$0$1) === 0) ? this.derive$macro$69$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$69$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$64$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((256 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$64$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (256 | this.bitmap$0$1)
+  };
+  return this.derive$macro$64$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$1$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((8192 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$1$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
+      return (function() {
+        var this$17 = $m_Lupickle_default$().Reader__Lupickle_Types$Reader$();
+        var e = arg$outer.derive$macro$4__Lupickle_Types$Reader();
+        var jsx$15 = e.read__s_PartialFunction();
+        var e$1 = arg$outer.derive$macro$11__Lupickle_Types$Reader();
+        var jsx$14 = jsx$15.orElse__s_PartialFunction__s_PartialFunction(e$1.read__s_PartialFunction());
+        var e$2 = arg$outer.derive$macro$22__Lupickle_Types$Reader();
+        var jsx$13 = jsx$14.orElse__s_PartialFunction__s_PartialFunction(e$2.read__s_PartialFunction());
+        var e$3 = arg$outer.derive$macro$27__Lupickle_Types$Reader();
+        var jsx$12 = jsx$13.orElse__s_PartialFunction__s_PartialFunction(e$3.read__s_PartialFunction());
+        var e$4 = arg$outer.derive$macro$32__Lupickle_Types$Reader();
+        var jsx$11 = jsx$12.orElse__s_PartialFunction__s_PartialFunction(e$4.read__s_PartialFunction());
+        var e$5 = arg$outer.derive$macro$38__Lupickle_Types$Reader();
+        var jsx$10 = jsx$11.orElse__s_PartialFunction__s_PartialFunction(e$5.read__s_PartialFunction());
+        var e$6 = arg$outer.derive$macro$43__Lupickle_Types$Reader();
+        var jsx$9 = jsx$10.orElse__s_PartialFunction__s_PartialFunction(e$6.read__s_PartialFunction());
+        var e$7 = arg$outer.derive$macro$48__Lupickle_Types$Reader();
+        var jsx$8 = jsx$9.orElse__s_PartialFunction__s_PartialFunction(e$7.read__s_PartialFunction());
+        var e$8 = arg$outer.derive$macro$53__Lupickle_Types$Reader();
+        var jsx$7 = jsx$8.orElse__s_PartialFunction__s_PartialFunction(e$8.read__s_PartialFunction());
+        var e$9 = arg$outer.derive$macro$59__Lupickle_Types$Reader();
+        var jsx$6 = jsx$7.orElse__s_PartialFunction__s_PartialFunction(e$9.read__s_PartialFunction());
+        var e$10 = arg$outer.derive$macro$64__Lupickle_Types$Reader();
+        var jsx$5 = jsx$6.orElse__s_PartialFunction__s_PartialFunction(e$10.read__s_PartialFunction());
+        var e$11 = arg$outer.derive$macro$69__Lupickle_Types$Reader();
+        var jsx$4 = jsx$5.orElse__s_PartialFunction__s_PartialFunction(e$11.read__s_PartialFunction());
+        var e$12 = arg$outer.derive$macro$72__Lupickle_Types$Reader();
+        var jsx$3 = jsx$4.orElse__s_PartialFunction__s_PartialFunction(e$12.read__s_PartialFunction());
+        var e$13 = arg$outer.derive$macro$79__Lupickle_Types$Reader();
+        var jsx$2 = jsx$3.orElse__s_PartialFunction__s_PartialFunction(e$13.read__s_PartialFunction());
+        var e$14 = arg$outer.derive$macro$85__Lupickle_Types$Reader();
+        var jsx$1 = jsx$2.orElse__s_PartialFunction__s_PartialFunction(e$14.read__s_PartialFunction());
+        var e$15 = arg$outer.derive$macro$92__Lupickle_Types$Reader();
+        var _read = jsx$1.orElse__s_PartialFunction__s_PartialFunction(e$15.read__s_PartialFunction());
+        var src = new $c_Lsourcecode_Enclosing().init___T("scalajsreact.template.components.SearchLogs.SearchLogsBackend#callOpenLogFile $anonfun $anonfun logRecord $anon#derive$macro$1 $anonfun");
+        return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$17, _read, src)
+      })
+    })(this)));
+    this.bitmap$0$1 = (8192 | this.bitmap$0$1)
+  };
+  return this.derive$macro$1$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$48__Lupickle_Types$Reader = (function() {
+  return (((16384 & this.bitmap$0$1) === 0) ? this.derive$macro$48$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$48$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$4$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((2 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$4$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (2 | this.bitmap$0$1)
+  };
+  return this.derive$macro$4$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$27$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((65536 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$27$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (65536 | this.bitmap$0$1)
+  };
+  return this.derive$macro$27$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$64__Lupickle_Types$Reader = (function() {
+  return (((256 & this.bitmap$0$1) === 0) ? this.derive$macro$64$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$64$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$85$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((32768 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$85$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (32768 | this.bitmap$0$1)
+  };
+  return this.derive$macro$85$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$79$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((4 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$79$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (4 | this.bitmap$0$1)
+  };
+  return this.derive$macro$79$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$85__Lupickle_Types$Reader = (function() {
+  return (((32768 & this.bitmap$0$1) === 0) ? this.derive$macro$85$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$85$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$11__Lupickle_Types$Reader = (function() {
+  return (((512 & this.bitmap$0$1) === 0) ? this.derive$macro$11$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$11$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$92__Lupickle_Types$Reader = (function() {
+  return (((1 & this.bitmap$0$1) === 0) ? this.derive$macro$92$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$92$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$32$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((128 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$32$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (128 | this.bitmap$0$1)
+  };
+  return this.derive$macro$32$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$72$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((8 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$72$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (8 | this.bitmap$0$1)
+  };
+  return this.derive$macro$72$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$1__Lupickle_Types$Reader = (function() {
+  return (((8192 & this.bitmap$0$1) === 0) ? this.derive$macro$1$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$1$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$53__Lupickle_Types$Reader = (function() {
+  return (((16 & this.bitmap$0$1) === 0) ? this.derive$macro$53$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$53$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$48$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((16384 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$48$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (16384 | this.bitmap$0$1)
+  };
+  return this.derive$macro$48$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$32__Lupickle_Types$Reader = (function() {
+  return (((128 & this.bitmap$0$1) === 0) ? this.derive$macro$32$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$32$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$79__Lupickle_Types$Reader = (function() {
+  return (((4 & this.bitmap$0$1) === 0) ? this.derive$macro$79$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$79$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.derive$macro$69$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((32 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$69$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1(this));
+    this.bitmap$0$1 = (32 | this.bitmap$0$1)
+  };
+  return this.derive$macro$69$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1: 1,
+  O: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4() {
+  $c_O.call(this);
+  this.derive$macro$122$1 = null;
+  this.bitmap$0$1 = false
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype = new $h_O();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype.derive$macro$122$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if ((!this.bitmap$0$1)) {
+    this.derive$macro$122$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4(this));
+    this.bitmap$0$1 = true
+  };
+  return this.derive$macro$122$1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype.derive$macro$122__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$122$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$122$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4: 1,
+  O: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3() {
+  $c_O.call(this);
+  this.derive$macro$115$1 = null;
+  this.bitmap$0$1 = false
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype = new $h_O();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype.derive$macro$115__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$115$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$115$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype.derive$macro$115$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if ((!this.bitmap$0$1)) {
+    this.derive$macro$115$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3(this));
+    this.bitmap$0$1 = true
+  };
+  return this.derive$macro$115$1
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3: 1,
+  O: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2() {
+  $c_O.call(this);
+  this.derive$macro$108$1 = null;
+  this.bitmap$0$1 = false
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype = new $h_O();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype.derive$macro$108__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$108$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$108$1)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype.derive$macro$108$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if ((!this.bitmap$0$1)) {
+    this.derive$macro$108$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2(this));
+    this.bitmap$0$1 = true
+  };
+  return this.derive$macro$108$1
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2: 1,
+  O: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2;
 /** @constructor */
 function $c_Lscalajsreact_template_components_TopNav$() {
   $c_O.call(this);
@@ -15990,7 +16486,8 @@ $c_Lscalajsreact_template_css_AppCSS$.prototype.load__V = (function() {
     $m_Lscalacss_defaults_DefaultSettings$Dev$();
     var s = $m_Lscalacss_internal_StringRenderer$().defaultPretty__Lscalacss_internal_Renderer();
     jsx$1.addToDocument$extension__Lscalacss_internal_mutable_StyleSheet$Inline__Lscalacss_internal_Renderer__Lscalacss_internal_Env__V(x$1, new $c_Lscalacss_defaults_PlatformExports$StyleElementRenderer().init___Lscalacss_internal_Renderer(s), ($m_Lscalacss_package$Defaults$(), $m_Lscalacss_defaults_DefaultSettings$Dev$(), $m_Lscalacss_internal_Env$().empty$1))
-  })))
+  })));
+  $m_Lscalacss_internal_mutable_GlobalRegistry$().register__sc_Seq__V($m_sci_Nil$())
 });
 var $d_Lscalajsreact_template_css_AppCSS$ = new $TypeData().initClass({
   Lscalajsreact_template_css_AppCSS$: 0
@@ -16215,17 +16712,17 @@ $c_Lscalajsreact_template_pages_IrcChatPage$.prototype.init___ = (function() {
     var a = $as_Lscalajsreact_template_pages_IrcChatPage$Backend($s_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base$class__backend__Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base__O(x$1)).render__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState__Ljapgolly_scalajs_react_vdom_TagOf($as_Lscalajsreact_template_models_IrcChatProps($s_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base$class__mountedImpure__Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base__Ljapgolly_scalajs_react_component_Scala$MountedWithRoot(x$1).props__O()), $as_Lscalajsreact_template_pages_IrcChatPage$ChatState($s_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base$class__mountedImpure__Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base__Ljapgolly_scalajs_react_component_Scala$MountedWithRoot(x$1).state__O()));
     return a.render__Ljapgolly_scalajs_react_vdom_VdomElement()
   })));
-  var f$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18().init___();
+  var f$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19().init___();
   var this$11 = this$9.lcAppend__p1__Ljapgolly_scalajs_react_internal_Lens__F1__F2__Ljapgolly_scalajs_react_component_ScalaBuilder$Step4($m_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$().componentWillMount__Ljapgolly_scalajs_react_internal_Lens(), f$1, $m_Ljapgolly_scalajs_react_internal_Semigroup$().callback$1);
-  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$18$2) {
-    var x$18 = $as_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentDidMount(x$18$2).raw$1;
-    var this$10 = new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentDidMount().init___Ljapgolly_scalajs_react_raw_package$ReactComponent(x$18);
+  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$19$2) {
+    var x$19 = $as_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentDidMount(x$19$2).raw$1;
+    var this$10 = new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentDidMount().init___Ljapgolly_scalajs_react_raw_package$ReactComponent(x$19);
     return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0($as_Lscalajsreact_template_pages_IrcChatPage$Backend($s_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base$class__backend__Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base__O(this$10)).mounted__F0())
   }));
   var this$13 = this$11.lcAppend__p1__Ljapgolly_scalajs_react_internal_Lens__F1__F2__Ljapgolly_scalajs_react_component_ScalaBuilder$Step4($m_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$().componentDidMount__Ljapgolly_scalajs_react_internal_Lens(), f$2, $m_Ljapgolly_scalajs_react_internal_Semigroup$().callback$1);
-  var f$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$19$2) {
-    var x$19 = $as_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillUnmount(x$19$2).raw$1;
-    var this$12 = new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillUnmount().init___Ljapgolly_scalajs_react_raw_package$ReactComponent(x$19);
+  var f$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$20$2) {
+    var x$20 = $as_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillUnmount(x$20$2).raw$1;
+    var this$12 = new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillUnmount().init___Ljapgolly_scalajs_react_raw_package$ReactComponent(x$20);
     return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0($as_Lscalajsreact_template_pages_IrcChatPage$Backend($s_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base$class__backend__Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$Base__O(this$12)).end__F0())
   }));
   var jsx$2 = this$13.lcAppend__p1__Ljapgolly_scalajs_react_internal_Lens__F1__F2__Ljapgolly_scalajs_react_component_ScalaBuilder$Step4($m_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$().componentWillUnmount__Ljapgolly_scalajs_react_internal_Lens(), f$3, $m_Ljapgolly_scalajs_react_internal_Semigroup$().callback$1);
@@ -16322,13 +16819,13 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend.prototype.callSetSelectedTar
   return $as_Ljapgolly_scalajs_react_CallbackTo(this.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState__F1__F0__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(ts$1) {
     return (function(state$2) {
       var state = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(state$2);
-      var x$48 = new $c_s_Some().init___O(ts$1);
-      var x$49 = state.targets$1;
-      var x$50 = state.sender$1;
-      var x$51 = state.channelJoin$1;
-      var x$52 = state.ready$1;
-      var x$53 = state.props$1;
-      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$49, x$50, x$51, x$48, x$52, x$53)
+      var x$50 = new $c_s_Some().init___O(ts$1);
+      var x$51 = state.targets$1;
+      var x$52 = state.sender$1;
+      var x$53 = state.channelJoin$1;
+      var x$54 = state.ready$1;
+      var x$55 = state.props$1;
+      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$51, x$52, x$53, x$50, x$54, x$55)
     })
   })(ts)), this.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
 });
@@ -16465,13 +16962,13 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend.prototype.mounted__F0 = (fun
   return $as_Ljapgolly_scalajs_react_CallbackTo(this.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState__F1__F0__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(pr$1) {
     return (function(x$5$2) {
       var x$5 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$5$2);
-      var x$26 = new $c_s_Some().init___O(pr$1);
-      var x$27 = x$5.targets$1;
-      var x$28 = x$5.sender$1;
-      var x$29 = x$5.channelJoin$1;
-      var x$30 = x$5.selectedTarget$1;
-      var x$31 = x$5.ready$1;
-      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$27, x$28, x$29, x$30, x$31, x$26)
+      var x$27 = new $c_s_Some().init___O(pr$1);
+      var x$28 = x$5.targets$1;
+      var x$29 = x$5.sender$1;
+      var x$30 = x$5.channelJoin$1;
+      var x$31 = x$5.selectedTarget$1;
+      var x$32 = x$5.ready$1;
+      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$28, x$29, x$30, x$31, x$32, x$27)
     })
   })(pr)), this.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
 });
@@ -16507,20 +17004,23 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend.prototype.$classData = $d_Ls
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10() {
   $c_O.call(this);
+  this.derive$macro$218$1 = null;
+  this.derive$macro$195$1 = null;
+  this.derive$macro$231$1 = null;
+  this.derive$macro$174$1 = null;
   this.derive$macro$212$1 = null;
-  this.derive$macro$197$1 = null;
-  this.derive$macro$206$1 = null;
-  this.derive$macro$203$1 = null;
-  this.derive$macro$175$1 = null;
+  this.derive$macro$221$1 = null;
+  this.derive$macro$207$1 = null;
+  this.derive$macro$186$1 = null;
+  this.derive$macro$237$1 = null;
+  this.derive$macro$242$1 = null;
   this.derive$macro$169$1 = null;
-  this.derive$macro$148$1 = null;
-  this.derive$macro$180$1 = null;
-  this.derive$macro$185$1 = null;
+  this.derive$macro$162$1 = null;
+  this.derive$macro$202$1 = null;
   this.derive$macro$159$1 = null;
-  this.derive$macro$145$1 = null;
-  this.derive$macro$164$1 = null;
-  this.derive$macro$190$1 = null;
-  this.derive$macro$219$1 = null;
+  this.derive$macro$248$1 = null;
+  this.derive$macro$224$1 = null;
+  this.derive$macro$181$1 = null;
   this.bitmap$0$1 = 0
 }
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype = new $h_O();
@@ -16530,180 +17030,216 @@ function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$
   /*<skip>*/
 }
 $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$202__Lupickle_Types$Reader = (function() {
+  return (((4096 & this.bitmap$0$1) === 0) ? this.derive$macro$202$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$202$1)
+});
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$169$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((32 & this.bitmap$0$1) === 0)) {
+  if (((1024 & this.bitmap$0$1) === 0)) {
     this.derive$macro$169$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (32 | this.bitmap$0$1)
+    this.bitmap$0$1 = (1024 | this.bitmap$0$1)
   };
   return this.derive$macro$169$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$190$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((4096 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$190$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (4096 | this.bitmap$0$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$248$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((16384 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$248$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (16384 | this.bitmap$0$1)
   };
-  return this.derive$macro$190$1
+  return this.derive$macro$248$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$190__Lupickle_Types$Reader = (function() {
-  return (((4096 & this.bitmap$0$1) === 0) ? this.derive$macro$190$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$190$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$195__Lupickle_Types$Reader = (function() {
+  return (((2 & this.bitmap$0$1) === 0) ? this.derive$macro$195$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$195$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$237__Lupickle_Types$Reader = (function() {
+  return (((256 & this.bitmap$0$1) === 0) ? this.derive$macro$237$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$237$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$186__Lupickle_Types$Reader = (function() {
+  return (((128 & this.bitmap$0$1) === 0) ? this.derive$macro$186$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$186$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$162$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((2048 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$162$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (2048 | this.bitmap$0$1)
+  };
+  return this.derive$macro$162$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$181__Lupickle_Types$Reader = (function() {
+  return (((65536 & this.bitmap$0$1) === 0) ? this.derive$macro$181$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$181$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$207__Lupickle_Types$Reader = (function() {
+  return (((64 & this.bitmap$0$1) === 0) ? this.derive$macro$207$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$207$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$219__Lupickle_Types$Reader = (function() {
-  return (((8192 & this.bitmap$0$1) === 0) ? this.derive$macro$219$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$219$1)
-});
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$159$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((512 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$159$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (512 | this.bitmap$0$1)
+  if (((8192 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$159$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
+      return (function() {
+        var this$17 = $m_Lupickle_default$().Reader__Lupickle_Types$Reader$();
+        var e = arg$outer.derive$macro$162__Lupickle_Types$Reader();
+        var jsx$15 = e.read__s_PartialFunction();
+        var e$1 = arg$outer.derive$macro$169__Lupickle_Types$Reader();
+        var jsx$14 = jsx$15.orElse__s_PartialFunction__s_PartialFunction(e$1.read__s_PartialFunction());
+        var e$2 = arg$outer.derive$macro$174__Lupickle_Types$Reader();
+        var jsx$13 = jsx$14.orElse__s_PartialFunction__s_PartialFunction(e$2.read__s_PartialFunction());
+        var e$3 = arg$outer.derive$macro$181__Lupickle_Types$Reader();
+        var jsx$12 = jsx$13.orElse__s_PartialFunction__s_PartialFunction(e$3.read__s_PartialFunction());
+        var e$4 = arg$outer.derive$macro$186__Lupickle_Types$Reader();
+        var jsx$11 = jsx$12.orElse__s_PartialFunction__s_PartialFunction(e$4.read__s_PartialFunction());
+        var e$5 = arg$outer.derive$macro$195__Lupickle_Types$Reader();
+        var jsx$10 = jsx$11.orElse__s_PartialFunction__s_PartialFunction(e$5.read__s_PartialFunction());
+        var e$6 = arg$outer.derive$macro$202__Lupickle_Types$Reader();
+        var jsx$9 = jsx$10.orElse__s_PartialFunction__s_PartialFunction(e$6.read__s_PartialFunction());
+        var e$7 = arg$outer.derive$macro$207__Lupickle_Types$Reader();
+        var jsx$8 = jsx$9.orElse__s_PartialFunction__s_PartialFunction(e$7.read__s_PartialFunction());
+        var e$8 = arg$outer.derive$macro$212__Lupickle_Types$Reader();
+        var jsx$7 = jsx$8.orElse__s_PartialFunction__s_PartialFunction(e$8.read__s_PartialFunction());
+        var e$9 = arg$outer.derive$macro$218__Lupickle_Types$Reader();
+        var jsx$6 = jsx$7.orElse__s_PartialFunction__s_PartialFunction(e$9.read__s_PartialFunction());
+        var e$10 = arg$outer.derive$macro$221__Lupickle_Types$Reader();
+        var jsx$5 = jsx$6.orElse__s_PartialFunction__s_PartialFunction(e$10.read__s_PartialFunction());
+        var e$11 = arg$outer.derive$macro$224__Lupickle_Types$Reader();
+        var jsx$4 = jsx$5.orElse__s_PartialFunction__s_PartialFunction(e$11.read__s_PartialFunction());
+        var e$12 = arg$outer.derive$macro$231__Lupickle_Types$Reader();
+        var jsx$3 = jsx$4.orElse__s_PartialFunction__s_PartialFunction(e$12.read__s_PartialFunction());
+        var e$13 = arg$outer.derive$macro$237__Lupickle_Types$Reader();
+        var jsx$2 = jsx$3.orElse__s_PartialFunction__s_PartialFunction(e$13.read__s_PartialFunction());
+        var e$14 = arg$outer.derive$macro$242__Lupickle_Types$Reader();
+        var jsx$1 = jsx$2.orElse__s_PartialFunction__s_PartialFunction(e$14.read__s_PartialFunction());
+        var e$15 = arg$outer.derive$macro$248__Lupickle_Types$Reader();
+        var _read = jsx$1.orElse__s_PartialFunction__s_PartialFunction(e$15.read__s_PartialFunction());
+        var src = new $c_Lsourcecode_Enclosing().init___T("scalajsreact.template.pages.IrcChatPage.Backend#start connect onmessage incommingMsg $anon#derive$macro$159 $anonfun");
+        return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$17, _read, src)
+      })
+    })(this)));
+    this.bitmap$0$1 = (8192 | this.bitmap$0$1)
   };
   return this.derive$macro$159$1
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$159__Lupickle_Types$Reader = (function() {
-  return (((512 & this.bitmap$0$1) === 0) ? this.derive$macro$159$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$159$1)
+  return (((8192 & this.bitmap$0$1) === 0) ? this.derive$macro$159$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$159$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$145__Lupickle_Types$Reader = (function() {
-  return (((1024 & this.bitmap$0$1) === 0) ? this.derive$macro$145$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$145$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$180$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((128 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$180$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (128 | this.bitmap$0$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$207$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((64 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$207$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (64 | this.bitmap$0$1)
   };
-  return this.derive$macro$180$1
+  return this.derive$macro$207$1
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$212__Lupickle_Types$Reader = (function() {
-  return (((1 & this.bitmap$0$1) === 0) ? this.derive$macro$212$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$212$1)
+  return (((16 & this.bitmap$0$1) === 0) ? this.derive$macro$212$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$212$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$221__Lupickle_Types$Reader = (function() {
+  return (((32 & this.bitmap$0$1) === 0) ? this.derive$macro$221$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$221$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$174$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((8 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$174$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (8 | this.bitmap$0$1)
+  };
+  return this.derive$macro$174$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$231$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((4 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$231$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (4 | this.bitmap$0$1)
+  };
+  return this.derive$macro$231$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$186$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((128 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$186$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (128 | this.bitmap$0$1)
+  };
+  return this.derive$macro$186$1
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$212$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((1 & this.bitmap$0$1) === 0)) {
+  if (((16 & this.bitmap$0$1) === 0)) {
     this.derive$macro$212$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (1 | this.bitmap$0$1)
+    this.bitmap$0$1 = (16 | this.bitmap$0$1)
   };
   return this.derive$macro$212$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$203$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((8 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$203$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (8 | this.bitmap$0$1)
-  };
-  return this.derive$macro$203$1
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$242__Lupickle_Types$Reader = (function() {
+  return (((512 & this.bitmap$0$1) === 0) ? this.derive$macro$242$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$242$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$175__Lupickle_Types$Reader = (function() {
-  return (((16 & this.bitmap$0$1) === 0) ? this.derive$macro$175$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$175$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$224__Lupickle_Types$Reader = (function() {
+  return (((32768 & this.bitmap$0$1) === 0) ? this.derive$macro$224$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$224$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$206$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((4 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$206$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (4 | this.bitmap$0$1)
-  };
-  return this.derive$macro$206$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$219$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((8192 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$219$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (8192 | this.bitmap$0$1)
-  };
-  return this.derive$macro$219$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$203__Lupickle_Types$Reader = (function() {
-  return (((8 & this.bitmap$0$1) === 0) ? this.derive$macro$203$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$203$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$169__Lupickle_Types$Reader = (function() {
-  return (((32 & this.bitmap$0$1) === 0) ? this.derive$macro$169$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$169$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$164$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((2048 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$164$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (2048 | this.bitmap$0$1)
-  };
-  return this.derive$macro$164$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$206__Lupickle_Types$Reader = (function() {
-  return (((4 & this.bitmap$0$1) === 0) ? this.derive$macro$206$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$206$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$164__Lupickle_Types$Reader = (function() {
-  return (((2048 & this.bitmap$0$1) === 0) ? this.derive$macro$164$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$164$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$148__Lupickle_Types$Reader = (function() {
-  return (((64 & this.bitmap$0$1) === 0) ? this.derive$macro$148$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$148$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$185$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((256 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$185$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (256 | this.bitmap$0$1)
-  };
-  return this.derive$macro$185$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$145$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((1024 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$145$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
-      return (function() {
-        var this$14 = $m_Lupickle_default$().Reader__Lupickle_Types$Reader$();
-        var e = arg$outer.derive$macro$148__Lupickle_Types$Reader();
-        var jsx$12 = e.read__s_PartialFunction();
-        var e$1 = arg$outer.derive$macro$159__Lupickle_Types$Reader();
-        var jsx$11 = jsx$12.orElse__s_PartialFunction__s_PartialFunction(e$1.read__s_PartialFunction());
-        var e$2 = arg$outer.derive$macro$164__Lupickle_Types$Reader();
-        var jsx$10 = jsx$11.orElse__s_PartialFunction__s_PartialFunction(e$2.read__s_PartialFunction());
-        var e$3 = arg$outer.derive$macro$169__Lupickle_Types$Reader();
-        var jsx$9 = jsx$10.orElse__s_PartialFunction__s_PartialFunction(e$3.read__s_PartialFunction());
-        var e$4 = arg$outer.derive$macro$175__Lupickle_Types$Reader();
-        var jsx$8 = jsx$9.orElse__s_PartialFunction__s_PartialFunction(e$4.read__s_PartialFunction());
-        var e$5 = arg$outer.derive$macro$180__Lupickle_Types$Reader();
-        var jsx$7 = jsx$8.orElse__s_PartialFunction__s_PartialFunction(e$5.read__s_PartialFunction());
-        var e$6 = arg$outer.derive$macro$185__Lupickle_Types$Reader();
-        var jsx$6 = jsx$7.orElse__s_PartialFunction__s_PartialFunction(e$6.read__s_PartialFunction());
-        var e$7 = arg$outer.derive$macro$190__Lupickle_Types$Reader();
-        var jsx$5 = jsx$6.orElse__s_PartialFunction__s_PartialFunction(e$7.read__s_PartialFunction());
-        var e$8 = arg$outer.derive$macro$197__Lupickle_Types$Reader();
-        var jsx$4 = jsx$5.orElse__s_PartialFunction__s_PartialFunction(e$8.read__s_PartialFunction());
-        var e$9 = arg$outer.derive$macro$203__Lupickle_Types$Reader();
-        var jsx$3 = jsx$4.orElse__s_PartialFunction__s_PartialFunction(e$9.read__s_PartialFunction());
-        var e$10 = arg$outer.derive$macro$206__Lupickle_Types$Reader();
-        var jsx$2 = jsx$3.orElse__s_PartialFunction__s_PartialFunction(e$10.read__s_PartialFunction());
-        var e$11 = arg$outer.derive$macro$212__Lupickle_Types$Reader();
-        var jsx$1 = jsx$2.orElse__s_PartialFunction__s_PartialFunction(e$11.read__s_PartialFunction());
-        var e$12 = arg$outer.derive$macro$219__Lupickle_Types$Reader();
-        var _read = jsx$1.orElse__s_PartialFunction__s_PartialFunction(e$12.read__s_PartialFunction());
-        var src = new $c_Lsourcecode_Enclosing().init___T("scalajsreact.template.pages.IrcChatPage.Backend#start connect onmessage incommingMsg $anon#derive$macro$145 $anonfun");
-        return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$14, _read, src)
-      })
-    })(this)));
-    this.bitmap$0$1 = (1024 | this.bitmap$0$1)
-  };
-  return this.derive$macro$145$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$185__Lupickle_Types$Reader = (function() {
-  return (((256 & this.bitmap$0$1) === 0) ? this.derive$macro$185$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$185$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$180__Lupickle_Types$Reader = (function() {
-  return (((128 & this.bitmap$0$1) === 0) ? this.derive$macro$180$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$180$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$197__Lupickle_Types$Reader = (function() {
-  return (((2 & this.bitmap$0$1) === 0) ? this.derive$macro$197$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$197$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$148$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((64 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$148$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (64 | this.bitmap$0$1)
-  };
-  return this.derive$macro$148$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$175$lzycompute__p1__Lupickle_Types$Reader = (function() {
-  if (((16 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$175$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
-    this.bitmap$0$1 = (16 | this.bitmap$0$1)
-  };
-  return this.derive$macro$175$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$197$lzycompute__p1__Lupickle_Types$Reader = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$195$lzycompute__p1__Lupickle_Types$Reader = (function() {
   if (((2 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$197$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.derive$macro$195$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
     this.bitmap$0$1 = (2 | this.bitmap$0$1)
   };
-  return this.derive$macro$197$1
+  return this.derive$macro$195$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$237$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((256 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$237$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (256 | this.bitmap$0$1)
+  };
+  return this.derive$macro$237$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$169__Lupickle_Types$Reader = (function() {
+  return (((1024 & this.bitmap$0$1) === 0) ? this.derive$macro$169$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$169$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$231__Lupickle_Types$Reader = (function() {
+  return (((4 & this.bitmap$0$1) === 0) ? this.derive$macro$231$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$231$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$221$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((32 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$221$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (32 | this.bitmap$0$1)
+  };
+  return this.derive$macro$221$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$202$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((4096 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$202$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (4096 | this.bitmap$0$1)
+  };
+  return this.derive$macro$202$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$224$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((32768 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$224$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (32768 | this.bitmap$0$1)
+  };
+  return this.derive$macro$224$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$248__Lupickle_Types$Reader = (function() {
+  return (((16384 & this.bitmap$0$1) === 0) ? this.derive$macro$248$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$248$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$242$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((512 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$242$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (512 | this.bitmap$0$1)
+  };
+  return this.derive$macro$242$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$218$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((1 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$218$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (1 | this.bitmap$0$1)
+  };
+  return this.derive$macro$218$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$218__Lupickle_Types$Reader = (function() {
+  return (((1 & this.bitmap$0$1) === 0) ? this.derive$macro$218$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$218$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$162__Lupickle_Types$Reader = (function() {
+  return (((2048 & this.bitmap$0$1) === 0) ? this.derive$macro$162$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$162$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$181$lzycompute__p1__Lupickle_Types$Reader = (function() {
+  if (((65536 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$181$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10(this));
+    this.bitmap$0$1 = (65536 | this.bitmap$0$1)
+  };
+  return this.derive$macro$181$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.derive$macro$174__Lupickle_Types$Reader = (function() {
+  return (((8 & this.bitmap$0$1) === 0) ? this.derive$macro$174$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$174$1)
 });
 var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = new $TypeData().initClass({
   Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10: 0
@@ -16713,121 +17249,124 @@ var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$an
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12() {
   $c_O.call(this);
-  this.derive$macro$250$1 = null;
+  this.derive$macro$273$1 = null;
   this.bitmap$0$1 = false
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype = new $h_O();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype = new $h_O();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype.derive$macro$250$lzycompute__p1__Lupickle_Types$Reader = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype.derive$macro$273__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$273$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$273$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype.derive$macro$273$lzycompute__p1__Lupickle_Types$Reader = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$250$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13(this));
+    this.derive$macro$273$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12(this));
     this.bitmap$0$1 = true
   };
-  return this.derive$macro$250$1
+  return this.derive$macro$273$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype.derive$macro$250__Lupickle_Types$Reader = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$250$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$250$1)
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12: 1,
   O: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11() {
   $c_O.call(this);
-  this.derive$macro$243$1 = null;
+  this.derive$macro$266$1 = null;
   this.bitmap$0$1 = false
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype = new $h_O();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype = new $h_O();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype.derive$macro$243$lzycompute__p1__Lupickle_Types$Reader = (function() {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype.derive$macro$266$lzycompute__p1__Lupickle_Types$Reader = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$243$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12(this));
+    this.derive$macro$266$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11(this));
     this.bitmap$0$1 = true
   };
-  return this.derive$macro$243$1
+  return this.derive$macro$266$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype.derive$macro$243__Lupickle_Types$Reader = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$243$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$243$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45 = (function($$outer) {
+  return this
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12: 1,
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype.derive$macro$266__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$266$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$266$1)
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11: 1,
   O: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13() {
   $c_O.call(this);
-  this.derive$macro$236$1 = null;
+  this.derive$macro$280$1 = null;
   this.bitmap$0$1 = false
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype = new $h_O();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype = new $h_O();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype.derive$macro$236__Lupickle_Types$Reader = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$236$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$236$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype.derive$macro$236$lzycompute__p1__Lupickle_Types$Reader = (function() {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype.derive$macro$280$lzycompute__p1__Lupickle_Types$Reader = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$236$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11(this));
+    this.derive$macro$280$1 = new $c_Lupickle_Types$Knot$Reader().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13(this));
     this.bitmap$0$1 = true
   };
-  return this.derive$macro$236$1
+  return this.derive$macro$280$1
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11: 1,
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype.derive$macro$280__Lupickle_Types$Reader = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$280$lzycompute__p1__Lupickle_Types$Reader() : this.derive$macro$280$1)
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13: 1,
   O: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13;
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5() {
   $c_O.call(this);
-  this.derive$macro$103$1 = null;
+  this.derive$macro$94$1 = null;
+  this.derive$macro$71$1 = null;
+  this.derive$macro$107$1 = null;
+  this.derive$macro$51$1 = null;
   this.derive$macro$88$1 = null;
   this.derive$macro$97$1 = null;
-  this.derive$macro$94$1 = null;
-  this.derive$macro$66$1 = null;
-  this.derive$macro$60$1 = null;
+  this.derive$macro$83$1 = null;
+  this.derive$macro$62$1 = null;
+  this.derive$macro$113$1 = null;
+  this.derive$macro$118$1 = null;
+  this.derive$macro$46$1 = null;
   this.derive$macro$39$1 = null;
-  this.derive$macro$71$1 = null;
-  this.derive$macro$76$1 = null;
-  this.derive$macro$50$1 = null;
+  this.derive$macro$78$1 = null;
   this.derive$macro$36$1 = null;
-  this.derive$macro$55$1 = null;
-  this.derive$macro$81$1 = null;
-  this.derive$macro$110$1 = null;
+  this.derive$macro$124$1 = null;
+  this.derive$macro$100$1 = null;
+  this.derive$macro$57$1 = null;
   this.bitmap$0$1 = 0
 }
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype = new $h_O();
@@ -16837,50 +17376,73 @@ function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1
   /*<skip>*/
 }
 $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$51__Lupickle_Types$Writer = (function() {
+  return (((8 & this.bitmap$0$1) === 0) ? this.derive$macro$51$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$51$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$107$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((4 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$107$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (4 | this.bitmap$0$1)
+  };
+  return this.derive$macro$107$1
+});
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$71$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((128 & this.bitmap$0$1) === 0)) {
+  if (((2 & this.bitmap$0$1) === 0)) {
     this.derive$macro$71$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (128 | this.bitmap$0$1)
+    this.bitmap$0$1 = (2 | this.bitmap$0$1)
   };
   return this.derive$macro$71$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$103__Lupickle_Types$Writer = (function() {
-  return (((1 & this.bitmap$0$1) === 0) ? this.derive$macro$103$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$103$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$83$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((64 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$83$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (64 | this.bitmap$0$1)
+  };
+  return this.derive$macro$83$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$100$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((32768 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$100$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (32768 | this.bitmap$0$1)
+  };
+  return this.derive$macro$100$1
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$103$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((1 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$103$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (1 | this.bitmap$0$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$124__Lupickle_Types$Writer = (function() {
+  return (((16384 & this.bitmap$0$1) === 0) ? this.derive$macro$124$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$124$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$46$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((1024 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$46$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (1024 | this.bitmap$0$1)
   };
-  return this.derive$macro$103$1
+  return this.derive$macro$46$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$110__Lupickle_Types$Writer = (function() {
-  return (((8192 & this.bitmap$0$1) === 0) ? this.derive$macro$110$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$110$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$66__Lupickle_Types$Writer = (function() {
-  return (((16 & this.bitmap$0$1) === 0) ? this.derive$macro$66$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$66$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$57__Lupickle_Types$Writer = (function() {
+  return (((65536 & this.bitmap$0$1) === 0) ? this.derive$macro$57$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$57$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$36__Lupickle_Types$Writer = (function() {
-  return (((1024 & this.bitmap$0$1) === 0) ? this.derive$macro$36$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$36$1)
+  return (((8192 & this.bitmap$0$1) === 0) ? this.derive$macro$36$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$36$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$94__Lupickle_Types$Writer = (function() {
-  return (((8 & this.bitmap$0$1) === 0) ? this.derive$macro$94$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$94$1)
+  return (((1 & this.bitmap$0$1) === 0) ? this.derive$macro$94$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$94$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$55$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((2048 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$55$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (2048 | this.bitmap$0$1)
-  };
-  return this.derive$macro$55$1
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$78__Lupickle_Types$Writer = (function() {
+  return (((4096 & this.bitmap$0$1) === 0) ? this.derive$macro$78$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$78$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$39__Lupickle_Types$Writer = (function() {
+  return (((2048 & this.bitmap$0$1) === 0) ? this.derive$macro$39$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$39$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$36$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((1024 & this.bitmap$0$1) === 0)) {
+  if (((8192 & this.bitmap$0$1) === 0)) {
     this.derive$macro$36$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
       return (function() {
-        var this$60 = $m_Lupickle_default$().Writer__Lupickle_Types$Writer$();
+        var this$75 = $m_Lupickle_default$().Writer__Lupickle_Types$Writer$();
+        $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+        $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+        $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
         $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
         $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
         $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
@@ -16895,12 +17457,12 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
         var jsx$2 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
         var e = arg$outer.derive$macro$39__Lupickle_Types$Writer();
         var jsx$1 = e.write__F1();
-        var e$1 = arg$outer.derive$macro$50__Lupickle_Types$Writer();
-        var f = jsx$2.merge__F1__F1__s_reflect_ClassTag__s_reflect_ClassTag__F1(jsx$1, e$1.write__F1(), new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelResponse.getClassOf()), new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageCmd.getClassOf()));
-        var e$2 = arg$outer.derive$macro$55__Lupickle_Types$Writer();
+        var e$1 = arg$outer.derive$macro$46__Lupickle_Types$Writer();
+        var f = jsx$2.merge__F1__F1__s_reflect_ClassTag__s_reflect_ClassTag__F1(jsx$1, e$1.write__F1(), new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsRequest.getClassOf()), new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannel.getClassOf()));
+        var e$2 = arg$outer.derive$macro$51__Lupickle_Types$Writer();
         var g = e$2.write__F1();
         var evidence$12 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelRequest.getClassOf());
+        var evidence$13 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.getClassOf());
         var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3, g$2, evidence$12$1, evidence$13$1) {
           return (function(x0$4$2) {
             var o12 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1, x0$4$2);
@@ -16918,10 +17480,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2)
           })
         })(f, g, evidence$12, evidence$13));
-        var e$3 = arg$outer.derive$macro$60__Lupickle_Types$Writer();
+        var e$3 = arg$outer.derive$macro$57__Lupickle_Types$Writer();
         var g$1 = e$3.write__F1();
         var evidence$12$2 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$2 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsResponse.getClassOf());
+        var evidence$13$2 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageRotateLogs.getClassOf());
         var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$1, g$2$1, evidence$12$1$1, evidence$13$1$1) {
           return (function(x0$4$2$1) {
             var o12$1 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$1, x0$4$2$1);
@@ -16939,10 +17501,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2$1)
           })
         })(f$1, g$1, evidence$12$2, evidence$13$2));
-        var e$4 = arg$outer.derive$macro$66__Lupickle_Types$Writer();
+        var e$4 = arg$outer.derive$macro$62__Lupickle_Types$Writer();
         var g$3 = e$4.write__F1();
         var evidence$12$3 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$3 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannelResponse.getClassOf());
+        var evidence$13$3 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsResponse.getClassOf());
         var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$2, g$2$2, evidence$12$1$2, evidence$13$1$2) {
           return (function(x0$4$2$2) {
             var o12$2 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$2, x0$4$2$2);
@@ -16963,7 +17525,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
         var e$5 = arg$outer.derive$macro$71__Lupickle_Types$Writer();
         var g$4 = e$5.write__F1();
         var evidence$12$4 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$4 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannel.getClassOf());
+        var evidence$13$4 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotResponse.getClassOf());
         var f$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$3, g$2$3, evidence$12$1$3, evidence$13$1$3) {
           return (function(x0$4$2$3) {
             var o12$3 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$3, x0$4$2$3);
@@ -16981,10 +17543,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2$3)
           })
         })(f$4, g$4, evidence$12$4, evidence$13$4));
-        var e$6 = arg$outer.derive$macro$76__Lupickle_Types$Writer();
+        var e$6 = arg$outer.derive$macro$78__Lupickle_Types$Writer();
         var g$5 = e$6.write__F1();
         var evidence$12$5 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$5 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsRequest.getClassOf());
+        var evidence$13$5 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageCmd.getClassOf());
         var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$4, g$2$4, evidence$12$1$4, evidence$13$1$4) {
           return (function(x0$4$2$4) {
             var o12$4 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$4, x0$4$2$4);
@@ -17002,10 +17564,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2$4)
           })
         })(f$5, g$5, evidence$12$5, evidence$13$5));
-        var e$7 = arg$outer.derive$macro$81__Lupickle_Types$Writer();
+        var e$7 = arg$outer.derive$macro$83__Lupickle_Types$Writer();
         var g$6 = e$7.write__F1();
         var evidence$12$6 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotRequest.getClassOf());
+        var evidence$13$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannelResponse.getClassOf());
         var f$7 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$5, g$2$5, evidence$12$1$5, evidence$13$1$5) {
           return (function(x0$4$2$5) {
             var o12$5 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$5, x0$4$2$5);
@@ -17026,7 +17588,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
         var e$8 = arg$outer.derive$macro$88__Lupickle_Types$Writer();
         var g$7 = e$8.write__F1();
         var evidence$12$7 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$7 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessage.getClassOf());
+        var evidence$13$7 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageOther.getClassOf());
         var f$8 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$6, g$2$6, evidence$12$1$6, evidence$13$1$6) {
           return (function(x0$4$2$6) {
             var o12$6 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$6, x0$4$2$6);
@@ -17047,7 +17609,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
         var e$9 = arg$outer.derive$macro$94__Lupickle_Types$Writer();
         var g$8 = e$9.write__F1();
         var evidence$12$8 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$8 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageIrcBotReady.getClassOf());
+        var evidence$13$8 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.getClassOf());
         var f$9 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$7, g$2$7, evidence$12$1$7, evidence$13$1$7) {
           return (function(x0$4$2$7) {
             var o12$7 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$7, x0$4$2$7);
@@ -17068,7 +17630,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
         var e$10 = arg$outer.derive$macro$97__Lupickle_Types$Writer();
         var g$9 = e$10.write__F1();
         var evidence$12$9 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$9 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageOther.getClassOf());
+        var evidence$13$9 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageIrcBotReady.getClassOf());
         var f$10 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$8, g$2$8, evidence$12$1$8, evidence$13$1$8) {
           return (function(x0$4$2$8) {
             var o12$8 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$8, x0$4$2$8);
@@ -17086,10 +17648,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2$8)
           })
         })(f$9, g$9, evidence$12$9, evidence$13$9));
-        var e$11 = arg$outer.derive$macro$103__Lupickle_Types$Writer();
+        var e$11 = arg$outer.derive$macro$100__Lupickle_Types$Writer();
         var g$10 = e$11.write__F1();
         var evidence$12$10 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$10 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotResponse.getClassOf());
+        var evidence$13$10 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotRequest.getClassOf());
         var f$11 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$9, g$2$9, evidence$12$1$9, evidence$13$1$9) {
           return (function(x0$4$2$9) {
             var o12$9 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$9, x0$4$2$9);
@@ -17107,11 +17669,11 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2$9)
           })
         })(f$10, g$10, evidence$12$10, evidence$13$10));
-        var e$12 = arg$outer.derive$macro$110__Lupickle_Types$Writer();
+        var e$12 = arg$outer.derive$macro$107__Lupickle_Types$Writer();
         var g$11 = e$12.write__F1();
         var evidence$12$11 = $m_s_reflect_ManifestFactory$AnyManifest$();
-        var evidence$13$11 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageRotateLogs.getClassOf());
-        var _write = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$10, g$2$10, evidence$12$1$10, evidence$13$1$10) {
+        var evidence$13$11 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessage.getClassOf());
+        var f$12 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$10, g$2$10, evidence$12$1$10, evidence$13$1$10) {
           return (function(x0$4$2$10) {
             var o12$10 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$10, x0$4$2$10);
             if ((!o12$10.isEmpty__Z())) {
@@ -17128,110 +17690,183 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.
             throw new $c_s_MatchError().init___O(x0$4$2$10)
           })
         })(f$11, g$11, evidence$12$11, evidence$13$11));
+        var e$13 = arg$outer.derive$macro$113__Lupickle_Types$Writer();
+        var g$12 = e$13.write__F1();
+        var evidence$12$12 = $m_s_reflect_ManifestFactory$AnyManifest$();
+        var evidence$13$12 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageSearchLogsRequest.getClassOf());
+        var f$13 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$11, g$2$11, evidence$12$1$11, evidence$13$1$11) {
+          return (function(x0$4$2$11) {
+            var o12$11 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$11, x0$4$2$11);
+            if ((!o12$11.isEmpty__Z())) {
+              if ((o12$11.get__O() !== null)) {
+                return g$2$11.apply__O__O(x0$4$2$11)
+              }
+            };
+            var o14$11 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$12$1$11, x0$4$2$11);
+            if ((!o14$11.isEmpty__Z())) {
+              if ((o14$11.get__O() !== null)) {
+                return f$3$11.apply__O__O(x0$4$2$11)
+              }
+            };
+            throw new $c_s_MatchError().init___O(x0$4$2$11)
+          })
+        })(f$12, g$12, evidence$12$12, evidence$13$12));
+        var e$14 = arg$outer.derive$macro$118__Lupickle_Types$Writer();
+        var g$13 = e$14.write__F1();
+        var evidence$12$13 = $m_s_reflect_ManifestFactory$AnyManifest$();
+        var evidence$13$13 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelResponse.getClassOf());
+        var f$14 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$12, g$2$12, evidence$12$1$12, evidence$13$1$12) {
+          return (function(x0$4$2$12) {
+            var o12$12 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$12, x0$4$2$12);
+            if ((!o12$12.isEmpty__Z())) {
+              if ((o12$12.get__O() !== null)) {
+                return g$2$12.apply__O__O(x0$4$2$12)
+              }
+            };
+            var o14$12 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$12$1$12, x0$4$2$12);
+            if ((!o14$12.isEmpty__Z())) {
+              if ((o14$12.get__O() !== null)) {
+                return f$3$12.apply__O__O(x0$4$2$12)
+              }
+            };
+            throw new $c_s_MatchError().init___O(x0$4$2$12)
+          })
+        })(f$13, g$13, evidence$12$13, evidence$13$13));
+        var e$15 = arg$outer.derive$macro$124__Lupickle_Types$Writer();
+        var g$14 = e$15.write__F1();
+        var evidence$12$14 = $m_s_reflect_ManifestFactory$AnyManifest$();
+        var evidence$13$14 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelRequest.getClassOf());
+        var _write = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$3$13, g$2$13, evidence$12$1$13, evidence$13$1$13) {
+          return (function(x0$4$2$13) {
+            var o12$13 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$13$1$13, x0$4$2$13);
+            if ((!o12$13.isEmpty__Z())) {
+              if ((o12$13.get__O() !== null)) {
+                return g$2$13.apply__O__O(x0$4$2$13)
+              }
+            };
+            var o14$13 = $s_s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(evidence$12$1$13, x0$4$2$13);
+            if ((!o14$13.isEmpty__Z())) {
+              if ((o14$13.get__O() !== null)) {
+                return f$3$13.apply__O__O(x0$4$2$13)
+              }
+            };
+            throw new $c_s_MatchError().init___O(x0$4$2$13)
+          })
+        })(f$14, g$14, evidence$12$14, evidence$13$14));
         var src = new $c_Lsourcecode_Enclosing().init___T("scalajsreact.template.pages.IrcChatPage.ChatState#sendJsMessageAndReturnCallback send $anon#derive$macro$36 $anonfun");
-        return new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$60, _write, src)
+        return new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$75, _write, src)
       })
     })(this)));
-    this.bitmap$0$1 = (1024 | this.bitmap$0$1)
+    this.bitmap$0$1 = (8192 | this.bitmap$0$1)
   };
   return this.derive$macro$36$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$76$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((256 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$76$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (256 | this.bitmap$0$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$124$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((16384 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$124$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (16384 | this.bitmap$0$1)
   };
-  return this.derive$macro$76$1
+  return this.derive$macro$124$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$39__Lupickle_Types$Writer = (function() {
-  return (((64 & this.bitmap$0$1) === 0) ? this.derive$macro$39$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$39$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$118__Lupickle_Types$Writer = (function() {
+  return (((512 & this.bitmap$0$1) === 0) ? this.derive$macro$118$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$118$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$50__Lupickle_Types$Writer = (function() {
-  return (((512 & this.bitmap$0$1) === 0) ? this.derive$macro$50$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$50$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$60$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((32 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$60$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (32 | this.bitmap$0$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$118$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((512 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$118$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (512 | this.bitmap$0$1)
   };
-  return this.derive$macro$60$1
+  return this.derive$macro$118$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$76__Lupickle_Types$Writer = (function() {
-  return (((256 & this.bitmap$0$1) === 0) ? this.derive$macro$76$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$76$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$113__Lupickle_Types$Writer = (function() {
+  return (((256 & this.bitmap$0$1) === 0) ? this.derive$macro$113$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$113$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$51$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((8 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$51$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (8 | this.bitmap$0$1)
+  };
+  return this.derive$macro$51$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$46__Lupickle_Types$Writer = (function() {
+  return (((1024 & this.bitmap$0$1) === 0) ? this.derive$macro$46$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$46$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$94$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((8 & this.bitmap$0$1) === 0)) {
+  if (((1 & this.bitmap$0$1) === 0)) {
     this.derive$macro$94$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$94$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (8 | this.bitmap$0$1)
+    this.bitmap$0$1 = (1 | this.bitmap$0$1)
   };
   return this.derive$macro$94$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$55__Lupickle_Types$Writer = (function() {
-  return (((2048 & this.bitmap$0$1) === 0) ? this.derive$macro$55$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$55$1)
-});
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$71__Lupickle_Types$Writer = (function() {
-  return (((128 & this.bitmap$0$1) === 0) ? this.derive$macro$71$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$71$1)
+  return (((2 & this.bitmap$0$1) === 0) ? this.derive$macro$71$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$71$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$66$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((16 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$66$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (16 | this.bitmap$0$1)
-  };
-  return this.derive$macro$66$1
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$62__Lupickle_Types$Writer = (function() {
+  return (((128 & this.bitmap$0$1) === 0) ? this.derive$macro$62$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$62$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$39$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((64 & this.bitmap$0$1) === 0)) {
+  if (((2048 & this.bitmap$0$1) === 0)) {
     this.derive$macro$39$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (64 | this.bitmap$0$1)
+    this.bitmap$0$1 = (2048 | this.bitmap$0$1)
   };
   return this.derive$macro$39$1
 });
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$57$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((65536 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$57$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (65536 | this.bitmap$0$1)
+  };
+  return this.derive$macro$57$1
+});
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$97$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((4 & this.bitmap$0$1) === 0)) {
+  if (((32 & this.bitmap$0$1) === 0)) {
     this.derive$macro$97$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$97$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (4 | this.bitmap$0$1)
+    this.bitmap$0$1 = (32 | this.bitmap$0$1)
   };
   return this.derive$macro$97$1
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$88__Lupickle_Types$Writer = (function() {
-  return (((2 & this.bitmap$0$1) === 0) ? this.derive$macro$88$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$88$1)
+  return (((16 & this.bitmap$0$1) === 0) ? this.derive$macro$88$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$88$1)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$88$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((2 & this.bitmap$0$1) === 0)) {
+  if (((16 & this.bitmap$0$1) === 0)) {
     this.derive$macro$88$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (2 | this.bitmap$0$1)
+    this.bitmap$0$1 = (16 | this.bitmap$0$1)
   };
   return this.derive$macro$88$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$97__Lupickle_Types$Writer = (function() {
-  return (((4 & this.bitmap$0$1) === 0) ? this.derive$macro$97$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$97$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$107__Lupickle_Types$Writer = (function() {
+  return (((4 & this.bitmap$0$1) === 0) ? this.derive$macro$107$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$107$1)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$81$lzycompute__p1__Lupickle_Types$Writer = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$97__Lupickle_Types$Writer = (function() {
+  return (((32 & this.bitmap$0$1) === 0) ? this.derive$macro$97$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$97$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$83__Lupickle_Types$Writer = (function() {
+  return (((64 & this.bitmap$0$1) === 0) ? this.derive$macro$83$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$83$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$62$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((128 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$62$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (128 | this.bitmap$0$1)
+  };
+  return this.derive$macro$62$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$113$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if (((256 & this.bitmap$0$1) === 0)) {
+    this.derive$macro$113$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.bitmap$0$1 = (256 | this.bitmap$0$1)
+  };
+  return this.derive$macro$113$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$100__Lupickle_Types$Writer = (function() {
+  return (((32768 & this.bitmap$0$1) === 0) ? this.derive$macro$100$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$100$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$78$lzycompute__p1__Lupickle_Types$Writer = (function() {
   if (((4096 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$81$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
+    this.derive$macro$78$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
     this.bitmap$0$1 = (4096 | this.bitmap$0$1)
   };
-  return this.derive$macro$81$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$50$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((512 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$50$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (512 | this.bitmap$0$1)
-  };
-  return this.derive$macro$50$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$60__Lupickle_Types$Writer = (function() {
-  return (((32 & this.bitmap$0$1) === 0) ? this.derive$macro$60$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$60$1)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$110$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if (((8192 & this.bitmap$0$1) === 0)) {
-    this.derive$macro$110$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5(this));
-    this.bitmap$0$1 = (8192 | this.bitmap$0$1)
-  };
-  return this.derive$macro$110$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.derive$macro$81__Lupickle_Types$Writer = (function() {
-  return (((4096 & this.bitmap$0$1) === 0) ? this.derive$macro$81$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$81$1)
+  return this.derive$macro$78$1
 });
 var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = new $TypeData().initClass({
   Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5: 0
@@ -17241,108 +17876,108 @@ var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$ano
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8() {
   $c_O.call(this);
-  this.derive$macro$116$1 = null;
+  this.derive$macro$144$1 = null;
   this.bitmap$0$1 = false
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype = new $h_O();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype = new $h_O();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype.derive$macro$116$lzycompute__p1__Lupickle_Types$Writer = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype.derive$macro$144__Lupickle_Types$Writer = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$144$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$144$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype.derive$macro$144$lzycompute__p1__Lupickle_Types$Writer = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$116$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6(this));
+    this.derive$macro$144$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8(this));
     this.bitmap$0$1 = true
   };
-  return this.derive$macro$116$1
+  return this.derive$macro$144$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype.derive$macro$116__Lupickle_Types$Writer = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$116$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$116$1)
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8: 1,
   O: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7() {
+  $c_O.call(this);
+  this.derive$macro$137$1 = null;
+  this.bitmap$0$1 = false
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype = new $h_O();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype.derive$macro$137$lzycompute__p1__Lupickle_Types$Writer = (function() {
+  if ((!this.bitmap$0$1)) {
+    this.derive$macro$137$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7(this));
+    this.bitmap$0$1 = true
+  };
+  return this.derive$macro$137$1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype.derive$macro$137__Lupickle_Types$Writer = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$137$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$137$1)
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7: 1,
+  O: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6() {
   $c_O.call(this);
   this.derive$macro$130$1 = null;
   this.bitmap$0$1 = false
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype = new $h_O();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype = new $h_O();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype.derive$macro$130$lzycompute__p1__Lupickle_Types$Writer = (function() {
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype.derive$macro$130$lzycompute__p1__Lupickle_Types$Writer = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$130$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8(this));
+    this.derive$macro$130$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6(this));
     this.bitmap$0$1 = true
   };
   return this.derive$macro$130$1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype.derive$macro$130__Lupickle_Types$Writer = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$130$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$130$1)
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8: 1,
-  O: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7() {
-  $c_O.call(this);
-  this.derive$macro$123$1 = null;
-  this.bitmap$0$1 = false
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype = new $h_O();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype.derive$macro$123$lzycompute__p1__Lupickle_Types$Writer = (function() {
-  if ((!this.bitmap$0$1)) {
-    this.derive$macro$123$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7(this));
-    this.bitmap$0$1 = true
-  };
-  return this.derive$macro$123$1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1 = (function($$outer) {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype.derive$macro$123__Lupickle_Types$Writer = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$123$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$123$1)
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype.derive$macro$130__Lupickle_Types$Writer = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$130$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$130$1)
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6: 1,
   O: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6;
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9() {
   $c_O.call(this);
-  this.derive$macro$137$1 = null;
+  this.derive$macro$151$1 = null;
   this.bitmap$0$1 = false
 }
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype = new $h_O();
@@ -17352,18 +17987,18 @@ function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1
   /*<skip>*/
 }
 $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype.derive$macro$137$lzycompute__p1__Lupickle_Types$Writer = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype.derive$macro$151__Lupickle_Types$Writer = (function() {
+  return ((!this.bitmap$0$1) ? this.derive$macro$151$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$151$1)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype.derive$macro$151$lzycompute__p1__Lupickle_Types$Writer = (function() {
   if ((!this.bitmap$0$1)) {
-    this.derive$macro$137$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9(this));
+    this.derive$macro$151$1 = new $c_Lupickle_Types$Knot$Writer().init___Lupickle_Types$Knot$__F0($m_Lupickle_default$().Knot__Lupickle_Types$Knot$(), new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9(this));
     this.bitmap$0$1 = true
   };
-  return this.derive$macro$137$1
+  return this.derive$macro$151$1
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1 = (function($$outer) {
   return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9.prototype.derive$macro$137__Lupickle_Types$Writer = (function() {
-  return ((!this.bitmap$0$1) ? this.derive$macro$137$lzycompute__p1__Lupickle_Types$Writer() : this.derive$macro$137$1)
 });
 var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9 = new $TypeData().initClass({
   Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9: 0
@@ -17507,8 +18142,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$TargetState$$anonfun$send$3$1$$anon$
 /** @constructor */
 function $c_Lscalajsreact_template_pages_LogsPage$() {
   $c_O.call(this);
-  this.component$1 = null;
-  this.component2$1 = null
+  this.component$1 = null
 }
 $c_Lscalajsreact_template_pages_LogsPage$.prototype = new $h_O();
 $c_Lscalajsreact_template_pages_LogsPage$.prototype.constructor = $c_Lscalajsreact_template_pages_LogsPage$;
@@ -17520,24 +18154,6 @@ $h_Lscalajsreact_template_pages_LogsPage$.prototype = $c_Lscalajsreact_template_
 $c_Lscalajsreact_template_pages_LogsPage$.prototype.init___ = (function() {
   $n_Lscalajsreact_template_pages_LogsPage$ = this;
   this.component$1 = $m_Lscalajsreact_template_components_SearchLogs$().searchLogsComponent$1;
-  var jsx$8 = $m_Ljapgolly_scalajs_react_package$().ScalaComponent$1;
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$7 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$6 = $m_s_Predef$();
-  var jsx$5 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$4 = $m_s_Predef$();
-  var jsx$3 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$2 = $m_s_Predef$();
-  var jsx$1 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.color__Ljapgolly_scalajs_react_vdom_HtmlStyles$color$().$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("#FFFFFF", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-  var this$6 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
-  var t = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-  var a = jsx$7.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$6.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$5.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("h1", jsx$4.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$3.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("a", jsx$2.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$1, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$6.name$1, "https://github.com/vprusa/echoIrc"), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("echoIrc"))])))]))), $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "section"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_HtmlStylesStatic$AutoStyle().init___T("marginTop")).$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("2.2em", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.fontSize__Ljapgolly_scalajs_react_vdom_HtmlStyles$fontSize$().$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("115%", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.color__Ljapgolly_scalajs_react_vdom_HtmlStyles$color$().$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("#FFFFFF", $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Admin page of echoIrc - TODO"))])))])));
-  this.component2$1 = jsx$8.$static__T__Ljapgolly_scalajs_react_vdom_VdomElement__Ljapgolly_scalajs_react_component_JsBaseComponentTemplate$ComponentWithRoot("Login", a.render__Ljapgolly_scalajs_react_vdom_VdomElement());
   return this
 });
 var $d_Lscalajsreact_template_pages_LogsPage$ = new $TypeData().initClass({
@@ -17801,7 +18417,7 @@ $c_Lscalajsreact_template_routes_AppRouter$.prototype.loadMenuFromDom__V = (func
       };
       if ($m_ju_regex_Pattern$().matches__T__jl_CharSequence__Z("stats", thiz$1)) {
         $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log(".stats");
-        var newMenuItem$2 = new $c_Lscalajsreact_template_models_MenuInner().init___T__Lscalajsreact_template_routes_AppRouter$AppPage("Stats", $m_Lscalajsreact_template_routes_AppRouter$LogsStats$());
+        var newMenuItem$2 = new $c_Lscalajsreact_template_models_MenuInner().init___T__Lscalajsreact_template_routes_AppRouter$AppPage("Stats", new $c_Lscalajsreact_template_routes_AppRouter$Items().init___Lscalajsreact_template_routes_MenuItem($m_Lscalajsreact_template_routes_MenuItem$Info$()));
         var this$11 = $m_Lscalajsreact_template_routes_AppRouter$().mainMenu$1;
         var this$12 = this$11.scala$collection$mutable$ListBuffer$$start$6;
         if ((!$s_sc_LinearSeqOptimized$class__contains__sc_LinearSeqOptimized__O__Z(this$12, newMenuItem$2))) {
@@ -27441,6 +28057,54 @@ var $d_Ljapgolly_scalajs_react_vdom_HtmlStyles$color$ = new $TypeData().initClas
 });
 $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$color$.prototype.$classData = $d_Ljapgolly_scalajs_react_vdom_HtmlStyles$color$;
 /** @constructor */
+function $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$() {
+  $c_Ljapgolly_scalajs_react_vdom_Style.call(this)
+}
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$.prototype = new $h_Ljapgolly_scalajs_react_vdom_Style();
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$.prototype.constructor = $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$;
+/** @constructor */
+function $h_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$() {
+  /*<skip>*/
+}
+$h_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$.prototype = $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$.prototype;
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$.prototype.init___Ljapgolly_scalajs_react_vdom_HtmlStyles = (function($$outer) {
+  $c_Ljapgolly_scalajs_react_vdom_Style.prototype.init___T.call(this, "display");
+  return this
+});
+var $d_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$ = new $TypeData().initClass({
+  Ljapgolly_scalajs_react_vdom_HtmlStyles$display$: 0
+}, false, "japgolly.scalajs.react.vdom.HtmlStyles$display$", {
+  Ljapgolly_scalajs_react_vdom_HtmlStyles$display$: 1,
+  Ljapgolly_scalajs_react_vdom_Style: 1,
+  Ljapgolly_scalajs_react_vdom_Attr: 1,
+  O: 1
+});
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$.prototype.$classData = $d_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$;
+/** @constructor */
+function $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$() {
+  $c_Ljapgolly_scalajs_react_vdom_Style.call(this)
+}
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$.prototype = new $h_Ljapgolly_scalajs_react_vdom_Style();
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$.prototype.constructor = $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$;
+/** @constructor */
+function $h_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$() {
+  /*<skip>*/
+}
+$h_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$.prototype = $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$.prototype;
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$.prototype.init___Ljapgolly_scalajs_react_vdom_HtmlStyles = (function($$outer) {
+  $c_Ljapgolly_scalajs_react_vdom_Style.prototype.init___T.call(this, "float");
+  return this
+});
+var $d_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$ = new $TypeData().initClass({
+  Ljapgolly_scalajs_react_vdom_HtmlStyles$float$: 0
+}, false, "japgolly.scalajs.react.vdom.HtmlStyles$float$", {
+  Ljapgolly_scalajs_react_vdom_HtmlStyles$float$: 1,
+  Ljapgolly_scalajs_react_vdom_Style: 1,
+  Ljapgolly_scalajs_react_vdom_Attr: 1,
+  O: 1
+});
+$c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$.prototype.$classData = $d_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$;
+/** @constructor */
 function $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$fontSize$() {
   $c_Ljapgolly_scalajs_react_vdom_Style.call(this)
 }
@@ -33288,6 +33952,12 @@ function $h_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$() {
   /*<skip>*/
 }
 $h_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype = $c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype;
+$c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.display$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlStyles$display$ = (function() {
+  if ((this.display$module$1 === null)) {
+    this.display$module$1 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$display$().init___Ljapgolly_scalajs_react_vdom_HtmlStyles(this)
+  };
+  return this.display$module$1
+});
 $c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.init___ = (function() {
   $n_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$ = this;
   $s_Ljapgolly_scalajs_react_vdom_HtmlAttrs$class__$$init$__Ljapgolly_scalajs_react_vdom_HtmlAttrs__V(this);
@@ -33305,11 +33975,23 @@ $c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.color$lzycompute__p
   };
   return this.color$module$1
 });
+$c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.display__Ljapgolly_scalajs_react_vdom_HtmlStyles$display$ = (function() {
+  return ((this.display$module$1 === null) ? this.display$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlStyles$display$() : this.display$module$1)
+});
 $c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.color__Ljapgolly_scalajs_react_vdom_HtmlStyles$color$ = (function() {
   return ((this.color$module$1 === null) ? this.color$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlStyles$color$() : this.color$module$1)
 });
 $c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.fontSize__Ljapgolly_scalajs_react_vdom_HtmlStyles$fontSize$ = (function() {
   return ((this.fontSize$module$1 === null) ? this.fontSize$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlStyles$fontSize$() : this.fontSize$module$1)
+});
+$c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.$float__Ljapgolly_scalajs_react_vdom_HtmlStyles$float$ = (function() {
+  return ((this.float$module$1 === null) ? this.float$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlStyles$float$() : this.float$module$1)
+});
+$c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.float$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlStyles$float$ = (function() {
+  if ((this.float$module$1 === null)) {
+    this.float$module$1 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStyles$float$().init___Ljapgolly_scalajs_react_vdom_HtmlStyles(this)
+  };
+  return this.float$module$1
 });
 $c_Ljapgolly_scalajs_react_vdom_HtmlAttrAndStyles$.prototype.target$lzycompute__p1__Ljapgolly_scalajs_react_vdom_HtmlAttrs$target$ = (function() {
   if ((this.target$module$1 === null)) {
@@ -37657,6 +38339,11 @@ $c_sc_AbstractIterator.prototype.toIterator__sc_Iterator = (function() {
 $c_sc_AbstractIterator.prototype.isEmpty__Z = (function() {
   return $s_sc_Iterator$class__isEmpty__sc_Iterator__Z(this)
 });
+$c_sc_AbstractIterator.prototype.toList__sci_List = (function() {
+  var this$1 = $m_sci_List$();
+  var cbf = this$1.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
+});
 $c_sc_AbstractIterator.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
 });
@@ -37754,6 +38441,11 @@ $c_sc_Iterator$ConcatIterator.prototype.toIterator__sc_Iterator = (function() {
 });
 $c_sc_Iterator$ConcatIterator.prototype.isEmpty__Z = (function() {
   return $s_sc_Iterator$class__isEmpty__sc_Iterator__Z(this)
+});
+$c_sc_Iterator$ConcatIterator.prototype.toList__sci_List = (function() {
+  var this$1 = $m_sci_List$();
+  var cbf = this$1.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
 });
 $c_sc_Iterator$ConcatIterator.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
@@ -37892,6 +38584,11 @@ $c_sc_Iterator$JoinIterator.prototype.toIterator__sc_Iterator = (function() {
 });
 $c_sc_Iterator$JoinIterator.prototype.isEmpty__Z = (function() {
   return $s_sc_Iterator$class__isEmpty__sc_Iterator__Z(this)
+});
+$c_sc_Iterator$JoinIterator.prototype.toList__sci_List = (function() {
+  var this$1 = $m_sci_List$();
+  var cbf = this$1.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
 });
 $c_sc_Iterator$JoinIterator.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
@@ -38333,6 +39030,11 @@ $c_sci_RedBlackTree$TreeIterator.prototype.toIterator__sc_Iterator = (function()
 $c_sci_RedBlackTree$TreeIterator.prototype.isEmpty__Z = (function() {
   return $s_sc_Iterator$class__isEmpty__sc_Iterator__Z(this)
 });
+$c_sci_RedBlackTree$TreeIterator.prototype.toList__sci_List = (function() {
+  var this$1 = $m_sci_List$();
+  var cbf = this$1.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
+});
 $c_sci_RedBlackTree$TreeIterator.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
 });
@@ -38368,13 +39070,13 @@ $c_sci_RedBlackTree$TreeIterator.prototype.foldLeft__O__F2__O = (function(z, op)
 $c_sci_RedBlackTree$TreeIterator.prototype.startFrom__p1__O__sci_RedBlackTree$Tree = (function(key) {
   return ((this.root$1 === null) ? null : this.find$1__p1__sci_RedBlackTree$Tree__O__sci_RedBlackTree$Tree(this.root$1, key))
 });
-$c_sci_RedBlackTree$TreeIterator.prototype.$$plus$plus__F0__sc_Iterator = (function(that) {
-  return new $c_sc_Iterator$JoinIterator().init___sc_Iterator__F0(this, that)
-});
 $c_sci_RedBlackTree$TreeIterator.prototype.toVector__sci_Vector = (function() {
   $m_sci_Vector$();
   var cbf = $m_sc_IndexedSeq$().ReusableCBF$6;
   return $as_sci_Vector($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
+});
+$c_sci_RedBlackTree$TreeIterator.prototype.$$plus$plus__F0__sc_Iterator = (function(that) {
+  return new $c_sc_Iterator$JoinIterator().init___sc_Iterator__F0(this, that)
 });
 $c_sci_RedBlackTree$TreeIterator.prototype.popNext__p1__sci_RedBlackTree$Tree = (function() {
   if ((this.index$1 === 0)) {
@@ -39020,6 +39722,11 @@ $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.toIterator__sc_Iterator
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.isEmpty__Z = (function() {
   return $s_sc_Iterator$class__isEmpty__sc_Iterator__Z(this)
 });
+$c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.toList__sci_List = (function() {
+  var this$1 = $m_sci_List$();
+  var cbf = this$1.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
+});
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.init___sjs_js_Dictionary = (function(dict) {
   this.dict$1 = dict;
   this.keys$1 = $g.Object.keys(dict);
@@ -39038,13 +39745,13 @@ $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.foreach__F1__V = (funct
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.foldLeft__O__F2__O = (function(z, op) {
   return $s_sc_TraversableOnce$class__foldLeft__sc_TraversableOnce__O__F2__O(this, z, op)
 });
-$c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.$$plus$plus__F0__sc_Iterator = (function(that) {
-  return new $c_sc_Iterator$JoinIterator().init___sc_Iterator__F0(this, that)
-});
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.toVector__sci_Vector = (function() {
   $m_sci_Vector$();
   var cbf = $m_sc_IndexedSeq$().ReusableCBF$6;
   return $as_sci_Vector($s_sc_TraversableOnce$class__to__sc_TraversableOnce__scg_CanBuildFrom__O(this, cbf))
+});
+$c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.$$plus$plus__F0__sc_Iterator = (function(that) {
+  return new $c_sc_Iterator$JoinIterator().init___sc_Iterator__F0(this, that)
 });
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.size__I = (function() {
   return $s_sc_TraversableOnce$class__size__sc_TraversableOnce__I(this)
@@ -46492,21 +47199,21 @@ var $d_Lscalacss_internal_package$Warning = new $TypeData().initClass({
 });
 $c_Lscalacss_internal_package$Warning.prototype.$classData = $d_Lscalacss_internal_package$Warning;
 /** @constructor */
-function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3() {
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5() {
   $c_sr_AbstractFunction1.call(this);
   this.$$outer$2 = null
 }
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5;
 /** @constructor */
-function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3() {
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype;
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype.apply__O__O = (function(v1) {
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype.apply__O__O = (function(v1) {
   return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(this.apply__Lorg_scalajs_dom_raw_XMLHttpRequest__F0(v1))
 });
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend = (function($$outer) {
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend = (function($$outer) {
   if (($$outer === null)) {
     throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
   } else {
@@ -46514,46 +47221,2052 @@ $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.pro
   };
   return this
 });
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype.apply__Lorg_scalajs_dom_raw_XMLHttpRequest__F0 = (function(xhr) {
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype.apply__Lorg_scalajs_dom_raw_XMLHttpRequest__F0 = (function(xhr) {
   var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
   var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["loadLogs ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(xhr.responseText)]));
   jsx$1.log(s);
-  var this$4 = $m_Lupickle_default$();
-  var expr = $as_T(xhr.responseText);
   var this$3 = $m_Lupickle_default$();
-  var evidence$25 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
-  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_T.getClassOf());
-  var evidence$3 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$3, evidence$25, evidence$26);
-  var newFiles = $asArrayOf_T($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Types$Reader__O(this$4, expr, evidence$3), 1);
+  var expr = $as_T(xhr.responseText);
+  var this$2 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5(this);
+  var evidence$3 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$2, "Tagged Object shared.SharedMessages.JsMessageGetLogsNamesResponse", r);
+  var response = $as_Lshared_SharedMessages$JsMessageGetLogsNamesResponse($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Types$Reader__O(this$3, expr, evidence$3));
   var jsx$2 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-  var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["loadLogs ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([newFiles.toString__T()]));
+  var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["loadLogs ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_sr_ScalaRunTime$().$$undtoString__s_Product__T(response)]));
   jsx$2.log(s$1);
-  var direct = this.$$outer$2.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot();
-  var x$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(newFiles$1) {
+  var qual$2 = this.$$outer$2.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot();
+  var x$20 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(response$1) {
     return (function(g$2) {
       var g = $as_Lscalajsreact_template_components_SearchLogs$SearchState(g$2);
-      var x$3 = g.inputRegex$1;
-      var x$4 = g.logContent$1;
-      return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__AT__T(x$3, newFiles$1, x$4)
+      var x$15 = response$1.targetsWithFiles$1;
+      var x$16 = g.inputRegex$1;
+      var x$17 = g.logContent$1;
+      var x$18 = g.target$1;
+      var x$19 = g.jsMessagesContent$1;
+      return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__sci_Map__T__T__sci_List(x$16, x$15, x$17, x$18, x$19)
     })
-  })(newFiles));
-  var x$6 = direct.modState$default$2__F0();
-  return $as_Ljapgolly_scalajs_react_CallbackTo(direct.modState__F1__F0__O(x$5, x$6)).japgolly$scalajs$react$CallbackTo$$f$1
+  })(response));
+  var x$21 = qual$2.modState$default$2__F0();
+  return $as_Ljapgolly_scalajs_react_CallbackTo(qual$2.modState__F1__F0__O(x$20, x$21)).japgolly$scalajs$react$CallbackTo$$f$1
 });
-var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3 = new $TypeData().initClass({
-  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3: 0
-}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$3", {
-  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3: 1,
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$5", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$3;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6(this);
+  return this$1.derive$macro$129__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$14$2) {
+    var x$14 = $as_s_Tuple1(x$14$2);
+    if ((x$14 !== null)) {
+      var x = $as_sci_Map(x$14.$$und1$f);
+      return new $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse().init___sci_Map(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$14)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsWithFiles"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var this$11 = $m_Lupickle_default$();
+  var evidence$29 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var this$10 = $m_Lupickle_default$();
+  var evidence$25 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_T.getClassOf());
+  var evidence$30 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$10, evidence$25, evidence$26);
+  var evidence$2 = $s_Lupickle_Implicits$class__MapR__Lupickle_Implicits__Lupickle_Types$Reader__Lupickle_Types$Reader__Lupickle_Types$Reader(this$11, evidence$29, evidence$30);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$12, evidence$2));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageGetLogsNamesResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$5$$anonfun$6$$anon$5$$anonfun$derive$macro$129$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1() {
+  $c_sr_AbstractFunction1.call(this);
+  this.$$outer$2 = null
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype.apply__O__O = (function(v1) {
+  return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(this.apply__Lorg_scalajs_dom_raw_XMLHttpRequest__F0(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend = (function($$outer) {
+  if (($$outer === null)) {
+    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype.apply__Lorg_scalajs_dom_raw_XMLHttpRequest__F0 = (function(xhr) {
+  var content = new $c_sr_ObjectRef().init___O("");
+  $m_sci_List$();
+  var elem = $m_sci_Nil$();
+  var contentJs = new $c_sr_ObjectRef().init___O(elem);
+  var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
+  var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callOpenLogFile ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(xhr.responseText)]));
+  jsx$1.log(s);
+  var x = $as_T(xhr.responseText);
+  var this$6 = new $c_sci_StringOps().init___T(x);
+  var this$7 = $s_sci_StringLike$class__lines__sci_StringLike__sc_Iterator(this$6).toList__sci_List();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1__sr_ObjectRef__sr_ObjectRef(this, content, contentJs);
+  var these = this$7;
+  while ((!these.isEmpty__Z())) {
+    var v1 = these.head__O();
+    f.apply__T__V($as_T(v1));
+    these = $as_sci_List(these.tail__O())
+  };
+  var jsx$3 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
+  var jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["contentJs ", ""]));
+  var this$8 = $as_sci_List(contentJs.elem$1);
+  var s$1 = jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$s_sc_TraversableLike$class__toString__sc_TraversableLike__T(this$8)]));
+  jsx$3.log(s$1);
+  var qual$1 = this.$$outer$2.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot();
+  var x$12 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(content$1, contentJs$1) {
+    return (function(g$2) {
+      var g = $as_Lscalajsreact_template_components_SearchLogs$SearchState(g$2);
+      var x$7 = $as_T(content$1.elem$1);
+      var x$8 = $as_sci_List(contentJs$1.elem$1);
+      var x$9 = g.inputRegex$1;
+      var x$10 = g.files$1;
+      var x$11 = g.target$1;
+      return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__sci_Map__T__T__sci_List(x$9, x$10, x$7, x$11, x$8)
+    })
+  })(content, contentJs));
+  var x$13 = qual$1.modState$default$2__F0();
+  return $as_Ljapgolly_scalajs_react_CallbackTo(qual$1.modState__F1__F0__O(x$12, x$13)).japgolly$scalajs$react$CallbackTo$$f$1
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3() {
+  $c_sr_AbstractFunction1.call(this);
+  this.content$1$2 = null;
+  this.contentJs$1$2 = null
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype.apply__O__O = (function(v1) {
+  this.apply__T__V($as_T(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype.apply__T__V = (function(line) {
+  var this$2 = $m_Lupickle_default$();
+  var this$1 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3(this);
+  var evidence$3 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$1, "Tagged Object shared.SharedMessages.JsMessageBase", r);
+  var logRecord = $as_Lshared_SharedMessages$JsMessageBase($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Types$Reader__O(this$2, line, evidence$3));
+  if ($is_Lshared_SharedMessages$JsMessage(logRecord)) {
+    var messageRecord = $as_Lshared_SharedMessages$JsMessage(logRecord);
+    this.content$1$2.elem$1 = (($as_T(this.content$1$2.elem$1) + ((("Sender: " + messageRecord.sender$1) + " ") + messageRecord.msg$1)) + "<br>");
+    var jsx$2 = this.contentJs$1$2;
+    var jsx$1 = $as_sci_List(this.contentJs$1$2.elem$1);
+    var this$3 = $m_sci_List$();
+    jsx$2.elem$1 = $as_sci_List(jsx$1.$$plus$colon__O__scg_CanBuildFrom__O(messageRecord, this$3.ReusableCBFInstance$2))
+  }
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1__sr_ObjectRef__sr_ObjectRef = (function($$outer, content$1, contentJs$1) {
+  this.content$1$2 = content$1;
+  this.contentJs$1$2 = contentJs$1;
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3(this);
+  return this$1.derive$macro$1__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var evidence$10 = $m_Lupickle_default$().StringRW$1;
+  var evidence$11 = $m_Lupickle_default$().StringRW$1;
+  var this$11 = $m_Lupickle_default$();
+  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1(this);
+  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
+  var evidence$12 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$12, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageJoinChannelResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype.apply__T3__Lshared_SharedMessages$JsMessageJoinChannelResponse = (function(derive$macro$100) {
+  var arg1 = derive$macro$100.$$und1$1;
+  var arg2 = derive$macro$100.$$und2$1;
+  var arg3 = derive$macro$100.$$und3$1;
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(arg3, 1);
+  return new $c_Lshared_SharedMessages$JsMessageJoinChannelResponse().init___T__T__ALshared_SharedMessages$TargetParticipant(sender, target, participants)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessageJoinChannelResponse($as_T3(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$22;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24(this);
+  return this$1.derive$macro$122__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
+    var x$6 = $as_s_Tuple1(x$6$2);
+    if ((x$6 !== null)) {
+      var x = $as_T(x$6.$$und1$f);
+      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$6)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$2 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
+  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$11$1$$anonfun$apply$24$$anon$4$$anonfun$derive$macro$122$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannelResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannelResponse($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannelResponse = (function(derive$macro$97) {
+  var arg1 = derive$macro$97.$$und1__O();
+  var arg2 = derive$macro$97.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageLeaveChannelResponse().init___T__T(sender, target)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$22$1$$anonfun$apply$14;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageRotateLogs");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageRotateLogs($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype.apply__T2__Lshared_SharedMessages$JsMessageRotateLogs = (function(derive$macro$106) {
+  var arg1 = derive$macro$106.$$und1__O();
+  var arg2 = derive$macro$106.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageRotateLogs().init___T__T(sender, target)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$27$1$$anonfun$apply$36;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var evidence$10 = $m_Lupickle_default$().StringRW$1;
+  var evidence$11 = $m_Lupickle_default$().StringRW$1;
+  var this$11 = $m_Lupickle_default$();
+  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1(this);
+  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
+  var evidence$12 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$12, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageTargetParticipantsResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessageTargetParticipantsResponse($as_T3(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype.apply__T3__Lshared_SharedMessages$JsMessageTargetParticipantsResponse = (function(derive$macro$98) {
+  var arg1 = derive$macro$98.$$und1$1;
+  var arg2 = derive$macro$98.$$und2$1;
+  var arg3 = derive$macro$98.$$und3$1;
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(arg3, 1);
+  return new $c_Lshared_SharedMessages$JsMessageTargetParticipantsResponse().init___T__T__ALshared_SharedMessages$TargetParticipant(sender, target, participants)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$16;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18(this);
+  return this$1.derive$macro$115__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
+    var x$5 = $as_s_Tuple1(x$5$2);
+    if ((x$5 !== null)) {
+      var x = $as_T(x$5.$$und1$f);
+      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$5)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$2 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
+  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$32$1$$anonfun$apply$18$$anon$3$$anonfun$derive$macro$115$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageTargetParticipantsRequest");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageTargetParticipantsRequest($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype.apply__T2__Lshared_SharedMessages$JsMessageTargetParticipantsRequest = (function(derive$macro$102) {
+  var arg1 = derive$macro$102.$$und1__O();
+  var arg2 = derive$macro$102.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageTargetParticipantsRequest().init___T__T(sender, target)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$38$1$$anonfun$apply$28;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$16 = $m_Lupickle_default$();
+  var this$14 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
+    var x$2 = $as_s_Tuple1(x$2$2);
+    if ((x$2 !== null)) {
+      var x = $as_sci_Map(x$2.$$und1$f);
+      return new $c_Lshared_SharedMessages$JsMessageStarBotResponse().init___sci_Map(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$2)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsParticipants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$13 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
+  var evidence$29 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var this$11 = $m_Lupickle_default$();
+  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1(this);
+  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
+  var evidence$30 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
+  var evidence$2 = $s_Lupickle_Implicits$class__MapR__Lupickle_Implicits__Lupickle_Types$Reader__Lupickle_Types$Reader__Lupickle_Types$Reader(this$12, evidence$29, evidence$30);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$13, evidence$2));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$14, f, array, array$1, evidence$14);
+  var this$17 = this$16.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$16, rw, "shared.SharedMessages.JsMessageStarBotResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$17, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6(this);
+  return this$1.derive$macro$108__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
+    var x$4 = $as_s_Tuple1(x$4$2);
+    if ((x$4 !== null)) {
+      var x = $as_T(x$4.$$und1$f);
+      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$4)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$2 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
+  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$4$1$$anonfun$apply$6$$anon$2$$anonfun$derive$macro$108$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageCmd");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageCmd($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype.apply__T2__Lshared_SharedMessages$JsMessageCmd = (function(derive$macro$103) {
+  var arg1 = derive$macro$103.$$und1__O();
+  var arg2 = derive$macro$103.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageCmd().init___T__T(sender, target)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$43$1$$anonfun$apply$30;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageJoinChannelRequest");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageJoinChannelRequest($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype.apply__T2__Lshared_SharedMessages$JsMessageJoinChannelRequest = (function(derive$macro$104) {
+  var arg1 = derive$macro$104.$$und1__O();
+  var arg2 = derive$macro$104.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageJoinChannelRequest().init___T__T(sender, target)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$48$1$$anonfun$apply$32;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$10 = $m_Lupickle_default$().StringRW$1;
+  var evidence$11 = $m_Lupickle_default$().StringRW$1;
+  var evidence$12 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$9, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageOther");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessageOther($as_T3(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype.apply__T3__Lshared_SharedMessages$JsMessageOther = (function(derive$macro$96) {
+  var arg1 = derive$macro$96.$$und1$1;
+  var arg2 = derive$macro$96.$$und2$1;
+  var arg3 = derive$macro$96.$$und3$1;
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  var msg = $as_T(arg3);
+  return new $c_Lshared_SharedMessages$JsMessageOther().init___T__T__T(sender, target, msg)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$53$1$$anonfun$apply$11;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannel");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannel($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannel = (function(derive$macro$101) {
+  var arg1 = derive$macro$101.$$und1__O();
+  var arg2 = derive$macro$101.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageLeaveChannel().init___T__T(sender, target)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$59$1$$anonfun$apply$26;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["regex", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageSearchLogsRequest");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype.apply__T2__Lshared_SharedMessages$JsMessageSearchLogsRequest = (function(derive$macro$99) {
+  var arg1 = derive$macro$99.$$und1__O();
+  var arg2 = derive$macro$99.$$und2__O();
+  var regex = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageSearchLogsRequest().init___T__T(regex, target)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageSearchLogsRequest($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$64$1$$anonfun$apply$20;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$3 = $m_Lupickle_default$();
+  var this$1 = $m_Lupickle_default$();
+  var t = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return new $c_Lshared_SharedMessages$JsMessageIrcBotReady().init___()
+  }));
+  var rw = $s_Lupickle_Implicits$class__Case0R__Lupickle_Implicits__F0__Lupickle_Types$Reader(this$1, t);
+  var this$4 = this$3.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$3, rw, "shared.SharedMessages.JsMessageIrcBotReady");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$4, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$69$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
+    var x$3 = $as_s_Tuple1(x$3$2);
+    if ((x$3 !== null)) {
+      var x = $as_sci_Map(x$3.$$und1$f);
+      return new $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse().init___sci_Map(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$3)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsWithFiles"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var this$11 = $m_Lupickle_default$();
+  var evidence$29 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var this$10 = $m_Lupickle_default$();
+  var evidence$25 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_T.getClassOf());
+  var evidence$30 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$10, evidence$25, evidence$26);
+  var evidence$2 = $s_Lupickle_Implicits$class__MapR__Lupickle_Implicits__Lupickle_Types$Reader__Lupickle_Types$Reader__Lupickle_Types$Reader(this$11, evidence$29, evidence$30);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$12, evidence$2));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageGetLogsNamesResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$72$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$10 = $m_Lupickle_default$().StringRW$1;
+  var evidence$11 = $m_Lupickle_default$().StringRW$1;
+  var evidence$12 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$9, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessage");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessage($as_T3(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype.apply__T3__Lshared_SharedMessages$JsMessage = (function(derive$macro$95) {
+  var arg1 = derive$macro$95.$$und1$1;
+  var arg2 = derive$macro$95.$$und2$1;
+  var arg3 = derive$macro$95.$$und3$1;
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  var msg = $as_T(arg3);
+  return new $c_Lshared_SharedMessages$JsMessage().init___T__T__T(sender, target, msg)
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$79$1$$anonfun$apply$8;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$14 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["botName", "targets"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$11 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var this$10 = $m_Lupickle_default$();
+  var evidence$25 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_T.getClassOf());
+  var evidence$6 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$10, evidence$25, evidence$26);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$11, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$12, f, array, array$1, evidence$14);
+  var this$15 = this$14.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$14, rw, "shared.SharedMessages.JsMessageStarBotRequest");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$15, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageStarBotRequest($as_T2(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype.apply__T2__Lshared_SharedMessages$JsMessageStarBotRequest = (function(derive$macro$105) {
+  var arg1 = derive$macro$105.$$und1__O();
+  var arg2 = derive$macro$105.$$und2__O();
+  var botName = $as_T(arg1);
+  var targets = $asArrayOf_T(arg2, 1);
+  return new $c_Lshared_SharedMessages$JsMessageStarBotRequest().init___T__AT(botName, targets)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$85$1$$anonfun$apply$34;
+/** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$3 = $m_Lupickle_default$();
+  var this$1 = $m_Lupickle_default$();
+  var t = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return new $c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest().init___()
+  }));
+  var rw = $s_Lupickle_Implicits$class__Case0R__Lupickle_Implicits__F0__Lupickle_Types$Reader(this$1, t);
+  var this$4 = this$3.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$3, rw, "shared.SharedMessages.JsMessageGetLogsNamesRequest");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$4, _read, src)
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$callOpenLogFile$1$$anonfun$apply$3$$anonfun$3$$anon$1$$anonfun$derive$macro$92$1;
 /** @constructor */
 function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1() {
   $c_sr_AbstractFunction1.call(this);
+  this.$$outer$2 = null;
   this.props$1$f = null;
   this.s$1$f = null
 }
@@ -46565,39 +49278,39 @@ function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anon
 }
 $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype;
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype.apply__O__O = (function(v1) {
-  return this.apply__T__Ljapgolly_scalajs_react_vdom_TagOf($as_T(v1))
+  return this.apply__T2__Ljapgolly_scalajs_react_vdom_TagMod($as_T2(v1))
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_components_SearchLogs$SearchState = (function($$outer, props$1, s$1) {
+  if (($$outer === null)) {
+    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
   this.props$1$f = props$1;
   this.s$1$f = s$1;
   return this
 });
-$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype.apply__T__Ljapgolly_scalajs_react_vdom_TagOf = (function(file) {
-  var jsx$8 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype.apply__T2__Ljapgolly_scalajs_react_vdom_TagMod = (function(target) {
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$7 = $m_s_Predef$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$6 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(file);
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$5 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(" Open: ");
-  var jsx$4 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$3 = $m_s_Predef$();
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$2 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("New tab");
-  var this$9 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.target__Ljapgolly_scalajs_react_vdom_HtmlAttrs$target$();
-  var t = $m_Ljapgolly_scalajs_react_vdom_PackageBase$().vdomAttrVtString$2;
-  var jsx$1 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$9.name$1, "_blank");
-  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-  var this$12 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
-  var a = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["", "/getLogFile/", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([this.props$1$f.restUrl$1, file]));
-  var t$1 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
-  return jsx$8.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", jsx$7.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$6, jsx$5, jsx$4.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("a", jsx$3.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$2, jsx$1, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$12.name$1, a)]))), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(" ")), $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "button"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [$m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$minus$minus$greater$qmark__F0__Ljapgolly_scalajs_react_internal_OptionLike__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer, file$1) {
-    return (function() {
-      return arg$outer.s$1$f.callOpenLogFile__Lscalajsreact_template_models_IrcChatProps__T__s_Option(arg$outer.props$1$f, file$1)
-    })
-  })(this, file)), $m_Ljapgolly_scalajs_react_internal_OptionLike$().optionInstance$1), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Here"))])))])))
+  var xs = $asArrayOf_O(target.$$und2__O(), 1);
+  var f = new $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1().init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1__T2(this, target);
+  var elems$2 = [];
+  var i = 0;
+  var len = xs.u.length;
+  while ((i < len)) {
+    var index = i;
+    var arg1 = xs.u[index];
+    var elem = f.apply__T__Ljapgolly_scalajs_react_vdom_TagOf($as_T(arg1));
+    var unboxedElem = ((elem === null) ? null : elem);
+    elems$2.push(unboxedElem);
+    i = ((1 + i) | 0)
+  };
+  var as = $makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagOf.getArrayOf(), elems$2);
+  var $$this = $m_s_Predef$().genericArrayOps__O__scm_ArrayOps(as);
+  var f$1 = $m_s_Predef$().singleton$und$less$colon$less$2;
+  var jsx$1 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
+  var this$11 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I($$this, 0, $$this.length__I());
+  return jsx$1.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$11, f$1))
 });
 var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1 = new $TypeData().initClass({
   Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1: 0
@@ -46611,11 +49324,83 @@ var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$r
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1;
 /** @constructor */
+function $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1() {
+  $c_sr_AbstractFunction1.call(this);
+  this.$$outer$2 = null;
+  this.target$1$f = null
+}
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1;
+/** @constructor */
+function $h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype.apply__O__O = (function(v1) {
+  return this.apply__T__Ljapgolly_scalajs_react_vdom_TagOf($as_T(v1))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype.apply__T__Ljapgolly_scalajs_react_vdom_TagOf = (function(file) {
+  var jsx$11 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$10 = $m_s_Predef$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$9 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Target: ");
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var v = $as_T(this.target$1$f.$$und1__O());
+  var jsx$8 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v);
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$7 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(" ");
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$6 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(file);
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$5 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(" Open: ");
+  var jsx$4 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$3 = $m_s_Predef$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$2 = new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("New tab");
+  var this$15 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.target__Ljapgolly_scalajs_react_vdom_HtmlAttrs$target$();
+  var t = $m_Ljapgolly_scalajs_react_vdom_PackageBase$().vdomAttrVtString$2;
+  var jsx$1 = $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$15.name$1, "_blank");
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
+  var this$18 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("href");
+  var a = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["", "/getLogFile/", "/", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([this.$$outer$2.props$1$f.restUrl$1, $m_sjsr_RuntimeString$().replaceAll__T__T__T__T($as_T(this.target$1$f.$$und1__O()), "#", "%23"), file]));
+  var t$1 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2;
+  return jsx$11.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("li", jsx$10.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$9, jsx$8, jsx$7, jsx$6, jsx$5, jsx$4.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("a", jsx$3.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$2, jsx$1, $m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$18.name$1, a)]))), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(" ")), $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "button"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [$m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$minus$minus$greater$qmark__F0__Ljapgolly_scalajs_react_internal_OptionLike__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer, file$1) {
+    return (function() {
+      return arg$outer.$$outer$2.$$outer$2.callOpenLogFile__Lscalajsreact_template_components_SearchLogs$SearchState__Lscalajsreact_template_models_IrcChatProps__T__T__s_Option(arg$outer.$$outer$2.s$1$f, arg$outer.$$outer$2.props$1$f, $as_T(arg$outer.target$1$f.$$und1__O()), file$1)
+    })
+  })(this, file)), $m_Ljapgolly_scalajs_react_internal_OptionLike$().optionInstance$1), ($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Here"))])))])))
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype.init___Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1__T2 = (function($$outer, target$1) {
+  if (($$outer === null)) {
+    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
+  this.target$1$f = target$1;
+  return this
+});
+var $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1 = new $TypeData().initClass({
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1: 0
+}, false, "scalajsreact.template.components.SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1", {
+  Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1.prototype.$classData = $d_Lscalajsreact_template_components_SearchLogs$SearchLogsBackend$$anonfun$render$1$$anonfun$apply$1;
+/** @constructor */
 function $c_Lscalajsreact_template_components_SearchLogs$SearchState() {
   $c_O.call(this);
   this.inputRegex$1 = null;
   this.files$1 = null;
-  this.logContent$1 = null
+  this.logContent$1 = null;
+  this.target$1 = null;
+  this.jsMessagesContent$1 = null
 }
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype = new $h_O();
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.constructor = $c_Lscalajsreact_template_components_SearchLogs$SearchState;
@@ -46624,6 +49409,14 @@ function $h_Lscalajsreact_template_components_SearchLogs$SearchState() {
   /*<skip>*/
 }
 $h_Lscalajsreact_template_components_SearchLogs$SearchState.prototype = $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype;
+$c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.init___T__sci_Map__T__T__sci_List = (function(inputRegex, files, logContent, target, jsMessagesContent) {
+  this.inputRegex$1 = inputRegex;
+  this.files$1 = files;
+  this.logContent$1 = logContent;
+  this.target$1 = target;
+  this.jsMessagesContent$1 = jsMessagesContent;
+  return this
+});
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.productPrefix__T = (function() {
   return "SearchState"
 });
@@ -46634,19 +49427,34 @@ $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.callOnChan
       var state = $as_Lscalajsreact_template_components_SearchLogs$SearchState(state$2);
       var files = state.files$1;
       var logContent = state.logContent$1;
-      return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__AT__T(targetInput$1, files, logContent)
+      var target = state.target$1;
+      var jsMessagesContent = state.jsMessagesContent$1;
+      return new $c_Lscalajsreact_template_components_SearchLogs$SearchState().init___T__sci_Map__T__T__sci_List(targetInput$1, files, logContent, target, jsMessagesContent)
     })
   })(targetInput)), $$.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.productArity__I = (function() {
-  return 3
+  return 5
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
     return true
   } else if ($is_Lscalajsreact_template_components_SearchLogs$SearchState(x$1)) {
     var SearchState$1 = $as_Lscalajsreact_template_components_SearchLogs$SearchState(x$1);
-    return (((this.inputRegex$1 === SearchState$1.inputRegex$1) && (this.files$1 === SearchState$1.files$1)) && (this.logContent$1 === SearchState$1.logContent$1))
+    if ((this.inputRegex$1 === SearchState$1.inputRegex$1)) {
+      var x = this.files$1;
+      var x$2 = SearchState$1.files$1;
+      var jsx$1 = ((x === null) ? (x$2 === null) : $s_sc_GenMapLike$class__equals__sc_GenMapLike__O__Z(x, x$2))
+    } else {
+      var jsx$1 = false
+    };
+    if (((jsx$1 && (this.logContent$1 === SearchState$1.logContent$1)) && (this.target$1 === SearchState$1.target$1))) {
+      var x$3 = this.jsMessagesContent$1;
+      var x$4 = SearchState$1.jsMessagesContent$1;
+      return ((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4))
+    } else {
+      return false
+    }
   } else {
     return false
   }
@@ -46665,6 +49473,14 @@ $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.productEle
       return this.logContent$1;
       break
     }
+    case 3: {
+      return this.target$1;
+      break
+    }
+    case 4: {
+      return this.jsMessagesContent$1;
+      break
+    }
     default: {
       throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
     }
@@ -46672,50 +49488,42 @@ $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.productEle
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.callSearchLogFiles__Lscalajsreact_template_models_IrcChatProps__s_Option = (function(props) {
   var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-  var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callOpenLogFile"])).s__sc_Seq__T($m_sci_Nil$());
+  var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callSearchLogFiles"])).s__sc_Seq__T($m_sci_Nil$());
   jsx$1.log(s);
-  var this$4 = $m_Lorg_scalajs_dom_ext_Ajax$();
-  var url = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/searchLogs/", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([this.inputRegex$1]));
+  var jsx$2 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
+  var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["data"])).s__sc_Seq__T($m_sci_Nil$());
+  jsx$2.log(s$1);
+  $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("{\"data\":\"data\"}");
+  var this$7 = $m_Lorg_scalajs_dom_ext_Ajax$();
+  var url = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/searchLogs"])).s__sc_Seq__T($m_sci_Nil$());
   var headers = $m_sci_Map$EmptyMap$();
-  var this$6 = this$4.apply__T__T__Lorg_scalajs_dom_ext_Ajax$InputData__I__sci_Map__Z__T__s_concurrent_Future("GET", url, null, 0, headers, false, "");
+  var this$9 = this$7.apply__T__T__Lorg_scalajs_dom_ext_Ajax$InputData__I__sci_Map__Z__T__s_concurrent_Future("POST", url, "{\"data\":\"data\"}", 0, headers, false, "");
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(xhr$2) {
-    var jsx$2 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-    var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callOpenLogFile ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(xhr$2.responseText)]));
-    jsx$2.log(s$1)
+    var jsx$3 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
+    var s$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callSearchLogFiles ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(xhr$2.responseText)]));
+    jsx$3.log(s$2)
   }));
   var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContextExecutor();
-  $s_s_concurrent_Future$class__foreach__s_concurrent_Future__F1__s_concurrent_ExecutionContext__V(this$6, f, executor);
+  $s_s_concurrent_Future$class__foreach__s_concurrent_Future__F1__s_concurrent_ExecutionContext__V(this$9, f, executor);
+  var this$12 = $m_Lorg_scalajs_dom_ext_Ajax$();
+  var url$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/searchLogs"])).s__sc_Seq__T($m_sci_Nil$());
+  var headers$1 = $m_sci_Map$EmptyMap$();
+  var this$14 = this$12.apply__T__T__Lorg_scalajs_dom_ext_Ajax$InputData__I__sci_Map__Z__T__s_concurrent_Future("GET", url$1, "{\"data\":\"data\"}", 0, headers$1, false, "");
+  var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(xhr$2$1) {
+    var jsx$4 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
+    var s$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callSearchLogFiles ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(xhr$2$1.responseText)]));
+    jsx$4.log(s$3)
+  }));
+  var executor$1 = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContextExecutor();
+  $s_s_concurrent_Future$class__foreach__s_concurrent_Future__F1__s_concurrent_ExecutionContext__V(this$14, f$1, executor$1);
   return $m_s_Option$().apply__O__s_Option(new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0($m_Ljapgolly_scalajs_react_Callback$().empty$1))
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.callOpenLogFile__Lscalajsreact_template_models_IrcChatProps__T__s_Option = (function(props, file) {
-  var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-  var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callOpenLogFile"])).s__sc_Seq__T($m_sci_Nil$());
-  jsx$1.log(s);
-  var this$4 = $m_Lorg_scalajs_dom_ext_Ajax$();
-  var url = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["/rest/getLogFile/", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([file]));
-  var headers = $m_sci_Map$EmptyMap$();
-  var this$6 = this$4.apply__T__T__Lorg_scalajs_dom_ext_Ajax$InputData__I__sci_Map__Z__T__s_concurrent_Future("GET", url, null, 0, headers, false, "");
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(xhr$2) {
-    var jsx$2 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-    var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["callOpenLogFile ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(xhr$2.responseText)]));
-    jsx$2.log(s$1)
-  }));
-  var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContextExecutor();
-  $s_s_concurrent_Future$class__foreach__s_concurrent_Future__F1__s_concurrent_ExecutionContext__V(this$6, f, executor);
-  return $m_s_Option$().apply__O__s_Option(new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0($m_Ljapgolly_scalajs_react_Callback$().empty$1))
-});
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.hashCode__I = (function() {
   var this$2 = $m_s_util_hashing_MurmurHash3$();
   return this$2.productHash__s_Product__I__I(this, (-889275714))
-});
-$c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.init___T__AT__T = (function(inputRegex, files, logContent) {
-  this.inputRegex$1 = inputRegex;
-  this.files$1 = files;
-  this.logContent$1 = logContent;
-  return this
 });
 $c_Lscalajsreact_template_components_SearchLogs$SearchState.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
@@ -47064,51 +49872,51 @@ var $d_Lscalajsreact_template_models_IrcChatProps = new $TypeData().initClass({
 });
 $c_Lscalajsreact_template_models_IrcChatProps.prototype.$classData = $d_Lscalajsreact_template_models_IrcChatProps;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18;
+$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype.init___ = (function() {
+$h_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype.init___ = (function() {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype.apply__O__O = (function(v1) {
+$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype.apply__O__O = (function(v1) {
   return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(this.apply__Ljapgolly_scalajs_react_raw_package$ReactComponent__F0($as_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillMount(v1).raw$1))
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype.apply__Ljapgolly_scalajs_react_raw_package$ReactComponent__F0 = (function(f) {
+$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype.apply__Ljapgolly_scalajs_react_raw_package$ReactComponent__F0 = (function(f) {
   var this$2 = new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillMount().init___Ljapgolly_scalajs_react_raw_package$ReactComponent(f);
   var mod = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(f$1) {
-    return (function(x$17$2) {
-      var x$17 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$17$2);
-      var x$20 = $as_Lscalajsreact_template_models_IrcChatProps($m_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillMount$().props$extension__Ljapgolly_scalajs_react_raw_package$ReactComponent__O(f$1)).username$1;
-      var x$21 = x$17.targets$1;
-      var x$22 = x$17.channelJoin$1;
-      var x$23 = x$17.selectedTarget$1;
-      var x$24 = x$17.ready$1;
-      var x$25 = x$17.props$1;
-      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$21, x$20, x$22, x$23, x$24, x$25)
+    return (function(x$18$2) {
+      var x$18 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$18$2);
+      var x$21 = $as_Lscalajsreact_template_models_IrcChatProps($m_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillMount$().props$extension__Ljapgolly_scalajs_react_raw_package$ReactComponent__O(f$1)).username$1;
+      var x$22 = x$18.targets$1;
+      var x$23 = x$18.channelJoin$1;
+      var x$24 = x$18.selectedTarget$1;
+      var x$25 = x$18.ready$1;
+      var x$26 = x$18.props$1;
+      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$22, x$21, x$23, x$24, x$25, x$26)
     })
   })(f));
   new $c_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$ComponentWillMount().init___Ljapgolly_scalajs_react_raw_package$ReactComponent(f);
   var cb = $m_Ljapgolly_scalajs_react_Callback$().empty$1;
   return $s_Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$StateW$class__modState__Ljapgolly_scalajs_react_component_ScalaBuilder$Lifecycle$StateW__F1__F0__F0(this$2, mod, cb)
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$$anonfun$18: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$$anonfun$18", {
-  Lscalajsreact_template_pages_IrcChatPage$$anonfun$18: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$$anonfun$19: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$$anonfun$19", {
+  Lscalajsreact_template_pages_IrcChatPage$$anonfun$19: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$$anonfun$18;
+$c_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$$anonfun$19;
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1() {
   $c_sr_AbstractFunction0.call(this);
@@ -47136,15 +49944,15 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototy
   return targets
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototype.scalajsreact$template$pages$IrcChatPage$Backend$$anonfun$$onerror$1__Lorg_scalajs_dom_raw_ErrorEvent__V = (function(e) {
-  var qual$10 = this.$$outer$2.direct$1;
-  var x$88 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(e$1) {
-    return (function(x$13$2) {
-      var x$13 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$13$2);
-      return x$13.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Error: ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(e$1.message)])))
+  var qual$11 = this.$$outer$2.direct$1;
+  var x$93 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(e$1) {
+    return (function(x$14$2) {
+      var x$14 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$14$2);
+      return x$14.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Error: ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(e$1.message)])))
     })
   })(e));
-  var x$89 = qual$10.modState$default$2__F0();
-  qual$10.modState__F1__F0__O(x$88, x$89)
+  var x$94 = qual$11.modState$default$2__F0();
+  qual$11.modState__F1__F0__O(x$93, x$94)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototype.scalajsreact$template$pages$IrcChatPage$Backend$$anonfun$$onmessage$1__Lorg_scalajs_dom_raw_MessageEvent__V = (function(e) {
   $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("jsval");
@@ -47157,20 +49965,21 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototy
   var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1(this);
   var evidence$3 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$3, "Tagged Object shared.SharedMessages.JsMessageBase", r);
   var incommingMsg = $as_Lshared_SharedMessages$JsMessageBase($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Types$Reader__O(this$4, expr, evidence$3));
+  this.$$outer$2.direct$1 = this.$$outer$2.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot();
   if ($is_Lshared_SharedMessages$JsMessage(incommingMsg)) {
-    var x6 = $as_Lshared_SharedMessages$JsMessage(incommingMsg);
+    var x7 = $as_Lshared_SharedMessages$JsMessage(incommingMsg);
     var jsx$2 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-    var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["JsMessage ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_sr_ScalaRunTime$().$$undtoString__s_Product__T(x6)]));
+    var s$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["JsMessage ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$m_sr_ScalaRunTime$().$$undtoString__s_Product__T(x7)]));
     jsx$2.log(s$1);
-    var qual$3 = this.$$outer$2.direct$1;
-    var x$62 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x6$1) {
+    var qual$3 = this.$$outer$2.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot();
+    var x$65 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x7$1) {
       return (function(x$8$2) {
         var x$8 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$8$2);
-        return x$8.logTargetLine__Lshared_SharedMessages$JsMessage__Lscalajsreact_template_pages_IrcChatPage$ChatState(x6$1)
+        return x$8.logTargetLine__Lshared_SharedMessages$JsMessage__Lscalajsreact_template_pages_IrcChatPage$ChatState(x7$1)
       })
-    })(x6));
-    var x$63 = qual$3.modState$default$2__F0();
-    qual$3.modState__F1__F0__O(x$62, x$63)
+    })(x7));
+    var x$66 = qual$3.modState$default$2__F0();
+    qual$3.modState__F1__F0__O(x$65, x$66)
   } else if ($is_Lshared_SharedMessages$JsMessageRotateLogs(incommingMsg)) {
     var x2 = $as_Lshared_SharedMessages$JsMessageRotateLogs(incommingMsg);
     var sender = x2.sender$1;
@@ -47179,21 +49988,21 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototy
     var s$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["JsMessageRotateLogs ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([target]));
     jsx$3.log(s$2);
     var qual$4 = this.$$outer$2.direct$1;
-    var x$64 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(sender$1, target$4) {
+    var x$67 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(sender$1, target$4) {
       return (function(x$9$2) {
         var x$9 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$9$2);
         return x$9.logTargetLine__Lshared_SharedMessages$JsMessage__Lscalajsreact_template_pages_IrcChatPage$ChatState(new $c_Lshared_SharedMessages$JsMessage().init___T__T__T(sender$1, target$4, "Logs rotated..."))
       })
     })(sender, target));
-    var x$65 = qual$4.modState$default$2__F0();
-    qual$4.modState__F1__F0__O(x$64, x$65)
+    var x$68 = qual$4.modState$default$2__F0();
+    qual$4.modState__F1__F0__O(x$67, x$68)
   } else if ($is_Lshared_SharedMessages$JsMessageJoinChannelResponse(incommingMsg)) {
     var x3 = $as_Lshared_SharedMessages$JsMessageJoinChannelResponse(incommingMsg);
     var target$2 = x3.target$1;
     var participants = x3.participants$1;
     $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageJoinChannel");
     var qual$5 = this.$$outer$2.direct$1;
-    var x$66 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, target$5, participants$2) {
+    var x$69 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, target$5, participants$2) {
       return (function(f$2) {
         var f = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(f$2);
         var jsx$4 = f.targets$1;
@@ -47208,60 +50017,73 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototy
         return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(targets, sender$2, channelJoin, selectedTarget, ready, props)
       })
     })(this, target$2, participants));
-    var x$67 = qual$5.modState$default$2__F0();
-    qual$5.modState__F1__F0__O(x$66, x$67)
-  } else if ($is_Lshared_SharedMessages$JsMessageLeaveChannel(incommingMsg)) {
-    var x4 = $as_Lshared_SharedMessages$JsMessageLeaveChannel(incommingMsg);
+    var x$70 = qual$5.modState$default$2__F0();
+    qual$5.modState__F1__F0__O(x$69, x$70)
+  } else if ($is_Lshared_SharedMessages$JsMessageLeaveChannelResponse(incommingMsg)) {
+    var x4 = $as_Lshared_SharedMessages$JsMessageLeaveChannelResponse(incommingMsg);
     var target$3 = x4.target$1;
-    $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageLeaveChannel");
+    $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageLeaveChannelResponse");
     var qual$6 = this.$$outer$2.direct$1;
-    var x$68 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(target$6) {
+    var x$71 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(target$6) {
       return (function(x$10$2) {
         var x$10 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$10$2);
         return x$10.leaveTarget__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(target$6)
       })
     })(target$3));
-    var x$69 = qual$6.modState$default$2__F0();
-    qual$6.modState__F1__F0__O(x$68, x$69)
+    var x$72 = qual$6.modState$default$2__F0();
+    qual$6.modState__F1__F0__O(x$71, x$72)
+  } else if ($is_Lshared_SharedMessages$JsMessageLeaveChannel(incommingMsg)) {
+    var x5 = $as_Lshared_SharedMessages$JsMessageLeaveChannel(incommingMsg);
+    var target$4$1 = x5.target$1;
+    $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageLeaveChannel");
+    var qual$7 = this.$$outer$2.direct$1;
+    var x$73 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(target$7) {
+      return (function(x$11$2) {
+        var x$11 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$11$2);
+        return x$11.leaveTarget__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(target$7)
+      })
+    })(target$4$1));
+    var x$74 = qual$7.modState$default$2__F0();
+    qual$7.modState__F1__F0__O(x$73, x$74)
   } else if ($is_Lshared_SharedMessages$JsMessageIrcBotReady(incommingMsg)) {
     $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageIrcBotReady");
     this.$$outer$2.direct$1 = this.$$outer$2.getDirect__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot();
-    var qual$7 = this.$$outer$2.direct$1;
-    var x$70 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$11$2) {
-      var x$11 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$11$2);
-      return x$11.setReadyAndRequestParticipants__Lscalajsreact_template_pages_IrcChatPage$ChatState()
-    }));
-    var x$71 = qual$7.modState$default$2__F0();
-    qual$7.modState__F1__F0__O(x$70, x$71);
     var qual$8 = this.$$outer$2.direct$1;
-    var x$78 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$12$2) {
+    var x$75 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$12$2) {
       var x$12 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$12$2);
-      var x$73 = x$12.targets$1;
-      var x$74 = x$12.sender$1;
-      var x$75 = x$12.channelJoin$1;
-      var x$76 = x$12.selectedTarget$1;
-      var x$77 = x$12.props$1;
-      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$73, x$74, x$75, x$76, true, x$77)
+      return x$12.setReadyAndRequestParticipants__Lscalajsreact_template_pages_IrcChatPage$ChatState()
     }));
-    var x$79 = qual$8.modState$default$2__F0();
-    qual$8.modState__F1__F0__O(x$78, x$79)
-  } else if ($is_Lshared_SharedMessages$JsMessageStarBotResponse(incommingMsg)) {
-    var x7 = $as_Lshared_SharedMessages$JsMessageStarBotResponse(incommingMsg);
-    $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageStarBotResponse");
+    var x$76 = qual$8.modState$default$2__F0();
+    qual$8.modState__F1__F0__O(x$75, x$76);
     var qual$9 = this.$$outer$2.direct$1;
-    var x$86 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x7$1) {
+    var x$83 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$13$2) {
+      var x$13 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$13$2);
+      var x$78 = x$13.targets$1;
+      var x$79 = x$13.sender$1;
+      var x$80 = x$13.channelJoin$1;
+      var x$81 = x$13.selectedTarget$1;
+      var x$82 = x$13.props$1;
+      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$78, x$79, x$80, x$81, true, x$82)
+    }));
+    var x$84 = qual$9.modState$default$2__F0();
+    qual$9.modState__F1__F0__O(x$83, x$84)
+  } else if ($is_Lshared_SharedMessages$JsMessageStarBotResponse(incommingMsg)) {
+    var x8 = $as_Lshared_SharedMessages$JsMessageStarBotResponse(incommingMsg);
+    $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("JsMessageStarBotResponse");
+    var qual$10 = this.$$outer$2.direct$1;
+    var x$91 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x8$1) {
       return (function(g$2) {
         var g = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(g$2);
-        var x$81 = g.updateTargetsParticipants__sci_Map__scm_ListBuffer(x7$1.targetsParticipants$1);
-        var x$82 = g.sender$1;
-        var x$83 = g.channelJoin$1;
-        var x$84 = g.selectedTarget$1;
-        var x$85 = g.props$1;
-        return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$81, x$82, x$83, x$84, true, x$85)
+        var x$86 = g.updateTargetsParticipants__sci_Map__scm_ListBuffer(x8$1.targetsParticipants$1);
+        var x$87 = g.sender$1;
+        var x$88 = g.channelJoin$1;
+        var x$89 = g.selectedTarget$1;
+        var x$90 = g.props$1;
+        return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$86, x$87, x$88, x$89, true, x$90)
       })
-    })(x7));
-    var x$87 = qual$9.modState$default$2__F0();
-    qual$9.modState__F1__F0__O(x$86, x$87)
+    })(x8));
+    var x$92 = qual$10.modState$default$2__F0();
+    qual$10.modState__F1__F0__O(x$91, x$92)
   }
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend__T__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState = (function($$outer, url$1, props$2, s$2) {
@@ -47276,39 +50098,39 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototy
   return this
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototype.scalajsreact$template$pages$IrcChatPage$Backend$$anonfun$$onclose$1__Lorg_scalajs_dom_raw_CloseEvent__V = (function(e) {
-  var qual$11 = this.$$outer$2.direct$1;
-  var x$90 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(e$2) {
-    return (function(x$14$2) {
-      var x$14 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$14$2);
-      var targets = x$14.targets$1;
-      var sender = x$14.sender$1;
-      var channelJoin = x$14.channelJoin$1;
-      var selectedTarget = x$14.selectedTarget$1;
-      var ready = x$14.ready$1;
-      var props = x$14.props$1;
+  var qual$12 = this.$$outer$2.direct$1;
+  var x$95 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(e$2) {
+    return (function(x$15$2) {
+      var x$15 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$15$2);
+      var targets = x$15.targets$1;
+      var sender = x$15.sender$1;
+      var channelJoin = x$15.channelJoin$1;
+      var selectedTarget = x$15.selectedTarget$1;
+      var ready = x$15.ready$1;
+      var props = x$15.props$1;
       return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(targets, sender, channelJoin, selectedTarget, ready, props).logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Closed: ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_T(e$2.reason)])))
     })
   })(e));
-  var x$91 = qual$11.modState$default$2__F0();
-  qual$11.modState__F1__F0__O(x$90, x$91)
+  var x$96 = qual$12.modState$default$2__F0();
+  qual$12.modState__F1__F0__O(x$95, x$96)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototype.scalajsreact$template$pages$IrcChatPage$Backend$$anonfun$$onopen$1__Lorg_scalajs_dom_raw_Event__V = (function(e) {
   var qual$1 = this.$$outer$2.direct$1;
-  var x$54 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
+  var x$56 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
     return (function(x$6$2) {
       var x$6 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$6$2);
       return x$6.sendStartIrcBotRequest__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState(arg$outer.props$2$f)
     })
   })(this));
-  var x$55 = qual$1.modState$default$2__F0();
-  qual$1.modState__F1__F0__O(x$54, x$55);
+  var x$57 = qual$1.modState$default$2__F0();
+  qual$1.modState__F1__F0__O(x$56, x$57);
   var qual$2 = this.$$outer$2.direct$1;
-  var x$56 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
+  var x$58 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
     var x$7 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$7$2);
     return x$7.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState("Connected.")
   }));
-  var x$57 = qual$2.modState$default$2__F0();
-  qual$2.modState__F1__F0__O(x$56, x$57)
+  var x$59 = qual$2.modState$default$2__F0();
+  qual$2.modState__F1__F0__O(x$58, x$59)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1.prototype.apply__O = (function() {
   return this.apply__Lorg_scalajs_dom_raw_WebSocket()
@@ -47364,7 +50186,7 @@ function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$
 $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5.prototype;
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5.prototype.apply__Lupickle_Types$Reader = (function() {
   var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5(this);
-  return this$1.derive$macro$145__Lupickle_Types$Reader()
+  return this$1.derive$macro$159__Lupickle_Types$Reader()
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1 = (function($$outer) {
   return this
@@ -47384,829 +50206,23 @@ var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$an
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$15 = $m_Lupickle_default$();
-  var this$13 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$12 = $m_Lupickle_default$();
-  var evidence$10 = $m_Lupickle_default$().StringRW$1;
-  var evidence$11 = $m_Lupickle_default$().StringRW$1;
-  var this$11 = $m_Lupickle_default$();
-  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
-  var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1(this);
-  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
-  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
-  var evidence$12 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$12, evidence$10, evidence$11, evidence$12));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
-  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageJoinChannelResponse");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype.apply__T3__Lshared_SharedMessages$JsMessageJoinChannelResponse = (function(derive$macro$228) {
-  var arg1 = derive$macro$228.$$und1$1;
-  var arg2 = derive$macro$228.$$und2$1;
-  var arg3 = derive$macro$228.$$und3$1;
-  var sender = $as_T(arg1);
-  var target = $as_T(arg2);
-  var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(arg3, 1);
-  return new $c_Lshared_SharedMessages$JsMessageJoinChannelResponse().init___T__T__ALshared_SharedMessages$TargetParticipant(sender, target, participants)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype.apply__O__O = (function(v1) {
-  return this.apply__T3__Lshared_SharedMessages$JsMessageJoinChannelResponse($as_T3(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$53;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55(this);
-  return this$1.derive$macro$250__Lupickle_Types$Reader()
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$61$2) {
-    var x$61 = $as_s_Tuple1(x$61$2);
-    if ((x$61 !== null)) {
-      var x = $as_T(x$61.$$und1$f);
-      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
-    } else {
-      throw new $c_s_MatchError().init___O(x$61)
-    }
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$2 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
-  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$148$1$$anonfun$apply$55$$anon$13$$anonfun$derive$macro$250$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype.apply__Lupickle_Types$Reader = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype.apply__Lupickle_Types$Reader = (function() {
   var this$12 = $m_Lupickle_default$();
   var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$5 = $m_Lupickle_default$().StringRW$1;
-  var evidence$6 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
-  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageCmd");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__Lshared_SharedMessages$JsMessageCmd($as_T2(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype.apply__T2__Lshared_SharedMessages$JsMessageCmd = (function(derive$macro$231) {
-  var arg1 = derive$macro$231.$$und1__O();
-  var arg2 = derive$macro$231.$$und2__O();
-  var sender = $as_T(arg1);
-  var target = $as_T(arg2);
-  return new $c_Lshared_SharedMessages$JsMessageCmd().init___T__T(sender, target)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$159$1$$anonfun$apply$61;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$5 = $m_Lupickle_default$().StringRW$1;
-  var evidence$6 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
-  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageJoinChannelRequest");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__Lshared_SharedMessages$JsMessageJoinChannelRequest($as_T2(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype.apply__T2__Lshared_SharedMessages$JsMessageJoinChannelRequest = (function(derive$macro$232) {
-  var arg1 = derive$macro$232.$$und1__O();
-  var arg2 = derive$macro$232.$$und2__O();
-  var sender = $as_T(arg1);
-  var target = $as_T(arg2);
-  return new $c_Lshared_SharedMessages$JsMessageJoinChannelRequest().init___T__T(sender, target)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$164$1$$anonfun$apply$63;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$15 = $m_Lupickle_default$();
-  var this$13 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$12 = $m_Lupickle_default$();
-  var evidence$10 = $m_Lupickle_default$().StringRW$1;
-  var evidence$11 = $m_Lupickle_default$().StringRW$1;
-  var this$11 = $m_Lupickle_default$();
-  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
-  var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1(this);
-  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
-  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
-  var evidence$12 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$12, evidence$10, evidence$11, evidence$12));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
-  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageTargetParticipantsResponse");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype.apply__O__O = (function(v1) {
-  return this.apply__T3__Lshared_SharedMessages$JsMessageTargetParticipantsResponse($as_T3(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype.apply__T3__Lshared_SharedMessages$JsMessageTargetParticipantsResponse = (function(derive$macro$227) {
-  var arg1 = derive$macro$227.$$und1$1;
-  var arg2 = derive$macro$227.$$und2$1;
-  var arg3 = derive$macro$227.$$und3$1;
-  var sender = $as_T(arg1);
-  var target = $as_T(arg2);
-  var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(arg3, 1);
-  return new $c_Lshared_SharedMessages$JsMessageTargetParticipantsResponse().init___T__T__ALshared_SharedMessages$TargetParticipant(sender, target, participants)
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$49;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51(this);
-  return this$1.derive$macro$243__Lupickle_Types$Reader()
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$60$2) {
-    var x$60 = $as_s_Tuple1(x$60$2);
-    if ((x$60 !== null)) {
-      var x = $as_T(x$60.$$und1$f);
-      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
-    } else {
-      throw new $c_s_MatchError().init___O(x$60)
-    }
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$2 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
-  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$51$$anon$12$$anonfun$derive$macro$243$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$5 = $m_Lupickle_default$().StringRW$1;
-  var evidence$6 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
-  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannelResponse");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannelResponse($as_T2(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannelResponse = (function(derive$macro$226) {
-  var arg1 = derive$macro$226.$$und1__O();
-  var arg2 = derive$macro$226.$$und2__O();
-  var sender = $as_T(arg1);
-  var target = $as_T(arg2);
-  return new $c_Lshared_SharedMessages$JsMessageLeaveChannelResponse().init___T__T(sender, target)
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$175$1$$anonfun$apply$47;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$5 = $m_Lupickle_default$().StringRW$1;
-  var evidence$6 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
-  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannel");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannel($as_T2(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannel = (function(derive$macro$229) {
-  var arg1 = derive$macro$229.$$und1__O();
-  var arg2 = derive$macro$229.$$und2__O();
-  var sender = $as_T(arg1);
-  var target = $as_T(arg2);
-  return new $c_Lshared_SharedMessages$JsMessageLeaveChannel().init___T__T(sender, target)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$180$1$$anonfun$apply$57;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1(this);
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1(this);
   var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
   var len = $uI(xs.array$6.length);
   var array = $newArrayObject($d_T.getArrayOf(), [len]);
@@ -48239,73 +50255,1110 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfu
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
   return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype.apply__O__O = (function(v1) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype.apply__O__O = (function(v1) {
   return this.apply__T2__Lshared_SharedMessages$JsMessageTargetParticipantsRequest($as_T2(v1))
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1 = (function($$outer) {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype.apply__T2__Lshared_SharedMessages$JsMessageTargetParticipantsRequest = (function(derive$macro$230) {
-  var arg1 = derive$macro$230.$$und1__O();
-  var arg2 = derive$macro$230.$$und2__O();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype.apply__T2__Lshared_SharedMessages$JsMessageTargetParticipantsRequest = (function(derive$macro$260) {
+  var arg1 = derive$macro$260.$$und1__O();
+  var arg2 = derive$macro$260.$$und2__O();
   var sender = $as_T(arg1);
   var target = $as_T(arg2);
   return new $c_Lshared_SharedMessages$JsMessageTargetParticipantsRequest().init___T__T(sender, target)
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$185$1$$anonfun$apply$59;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$162$1$$anonfun$apply$67;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype.apply__Lupickle_Types$Reader = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannel");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannel($as_T2(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannel = (function(derive$macro$259) {
+  var arg1 = derive$macro$259.$$und1__O();
+  var arg2 = derive$macro$259.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageLeaveChannel().init___T__T(sender, target)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$169$1$$anonfun$apply$65;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$61$2) {
+    var x$61 = $as_s_Tuple1(x$61$2);
+    if ((x$61 !== null)) {
+      var x = $as_sci_Map(x$61.$$und1$f);
+      return new $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse().init___sci_Map(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$61)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsWithFiles"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var this$11 = $m_Lupickle_default$();
+  var evidence$29 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var this$10 = $m_Lupickle_default$();
+  var evidence$25 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_T.getClassOf());
+  var evidence$30 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$10, evidence$25, evidence$26);
+  var evidence$2 = $s_Lupickle_Implicits$class__MapR__Lupickle_Implicits__Lupickle_Types$Reader__Lupickle_Types$Reader__Lupickle_Types$Reader(this$11, evidence$29, evidence$30);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$12, evidence$2));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageGetLogsNamesResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$174$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageRotateLogs");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageRotateLogs($as_T2(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype.apply__T2__Lshared_SharedMessages$JsMessageRotateLogs = (function(derive$macro$264) {
+  var arg1 = derive$macro$264.$$und1__O();
+  var arg2 = derive$macro$264.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageRotateLogs().init___T__T(sender, target)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$181$1$$anonfun$apply$75;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var evidence$10 = $m_Lupickle_default$().StringRW$1;
+  var evidence$11 = $m_Lupickle_default$().StringRW$1;
+  var this$11 = $m_Lupickle_default$();
+  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1(this);
+  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
+  var evidence$12 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$12, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageTargetParticipantsResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessageTargetParticipantsResponse($as_T3(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype.apply__T3__Lshared_SharedMessages$JsMessageTargetParticipantsResponse = (function(derive$macro$256) {
+  var arg1 = derive$macro$256.$$und1$1;
+  var arg2 = derive$macro$256.$$und2$1;
+  var arg3 = derive$macro$256.$$und3$1;
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(arg3, 1);
+  return new $c_Lshared_SharedMessages$JsMessageTargetParticipantsResponse().init___T__T__ALshared_SharedMessages$TargetParticipant(sender, target, participants)
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$55;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57(this);
+  return this$1.derive$macro$273__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$63$2) {
+    var x$63 = $as_s_Tuple1(x$63$2);
+    if ((x$63 !== null)) {
+      var x = $as_T(x$63.$$und1$f);
+      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$63)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$2 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
+  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$186$1$$anonfun$apply$57$$anon$12$$anonfun$derive$macro$273$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$16 = $m_Lupickle_default$();
+  var this$14 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$60$2) {
+    var x$60 = $as_s_Tuple1(x$60$2);
+    if ((x$60 !== null)) {
+      var x = $as_sci_Map(x$60.$$und1$f);
+      return new $c_Lshared_SharedMessages$JsMessageStarBotResponse().init___sci_Map(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$60)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsParticipants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$13 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
+  var evidence$29 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
+  var this$11 = $m_Lupickle_default$();
+  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1(this);
+  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
+  var evidence$30 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
+  var evidence$2 = $s_Lupickle_Implicits$class__MapR__Lupickle_Implicits__Lupickle_Types$Reader__Lupickle_Types$Reader__Lupickle_Types$Reader(this$12, evidence$29, evidence$30);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$13, evidence$2));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$14, f, array, array$1, evidence$14);
+  var this$17 = this$16.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$16, rw, "shared.SharedMessages.JsMessageStarBotResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$17, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45(this);
+  return this$1.derive$macro$266__Lupickle_Types$Reader()
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$62$2) {
+    var x$62 = $as_s_Tuple1(x$62$2);
+    if ((x$62 !== null)) {
+      var x = $as_T(x$62.$$und1$f);
+      return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
+    } else {
+      throw new $c_s_MatchError().init___O(x$62)
+    }
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$2 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
+  return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$195$1$$anonfun$apply$45$$anon$11$$anonfun$derive$macro$266$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageCmd");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageCmd($as_T2(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype.apply__T2__Lshared_SharedMessages$JsMessageCmd = (function(derive$macro$261) {
+  var arg1 = derive$macro$261.$$und1__O();
+  var arg2 = derive$macro$261.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageCmd().init___T__T(sender, target)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$202$1$$anonfun$apply$69;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannelResponse");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannelResponse($as_T2(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype.apply__T2__Lshared_SharedMessages$JsMessageLeaveChannelResponse = (function(derive$macro$255) {
+  var arg1 = derive$macro$255.$$und1__O();
+  var arg2 = derive$macro$255.$$und2__O();
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageLeaveChannelResponse().init___T__T(sender, target)
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$207$1$$anonfun$apply$53;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$10 = $m_Lupickle_default$().StringRW$1;
+  var evidence$11 = $m_Lupickle_default$().StringRW$1;
+  var evidence$12 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$9, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageOther");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessageOther($as_T3(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype.apply__T3__Lshared_SharedMessages$JsMessageOther = (function(derive$macro$254) {
+  var arg1 = derive$macro$254.$$und1$1;
+  var arg2 = derive$macro$254.$$und2$1;
+  var arg3 = derive$macro$254.$$und3$1;
+  var sender = $as_T(arg1);
+  var target = $as_T(arg2);
+  var msg = $as_T(arg3);
+  return new $c_Lshared_SharedMessages$JsMessageOther().init___T__T__T(sender, target, msg)
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$50;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$3 = $m_Lupickle_default$();
+  var this$1 = $m_Lupickle_default$();
+  var t = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return new $c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest().init___()
+  }));
+  var rw = $s_Lupickle_Implicits$class__Case0R__Lupickle_Implicits__F0__Lupickle_Types$Reader(this$1, t);
+  var this$4 = this$3.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$3, rw, "shared.SharedMessages.JsMessageGetLogsNamesRequest");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$4, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$218$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$3 = $m_Lupickle_default$();
+  var this$1 = $m_Lupickle_default$();
+  var t = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return new $c_Lshared_SharedMessages$JsMessageIrcBotReady().init___()
+  }));
+  var rw = $s_Lupickle_Implicits$class__Case0R__Lupickle_Implicits__F0__Lupickle_Types$Reader(this$1, t);
+  var this$4 = this$3.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$3, rw, "shared.SharedMessages.JsMessageIrcBotReady");
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$4, _read, src)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Reader()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$221$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype.apply__Lupickle_Types$Reader = (function() {
   var this$14 = $m_Lupickle_default$();
   var this$12 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1(this);
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1(this);
   var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["botName", "targets"]);
   var len = $uI(xs.array$6.length);
   var array = $newArrayObject($d_T.getArrayOf(), [len]);
@@ -48341,73 +51394,73 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfu
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
   return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$15, _read, src)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype.apply__O__O = (function(v1) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype.apply__O__O = (function(v1) {
   return this.apply__T2__Lshared_SharedMessages$JsMessageStarBotRequest($as_T2(v1))
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype.apply__T2__Lshared_SharedMessages$JsMessageStarBotRequest = (function(derive$macro$233) {
-  var arg1 = derive$macro$233.$$und1__O();
-  var arg2 = derive$macro$233.$$und2__O();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype.apply__T2__Lshared_SharedMessages$JsMessageStarBotRequest = (function(derive$macro$263) {
+  var arg1 = derive$macro$263.$$und1__O();
+  var arg2 = derive$macro$263.$$und2__O();
   var botName = $as_T(arg1);
   var targets = $asArrayOf_T(arg2, 1);
   return new $c_Lshared_SharedMessages$JsMessageStarBotRequest().init___T__AT(botName, targets)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$190$1$$anonfun$apply$65;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$224$1$$anonfun$apply$73;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype.apply__Lupickle_Types$Reader = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype.apply__Lupickle_Types$Reader = (function() {
   var this$12 = $m_Lupickle_default$();
   var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1(this);
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1(this);
   var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
   var len = $uI(xs.array$6.length);
   var array = $newArrayObject($d_T.getArrayOf(), [len]);
@@ -48441,116 +51494,175 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfu
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
   return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype.apply__O__O = (function(v1) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype.apply__O__O = (function(v1) {
   return this.apply__T3__Lshared_SharedMessages$JsMessage($as_T3(v1))
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1 = (function($$outer) {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype.apply__T3__Lshared_SharedMessages$JsMessage = (function(derive$macro$224) {
-  var arg1 = derive$macro$224.$$und1$1;
-  var arg2 = derive$macro$224.$$und2$1;
-  var arg3 = derive$macro$224.$$und3$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype.apply__T3__Lshared_SharedMessages$JsMessage = (function(derive$macro$253) {
+  var arg1 = derive$macro$253.$$und1$1;
+  var arg2 = derive$macro$253.$$und2$1;
+  var arg3 = derive$macro$253.$$und3$1;
   var sender = $as_T(arg1);
   var target = $as_T(arg2);
   var msg = $as_T(arg3);
   return new $c_Lshared_SharedMessages$JsMessage().init___T__T__T(sender, target, msg)
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$197$1$$anonfun$apply$42;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$231$1$$anonfun$apply$47;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$3 = $m_Lupickle_default$();
-  var this$1 = $m_Lupickle_default$();
-  var t = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return new $c_Lshared_SharedMessages$JsMessageIrcBotReady().init___()
-  }));
-  var rw = $s_Lupickle_Implicits$class__Case0R__Lupickle_Implicits__F0__Lupickle_Types$Reader(this$1, t);
-  var this$4 = this$3.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$3, rw, "shared.SharedMessages.JsMessageIrcBotReady");
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["regex", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$5 = $m_Lupickle_default$().StringRW$1;
+  var evidence$6 = $m_Lupickle_default$().StringRW$1;
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
+  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageSearchLogsRequest");
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$4, _read, src)
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$203$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1() {
-  $c_sr_AbstractFunction0.call(this)
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59() {
+  $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype.apply__T2__Lshared_SharedMessages$JsMessageSearchLogsRequest = (function(derive$macro$257) {
+  var arg1 = derive$macro$257.$$und1__O();
+  var arg2 = derive$macro$257.$$und2__O();
+  var regex = $as_T(arg1);
+  var target = $as_T(arg2);
+  return new $c_Lshared_SharedMessages$JsMessageSearchLogsRequest().init___T__T(regex, target)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageSearchLogsRequest($as_T2(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$237$1$$anonfun$apply$59;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
   var len = $uI(xs.array$6.length);
   var array = $newArrayObject($d_T.getArrayOf(), [len]);
   var elem$1 = 0;
@@ -48572,202 +51684,125 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfu
     array$1.u[elem$1$1] = arg1$1;
     elem$1$1 = ((1 + elem$1$1) | 0)
   };
-  var this$9 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
   var evidence$10 = $m_Lupickle_default$().StringRW$1;
   var evidence$11 = $m_Lupickle_default$().StringRW$1;
-  var evidence$12 = $m_Lupickle_default$().StringRW$1;
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$9, evidence$10, evidence$11, evidence$12));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
-  var this$13 = this$12.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageOther");
+  var this$11 = $m_Lupickle_default$();
+  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
+  var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1(this);
+  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
+  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
+  var evidence$12 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
+  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple3R__Lupickle_Generated__O__O__O__O(this$12, evidence$10, evidence$11, evidence$12));
+  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$13, f, array, array$1, evidence$14);
+  var this$16 = this$15.Reader__Lupickle_Types$Reader$();
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$15, rw, "shared.SharedMessages.JsMessageJoinChannelResponse");
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
+  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$16, _read, src)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype.apply__O__O = (function(v1) {
-  return this.apply__T3__Lshared_SharedMessages$JsMessageOther($as_T3(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype.apply__T3__Lshared_SharedMessages$JsMessageOther = (function(derive$macro$225) {
-  var arg1 = derive$macro$225.$$und1$1;
-  var arg2 = derive$macro$225.$$und2$1;
-  var arg3 = derive$macro$225.$$und3$1;
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype.apply__T3__Lshared_SharedMessages$JsMessageJoinChannelResponse = (function(derive$macro$258) {
+  var arg1 = derive$macro$258.$$und1$1;
+  var arg2 = derive$macro$258.$$und2$1;
+  var arg3 = derive$macro$258.$$und3$1;
   var sender = $as_T(arg1);
   var target = $as_T(arg2);
-  var msg = $as_T(arg3);
-  return new $c_Lshared_SharedMessages$JsMessageOther().init___T__T__T(sender, target, msg)
+  var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(arg3, 1);
+  return new $c_Lshared_SharedMessages$JsMessageJoinChannelResponse().init___T__T__ALshared_SharedMessages$TargetParticipant(sender, target, participants)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1 = (function($$outer) {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype.apply__O__O = (function(v1) {
+  return this.apply__T3__Lshared_SharedMessages$JsMessageJoinChannelResponse($as_T3(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1 = (function($$outer) {
   return this
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$206$1$$anonfun$apply$44;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$61;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
-  return this
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype.apply__Lupickle_Types$Reader = (function() {
+  var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63(this);
+  return this$1.derive$macro$280__Lupickle_Types$Reader()
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$16 = $m_Lupickle_default$();
-  var this$14 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$58$2) {
-    var x$58 = $as_s_Tuple1(x$58$2);
-    if ((x$58 !== null)) {
-      var x = $as_sci_Map(x$58.$$und1$f);
-      return new $c_Lshared_SharedMessages$JsMessageStarBotResponse().init___sci_Map(x)
-    } else {
-      throw new $c_s_MatchError().init___O(x$58)
-    }
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsParticipants"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$13 = $m_Lupickle_default$();
-  var this$12 = $m_Lupickle_default$();
-  var evidence$29 = $as_Lupickle_Types$Reader($m_Lupickle_default$().StringRW$1);
-  var this$11 = $m_Lupickle_default$();
-  var this$9 = $m_Lupickle_default$().Internal__Lupickle_Implicits$Internal$();
-  var r = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1(this);
-  var evidence$25 = new $c_Lupickle_Implicits$Internal$$anon$3().init___Lupickle_Implicits$Internal$__T__F0(this$9, "Tagged Object shared.SharedMessages.TargetParticipant", r);
-  var evidence$26 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$TargetParticipant.getClassOf());
-  var evidence$30 = $s_Lupickle_Implicits$class__ArrayR__Lupickle_Implicits__Lupickle_Types$Reader__s_reflect_ClassTag__Lupickle_Types$Reader(this$11, evidence$25, evidence$26);
-  var evidence$2 = $s_Lupickle_Implicits$class__MapR__Lupickle_Implicits__Lupickle_Types$Reader__Lupickle_Types$Reader__Lupickle_Types$Reader(this$12, evidence$29, evidence$30);
-  var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$13, evidence$2));
-  var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$14, f, array, array$1, evidence$14);
-  var this$17 = this$16.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$16, rw, "shared.SharedMessages.JsMessageStarBotResponse");
-  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
-  return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$17, _read, src)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1: 1,
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype.apply__Lupickle_Types$Reader = (function() {
-  var this$1 = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40(this);
-  return this$1.derive$macro$236__Lupickle_Types$Reader()
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Reader()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype.apply__Lupickle_Types$Reader = (function() {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype.apply__Lupickle_Types$Reader = (function() {
   var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$59$2) {
-    var x$59 = $as_s_Tuple1(x$59$2);
-    if ((x$59 !== null)) {
-      var x = $as_T(x$59.$$und1$f);
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$64$2) {
+    var x$64 = $as_s_Tuple1(x$64$2);
+    if ((x$64 !== null)) {
+      var x = $as_T(x$64.$$und1$f);
       return new $c_Lshared_SharedMessages$TargetParticipant().init___T(x)
     } else {
-      throw new $c_s_MatchError().init___O(x$59)
+      throw new $c_s_MatchError().init___O(x$64)
     }
   }));
   var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
@@ -48797,38 +51832,41 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfu
   var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple1R__Lupickle_Generated__O__O(this$9, evidence$2));
   return $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$212$1$$anonfun$apply$40$$anon$11$$anonfun$derive$macro$236$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$242$1$$anonfun$apply$63$$anon$13$$anonfun$derive$macro$280$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype.apply__Lupickle_Types$Reader = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype.apply__Lupickle_Types$Reader = (function() {
   var this$12 = $m_Lupickle_default$();
   var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1(this);
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71().init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1(this);
   var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
   var len = $uI(xs.array$6.length);
   var array = $newArrayObject($d_T.getArrayOf(), [len]);
@@ -48857,59 +51895,59 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfu
   var evidence$14 = $as_Lupickle_Types$Reader($s_Lupickle_Generated$class__Tuple2R__Lupickle_Generated__O__O__O(this$9, evidence$5, evidence$6));
   var rw = $s_Lupickle_Implicits$class__CaseR__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Reader__Lupickle_Types$Reader(this$10, f, array, array$1, evidence$14);
   var this$13 = this$12.Reader__Lupickle_Types$Reader$();
-  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageRotateLogs");
+  var _read = new $c_Lupickle_AttributeTagged$$anonfun$annotate$2().init___Lupickle_AttributeTagged__Lupickle_Types$Reader__T(this$12, rw, "shared.SharedMessages.JsMessageJoinChannelRequest");
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.AttributeTagged#annotate");
   return new $c_Lupickle_Types$Reader$$anon$4().init___Lupickle_Types$Reader$__s_PartialFunction__Lsourcecode_Enclosing(this$13, _read, src)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Reader()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71() {
   $c_sr_AbstractFunction1.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1 = (function($$outer) {
-  return this
+$h_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__Lshared_SharedMessages$JsMessageJoinChannelRequest($as_T2(v1))
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__Lshared_SharedMessages$JsMessageRotateLogs($as_T2(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype.apply__T2__Lshared_SharedMessages$JsMessageRotateLogs = (function(derive$macro$234) {
-  var arg1 = derive$macro$234.$$und1__O();
-  var arg2 = derive$macro$234.$$und2__O();
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype.apply__T2__Lshared_SharedMessages$JsMessageJoinChannelRequest = (function(derive$macro$262) {
+  var arg1 = derive$macro$262.$$und1__O();
+  var arg2 = derive$macro$262.$$und2__O();
   var sender = $as_T(arg1);
   var target = $as_T(arg2);
-  return new $c_Lshared_SharedMessages$JsMessageRotateLogs().init___T__T(sender, target)
+  return new $c_Lshared_SharedMessages$JsMessageJoinChannelRequest().init___T__T(sender, target)
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67", {
-  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67: 1,
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71", {
+  Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$219$1$$anonfun$apply$67;
+$c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$connect$1$1$$anonfun$5$$anon$10$$anonfun$derive$macro$248$1$$anonfun$apply$71;
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10() {
   $c_sr_AbstractFunction1.call(this);
@@ -48928,17 +51966,25 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
   return this.apply__Lscalajsreact_template_pages_IrcChatPage$TargetState__Ljapgolly_scalajs_react_vdom_TagOf($as_Lscalajsreact_template_pages_IrcChatPage$TargetState(v1))
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype.apply__Lscalajsreact_template_pages_IrcChatPage$TargetState__Ljapgolly_scalajs_react_vdom_TagOf = (function(targetState) {
-  var jsx$46 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var jsx$49 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$45 = $m_s_Predef$();
+  var jsx$48 = $m_s_Predef$();
   var this$3 = $m_Lscalacss_ScalaCssReact$();
-  var jsx$43 = $m_Lscalajsreact_template_pages_IrcChatPage$TargetStyle$().targetHidden$3;
+  var jsx$46 = $m_Lscalajsreact_template_pages_IrcChatPage$TargetStyle$().targetHidden$3;
   var this$2 = this.s$1$f.selectedTarget$1;
-  var s = $as_Lscalacss_internal_StyleA(jsx$43.apply__O__O((!targetState.equals__O__Z((this$2.isEmpty__Z() || this$2.get__O())))));
-  var jsx$44 = $s_Lscalacss_ScalaCssReactImplicits$class__scalacssStyleaToTagMod__Lscalacss_ScalaCssReactImplicits__Lscalacss_internal_StyleA__Ljapgolly_scalajs_react_vdom_TagMod(this$3, s);
-  var jsx$42 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
+  var s = $as_Lscalacss_internal_StyleA(jsx$46.apply__O__O((!targetState.equals__O__Z((this$2.isEmpty__Z() || this$2.get__O())))));
+  var jsx$47 = $s_Lscalacss_ScalaCssReactImplicits$class__scalacssStyleaToTagMod__Lscalacss_ScalaCssReactImplicits__Lscalacss_internal_StyleA__Ljapgolly_scalajs_react_vdom_TagMod(this$3, s);
+  var jsx$45 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var jsx$41 = $m_s_Predef$();
+  var jsx$44 = $m_s_Predef$();
+  var this$5 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.$float__Ljapgolly_scalajs_react_vdom_HtmlStyles$float$();
+  var jsx$43 = this$5.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod("left", $m_Ljapgolly_scalajs_react_vdom_PackageBase$().vdomAttrVtString$2);
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var jsx$42 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStylesStatic$AutoStyle().init___T("marginRight");
+  var this$8 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
+  $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
+  var $$this = 10;
+  var jsx$41 = jsx$42.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$8.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this, "px"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2);
   var jsx$40 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   var jsx$39 = $m_s_Predef$();
@@ -48951,10 +51997,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
   var jsx$35 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$less$3.input__Ljapgolly_scalajs_react_vdom_HtmlTags$input$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   var jsx$34 = new $c_Ljapgolly_scalajs_react_vdom_HtmlStylesStatic$AutoStyle().init___T("width");
-  var this$11 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
+  var this$15 = $m_Ljapgolly_scalajs_react_vdom_CssUnits$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var $$this = 250;
-  var jsx$33 = jsx$35.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$34.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$11.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this, "px"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, targetState$2) {
+  var $$this$1 = 250;
+  var jsx$33 = jsx$35.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$34.$$colon$eq__O__F2__Ljapgolly_scalajs_react_vdom_TagMod(this$15.japgolly$scalajs$react$vdom$CssUnits$$addSuffix$extension__O__T__T($$this$1, "px"), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtString$2), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onChange$1.$$eq$eq$greater__F1__Ljapgolly_scalajs_react_vdom_DomCallbackResult__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, targetState$2) {
     return (function(e$2) {
       return new $c_Ljapgolly_scalajs_react_CallbackTo().init___F0(targetState$2.callOnChangeTargetInput__Ljapgolly_scalajs_react_component_Generic$MountedWithRoot__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState__Ljapgolly_scalajs_react_raw_SyntheticEvent__F0(arg$outer.$$outer$2.scalajsreact$template$pages$IrcChatPage$Backend$$$$f, arg$outer.props$1$f, arg$outer.s$1$f, e$2))
     })
@@ -48977,10 +52023,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
   var jsx$30 = $m_s_Predef$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-  var this$24 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("disabled");
+  var this$28 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("disabled");
   var a = targetState.isSendLeaveButtonDisabled__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState__Z(this.props$1$f, this.s$1$f);
   var t = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtBoolean$2;
-  var jsx$29 = jsx$31.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", jsx$30.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$24.name$1, a), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$minus$minus$greater$qmark__F0__Ljapgolly_scalajs_react_internal_OptionLike__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer$4, targetState$2$4) {
+  var jsx$29 = jsx$31.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", jsx$30.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t, this$28.name$1, a), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$minus$minus$greater$qmark__F0__Ljapgolly_scalajs_react_internal_OptionLike__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer$4, targetState$2$4) {
     return (function() {
       return targetState$2$4.callOnLeaveButton__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState__s_Option(arg$outer$4.props$1$f, arg$outer$4.s$1$f)
     })
@@ -48990,10 +52036,10 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
   var jsx$27 = $m_s_Predef$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   $m_Ljapgolly_scalajs_react_vdom_PackageBase$();
-  var this$30 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("disabled");
+  var this$34 = new $c_Ljapgolly_scalajs_react_vdom_Attr$Generic().init___T("disabled");
   var a$1 = targetState.isSendLeaveButtonDisabled__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState__Z(this.props$1$f, this.s$1$f);
   var t$1 = $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().vdomAttrVtBoolean$2;
-  var jsx$26 = jsx$40.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$39.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$36, jsx$33, jsx$32, jsx$29, jsx$28.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", jsx$27.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$30.name$1, a$1), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$minus$minus$greater$qmark__F0__Ljapgolly_scalajs_react_internal_OptionLike__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer$5, targetState$2$5) {
+  var jsx$26 = jsx$40.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$39.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$36, jsx$33, jsx$32, jsx$29, jsx$28.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("button", jsx$27.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [$m_Ljapgolly_scalajs_react_vdom_Attr$ValueType$().apply$extension__F2__T__O__Ljapgolly_scalajs_react_vdom_TagMod(t$1, this$34.name$1, a$1), $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$().$$up$3.onClick$1.$$minus$minus$greater$qmark__F0__Ljapgolly_scalajs_react_internal_OptionLike__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer$5, targetState$2$5) {
     return (function() {
       return targetState$2$5.callRotateNowButton__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState__s_Option(arg$outer$5.props$1$f, arg$outer$5.s$1$f)
     })
@@ -49011,12 +52057,12 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
   var v$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Info for target: ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([targetState.target$1]));
   var jsx$20 = jsx$22.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$21.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar(v$2)])));
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
-  var this$40 = targetState.logLines$1;
-  var this$39 = $m_scm_ListBuffer$();
-  var bf = this$39.ReusableCBFInstance$2;
-  var b = $s_sc_TraversableLike$class__builder$1__p0__sc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$40, bf);
-  var this$41 = this$40.scala$collection$mutable$ListBuffer$$start$6;
-  var these = this$41;
+  var this$44 = targetState.logLines$1;
+  var this$43 = $m_scm_ListBuffer$();
+  var bf = this$43.ReusableCBFInstance$2;
+  var b = $s_sc_TraversableLike$class__builder$1__p0__sc_TraversableLike__scg_CanBuildFrom__scm_Builder(this$44, bf);
+  var this$45 = this$44.scala$collection$mutable$ListBuffer$$start$6;
+  var these = this$45;
   while ((!these.isEmpty__Z())) {
     var arg1 = these.head__O();
     var g = $as_Lshared_SharedMessages$JsMessage(arg1);
@@ -49042,14 +52088,14 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
   var as = $as_sc_TraversableOnce(b.result__O());
   var f = $m_s_Predef$().singleton$und$less$colon$less$2;
   var jsx$19 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-  var this$53 = as.toIterator__sc_Iterator();
-  var jsx$10 = jsx$42.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$41.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$26, jsx$23, jsx$20, jsx$19.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$53, f))])));
+  var this$57 = as.toIterator__sc_Iterator();
+  var jsx$10 = jsx$45.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$44.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$43, jsx$41, jsx$26, jsx$23, jsx$20, jsx$19.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$57, f))])));
   var jsx$9 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
   var jsx$8 = $m_s_Predef$();
-  var this$55 = $m_Lscalacss_ScalaCssReact$();
+  var this$59 = $m_Lscalacss_ScalaCssReact$();
   var s$1 = $m_Lscalajsreact_template_pages_IrcChatPage$TargetStyle$().targetParticipants$3;
-  var jsx$7 = $s_Lscalacss_ScalaCssReactImplicits$class__scalacssStyleaToTagMod__Lscalacss_ScalaCssReactImplicits__Lscalacss_internal_StyleA__Ljapgolly_scalajs_react_vdom_TagMod(this$55, s$1).apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagMod($m_sci_Nil$());
+  var jsx$7 = $s_Lscalacss_ScalaCssReactImplicits$class__scalacssStyleaToTagMod__Lscalacss_ScalaCssReactImplicits__Lscalacss_internal_StyleA__Ljapgolly_scalajs_react_vdom_TagMod(this$59, s$1).apply__sc_Seq__Ljapgolly_scalajs_react_vdom_TagMod($m_sci_Nil$());
   var jsx$6 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$().apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf(($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), "span"), $m_s_Predef$().wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [($m_Ljapgolly_scalajs_react_vdom_html$und$less$up$(), new $c_Ljapgolly_scalajs_react_vdom_VdomNode().init___sjs_js_$bar("Participants"))])));
   var jsx$5 = $m_Ljapgolly_scalajs_react_vdom_HtmlTagOf$();
   $m_Ljapgolly_scalajs_react_vdom_html$und$less$up$();
@@ -49074,11 +52120,11 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype
     i = ((1 + i) | 0)
   };
   var as$1 = $makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagOf.getArrayOf(), elems$2);
-  var $$this$1 = $m_s_Predef$().genericArrayOps__O__scm_ArrayOps(as$1);
+  var $$this$2 = $m_s_Predef$().genericArrayOps__O__scm_ArrayOps(as$1);
   var f$1 = $m_s_Predef$().singleton$und$less$colon$less$2;
   var jsx$3 = $m_Ljapgolly_scalajs_react_vdom_TagMod$();
-  var this$73 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I($$this$1, 0, $$this$1.length__I());
-  return jsx$46.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$45.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$44, jsx$10, jsx$9.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$8.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$7, jsx$6, jsx$5.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", jsx$4.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$3.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$73, f$1))])))])))])))
+  var this$77 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I($$this$2, 0, $$this$2.length__I());
+  return jsx$49.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$48.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$47, jsx$10, jsx$9.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("div", jsx$8.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$7, jsx$6, jsx$5.apply$extension__T__sc_Seq__Ljapgolly_scalajs_react_vdom_TagOf("ul", jsx$4.wrapRefArray__AO__scm_WrappedArray($makeNativeArrayWrapper($d_Ljapgolly_scalajs_react_vdom_TagMod.getArrayOf(), [jsx$3.fromTraversableOnce__sc_TraversableOnce__Ljapgolly_scalajs_react_vdom_TagMod(new $c_sc_Iterator$$anon$11().init___sc_Iterator__F1(this$77, f$1))])))])))])))
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$render$10.prototype.init___Lscalajsreact_template_pages_IrcChatPage$Backend__Lscalajsreact_template_models_IrcChatProps__Lscalajsreact_template_pages_IrcChatPage$ChatState = (function($$outer, props$1, s$1) {
   if (($$outer === null)) {
@@ -49181,25 +52227,25 @@ $c_Lscalajsreact_template_pages_IrcChatPage$Backend$$anonfun$start$1.prototype.a
     var ws = x2.value$2;
     this.props$2$2.ws$1 = new $c_s_Some().init___O(ws);
     return $as_Ljapgolly_scalajs_react_CallbackTo(this.$$outer$2.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState__F1__F0__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
-      return (function(x$15$2) {
-        var x$15 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$15$2);
-        var qual$12 = x$15.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Connecting to ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([arg$outer.url$1$f])));
-        var x$92 = qual$12.targets$1;
-        var x$93 = qual$12.sender$1;
-        var x$94 = qual$12.channelJoin$1;
-        var x$95 = qual$12.selectedTarget$1;
-        var x$96 = qual$12.ready$1;
-        var x$97 = qual$12.props$1;
-        return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$92, x$93, x$94, x$95, x$96, x$97)
+      return (function(x$16$2) {
+        var x$16 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$16$2);
+        var qual$13 = x$16.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Connecting to ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([arg$outer.url$1$f])));
+        var x$97 = qual$13.targets$1;
+        var x$98 = qual$13.sender$1;
+        var x$99 = qual$13.channelJoin$1;
+        var x$100 = qual$13.selectedTarget$1;
+        var x$101 = qual$13.ready$1;
+        var x$102 = qual$13.props$1;
+        return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$97, x$98, x$99, x$100, x$101, x$102)
       })
     })(this)), this.$$outer$2.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
   } else if ($is_s_util_Failure(x0$1)) {
     var x3 = $as_s_util_Failure(x0$1);
     var error = x3.exception$2;
     return $as_Ljapgolly_scalajs_react_CallbackTo(this.$$outer$2.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState__F1__F0__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(error$1) {
-      return (function(x$16$2) {
-        var x$16 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$16$2);
-        return x$16.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(error$1.toString__T())
+      return (function(x$17$2) {
+        var x$17 = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(x$17$2);
+        return x$17.logLine__T__Lscalajsreact_template_pages_IrcChatPage$ChatState(error$1.toString__T())
       })
     })(error)), this.$$outer$2.scalajsreact$template$pages$IrcChatPage$Backend$$$$f.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
   } else {
@@ -49337,13 +52383,13 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState.prototype.updateTargetsPar
   var jsx$1 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
   var s = $s_sc_TraversableLike$class__toString__sc_TraversableLike__T(targetsParticipants);
   jsx$1.log(s);
-  targetsParticipants.foreach__F1__V(new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState(this));
+  var newTargets = this.targets$1;
+  targetsParticipants.foreach__F1__V(new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1().init___Lscalajsreact_template_pages_IrcChatPage$ChatState__scm_ListBuffer(this, newTargets));
   $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console().log("updateTargetsParticipants ");
   var jsx$2 = $m_Lorg_scalajs_dom_package$().console__Lorg_scalajs_dom_raw_Console();
-  var this$4 = this.targets$1;
-  var s$1 = $s_sc_TraversableLike$class__toString__sc_TraversableLike__T(this$4);
+  var s$1 = $s_sc_TraversableLike$class__toString__sc_TraversableLike__T(newTargets);
   jsx$2.log(s$1);
-  return this.targets$1
+  return newTargets
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState.prototype.setInputMessageAndReturnAllTargets__Lscalajsreact_template_pages_IrcChatPage$TargetState__T__scm_ListBuffer = (function(target, inputMessage) {
   var this$1 = this.targets$1;
@@ -49392,12 +52438,12 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState.prototype.callOnChangeInpu
   return $as_Ljapgolly_scalajs_react_CallbackTo($$.modState__F1__F0__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(channelInput$1) {
     return (function(state$2) {
       var state = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(state$2);
-      var x$37 = state.targets$1;
-      var x$38 = state.sender$1;
-      var x$39 = state.selectedTarget$1;
-      var x$40 = state.ready$1;
-      var x$41 = state.props$1;
-      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$37, x$38, channelInput$1, x$39, x$40, x$41)
+      var x$39 = state.targets$1;
+      var x$40 = state.sender$1;
+      var x$41 = state.selectedTarget$1;
+      var x$42 = state.ready$1;
+      var x$43 = state.props$1;
+      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$39, x$40, channelInput$1, x$41, x$42, x$43)
     })
   })(channelInput)), $$.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
 });
@@ -49564,12 +52610,12 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState.prototype.callOnChangeInpu
   return $as_Ljapgolly_scalajs_react_CallbackTo($$.modState__F1__F0__O(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(nickInput$1) {
     return (function(state$2) {
       var state = $as_Lscalajsreact_template_pages_IrcChatPage$ChatState(state$2);
-      var x$43 = state.targets$1;
-      var x$44 = state.channelJoin$1;
-      var x$45 = state.selectedTarget$1;
-      var x$46 = state.ready$1;
-      var x$47 = state.props$1;
-      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$43, nickInput$1, x$44, x$45, x$46, x$47)
+      var x$45 = state.targets$1;
+      var x$46 = state.channelJoin$1;
+      var x$47 = state.selectedTarget$1;
+      var x$48 = state.ready$1;
+      var x$49 = state.props$1;
+      return new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState().init___scm_ListBuffer__T__T__s_Option__Z__s_Option(x$45, nickInput$1, x$46, x$47, x$48, x$49)
     })
   })(nickInput)), $$.modState$default$2__F0())).japgolly$scalajs$react$CallbackTo$$f$1
 });
@@ -49616,941 +52662,20 @@ var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState = new $TypeData().init
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$15 = $m_Lupickle_default$();
-  var this$13 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsParticipants"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$12 = $m_Lupickle_default$();
-  var this$11 = $m_Lupickle_default$();
-  var evidence$27 = $m_Lupickle_default$().StringRW$1;
-  var this$10 = $m_Lupickle_default$();
-  var this$9 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1(this);
-  var evidence$24 = this$9.derive$macro$116__Lupickle_Types$Writer();
-  var evidence$28 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$24);
-  var evidence$1 = $s_Lupickle_Implicits$class__MapW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer__Lupickle_Types$Writer(this$11, evidence$27, evidence$28);
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$12, evidence$1));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$13, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotResponse.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$15, rw, "shared.SharedMessages.JsMessageStarBotResponse", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$1 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$9, evidence$1));
-  return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lshared_SharedMessages$TargetParticipant__s_Option($as_Lshared_SharedMessages$TargetParticipant(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype.apply__Lshared_SharedMessages$TargetParticipant__s_Option = (function(x$33) {
-  var this$1 = $m_Lshared_SharedMessages$TargetParticipant$().unapply__Lshared_SharedMessages$TargetParticipant__s_Option(x$33);
-  if (this$1.isEmpty__Z()) {
-    return $m_s_None$()
-  } else {
-    var arg1 = this$1.get__O();
-    var _1 = $as_T(arg1);
-    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
-  }
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anon$6$$anonfun$derive$macro$116$1$$anonfun$apply$11;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lshared_SharedMessages$JsMessageStarBotResponse__s_Option($as_Lshared_SharedMessages$JsMessageStarBotResponse(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype.apply__Lshared_SharedMessages$JsMessageStarBotResponse__s_Option = (function(x$32) {
-  var this$1 = $m_Lshared_SharedMessages$JsMessageStarBotResponse$().unapply__Lshared_SharedMessages$JsMessageStarBotResponse__s_Option(x$32);
-  if (this$1.isEmpty__Z()) {
-    return $m_s_None$()
-  } else {
-    var arg1 = this$1.get__O();
-    var _1 = $as_sci_Map(arg1);
-    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
-  }
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$103$1$$anonfun$apply$9;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageRotateLogs(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageRotateLogs$().unapply__Lshared_SharedMessages$JsMessageRotateLogs__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$3 = $m_Lupickle_default$().StringRW$1;
-  var evidence$4 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageRotateLogs.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageRotateLogs", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$110$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$14 = $m_Lupickle_default$();
-  var this$12 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageJoinChannelResponse(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageJoinChannelResponse$().unapply__Lshared_SharedMessages$JsMessageJoinChannelResponse__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$11 = $m_Lupickle_default$();
-  var evidence$7 = $m_Lupickle_default$().StringRW$1;
-  var evidence$8 = $m_Lupickle_default$().StringRW$1;
-  var this$10 = $m_Lupickle_default$();
-  var this$9 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1(this);
-  var evidence$24 = this$9.derive$macro$130__Lupickle_Types$Writer();
-  var evidence$9 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$24);
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple3W__Lupickle_Generated__O__O__O__O(this$11, evidence$7, evidence$8, evidence$9));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$12, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelResponse.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$14, rw, "shared.SharedMessages.JsMessageJoinChannelResponse", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$1 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$9, evidence$1));
-  return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lshared_SharedMessages$TargetParticipant__s_Option($as_Lshared_SharedMessages$TargetParticipant(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype.apply__Lshared_SharedMessages$TargetParticipant__s_Option = (function(x$35) {
-  var this$1 = $m_Lshared_SharedMessages$TargetParticipant$().unapply__Lshared_SharedMessages$TargetParticipant__s_Option(x$35);
-  if (this$1.isEmpty__Z()) {
-    return $m_s_None$()
-  } else {
-    var arg1 = this$1.get__O();
-    var _1 = $as_T(arg1);
-    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
-  }
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1 = (function($$outer) {
-  return this
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1$$anon$8$$anonfun$derive$macro$130$1$$anonfun$apply$21;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageCmd(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageCmd$().unapply__Lshared_SharedMessages$JsMessageCmd__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$3 = $m_Lupickle_default$().StringRW$1;
-  var evidence$4 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageCmd.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageCmd", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$50$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageJoinChannelRequest(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageJoinChannelRequest$().unapply__Lshared_SharedMessages$JsMessageJoinChannelRequest__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$3 = $m_Lupickle_default$().StringRW$1;
-  var evidence$4 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelRequest.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageJoinChannelRequest", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$55$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$14 = $m_Lupickle_default$();
-  var this$12 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageTargetParticipantsResponse(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageTargetParticipantsResponse$().unapply__Lshared_SharedMessages$JsMessageTargetParticipantsResponse__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$11 = $m_Lupickle_default$();
-  var evidence$7 = $m_Lupickle_default$().StringRW$1;
-  var evidence$8 = $m_Lupickle_default$().StringRW$1;
-  var this$10 = $m_Lupickle_default$();
-  var this$9 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1(this);
-  var evidence$24 = this$9.derive$macro$123__Lupickle_Types$Writer();
-  var evidence$9 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$24);
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple3W__Lupickle_Generated__O__O__O__O(this$11, evidence$7, evidence$8, evidence$9));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$12, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsResponse.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$14, rw, "shared.SharedMessages.JsMessageTargetParticipantsResponse", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1(this);
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$1 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$9, evidence$1));
-  return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18() {
-  $c_sr_AbstractFunction1.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype = new $h_sr_AbstractFunction1();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lshared_SharedMessages$TargetParticipant__s_Option($as_Lshared_SharedMessages$TargetParticipant(v1))
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype.apply__Lshared_SharedMessages$TargetParticipant__s_Option = (function(x$34) {
-  var this$1 = $m_Lshared_SharedMessages$TargetParticipant$().unapply__Lshared_SharedMessages$TargetParticipant__s_Option(x$34);
-  if (this$1.isEmpty__Z()) {
-    return $m_s_None$()
-  } else {
-    var arg1 = this$1.get__O();
-    var _1 = $as_T(arg1);
-    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
-  }
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$60$1$$anon$7$$anonfun$derive$macro$123$1$$anonfun$apply$18;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageLeaveChannelResponse(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageLeaveChannelResponse$().unapply__Lshared_SharedMessages$JsMessageLeaveChannelResponse__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$3 = $m_Lupickle_default$().StringRW$1;
-  var evidence$4 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannelResponse.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannelResponse", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$66$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageLeaveChannel(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageLeaveChannel$().unapply__Lshared_SharedMessages$JsMessageLeaveChannel__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$3 = $m_Lupickle_default$().StringRW$1;
-  var evidence$4 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannel.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannel", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageTargetParticipantsRequest(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageTargetParticipantsRequest$().unapply__Lshared_SharedMessages$JsMessageTargetParticipantsRequest__s_Option(x$0)
-  }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$3 = $m_Lupickle_default$().StringRW$1;
-  var evidence$4 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsRequest.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageTargetParticipantsRequest", evidence$6)
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype.apply__O = (function() {
-  return this.apply__Lupickle_Types$Writer()
-});
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1: 1,
-  sr_AbstractFunction0: 1,
-  O: 1,
-  F0: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$76$1;
-/** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1() {
-  $c_sr_AbstractFunction0.call(this)
-}
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1;
-/** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
-  return this
-});
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype.apply__Lupickle_Types$Writer = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype.apply__Lupickle_Types$Writer = (function() {
   var this$13 = $m_Lupickle_default$();
   var this$11 = $m_Lupickle_default$();
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
@@ -50589,35 +52714,35 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$
   var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotRequest.getClassOf());
   return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$13, rw, "shared.SharedMessages.JsMessageStarBotRequest", evidence$6)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Writer()
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$81$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$100$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
   return this
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.apply__Lupickle_Types$Writer = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype.apply__Lupickle_Types$Writer = (function() {
   var this$12 = $m_Lupickle_default$();
   var this$10 = $m_Lupickle_default$();
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
@@ -50654,6 +52779,1162 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$
   var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
   var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessage.getClassOf());
   return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessage", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$107$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageSearchLogsRequest(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageSearchLogsRequest$().unapply__Lshared_SharedMessages$JsMessageSearchLogsRequest__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["regex", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageSearchLogsRequest.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageSearchLogsRequest", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$113$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$14 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageJoinChannelResponse(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageJoinChannelResponse$().unapply__Lshared_SharedMessages$JsMessageJoinChannelResponse__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$11 = $m_Lupickle_default$();
+  var evidence$7 = $m_Lupickle_default$().StringRW$1;
+  var evidence$8 = $m_Lupickle_default$().StringRW$1;
+  var this$10 = $m_Lupickle_default$();
+  var this$9 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1(this);
+  var evidence$24 = this$9.derive$macro$144__Lupickle_Types$Writer();
+  var evidence$9 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$24);
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple3W__Lupickle_Generated__O__O__O__O(this$11, evidence$7, evidence$8, evidence$9));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$12, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelResponse.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$14, rw, "shared.SharedMessages.JsMessageJoinChannelResponse", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$1 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$9, evidence$1));
+  return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lshared_SharedMessages$TargetParticipant__s_Option($as_Lshared_SharedMessages$TargetParticipant(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype.apply__Lshared_SharedMessages$TargetParticipant__s_Option = (function(x$37) {
+  var this$1 = $m_Lshared_SharedMessages$TargetParticipant$().unapply__Lshared_SharedMessages$TargetParticipant__s_Option(x$37);
+  if (this$1.isEmpty__Z()) {
+    return $m_s_None$()
+  } else {
+    var arg1 = this$1.get__O();
+    var _1 = $as_T(arg1);
+    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
+  }
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$118$1$$anon$8$$anonfun$derive$macro$144$1$$anonfun$apply$25;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageJoinChannelRequest(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageJoinChannelRequest$().unapply__Lshared_SharedMessages$JsMessageJoinChannelRequest__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelRequest.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageJoinChannelRequest", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$124$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageTargetParticipantsRequest(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageTargetParticipantsRequest$().unapply__Lshared_SharedMessages$JsMessageTargetParticipantsRequest__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsRequest.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageTargetParticipantsRequest", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$39$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageLeaveChannel(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageLeaveChannel$().unapply__Lshared_SharedMessages$JsMessageLeaveChannel__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannel.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannel", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$46$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$14 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsWithFiles"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$11 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var evidence$27 = $m_Lupickle_default$().StringRW$1;
+  var this$9 = $m_Lupickle_default$();
+  var evidence$24 = $m_Lupickle_default$().StringRW$1;
+  var evidence$28 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$9, evidence$24);
+  var evidence$1 = $s_Lupickle_Implicits$class__MapW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$27, evidence$28);
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$11, evidence$1));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$12, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$14, rw, "shared.SharedMessages.JsMessageGetLogsNamesResponse", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lshared_SharedMessages$JsMessageGetLogsNamesResponse__s_Option($as_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype.apply__Lshared_SharedMessages$JsMessageGetLogsNamesResponse__s_Option = (function(x$34) {
+  var this$1 = $m_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$().unapply__Lshared_SharedMessages$JsMessageGetLogsNamesResponse__s_Option(x$34);
+  if (this$1.isEmpty__Z()) {
+    return $m_s_None$()
+  } else {
+    var arg1 = this$1.get__O();
+    var _1 = $as_sci_Map(arg1);
+    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
+  }
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$51$1$$anonfun$apply$15;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageRotateLogs(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageRotateLogs$().unapply__Lshared_SharedMessages$JsMessageRotateLogs__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageRotateLogs.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageRotateLogs", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$57$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$14 = $m_Lupickle_default$();
+  var this$12 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageTargetParticipantsResponse(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageTargetParticipantsResponse$().unapply__Lshared_SharedMessages$JsMessageTargetParticipantsResponse__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "participants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$11 = $m_Lupickle_default$();
+  var evidence$7 = $m_Lupickle_default$().StringRW$1;
+  var evidence$8 = $m_Lupickle_default$().StringRW$1;
+  var this$10 = $m_Lupickle_default$();
+  var this$9 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1(this);
+  var evidence$24 = this$9.derive$macro$137__Lupickle_Types$Writer();
+  var evidence$9 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$24);
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple3W__Lupickle_Generated__O__O__O__O(this$11, evidence$7, evidence$8, evidence$9));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$12, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageTargetParticipantsResponse.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$14, rw, "shared.SharedMessages.JsMessageTargetParticipantsResponse", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$1 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$9, evidence$1));
+  return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lshared_SharedMessages$TargetParticipant__s_Option($as_Lshared_SharedMessages$TargetParticipant(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype.apply__Lshared_SharedMessages$TargetParticipant__s_Option = (function(x$36) {
+  var this$1 = $m_Lshared_SharedMessages$TargetParticipant$().unapply__Lshared_SharedMessages$TargetParticipant__s_Option(x$36);
+  if (this$1.isEmpty__Z()) {
+    return $m_s_None$()
+  } else {
+    var arg1 = this$1.get__O();
+    var _1 = $as_T(arg1);
+    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
+  }
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$62$1$$anon$7$$anonfun$derive$macro$137$1$$anonfun$apply$21;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$15 = $m_Lupickle_default$();
+  var this$13 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["targetsParticipants"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$12 = $m_Lupickle_default$();
+  var this$11 = $m_Lupickle_default$();
+  var evidence$27 = $m_Lupickle_default$().StringRW$1;
+  var this$10 = $m_Lupickle_default$();
+  var this$9 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1(this);
+  var evidence$24 = this$9.derive$macro$130__Lupickle_Types$Writer();
+  var evidence$28 = $s_Lupickle_Implicits$class__ArrayW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, evidence$24);
+  var evidence$1 = $s_Lupickle_Implicits$class__MapW__Lupickle_Implicits__Lupickle_Types$Writer__Lupickle_Types$Writer__Lupickle_Types$Writer(this$11, evidence$27, evidence$28);
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$12, evidence$1));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$13, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageStarBotResponse.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$15, rw, "shared.SharedMessages.JsMessageStarBotResponse", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1(this);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["name"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$1 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple1W__Lupickle_Generated__O__O(this$9, evidence$1));
+  return $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lshared_SharedMessages$TargetParticipant__s_Option($as_Lshared_SharedMessages$TargetParticipant(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype.apply__Lshared_SharedMessages$TargetParticipant__s_Option = (function(x$35) {
+  var this$1 = $m_Lshared_SharedMessages$TargetParticipant$().unapply__Lshared_SharedMessages$TargetParticipant__s_Option(x$35);
+  if (this$1.isEmpty__Z()) {
+    return $m_s_None$()
+  } else {
+    var arg1 = this$1.get__O();
+    var _1 = $as_T(arg1);
+    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
+  }
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anon$6$$anonfun$derive$macro$130$1$$anonfun$apply$12;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype = new $h_sr_AbstractFunction1();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype.apply__O__O = (function(v1) {
+  return this.apply__Lshared_SharedMessages$JsMessageStarBotResponse__s_Option($as_Lshared_SharedMessages$JsMessageStarBotResponse(v1))
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype.apply__Lshared_SharedMessages$JsMessageStarBotResponse__s_Option = (function(x$33) {
+  var this$1 = $m_Lshared_SharedMessages$JsMessageStarBotResponse$().unapply__Lshared_SharedMessages$JsMessageStarBotResponse__s_Option(x$33);
+  if (this$1.isEmpty__Z()) {
+    return $m_s_None$()
+  } else {
+    var arg1 = this$1.get__O();
+    var _1 = $as_sci_Map(arg1);
+    return new $c_s_Some().init___O(new $c_s_Tuple1().init___O(_1))
+  }
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1 = (function($$outer) {
+  return this
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$71$1$$anonfun$apply$10;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageCmd(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageCmd$().unapply__Lshared_SharedMessages$JsMessageCmd__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageCmd.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageCmd", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$78$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageLeaveChannelResponse(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageLeaveChannelResponse$().unapply__Lshared_SharedMessages$JsMessageLeaveChannelResponse__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$3 = $m_Lupickle_default$().StringRW$1;
+  var evidence$4 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple2W__Lupickle_Generated__O__O__O(this$9, evidence$3, evidence$4));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageLeaveChannelResponse.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageLeaveChannelResponse", evidence$6)
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype.apply__O = (function() {
+  return this.apply__Lupickle_Types$Writer()
+});
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1: 1,
+  sr_AbstractFunction0: 1,
+  O: 1,
+  F0: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$83$1;
+/** @constructor */
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1() {
+  $c_sr_AbstractFunction0.call(this)
+}
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1;
+/** @constructor */
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1() {
+  /*<skip>*/
+}
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5 = (function($$outer) {
+  return this
+});
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.apply__Lupickle_Types$Writer = (function() {
+  var this$12 = $m_Lupickle_default$();
+  var this$10 = $m_Lupickle_default$();
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
+    var x$0 = $as_Lshared_SharedMessages$JsMessageOther(x$0$2);
+    return $m_Lshared_SharedMessages$JsMessageOther$().unapply__Lshared_SharedMessages$JsMessageOther__s_Option(x$0)
+  }));
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
+  var len = $uI(xs.array$6.length);
+  var array = $newArrayObject($d_T.getArrayOf(), [len]);
+  var elem$1 = 0;
+  elem$1 = 0;
+  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
+  while (this$4.hasNext__Z()) {
+    var arg1 = this$4.next__O();
+    array.u[elem$1] = arg1;
+    elem$1 = ((1 + elem$1) | 0)
+  };
+  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
+  var len$1 = $uI(xs$1.array$6.length);
+  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
+  var elem$1$1 = 0;
+  elem$1$1 = 0;
+  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
+  while (this$8.hasNext__Z()) {
+    var arg1$1 = this$8.next__O();
+    array$1.u[elem$1$1] = arg1$1;
+    elem$1$1 = ((1 + elem$1$1) | 0)
+  };
+  var this$9 = $m_Lupickle_default$();
+  var evidence$7 = $m_Lupickle_default$().StringRW$1;
+  var evidence$8 = $m_Lupickle_default$().StringRW$1;
+  var evidence$9 = $m_Lupickle_default$().StringRW$1;
+  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple3W__Lupickle_Generated__O__O__O__O(this$9, evidence$7, evidence$8, evidence$9));
+  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageOther.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageOther", evidence$6)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$88$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Writer()
@@ -50692,8 +53973,8 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$
   }));
   var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#Case0W");
   var rw = new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$2, _write, src);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageIrcBotReady.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$4, rw, "shared.SharedMessages.JsMessageIrcBotReady", evidence$6)
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$4, rw, "shared.SharedMessages.JsMessageGetLogsNamesRequest", evidence$6)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$94$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Writer()
@@ -50724,42 +54005,16 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$
   return this
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$97$1.prototype.apply__Lupickle_Types$Writer = (function() {
-  var this$12 = $m_Lupickle_default$();
-  var this$10 = $m_Lupickle_default$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
-    var x$0 = $as_Lshared_SharedMessages$JsMessageOther(x$0$2);
-    return $m_Lshared_SharedMessages$JsMessageOther$().unapply__Lshared_SharedMessages$JsMessageOther__s_Option(x$0)
+  var this$4 = $m_Lupickle_default$();
+  var this$1 = $m_Lupickle_default$();
+  var this$2 = this$1.Aliases__Lupickle_Types$Aliases$().W$1;
+  var _write = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2) {
+    return new $c_Lupickle_Js$Obj().init___sc_Seq($m_sci_Nil$())
   }));
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array(["sender", "target", "msg"]);
-  var len = $uI(xs.array$6.length);
-  var array = $newArrayObject($d_T.getArrayOf(), [len]);
-  var elem$1 = 0;
-  elem$1 = 0;
-  var this$4 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs, 0, $uI(xs.array$6.length));
-  while (this$4.hasNext__Z()) {
-    var arg1 = this$4.next__O();
-    array.u[elem$1] = arg1;
-    elem$1 = ((1 + elem$1) | 0)
-  };
-  var xs$1 = new $c_sjs_js_WrappedArray().init___sjs_js_Array([null, null, null]);
-  var len$1 = $uI(xs$1.array$6.length);
-  var array$1 = $newArrayObject($d_Lupickle_Js$Value.getArrayOf(), [len$1]);
-  var elem$1$1 = 0;
-  elem$1$1 = 0;
-  var this$8 = new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(xs$1, 0, $uI(xs$1.array$6.length));
-  while (this$8.hasNext__Z()) {
-    var arg1$1 = this$8.next__O();
-    array$1.u[elem$1$1] = arg1$1;
-    elem$1$1 = ((1 + elem$1$1) | 0)
-  };
-  var this$9 = $m_Lupickle_default$();
-  var evidence$7 = $m_Lupickle_default$().StringRW$1;
-  var evidence$8 = $m_Lupickle_default$().StringRW$1;
-  var evidence$9 = $m_Lupickle_default$().StringRW$1;
-  var evidence$15 = $as_Lupickle_Types$Writer($s_Lupickle_Generated$class__Tuple3W__Lupickle_Generated__O__O__O__O(this$9, evidence$7, evidence$8, evidence$9));
-  var rw = $s_Lupickle_Implicits$class__CaseW__Lupickle_Implicits__F1__AT__ALupickle_Js$Value__Lupickle_Types$Writer__Lupickle_Types$Writer(this$10, f, array, array$1, evidence$15);
-  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageOther.getClassOf());
-  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageOther", evidence$6)
+  var src = new $c_Lsourcecode_Enclosing().init___T("upickle.Implicits#Case0W");
+  var rw = new $c_Lupickle_Types$Writer$$anon$3().init___Lupickle_Types$Writer$__F1__Lsourcecode_Enclosing(this$2, _write, src);
+  var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageIrcBotReady.getClassOf());
+  return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$4, rw, "shared.SharedMessages.JsMessageIrcBotReady", evidence$6)
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$97$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Writer()
@@ -50776,17 +54031,17 @@ var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$ano
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$97$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$4$1$$anon$5$$anonfun$derive$macro$97$1;
 /** @constructor */
-function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1() {
+function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1() {
   $c_sr_AbstractFunction0.call(this)
 }
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype = new $h_sr_AbstractFunction0();
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype = new $h_sr_AbstractFunction0();
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1;
 /** @constructor */
-function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1() {
+function $h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1() {
   /*<skip>*/
 }
-$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype;
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype.apply__Lupickle_Types$Writer = (function() {
+$h_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype.apply__Lupickle_Types$Writer = (function() {
   var this$12 = $m_Lupickle_default$();
   var this$10 = $m_Lupickle_default$();
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$0$2) {
@@ -50823,23 +54078,23 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$
   var evidence$6 = new $c_s_reflect_ClassTag$ClassClassTag().init___jl_Class($d_Lshared_SharedMessages$JsMessageJoinChannelRequest.getClassOf());
   return $s_Lupickle_AttributeTagged$class__annotate__Lupickle_AttributeTagged__Lupickle_Types$Writer__T__s_reflect_ClassTag__Lupickle_Types$Writer(this$12, rw, "shared.SharedMessages.JsMessageJoinChannelRequest", evidence$6)
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype.apply__O = (function() {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype.apply__O = (function() {
   return this.apply__Lupickle_Types$Writer()
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9 = (function($$outer) {
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9 = (function($$outer) {
   return this
 });
-var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1 = new $TypeData().initClass({
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1: 0
-}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1", {
-  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1: 1,
+var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1 = new $TypeData().initClass({
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1: 0
+}, false, "scalajsreact.template.pages.IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1", {
+  Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1: 1,
   sr_AbstractFunction0: 1,
   O: 1,
   F0: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$137$1;
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1.prototype.$classData = $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9$$anonfun$derive$macro$151$1;
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$setReadyAndRequestParticipants$2() {
   $c_sr_AbstractFunction1.call(this);
@@ -50995,7 +54250,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$setReadyAndReques
 /** @constructor */
 function $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1() {
   $c_sr_AbstractFunction1.call(this);
-  this.$$outer$2 = null
+  this.newTargets$1$2 = null
 }
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1.prototype = new $h_sr_AbstractFunction1();
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1.prototype.constructor = $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1;
@@ -51010,7 +54265,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsPart
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1.prototype.apply__T2__V = (function(i) {
   var target = $as_T(i.$$und1__O());
   var participants = $asArrayOf_Lshared_SharedMessages$TargetParticipant(i.$$und2__O(), 1);
-  var this$1 = this.$$outer$2.targets$1;
+  var this$1 = this.newTargets$1$2;
   var this$2 = this$1.scala$collection$mutable$ListBuffer$$start$6;
   var these = this$2;
   while ((!these.isEmpty__Z())) {
@@ -51026,12 +54281,8 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsPart
     these = $as_sci_List(these.tail__O())
   }
 });
-$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState = (function($$outer) {
-  if (($$outer === null)) {
-    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
-  } else {
-    this.$$outer$2 = $$outer
-  };
+$c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1.prototype.init___Lscalajsreact_template_pages_IrcChatPage$ChatState__scm_ListBuffer = (function($$outer, newTargets$1) {
+  this.newTargets$1$2 = newTargets$1;
   return this
 });
 var $d_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$updateTargetsParticipants$1 = new $TypeData().initClass({
@@ -52123,6 +55374,48 @@ function $m_Lshared_SharedMessages$JsMessageCmd$() {
   return $n_Lshared_SharedMessages$JsMessageCmd$
 }
 /** @constructor */
+function $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$() {
+  $c_sr_AbstractFunction1.call(this)
+}
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype = new $h_sr_AbstractFunction1();
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype.constructor = $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$;
+/** @constructor */
+function $h_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$() {
+  /*<skip>*/
+}
+$h_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype = $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype;
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype.init___ = (function() {
+  return this
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype.apply__O__O = (function(v1) {
+  var targetsWithFiles = $as_sci_Map(v1);
+  return new $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse().init___sci_Map(targetsWithFiles)
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype.unapply__Lshared_SharedMessages$JsMessageGetLogsNamesResponse__s_Option = (function(x$0) {
+  return ((x$0 === null) ? $m_s_None$() : new $c_s_Some().init___O(x$0.targetsWithFiles$1))
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype.toString__T = (function() {
+  return "JsMessageGetLogsNamesResponse"
+});
+var $d_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$ = new $TypeData().initClass({
+  Lshared_SharedMessages$JsMessageGetLogsNamesResponse$: 0
+}, false, "shared.SharedMessages$JsMessageGetLogsNamesResponse$", {
+  Lshared_SharedMessages$JsMessageGetLogsNamesResponse$: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$.prototype.$classData = $d_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$;
+var $n_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$ = (void 0);
+function $m_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$() {
+  if ((!$n_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$)) {
+    $n_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$ = new $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$().init___()
+  };
+  return $n_Lshared_SharedMessages$JsMessageGetLogsNamesResponse$
+}
+/** @constructor */
 function $c_Lshared_SharedMessages$JsMessageJoinChannelRequest$() {
   $c_sr_AbstractFunction2.call(this)
 }
@@ -52381,6 +55674,49 @@ function $m_Lshared_SharedMessages$JsMessageRotateLogs$() {
     $n_Lshared_SharedMessages$JsMessageRotateLogs$ = new $c_Lshared_SharedMessages$JsMessageRotateLogs$().init___()
   };
   return $n_Lshared_SharedMessages$JsMessageRotateLogs$
+}
+/** @constructor */
+function $c_Lshared_SharedMessages$JsMessageSearchLogsRequest$() {
+  $c_sr_AbstractFunction2.call(this)
+}
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype = new $h_sr_AbstractFunction2();
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype.constructor = $c_Lshared_SharedMessages$JsMessageSearchLogsRequest$;
+/** @constructor */
+function $h_Lshared_SharedMessages$JsMessageSearchLogsRequest$() {
+  /*<skip>*/
+}
+$h_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype = $c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype;
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype.init___ = (function() {
+  return this
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype.toString__T = (function() {
+  return "JsMessageSearchLogsRequest"
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype.apply__O__O__O = (function(v1, v2) {
+  var regex = $as_T(v1);
+  var target = $as_T(v2);
+  return new $c_Lshared_SharedMessages$JsMessageSearchLogsRequest().init___T__T(regex, target)
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype.unapply__Lshared_SharedMessages$JsMessageSearchLogsRequest__s_Option = (function(x$0) {
+  return ((x$0 === null) ? $m_s_None$() : new $c_s_Some().init___O(new $c_T2().init___O__O(x$0.regex$1, x$0.target$1)))
+});
+var $d_Lshared_SharedMessages$JsMessageSearchLogsRequest$ = new $TypeData().initClass({
+  Lshared_SharedMessages$JsMessageSearchLogsRequest$: 0
+}, false, "shared.SharedMessages$JsMessageSearchLogsRequest$", {
+  Lshared_SharedMessages$JsMessageSearchLogsRequest$: 1,
+  sr_AbstractFunction2: 1,
+  O: 1,
+  F2: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest$.prototype.$classData = $d_Lshared_SharedMessages$JsMessageSearchLogsRequest$;
+var $n_Lshared_SharedMessages$JsMessageSearchLogsRequest$ = (void 0);
+function $m_Lshared_SharedMessages$JsMessageSearchLogsRequest$() {
+  if ((!$n_Lshared_SharedMessages$JsMessageSearchLogsRequest$)) {
+    $n_Lshared_SharedMessages$JsMessageSearchLogsRequest$ = new $c_Lshared_SharedMessages$JsMessageSearchLogsRequest$().init___()
+  };
+  return $n_Lshared_SharedMessages$JsMessageSearchLogsRequest$
 }
 /** @constructor */
 function $c_Lshared_SharedMessages$JsMessageStarBotRequest$() {
@@ -54463,6 +57799,11 @@ $c_sc_LinearSeqLike$$anon$1.prototype.next__O = (function() {
     return $m_sc_Iterator$().empty$1.next__O()
   }
 });
+$c_sc_LinearSeqLike$$anon$1.prototype.toList__sci_List = (function() {
+  var xs = this.these$2.toList__sci_List();
+  this.these$2 = $as_sc_LinearSeqLike(this.these$2.take__I__O(0));
+  return xs
+});
 $c_sc_LinearSeqLike$$anon$1.prototype.hasNext__Z = (function() {
   return (!this.these$2.isEmpty__Z())
 });
@@ -54873,6 +58214,12 @@ $c_sci_StreamIterator.prototype.next__O = (function() {
     return result
   }
 });
+$c_sci_StreamIterator.prototype.toList__sci_List = (function() {
+  var this$1 = this.toStream__sci_Stream();
+  var this$2 = $m_sci_List$();
+  var cbf = this$2.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(this$1, cbf))
+});
 $c_sci_StreamIterator.prototype.init___sci_Stream = (function(self) {
   this.these$2 = new $c_sci_StreamIterator$LazyCell().init___sci_StreamIterator__F0(this, new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this, self$1) {
     return (function() {
@@ -54906,6 +58253,65 @@ var $d_sci_StreamIterator = new $TypeData().initClass({
   sc_GenTraversableOnce: 1
 });
 $c_sci_StreamIterator.prototype.$classData = $d_sci_StreamIterator;
+/** @constructor */
+function $c_sci_StringLike$$anon$1() {
+  $c_sc_AbstractIterator.call(this);
+  this.str$2 = null;
+  this.len$2 = 0;
+  this.index$2 = 0;
+  this.$$outer$2 = null
+}
+$c_sci_StringLike$$anon$1.prototype = new $h_sc_AbstractIterator();
+$c_sci_StringLike$$anon$1.prototype.constructor = $c_sci_StringLike$$anon$1;
+/** @constructor */
+function $h_sci_StringLike$$anon$1() {
+  /*<skip>*/
+}
+$h_sci_StringLike$$anon$1.prototype = $c_sci_StringLike$$anon$1.prototype;
+$c_sci_StringLike$$anon$1.prototype.next__O = (function() {
+  return this.next__T()
+});
+$c_sci_StringLike$$anon$1.prototype.next__T = (function() {
+  if ((this.index$2 >= this.len$2)) {
+    throw new $c_ju_NoSuchElementException().init___T("next on empty iterator")
+  };
+  var start = this.index$2;
+  while (((this.index$2 < this.len$2) && (!$s_sci_StringLike$class__scala$collection$immutable$StringLike$$isLineBreak__sci_StringLike__C__Z(this.$$outer$2, this.$$outer$2.apply__I__C(this.index$2))))) {
+    this.index$2 = ((1 + this.index$2) | 0)
+  };
+  this.index$2 = ((1 + this.index$2) | 0);
+  var thiz = this.str$2;
+  var x = this.index$2;
+  var that = this.len$2;
+  var endIndex = ((x < that) ? x : that);
+  return $as_T(thiz.substring(start, endIndex))
+});
+$c_sci_StringLike$$anon$1.prototype.hasNext__Z = (function() {
+  return (this.index$2 < this.len$2)
+});
+$c_sci_StringLike$$anon$1.prototype.init___sci_StringLike = (function($$outer) {
+  if (($$outer === null)) {
+    throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
+  this.str$2 = $$outer.toString__T();
+  var thiz = this.str$2;
+  this.len$2 = $uI(thiz.length);
+  this.index$2 = 0;
+  return this
+});
+var $d_sci_StringLike$$anon$1 = new $TypeData().initClass({
+  sci_StringLike$$anon$1: 0
+}, false, "scala.collection.immutable.StringLike$$anon$1", {
+  sci_StringLike$$anon$1: 1,
+  sc_AbstractIterator: 1,
+  O: 1,
+  sc_Iterator: 1,
+  sc_TraversableOnce: 1,
+  sc_GenTraversableOnce: 1
+});
+$c_sci_StringLike$$anon$1.prototype.$classData = $d_sci_StringLike$$anon$1;
 /** @constructor */
 function $c_sci_Traversable$() {
   $c_scg_GenTraversableFactory.call(this)
@@ -59543,57 +62949,6 @@ function $m_Lscalajsreact_template_routes_AppRouter$Logs$() {
   return $n_Lscalajsreact_template_routes_AppRouter$Logs$
 }
 /** @constructor */
-function $c_Lscalajsreact_template_routes_AppRouter$LogsStats$() {
-  $c_O.call(this)
-}
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype = new $h_O();
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.constructor = $c_Lscalajsreact_template_routes_AppRouter$LogsStats$;
-/** @constructor */
-function $h_Lscalajsreact_template_routes_AppRouter$LogsStats$() {
-  /*<skip>*/
-}
-$h_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype = $c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype;
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.init___ = (function() {
-  return this
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.productPrefix__T = (function() {
-  return "LogsStats"
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.productArity__I = (function() {
-  return 0
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.productElement__I__O = (function(x$1) {
-  throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.toString__T = (function() {
-  return "LogsStats"
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.hashCode__I = (function() {
-  return 546989072
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.productIterator__sc_Iterator = (function() {
-  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
-});
-var $d_Lscalajsreact_template_routes_AppRouter$LogsStats$ = new $TypeData().initClass({
-  Lscalajsreact_template_routes_AppRouter$LogsStats$: 0
-}, false, "scalajsreact.template.routes.AppRouter$LogsStats$", {
-  Lscalajsreact_template_routes_AppRouter$LogsStats$: 1,
-  O: 1,
-  Lscalajsreact_template_routes_AppRouter$AppPage: 1,
-  s_Product: 1,
-  s_Equals: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lscalajsreact_template_routes_AppRouter$LogsStats$.prototype.$classData = $d_Lscalajsreact_template_routes_AppRouter$LogsStats$;
-var $n_Lscalajsreact_template_routes_AppRouter$LogsStats$ = (void 0);
-function $m_Lscalajsreact_template_routes_AppRouter$LogsStats$() {
-  if ((!$n_Lscalajsreact_template_routes_AppRouter$LogsStats$)) {
-    $n_Lscalajsreact_template_routes_AppRouter$LogsStats$ = new $c_Lscalajsreact_template_routes_AppRouter$LogsStats$().init___()
-  };
-  return $n_Lscalajsreact_template_routes_AppRouter$LogsStats$
-}
-/** @constructor */
 function $c_Lscalajsreact_template_routes_AppRouter$Todo$() {
   $c_O.call(this)
 }
@@ -59978,6 +63333,145 @@ var $d_Lshared_SharedMessages$JsMessageCmd = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_Lshared_SharedMessages$JsMessageCmd.prototype.$classData = $d_Lshared_SharedMessages$JsMessageCmd;
+/** @constructor */
+function $c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest() {
+  $c_O.call(this)
+}
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype = new $h_O();
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.constructor = $c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest;
+/** @constructor */
+function $h_Lshared_SharedMessages$JsMessageGetLogsNamesRequest() {
+  /*<skip>*/
+}
+$h_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype = $c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype;
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.init___ = (function() {
+  return this
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.productPrefix__T = (function() {
+  return "JsMessageGetLogsNamesRequest"
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.productArity__I = (function() {
+  return 0
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.equals__O__Z = (function(x$1) {
+  return ($is_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(x$1) && ($as_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(x$1), true))
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.productElement__I__O = (function(x$1) {
+  throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lshared_SharedMessages$JsMessageGetLogsNamesRequest)))
+}
+function $as_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(obj) {
+  return (($is_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "shared.SharedMessages$JsMessageGetLogsNamesRequest"))
+}
+function $isArrayOf_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lshared_SharedMessages$JsMessageGetLogsNamesRequest)))
+}
+function $asArrayOf_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(obj, depth) {
+  return (($isArrayOf_Lshared_SharedMessages$JsMessageGetLogsNamesRequest(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lshared.SharedMessages$JsMessageGetLogsNamesRequest;", depth))
+}
+var $d_Lshared_SharedMessages$JsMessageGetLogsNamesRequest = new $TypeData().initClass({
+  Lshared_SharedMessages$JsMessageGetLogsNamesRequest: 0
+}, false, "shared.SharedMessages$JsMessageGetLogsNamesRequest", {
+  Lshared_SharedMessages$JsMessageGetLogsNamesRequest: 1,
+  O: 1,
+  Lshared_SharedMessages$JsMessageBase: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesRequest.prototype.$classData = $d_Lshared_SharedMessages$JsMessageGetLogsNamesRequest;
+/** @constructor */
+function $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse() {
+  $c_O.call(this);
+  this.targetsWithFiles$1 = null
+}
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype = new $h_O();
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.constructor = $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse;
+/** @constructor */
+function $h_Lshared_SharedMessages$JsMessageGetLogsNamesResponse() {
+  /*<skip>*/
+}
+$h_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype = $c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype;
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.productPrefix__T = (function() {
+  return "JsMessageGetLogsNamesResponse"
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.productArity__I = (function() {
+  return 1
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(x$1)) {
+    var JsMessageGetLogsNamesResponse$1 = $as_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(x$1);
+    var x = this.targetsWithFiles$1;
+    var x$2 = JsMessageGetLogsNamesResponse$1.targetsWithFiles$1;
+    return ((x === null) ? (x$2 === null) : $s_sc_GenMapLike$class__equals__sc_GenMapLike__O__Z(x, x$2))
+  } else {
+    return false
+  }
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.init___sci_Map = (function(targetsWithFiles) {
+  this.targetsWithFiles$1 = targetsWithFiles;
+  return this
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.targetsWithFiles$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lshared_SharedMessages$JsMessageGetLogsNamesResponse)))
+}
+function $as_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(obj) {
+  return (($is_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "shared.SharedMessages$JsMessageGetLogsNamesResponse"))
+}
+function $isArrayOf_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lshared_SharedMessages$JsMessageGetLogsNamesResponse)))
+}
+function $asArrayOf_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(obj, depth) {
+  return (($isArrayOf_Lshared_SharedMessages$JsMessageGetLogsNamesResponse(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lshared.SharedMessages$JsMessageGetLogsNamesResponse;", depth))
+}
+var $d_Lshared_SharedMessages$JsMessageGetLogsNamesResponse = new $TypeData().initClass({
+  Lshared_SharedMessages$JsMessageGetLogsNamesResponse: 0
+}, false, "shared.SharedMessages$JsMessageGetLogsNamesResponse", {
+  Lshared_SharedMessages$JsMessageGetLogsNamesResponse: 1,
+  O: 1,
+  Lshared_SharedMessages$JsMessageBase: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lshared_SharedMessages$JsMessageGetLogsNamesResponse.prototype.$classData = $d_Lshared_SharedMessages$JsMessageGetLogsNamesResponse;
 /** @constructor */
 function $c_Lshared_SharedMessages$JsMessageIrcBotReady() {
   $c_O.call(this)
@@ -60548,6 +64042,89 @@ var $d_Lshared_SharedMessages$JsMessageRotateLogs = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_Lshared_SharedMessages$JsMessageRotateLogs.prototype.$classData = $d_Lshared_SharedMessages$JsMessageRotateLogs;
+/** @constructor */
+function $c_Lshared_SharedMessages$JsMessageSearchLogsRequest() {
+  $c_O.call(this);
+  this.regex$1 = null;
+  this.target$1 = null
+}
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype = new $h_O();
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.constructor = $c_Lshared_SharedMessages$JsMessageSearchLogsRequest;
+/** @constructor */
+function $h_Lshared_SharedMessages$JsMessageSearchLogsRequest() {
+  /*<skip>*/
+}
+$h_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype = $c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype;
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.init___T__T = (function(regex, target) {
+  this.regex$1 = regex;
+  this.target$1 = target;
+  return this
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.productPrefix__T = (function() {
+  return "JsMessageSearchLogsRequest"
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.productArity__I = (function() {
+  return 2
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else if ($is_Lshared_SharedMessages$JsMessageSearchLogsRequest(x$1)) {
+    var JsMessageSearchLogsRequest$1 = $as_Lshared_SharedMessages$JsMessageSearchLogsRequest(x$1);
+    return ((this.regex$1 === JsMessageSearchLogsRequest$1.regex$1) && (this.target$1 === JsMessageSearchLogsRequest$1.target$1))
+  } else {
+    return false
+  }
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.productElement__I__O = (function(x$1) {
+  switch (x$1) {
+    case 0: {
+      return this.regex$1;
+      break
+    }
+    case 1: {
+      return this.target$1;
+      break
+    }
+    default: {
+      throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+    }
+  }
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.toString__T = (function() {
+  return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.hashCode__I = (function() {
+  var this$2 = $m_s_util_hashing_MurmurHash3$();
+  return this$2.productHash__s_Product__I__I(this, (-889275714))
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.productIterator__sc_Iterator = (function() {
+  return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+});
+function $is_Lshared_SharedMessages$JsMessageSearchLogsRequest(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lshared_SharedMessages$JsMessageSearchLogsRequest)))
+}
+function $as_Lshared_SharedMessages$JsMessageSearchLogsRequest(obj) {
+  return (($is_Lshared_SharedMessages$JsMessageSearchLogsRequest(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "shared.SharedMessages$JsMessageSearchLogsRequest"))
+}
+function $isArrayOf_Lshared_SharedMessages$JsMessageSearchLogsRequest(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lshared_SharedMessages$JsMessageSearchLogsRequest)))
+}
+function $asArrayOf_Lshared_SharedMessages$JsMessageSearchLogsRequest(obj, depth) {
+  return (($isArrayOf_Lshared_SharedMessages$JsMessageSearchLogsRequest(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lshared.SharedMessages$JsMessageSearchLogsRequest;", depth))
+}
+var $d_Lshared_SharedMessages$JsMessageSearchLogsRequest = new $TypeData().initClass({
+  Lshared_SharedMessages$JsMessageSearchLogsRequest: 0
+}, false, "shared.SharedMessages$JsMessageSearchLogsRequest", {
+  Lshared_SharedMessages$JsMessageSearchLogsRequest: 1,
+  O: 1,
+  Lshared_SharedMessages$JsMessageBase: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lshared_SharedMessages$JsMessageSearchLogsRequest.prototype.$classData = $d_Lshared_SharedMessages$JsMessageSearchLogsRequest;
 /** @constructor */
 function $c_Lshared_SharedMessages$JsMessageStarBotRequest() {
   $c_O.call(this);
@@ -65174,7 +68751,7 @@ $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1.prototyp
   $m_Lupickle_default$();
   var indent = 0;
   var this$2 = new $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1$$anon$9().init___Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1(this);
-  var evidence$1 = this$2.derive$macro$137__Lupickle_Types$Writer();
+  var evidence$1 = this$2.derive$macro$151__Lupickle_Types$Writer();
   jsx$1.send($s_Lupickle_Types$class__write__Lupickle_Types__O__I__Lupickle_Types$Writer__T(this$3, expr, indent, evidence$1))
 });
 $c_Lscalajsreact_template_pages_IrcChatPage$ChatState$$anonfun$send$5$1.prototype.apply__O = (function() {
@@ -70497,6 +74074,11 @@ function $h_sc_AbstractTraversable() {
   /*<skip>*/
 }
 $h_sc_AbstractTraversable.prototype = $c_sc_AbstractTraversable.prototype;
+$c_sc_AbstractTraversable.prototype.toList__sci_List = (function() {
+  var this$1 = $m_sci_List$();
+  var cbf = this$1.ReusableCBFInstance$2;
+  return $as_sci_List($s_sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(this, cbf))
+});
 $c_sc_AbstractTraversable.prototype.flatMap__F1__scg_CanBuildFrom__O = (function(f, bf) {
   return $s_sc_TraversableLike$class__flatMap__sc_TraversableLike__F1__scg_CanBuildFrom__O(this, f, bf)
 });
@@ -70896,6 +74478,10 @@ $c_sci_StringOps.prototype.equals__O__Z = (function(x$1) {
 });
 $c_sci_StringOps.prototype.flatMap__F1__scg_CanBuildFrom__O = (function(f, bf) {
   return $s_sc_TraversableLike$class__flatMap__sc_TraversableLike__F1__scg_CanBuildFrom__O(this, f, bf)
+});
+$c_sci_StringOps.prototype.apply__I__C = (function(index) {
+  var $$this = this.repr$1;
+  return (65535 & $uI($$this.charCodeAt(index)))
 });
 $c_sci_StringOps.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
@@ -76818,6 +80404,9 @@ $c_sci_List.prototype.exists__F1__Z = (function(p) {
 $c_sci_List.prototype.seq__sc_Iterable = (function() {
   return this
 });
+$c_sci_List.prototype.toList__sci_List = (function() {
+  return this
+});
 $c_sci_List.prototype.thisCollection__sc_Traversable = (function() {
   return this
 });
@@ -76854,6 +80443,31 @@ $c_sci_List.prototype.flatMap__F1__scg_CanBuildFrom__O = (function(f, bf) {
 });
 $c_sci_List.prototype.drop__I__sc_LinearSeqOptimized = (function(n) {
   return this.drop__I__sci_List(n)
+});
+$c_sci_List.prototype.take__I__sci_List = (function(n) {
+  if ((this.isEmpty__Z() || (n <= 0))) {
+    return $m_sci_Nil$()
+  } else {
+    var h = new $c_sci_$colon$colon().init___O__sci_List(this.head__O(), $m_sci_Nil$());
+    var t = h;
+    var rest = $as_sci_List(this.tail__O());
+    var i = 1;
+    while (true) {
+      if (rest.isEmpty__Z()) {
+        return this
+      };
+      if ((i < n)) {
+        i = ((1 + i) | 0);
+        var nx = new $c_sci_$colon$colon().init___O__sci_List(rest.head__O(), $m_sci_Nil$());
+        t.tl$5 = nx;
+        t = nx;
+        rest = $as_sci_List(rest.tail__O())
+      } else {
+        break
+      }
+    };
+    return h
+  }
 });
 $c_sci_List.prototype.companion__scg_GenericCompanion = (function() {
   return $m_sci_List$()
@@ -76894,6 +80508,9 @@ $c_sci_List.prototype.seq__sc_Seq = (function() {
 });
 $c_sci_List.prototype.length__I = (function() {
   return $s_sc_LinearSeqOptimized$class__length__sc_LinearSeqOptimized__I(this)
+});
+$c_sci_List.prototype.take__I__O = (function(n) {
+  return this.take__I__sci_List(n)
 });
 $c_sci_List.prototype.toStream__sci_Stream = (function() {
   return (this.isEmpty__Z() ? $m_sci_Stream$Empty$() : new $c_sci_Stream$Cons().init___O__F0(this.head__O(), new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this) {
@@ -77688,6 +81305,9 @@ $c_sci_Stream.prototype.zipWithIndex__scg_CanBuildFrom__O = (function(bf) {
 $c_sci_Stream.prototype.seq__sc_Seq = (function() {
   return this
 });
+$c_sci_Stream.prototype.take__I__O = (function(n) {
+  return this.take__I__sci_Stream(n)
+});
 $c_sci_Stream.prototype.toStream__sci_Stream = (function() {
   return this
 });
@@ -77829,6 +81449,29 @@ $c_sci_Stream.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) {
     return x$1
   } else {
     return $s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this, f, bf)
+  }
+});
+$c_sci_Stream.prototype.take__I__sci_Stream = (function(n) {
+  if (((n <= 0) || this.isEmpty__Z())) {
+    $m_sci_Stream$();
+    return $m_sci_Stream$Empty$()
+  } else if ((n === 1)) {
+    var hd = this.head__O();
+    var tl = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this) {
+      return (function() {
+        $m_sci_Stream$();
+        return $m_sci_Stream$Empty$()
+      })
+    })(this));
+    return new $c_sci_Stream$Cons().init___O__F0(hd, tl)
+  } else {
+    var hd$1 = this.head__O();
+    var tl$1 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$2$1, n$1) {
+      return (function() {
+        return $as_sci_Stream(this$2$1.tail__O()).take__I__sci_Stream((((-1) + n$1) | 0))
+      })
+    })(this, n));
+    return new $c_sci_Stream$Cons().init___O__F0(hd$1, tl$1)
   }
 });
 $c_sci_Stream.prototype.toCollection__O__sc_Seq = (function(repr) {
@@ -79191,16 +82834,19 @@ $c_sci_WrappedString.prototype.seq__sc_TraversableOnce = (function() {
 $c_sci_WrappedString.prototype.head__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__head__sc_IndexedSeqOptimized__O(this)
 });
-$c_sci_WrappedString.prototype.thisCollection__sc_Iterable = (function() {
-  return this
-});
 $c_sci_WrappedString.prototype.apply__I__O = (function(idx) {
   var thiz = this.self$4;
   var c = (65535 & $uI(thiz.charCodeAt(idx)));
   return new $c_jl_Character().init___C(c)
 });
+$c_sci_WrappedString.prototype.thisCollection__sc_Iterable = (function() {
+  return this
+});
 $c_sci_WrappedString.prototype.lengthCompare__I__I = (function(len) {
   return $s_sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I(this, len)
+});
+$c_sci_WrappedString.prototype.sameElements__sc_GenIterable__Z = (function(that) {
+  return $s_sc_IndexedSeqOptimized$class__sameElements__sc_IndexedSeqOptimized__sc_GenIterable__Z(this, that)
 });
 $c_sci_WrappedString.prototype.apply__O__O = (function(v1) {
   var n = $uI(v1);
@@ -79208,26 +82854,27 @@ $c_sci_WrappedString.prototype.apply__O__O = (function(v1) {
   var c = (65535 & $uI(thiz.charCodeAt(n)));
   return new $c_jl_Character().init___C(c)
 });
-$c_sci_WrappedString.prototype.sameElements__sc_GenIterable__Z = (function(that) {
-  return $s_sc_IndexedSeqOptimized$class__sameElements__sc_IndexedSeqOptimized__sc_GenIterable__Z(this, that)
-});
 $c_sci_WrappedString.prototype.exists__F1__Z = (function(p) {
   return $s_sc_IndexedSeqOptimized$class__exists__sc_IndexedSeqOptimized__F1__Z(this, p)
-});
-$c_sci_WrappedString.prototype.seq__sc_Iterable = (function() {
-  return this
 });
 $c_sci_WrappedString.prototype.isEmpty__Z = (function() {
   return $s_sc_IndexedSeqOptimized$class__isEmpty__sc_IndexedSeqOptimized__Z(this)
 });
+$c_sci_WrappedString.prototype.seq__sc_Iterable = (function() {
+  return this
+});
 $c_sci_WrappedString.prototype.thisCollection__sc_Traversable = (function() {
   return this
 });
-$c_sci_WrappedString.prototype.toString__T = (function() {
-  return this.self$4
+$c_sci_WrappedString.prototype.apply__I__C = (function(n) {
+  var thiz = this.self$4;
+  return (65535 & $uI(thiz.charCodeAt(n)))
 });
 $c_sci_WrappedString.prototype.companion__scg_GenericCompanion = (function() {
   return $m_sci_IndexedSeq$()
+});
+$c_sci_WrappedString.prototype.toString__T = (function() {
+  return this.self$4
 });
 $c_sci_WrappedString.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
@@ -79249,23 +82896,23 @@ $c_sci_WrappedString.prototype.iterator__sc_Iterator = (function() {
   var thiz = this.self$4;
   return new $c_sc_IndexedSeqLike$Elements().init___sc_IndexedSeqLike__I__I(this, 0, $uI(thiz.length))
 });
-$c_sci_WrappedString.prototype.seq__sc_Seq = (function() {
-  return this
-});
 $c_sci_WrappedString.prototype.length__I = (function() {
   var thiz = this.self$4;
   return $uI(thiz.length)
+});
+$c_sci_WrappedString.prototype.seq__sc_Seq = (function() {
+  return this
 });
 $c_sci_WrappedString.prototype.drop__I__O = (function(n) {
   var thiz = this.self$4;
   var until = $uI(thiz.length);
   return this.slice__I__I__sci_WrappedString(n, until)
 });
-$c_sci_WrappedString.prototype.thisCollection__sc_Seq = (function() {
-  return this
-});
 $c_sci_WrappedString.prototype.tail__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__tail__sc_IndexedSeqOptimized__O(this)
+});
+$c_sci_WrappedString.prototype.thisCollection__sc_Seq = (function() {
+  return this
 });
 $c_sci_WrappedString.prototype.isDefinedAt__O__Z = (function(x) {
   var idx = $uI(x);
@@ -82190,6 +85837,11 @@ $c_scm_StringBuilder.prototype.subSequence__I__I__jl_CharSequence = (function(st
   var this$1 = this.underlying$5;
   var thiz = this$1.content$1;
   return $as_T(thiz.substring(start, end))
+});
+$c_scm_StringBuilder.prototype.apply__I__C = (function(index) {
+  var this$1 = this.underlying$5;
+  var thiz = this$1.content$1;
+  return (65535 & $uI(thiz.charCodeAt(index)))
 });
 $c_scm_StringBuilder.prototype.$$plus$eq__O__scg_Growable = (function(elem) {
   if ((elem === null)) {

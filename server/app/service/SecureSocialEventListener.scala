@@ -1,6 +1,7 @@
+/*
 package service
 
-/*
+
 import models.User
 import securesocial.core._
 import play.api.mvc.{Session, RequestHeader}

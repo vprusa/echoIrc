@@ -5,7 +5,9 @@ import java.util.regex.Pattern
 import akka.actor.ActorRef
 import org.pircbotx.hooks.ListenerAdapter
 import org.pircbotx.{Configuration, PircBotX}
-import models.Logs
+import models.LogWrapper
+import org.pircbotx.hooks.events.ActionEvent
+import org.pircbotx.hooks.types.{GenericChannelEvent, GenericMessageEvent}
 import play.api.Logger
 import shared.SharedMessages.{JsMessageStarBotRequest, JsMessageStarBotResponse, TargetParticipant}
 
@@ -24,15 +26,31 @@ class IrcLogBot(config: Configuration) extends PircBotX(config) {
 
 }
 
-class IrcListener(server: String, channel: String, name: String, var listenersUserActor: ActorRef) extends ListenerAdapter {
+class IrcListener(server: String, channel: String, identity: (String, String), var listenersUserActor: ActorRef) extends ListenerAdapter {
 
+
+  // map[target,logs]
+  var logHandlers = Map.empty[String, LogWrapper]
   //private val logger = org.slf4j.LoggerFactory.getLogger(this.getClass)
 
   //val ECHO_PATTERN = Pattern.compile("(?i)echo[ ]+(.+)")
-  var logs: Logs = new Logs(name)
 
   def setUserActor(newListenersUserActor: ActorRef): Unit = {
     listenersUserActor = newListenersUserActor
+  }
+
+  def getCurrentLog(target: String): LogWrapper = {
+    if (logHandlers.contains(target)) {
+      logHandlers.get(target).get
+    } else {
+      val logs: LogWrapper = new LogWrapper(identity, target)
+      logHandlers += (target -> logs)
+      logs
+    }
+  }
+
+  def getCurrentLog(event: GenericChannelEvent): LogWrapper = {
+    getCurrentLog(event.getChannel.getName)
   }
 
 

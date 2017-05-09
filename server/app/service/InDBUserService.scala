@@ -23,7 +23,10 @@ import securesocial.core.providers.{MailToken, UsernamePasswordProvider}
 import scala.concurrent.{Await, Future}
 import securesocial.core.services.{SaveMode, UserService}
 import dao.{TokenDAO, UserDAO}
+
 import javax.inject.Inject
+import scala.concurrent.Await
+import scala.concurrent.duration.DurationInt
 
 /**
   * A Sample In Memory user service in Scala
@@ -53,10 +56,10 @@ class InDBUserService(
   def find(providerId: String, userId: String): Future[Option[BasicProfile]] = {
     Logger.debug("InDBUserService find")
     Logger.debug(s"providerId: ${providerId} userId: ${userId}")
+    val conf = play.api.Play.current.configuration
     if (userId.contains("@")) {
-      Logger.debug("userId.contains")
-      val ret = userDao.findByEmailAndProvider(userId, "db")
-      Logger.debug(userDao.toString)
+      // find for email and userid is redirected here as password, username...
+      Logger.debug("userId.contains@")
 
       import scala.concurrent.duration._
       //val result = Await.result(maybeCurUser, Duration.Inf)
@@ -65,12 +68,81 @@ class InDBUserService(
       //val storedUsers = Await.result(ret, 1.second)
       //Logger.debug(storedUsers.toString)
       val storedUsers = Await.result(userDao.all(), 1.second)
+      Logger.debug("storedUsers.toString")
       Logger.debug(storedUsers.toString)
       Logger.debug(storedUsers.isEmpty.toString)
 
+      val findResWaited = Await.result(userDao.findByEmailAndProvider(userId, "database"), 5 seconds)
+      Logger.debug("findResWaited.toString")
+      Logger.debug(findResWaited.toString)
+      val ret = userDao.findByEmailAndProvider(userId, "database")
+      Logger.debug(userDao.toString)
       ret
+    } else if (userId != null
+      && userId.matches(conf.getString("app.server.users.owner.username").getOrElse(null))
+      && providerId.matches(conf.getString("app.server.users.owner.password").getOrElse(null))) {
+
+      val ownerProfile = BasicProfile(
+        "ownerProvider",
+        "owner",
+        Some(""),
+        Some(""),
+        Some(""),
+        Some("owner@localhost"),
+        None,
+        AuthenticationMethod.UserPassword,
+        None,
+        None,
+        Some(PasswordInfo("hasher", conf.getString("app.server.users.owner.password").getOrElse(null), None))
+      )
+      Logger.debug("ownerProfile.toString")
+      Logger.debug(ownerProfile.toString)
+
+      Logger.debug("findResWaited.toString")
+
+
+      Logger.debug("findResWaited.toStringAll")
+      val findResWaited00 = Await.result(userDao.all, 5 seconds)
+      Logger.debug("findResWaited00.toString")
+      Logger.debug(findResWaited00.toString)
+
+      val findRes = userDao.find(providerId, userId)
+      val findResWaited = Await.result(findRes, 5 seconds)
+      Logger.debug("findResWaited.toString")
+      Logger.debug(findResWaited.toString)
+      if (findResWaited.isEmpty) {
+        val storedUser = Await.result(userDao.insert(ownerProfile), 5 seconds)
+        Logger.debug("storedUser.toString")
+        Logger.debug(storedUser.toString)
+        val findRes2 = userDao.find(providerId, userId)
+        val findResWaited2 = Await.result(findRes2, 5 seconds)
+        Logger.debug("findResWaited.toString")
+        Logger.debug(findResWaited2.toString)
+
+
+        Logger.debug("findResWaited.toStringAll")
+        val findResWaited0 = Await.result(userDao.findByUserId(userId), 5 seconds)
+        Logger.debug("findResWaited0.toString")
+        Logger.debug(findResWaited0.toString)
+
+        findRes2
+      } else {
+        Logger.debug("userDao.find(providerId, userId)")
+        userDao.find(providerId, userId)
+      }
     } else {
-      userDao.find(providerId, userId)
+      //userDao.findByUserId(providerId,userId)
+      Logger.debug("userDao.findByUserId(userId) else")
+      Logger.debug("findResWaited.toStringAll")
+      val findResWaited0 = Await.result(userDao.findByUserId(userId), 5 seconds)
+      Logger.debug("findResWaited0.toString")
+      Logger.debug("userId")
+      Logger.debug(userId)
+      Logger.debug("findResWaited0.toString")
+      Logger.debug(findResWaited0.toString)
+
+
+      userDao.findByUserId(userId)
     }
   }
 

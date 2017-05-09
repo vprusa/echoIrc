@@ -12,8 +12,8 @@ import scala.concurrent.duration.DurationInt
 /** test the kitty cat database */
 class SecureSocialSpec extends Specification {
 
-  "UserDAO" should {
-    "work as expected" in new WithApplicationLoader {
+  "customLogin" should {
+    "be authenticated" in new WithApplicationLoader {
       val app2dao = Application.instanceCache[UserDAO]
       val dao: UserDAO = app2dao(app)
 
@@ -51,6 +51,8 @@ class SecureSocialSpec extends Specification {
       Logger.debug("DB test")
       Logger.debug(storedUsers.toString())
       storedUsers.toSet must equalTo(testUsers)
+
+
     }
   }
 }

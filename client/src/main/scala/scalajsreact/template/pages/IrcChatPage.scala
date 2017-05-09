@@ -166,19 +166,19 @@ object IrcChatPage {
     def updateTargetsParticipants(targetsParticipants: Map[String, Array[TargetParticipant]]) = {
       org.scalajs.dom.console.log("updateTargetsParticipants ")
       org.scalajs.dom.console.log(targetsParticipants.toString())
-      var newTargets = targets
+      val newTargets = targets
       targetsParticipants.foreach(i => {
         val target = i._1
         val participants = i._2
-        targets.foreach(f => {
+        newTargets.foreach(f => {
           if (f.target.matches(target)) {
             f.participants = participants
           }
         })
       })
       org.scalajs.dom.console.log("updateTargetsParticipants ")
-      org.scalajs.dom.console.log(targets.toString)
-      targets
+      org.scalajs.dom.console.log(newTargets.toString)
+      newTargets
     }
 
 
@@ -447,7 +447,7 @@ object IrcChatPage {
                   TargetStyle.targetHidden(!targetState.equals(s.selectedTarget.getOrElse(true))),
                   <.div(
                     ^.float.left,
-                    ^.marginRight(10.px),
+                    ^.marginRight := 10.px,
                     <.div(
                       <.label(targetState.target),
                       <.input( // channel input
@@ -556,11 +556,12 @@ object IrcChatPage {
             targets
           }
 
+          direct = getDirect()
           incommingMsg match {
             case k: JsMessage => {
               // handle the JsMessage
               org.scalajs.dom.console.log(s"JsMessage ${k.toString}")
-              direct.modState(_.logTargetLine(k))
+              getDirect().modState(_.logTargetLine(k))
             }
             case JsMessageRotateLogs(sender, target) => {
               // handle the JsMessage
@@ -574,7 +575,13 @@ object IrcChatPage {
                 f.copy(targets = addTarget(f.targets, TargetState(target = target, password = "", ListBuffer.empty[JsMessage], "", participants)))
               })
             }
+            case JsMessageLeaveChannelResponse(sender, target) => {
+              org.scalajs.dom.console.log("JsMessageLeaveChannelResponse")
+              direct.modState(_.leaveTarget(target))
+            }
             case JsMessageLeaveChannel(sender, target) => {
+              // todo remove
+              JsMessageLeaveChannelResponse
               // handle the JsMessageLeaveChannel
               org.scalajs.dom.console.log("JsMessageLeaveChannel")
 

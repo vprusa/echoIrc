@@ -51,20 +51,6 @@ object TopNav {
 
   }
 
-  import scalajsreact.template.models.User
-  import scalajsreact.template.routes.AppRouter
-
-  def getCurrentUser(): User = {
-
-    // anonym user with no permission
-    User("anonym", List(AppRouter.Home, AppRouter.Logout, AppRouter.Login))
-  }
-
-  def hasUserPermissionForMenuItem(item: Menu): Boolean = {
-    // TODO rest call
-    val user: User = getCurrentUser
-    user.topNavPermission.contains(item)
-  }
 
   case class Props(menus: ListBuffer[Menu], selectedPage: AppPage, ctrl: RouterCtl[AppPage])
 

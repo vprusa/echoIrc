@@ -79,7 +79,7 @@ class IrcWebController @Inject()(
     }
     Logger.debug(s"maybeCurUser1 ${maybeCurUser}")
     maybeCurUser // this will make it wait for result
-    if(maybeCurUser == None){
+    if (maybeCurUser == None) {
       Logger.debug(s"maybeCurUser1 None")
       return null
     }
@@ -119,61 +119,16 @@ class IrcWebController @Inject()(
     demoUserVar
   }
 
-  def getActor(uniqueName: String, actorSystem: ActorSystem): ActorRef = {
-    import scala.concurrent._
-    import scala.concurrent.duration._
-    import akka.util.Timeout
-
-    implicit val timeout = Timeout(5, TimeUnit.SECONDS)
-
-    val maybeCurActor = for {
-      f1Result <- actorSystem.actorSelection(uniqueName).resolveOne()
-    } yield (f1Result)
-
-    if (maybeCurActor.isInstanceOf[Failure[akka.actor.ActorNotFound]])
-      return null
-
-    Logger.debug(s"maybeCurActor ${maybeCurActor}")
-    Logger.debug(s"maybeCurActor.getClass ${maybeCurActor.getClass}")
-    Logger.debug(s"maybeCurActor.getClass.getName ${maybeCurActor.getClass.getName}")
-    Logger.debug(s"maybeCurActor.toString1 ${maybeCurActor.toString}")
-
-    maybeCurActor onComplete {
-      case f => {
-        Logger.debug(s"maybeCurActor all done ${f.toString}")
-      }
-    }
-    Logger.debug(s"maybeCurActor1 ${maybeCurActor.toString}")
-    maybeCurActor // this will make it wait for result
-    Logger.debug(s"maybeCurActor2 ${maybeCurActor.toString}")
-
-
-    if (maybeCurActor.isInstanceOf[Failure[akka.actor.ActorNotFound]])
-      return null
-
-    Logger.debug(s"maybeCurActor ${maybeCurActor}")
-    Logger.debug(s"maybeCurActor.getClass ${maybeCurActor.getClass}")
-    Logger.debug(s"maybeCurActor.getClass.getName ${maybeCurActor.getClass.getName}")
-    Logger.debug(s"maybeCurActor.toString1 ${maybeCurActor.toString}")
-
-    import scala.concurrent.duration.Duration
-    val result = Await.result(maybeCurActor, Duration.Inf)
-    Logger.debug(s"result.toString3")
-
-    Logger.debug(s"result.toString ${result.toString}")
-    result
-  }
-
   def getIrcBotByUser(demoUser: DemoUser): IrcLogBot = {
     if (demoUser == null) {
       null
     } else {
-      Shared.ircLogBotMap.getOrElse(demoUser.main.userId, null)
+      Shared.ircLogBotMap.getOrElse((demoUser.main.userId, demoUser.main.providerId), null)
     }
   }
 
-  def getIrcBotByUserName(userName: String): IrcLogBot = {
-    Shared.ircLogBotMap.getOrElse(userName, null)
+  def getIrcBotByUserName(identityId: (String, String)): IrcLogBot = {
+    Shared.ircLogBotMap.getOrElse(identityId, null)
   }
 
   def myChatFlow(sender: String, channel: String, demoUserFutOpt: Future[Option[MyEnvironment#U]]): Flow[JsValue, JsValue, _] = {
@@ -182,34 +137,14 @@ class IrcWebController @Inject()(
       demoUserVar = unpackUser(demoUserFutOpt)
     }
     Logger.debug("demoUserFutOpt.toString")
-    //Logger.debug(demoUserFutOpt.toString)
 
     var uniqueName: String = actorSystem.settings.config.getString("app.irc.defaultUserName")
     if (demoUserVar != null) {
       uniqueName = demoUserVar.main.userId
     }
 
-    // val userActor: ActorRef = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar, channel = channel)), uniqueName)
     var userActor: ActorRef = null
-    var anchor = actorSystem.actorSelection(uniqueName)
 
-    /*
-    import scala.concurrent.duration.Duration
-    import akka.pattern.ask
-    import akka.util.Timeout
-    import scala.concurrent.duration._
-
-    implicit val timeout = Timeout(5 seconds)
-
-    if (anchor != null) {
-      val futRes = anchor.resolveOne()
-      Await.result(futRes, Duration.Inf)
-      val actOpt = futRes.value.getOrElse(null)
-      if (actOpt != null)
-        userActor = actOpt.get
-
-    }*/
-    //userActor = getActor(uniqueName, actorSystem)
     // here i need to check if bot for this user already started or start new stared
     if (userActor == null) {
       userActor = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar, channel = channel,
