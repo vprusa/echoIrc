@@ -50,11 +50,11 @@ class MyEnvironment @Inject()(override val configuration: Configuration, overrid
   override lazy val providers = ListMap(
     // oauth 2 client providers
     //include(new FacebookProvider(routes, cacheService, oauth2ClientFor(FacebookProvider.Facebook))),
-    include(new GitHubProvider(routes, cacheService, oauth2ClientFor(GitHubProvider.GitHub))),
+    include(new GitHubProvider(routes, cacheService, oauth2ClientFor(GitHubProvider.GitHub)))
     //include(new GoogleProvider(routes, cacheService,oauth2ClientFor(GoogleProvider.Google))),
 
     // username password
-    include(new UsernamePasswordProvider[DemoUser](userService, avatarService, viewTemplates, passwordHashers))
+    //,include(new UsernamePasswordProvider[DemoUser](userService, avatarService, viewTemplates, passwordHashers))
   )
 
 }
