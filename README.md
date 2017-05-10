@@ -54,3 +54,9 @@ insert into user(userId,providerId,firstName,lastName,email,avatarUrl,authMethod
 
 insert into user(userId,providerId,firstName,lastName,email,avatarUrl,authMethod,token,secret,accessToken,accessToken,expiresIn,refreshToken) VALUES ("user1","db","admin","admin","user1@demo.com","","","userpass","","","",3600,"");
 ```
+
+### Run
+```
+docker build ./docker
+docker run <buildId>
+```
