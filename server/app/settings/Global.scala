@@ -7,6 +7,7 @@ import com.typesafe.config._
 import dao.UserDAO
 import securesocial.core.{AuthenticationMethod, BasicProfile}
 import shared._
+import utils.Planner
 
 import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -22,10 +23,13 @@ import play.Logger
 
 
 import scala.concurrent.{Await, Future}
+//import utils.
 
 object Global extends GlobalSettings {
 
-  var persistanObj: String = "persistanObj"
+  var persistentObj: String = "persistentObj"
+
+
 
   val system = ActorSystem("app")
   Logger.info("Global")
@@ -39,7 +43,7 @@ object Global extends GlobalSettings {
     // set initial value for shared
     Shared.setData(initialValue)
 
-    Logger.info(s"persistanObj: ${persistanObj}")
+    Logger.info(s"persistentObj: ${persistentObj}")
 
     // start default bot
     // Shared.adminIrcBot = new IrcBotBackendProcess(app)
@@ -81,6 +85,9 @@ object Global extends GlobalSettings {
     val storedUsers = Await.result(dao.all(), 1 seconds)
     Logger.debug("DB test")
     Logger.debug(storedUsers.toString())
+
+    val planner = new Planner(app, cfg)
+    planner.planFutureLogRotation()
   }
 
 }
