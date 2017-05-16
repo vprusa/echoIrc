@@ -59,7 +59,7 @@ object SharedMessages {
 
   case class LogSnippet(line: String, target: String, filename: String /*, target: String*/ , found: String, jsmsg: JsMessage)
 
-  case class SearchResults(results: Array[LogSnippet]) extends JsMessageBase
+  case class JsMessageSearchResults(results: Array[LogSnippet]) extends JsMessageBase
 
   //case class LogsStatsState(wordCount: java.lang.Integer) extends JsMessageBase
 

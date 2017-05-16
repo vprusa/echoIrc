@@ -68,7 +68,7 @@ class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new
   }
 
 
-  def searchLogs(jsMsgRequest: JsMessageSearchLogsRequest): SearchResults = {
+  def searchLogs(jsMsgRequest: JsMessageSearchLogsRequest): JsMessageSearchResults = {
     Logger.debug("searchLogs")
     import scala.io.Source
     import scala.util.matching.Regex
@@ -114,7 +114,7 @@ class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new
       })
       //targetDirDefault
     })
-    val result = SearchResults(results = snippets)
+    val result = JsMessageSearchResults(results = snippets)
     Logger.debug("result.toString")
     Logger.debug(result.toString)
     result

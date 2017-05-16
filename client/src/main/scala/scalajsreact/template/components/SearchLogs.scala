@@ -30,7 +30,7 @@ object SearchLogs {
       )
     }).build
 
-  case class SearchState(var inputRegex: String, var files: Map[String, Array[String]], var logContent: String, target: String, jsMessagesContent: List[JsMessage], searchResults: Option[SearchResults]) {
+  case class SearchState(var inputRegex: String, var files: Map[String, Array[String]], var logContent: String, target: String, jsMessagesContent: List[JsMessage], searchResults: Option[JsMessageSearchResults]) {
     def callOnChangeInputRegex($: MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState],
                                props: IrcChatProps)(e: ReactEventFromInput): Callback = {
 
@@ -166,7 +166,7 @@ object SearchLogs {
           ),
           <.h3("Search result"),
           <.div(
-            s.searchResults.getOrElse(SearchResults(Array.empty[LogSnippet])).results.toTagMod(renderSearchResult)
+            s.searchResults.getOrElse(JsMessageSearchResults(Array.empty[LogSnippet])).results.toTagMod(renderSearchResult)
           )
           //,s.logContent
         )
@@ -187,7 +187,7 @@ object SearchLogs {
       Ajax.get(url = s"/rest/searchLogsUrl/" + state.inputRegex).foreach {
         xhr => {
           org.scalajs.dom.console.log(s"callSearchLogFiles ${xhr.responseText}")
-          val result = upickle.default.read[SearchResults](xhr.responseText)
+          val result = upickle.default.read[JsMessageSearchResults](xhr.responseText)
 
           org.scalajs.dom.console.log(s"parsed ${result.toString}")
 

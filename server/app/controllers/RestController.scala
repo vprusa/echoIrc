@@ -177,7 +177,7 @@ class RestController @Inject()(
     Logger.debug("regex..")
     Logger.debug(regex)
     val logs: LogsBase = new LogsBase((request.user.main.userId, request.user.main.providerId))
-    val results: SearchResults = logs.searchLogs(JsMessageSearchLogsRequest(regex, "*"))
+    val results: JsMessageSearchResults = logs.searchLogs(JsMessageSearchLogsRequest(regex, "*"))
     Logger.debug("results..")
     Logger.debug(results.toString)
 
