@@ -5,7 +5,6 @@ import java.io.File
 
 import scala.io.Source
 import java.io._
-import java.nio.file.{Files, Paths}
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -15,19 +14,6 @@ import shared.SharedMessages._
   * Created by vprusa on 4/21/17.
   */
 
-case class LogSnippetRequest(fromDateTime: String, toDateTime: String, fromLine: Int, linesCount: Int, logLines: Array[String])
-
-/*
-object LogSnippet {
-
-  //var logSnippet : LogSnippet = LogSnippet
-
-  def get() = {
-
-  }
-
-}
-*/
 class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss").format(Calendar.getInstance().getTime())}.log") {
 
   import java.util.Calendar
@@ -82,12 +68,12 @@ class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new
   }
 
 
-  def searchLogs(jsmsg: JsMessageSearchLogsRequest): SearchResults = {
+  def searchLogs(jsMsgRequest: JsMessageSearchLogsRequest): SearchResults = {
     Logger.debug("searchLogs")
     import scala.io.Source
     import scala.util.matching.Regex
     //val pattern = "([a-cA-C])".r
-    val pattern = new Regex(jsmsg.regex)
+    val pattern = new Regex(jsMsgRequest.regex)
     Logger.debug("Regex")
     Logger.debug(pattern.toString())
     var snippets = Array.empty[LogSnippet]
@@ -105,7 +91,7 @@ class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new
           targetsFiles.foreach(logFile => {
             Logger.debug(logFile.toString)
             val fileLinesIterator = Source.fromFile(logFile).getLines //.toList
-            var lineNmb = 0
+            var lineNmb = 1
             fileLinesIterator.foreach(line => {
               Logger.debug(line.toString)
               pattern.findAllIn(line).foreach(foundString => {
@@ -113,11 +99,13 @@ class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new
                 Logger.debug("readJsMsg")
                 val readJsMsg = upickle.default.read[JsMessageBase](line)
                 Logger.debug(readJsMsg.toString)
-                /*if (readJsMsg.isInstanceOf[JsMessage]) {
-                  val logSnippet = LogSnippet(line = lineNmb, filename = logFile.getName, target = dir.getName, msg = readJsMsg.asInstanceOf[JsMessage])
+                if (readJsMsg.isInstanceOf[JsMessage]) {
+                  val logSnippet = LogSnippet(line = lineNmb.toString, filename = logFile.getName, target = dir.getName, found = foundString,jsmsg = readJsMsg.asInstanceOf[JsMessage])
+                  Logger.debug("logSnippet")
                   Logger.debug(logSnippet.toString)
-                  snippets :+ logSnippet
-                }*/
+                  snippets :+= logSnippet
+                }
+                Logger.debug(snippets.toString)
               })
               lineNmb = lineNmb + 1
             })
@@ -126,7 +114,7 @@ class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new
       })
       //targetDirDefault
     })
-    val result = SearchResults(request = jsmsg, results = snippets)
+    val result = SearchResults(results = snippets)
     Logger.debug("result.toString")
     Logger.debug(result.toString)
     result
@@ -199,9 +187,9 @@ class LogWrapper(uniqueId: (String, String), targetName: String, LOG_FILENAME: S
   }
 
   def getLogsFiles(dir: String = USER_LOG_JS_DIR): List[File] = {
-    val d = new File(dir)
-    Logger.debug("Dir: USER_LOG_JS_DIR")
+    Logger.debug("getLogsFiles:")
     Logger.debug(dir)
+    val d = new File(dir)
     if (d.exists && d.isDirectory) {
       d.listFiles.filter(_.isFile).toList
     } else {
@@ -209,7 +197,6 @@ class LogWrapper(uniqueId: (String, String), targetName: String, LOG_FILENAME: S
     }
   }
 
-  // parse JsMessages to Human-readable text (ignore all bot messages except JsMessage)
   def createSimpleIfNotExist(): Unit = {
     createDirIfNotExists(USER_LOG_SIMPLE_DIR)
   }

@@ -8,3 +8,6 @@ server/public/javascripts/flot
 server/public/images
 server/public/javascripts/reactjs/scalajs-react-template-opt.js
 server/public/javascripts/reactjs/scalajs-react-template-opt.js.map
+server/data
+data
+ircLogs

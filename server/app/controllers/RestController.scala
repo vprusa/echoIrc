@@ -169,6 +169,22 @@ class RestController @Inject()(
   }
 
   //  def searchLogs(regex: String) = SecuredAction { request =>
+  def searchLogsUrl(regex: String) = SecuredAction { request =>
+    Logger.debug("searchLogs")
+    Logger.debug(request.toString)
+    Logger.debug("request.headers..")
+    Logger.debug(request.headers.toString)
+    Logger.debug("regex..")
+    Logger.debug(regex)
+    val logs: LogsBase = new LogsBase((request.user.main.userId, request.user.main.providerId))
+    val results: SearchResults = logs.searchLogs(JsMessageSearchLogsRequest(regex, "*"))
+    Logger.debug("results..")
+    Logger.debug(results.toString)
+
+    Ok(upickle.default.write(results))
+  }
+
+  //  def searchLogs(regex: String) = SecuredAction { request =>
   def searchLogs = SecuredAction { request =>
     Logger.debug("searchLogs")
     Logger.debug(request.toString)

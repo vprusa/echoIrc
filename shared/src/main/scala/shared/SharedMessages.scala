@@ -1,5 +1,9 @@
 package shared
 
+import shared.SharedMessages.JsMessageBase
+
+import scala.collection.mutable.ListBuffer
+
 object SharedMessages {
   def itWorks = "It works!"
 
@@ -10,6 +14,7 @@ object SharedMessages {
   case class TargetParticipant(name: String)
 
   sealed trait JsMessageBase
+
   //  trait JsMessageBase
 
   case class JsMessage(sender: String, target: String, msg: String) extends JsMessageBase
@@ -48,12 +53,13 @@ object SharedMessages {
 
   case class JsMessageGetLogsNamesResponse(targetsWithFiles: Map[String, Array[String]]) extends JsMessageBase
 
-  case class JsMessageGetLogRequest(target:String, filename:String)
+  case class JsMessageGetLogRequest(target: String, filename: String)
 
-  case class LogSnippet(line: Integer, target: String, filename: String /*, target: String*/ , msg: JsMessage)
+  sealed trait LogDataBase
 
-  case class SearchResults(request: JsMessageSearchLogsRequest, results: Array[LogSnippet])
+  case class LogSnippet(line: String, target: String, filename: String /*, target: String*/ , found: String, jsmsg: JsMessage)
 
+  case class SearchResults(results: Array[LogSnippet]) extends JsMessageBase
 
   //case class LogsStatsState(wordCount: java.lang.Integer) extends JsMessageBase
 

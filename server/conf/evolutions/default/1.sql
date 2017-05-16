@@ -28,6 +28,7 @@ create table "user" (
   "refreshToken" VARCHAR
 );
 
+
 # --- !Downs
 
 drop table "user";

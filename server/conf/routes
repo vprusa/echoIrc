@@ -44,6 +44,7 @@ GET         /rest/getLogFile/:target/:filename        controllers.RestController
 GET         /rest/getParticipants/:target             controllers.RestController.getParticipants(target)
 GET         /rest/searchLogs                          controllers.RestController.searchLogs
 POST        /rest/searchLogs                          controllers.RestController.searchLogs
+GET         /rest/searchLogsUrl/:regex                controllers.RestController.searchLogsUrl(regex)
 GET         /rest/test                                controllers.RestController.test
 
 

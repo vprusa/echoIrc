@@ -3,12 +3,14 @@ package scalajsreact.template.components
 import japgolly.scalajs.react.{Callback, _}
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import jdk.nashorn.tools.ShellFunctions
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.ext.Ajax.InputData
 
 import scalajsreact.template.models.IrcChatProps
 import shared.SharedMessages._
 
+import scala.collection.mutable.ListBuffer
 import scalajsreact.template.components.SearchLogs.SearchState
 import scalajsreact.template.pages.IrcChatPage.ChatState
 
@@ -28,7 +30,7 @@ object SearchLogs {
       )
     }).build
 
-  case class SearchState(var inputRegex: String, var files: Map[String, Array[String]], var logContent: String, target: String, jsMessagesContent: List[JsMessage]) {
+  case class SearchState(var inputRegex: String, var files: Map[String, Array[String]], var logContent: String, target: String, jsMessagesContent: List[JsMessage], searchResults: Option[SearchResults]) {
     def callOnChangeInputRegex($: MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState],
                                props: IrcChatProps)(e: ReactEventFromInput): Callback = {
 
@@ -38,6 +40,7 @@ object SearchLogs {
       })
     }
 
+    // TODO fix broken Ajax data
     def callSearchLogFiles(props: IrcChatProps): Option[Callback] = {
       org.scalajs.dom.console.log(s"callSearchLogFiles")
       import scala.concurrent.ExecutionContext.Implicits.global
@@ -69,21 +72,6 @@ object SearchLogs {
 
   }
 
-  /*
-  val renderLine =
-    ScalaComponent.builder[JsMessage]("RenderLine")
-      .render_P(jsmsg => {
-        <.span(
-          <.span(
-            jsmsg.sender
-          ),
-          <.span(
-            jsmsg.msg
-          )
-        )
-      })
-      .build
-*/
   def renderLine(jsmsg: JsMessage): VdomElement = <.span(
     ^.display.`inline-block`,
     ^.width := 100.pct,
@@ -96,6 +84,24 @@ object SearchLogs {
       jsmsg.msg
     )
   )
+
+
+  def renderSearchResult(snippet: LogSnippet): VdomElement = <.span(
+    ^.display.`inline-block`,
+    ^.width := 100.pct,
+    <.span(
+      ^.paddingRight := 10.px,
+      "Filename: ",
+      snippet.filename,
+      " - line ",
+      snippet.line.toString,
+      ": "
+    ),
+    <.span(
+      renderLine(snippet.jsmsg)
+    )
+  )
+
 
   class SearchLogsBackend($: BackendScope[IrcChatProps, SearchState]) {
 
@@ -139,7 +145,7 @@ object SearchLogs {
             ^.value := s.inputRegex
           ),
           <.button(
-            ^.onClick -->? s.callSearchLogFiles(props), // --> suffixed by ? because it's for Option[Callback]
+            ^.onClick -->? callSearchLogFilesUrl(props, s), // --> suffixed by ? because it's for Option[Callback]
             "Search Now"
           )
           /*,
@@ -157,6 +163,10 @@ object SearchLogs {
                  renderLine(record)
                )
              }).toTagMod*/
+          ),
+          <.h3("Search result"),
+          <.div(
+            s.searchResults.getOrElse(SearchResults(Array.empty[LogSnippet])).results.toTagMod(renderSearchResult)
           )
           //,s.logContent
         )
@@ -167,6 +177,35 @@ object SearchLogs {
     def getDirect(): MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState] = {
       $.withEffectsImpure.asInstanceOf[MountedWithRoot[CallbackTo, IrcChatProps, SearchState, IrcChatProps, SearchState]]
     }
+
+    def callSearchLogFilesUrl(props: IrcChatProps, state: SearchState): Option[Callback] = {
+      org.scalajs.dom.console.log(s"callSearchLogFiles")
+      import scala.concurrent.ExecutionContext.Implicits.global
+      org.scalajs.dom.console.log(s"regex")
+      org.scalajs.dom.console.log(state.inputRegex)
+      // TODO error
+      Ajax.get(url = s"/rest/searchLogsUrl/" + state.inputRegex).foreach {
+        xhr => {
+          org.scalajs.dom.console.log(s"callSearchLogFiles ${xhr.responseText}")
+          val result = upickle.default.read[SearchResults](xhr.responseText)
+
+          org.scalajs.dom.console.log(s"parsed ${result.toString}")
+
+          result.results.foreach(resultItem => {
+            //org.scalajs.dom.console.log(s"resultItem ${resultItem.toString}")
+          })
+          org.scalajs.dom.console.log(s"set state list")
+
+          getDirect().modState(g => {
+            g.copy(searchResults = Some(result))
+          })
+          org.scalajs.dom.console.log(s"set new state")
+
+        }
+      }
+      Option(Callback.empty)
+    }
+
 
     def callOpenLogFile(s: SearchState, props: IrcChatProps, target: String, file: String): Option[Callback] = {
       org.scalajs.dom.console.log(s"callOpenLogFile")
@@ -228,7 +267,7 @@ object SearchLogs {
   }
 
   val searchLogsComponent = ScalaComponent.builder[IrcChatProps]("EchoLogs")
-    .initialState(SearchState("", Map.empty[String, Array[String]], "", "", List.empty[JsMessage]))
+    .initialState(SearchState("", Map.empty[String, Array[String]], "", "", List.empty[JsMessage], None))
     .renderBackend[SearchLogsBackend]
     .componentWillMount(_.backend.loadLogs())
     // set username (username has to be as chat state atr because it can be changed via /anick command)
