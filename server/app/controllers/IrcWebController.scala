@@ -1,38 +1,24 @@
 package controllers
 
-import javax.inject.Singleton
-
-import org.pircbotx.Configuration
-import org.pircbotx.hooks.events.ActionEvent
-import org.pircbotx.hooks.types.{GenericChannelEvent, GenericChannelUserEvent, GenericMessageEvent}
-
-import scala.concurrent._
-import ExecutionContext.Implicits.global
-import play.api.Logger
-import play.api.libs.json.Json
-import securesocial.core.SecureSocial
-import service.{DemoUser, MyEnvironment}
-import shared.Shared
-import shared.SharedMessages.{JsMessageBase, _}
-import upickle.default._
-import utils.IrcLogBot
-
-import scala.util.{Failure, Success}
-import models.WebsocketUser._
 import java.net.URL
-import java.util.concurrent.TimeUnit
-import javax.inject.Inject
+import javax.inject.{Inject, Singleton}
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props, Terminated}
+import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.stream.OverflowStrategy
 import akka.stream.scaladsl.{Flow, Sink, Source}
-import akka.stream.{Materializer, OverflowStrategy}
+import models.WebsocketUser
+import models.WebsocketUser._
+import play.api.Logger
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.JsValue
 import play.api.mvc._
-import utils.{IrcListener, IrcLogBot, Protocol}
-import models.WebsocketUser
+import securesocial.core.SecureSocial
+import service.{DemoUser, MyEnvironment}
+import shared.Shared
+import utils.IrcLogBot
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{Future, _}
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 
@@ -49,18 +35,9 @@ class IrcWebController @Inject()(
   extends BaseController()(env, webJarAssets, messagesApi) with I18nSupport {
 
   def ircChat = SecuredAction { implicit request =>
-    //val url = routes.IrcWebController.chat().webSocketURL()
     Ok(views.html.ircChat("url"))
   }
 
-
-  class MyActor extends Actor {
-    def receive: Receive = {
-      case msg => {
-        Logger.debug(s"MyActor msg: ${msg}")
-      }
-    }
-  }
 
   def unpackUser(demoUserFutOpt: Future[Option[MyEnvironment#U]]): DemoUser = {
     var demoUserVar: DemoUser = null //TODO ..hate to use null but should be safe cause of Exception below
@@ -70,35 +47,22 @@ class IrcWebController @Inject()(
       f1Result <- demoUserFutOpt
     } yield (f1Result)
 
-    Logger.debug(s"maybeCurUser.toString1 ${maybeCurUser.toString}")
-
     maybeCurUser onComplete {
-      case f => {
-        Logger.debug(s"maaybeCurUser all done ${f.toString}")
-      }
+      case f => {}
     }
-    Logger.debug(s"maybeCurUser1 ${maybeCurUser}")
     maybeCurUser // this will make it wait for result
     if (maybeCurUser == None) {
       Logger.debug(s"maybeCurUser1 None")
       return null
     }
-    Logger.debug(s"maybeCurUser2 ${maybeCurUser.toString}")
     import scala.concurrent.duration.Duration
 
     val result = Await.result(maybeCurUser, Duration.Inf)
-
-    Logger.debug(s"result.toString ${result.toString}")
-
-    Logger.debug(s"maybeCurUser.toString ${maybeCurUser.toString}")
     val someUser: Some[DemoUser] = result.asInstanceOf[Some[DemoUser]]
-    Logger.debug(s"someUser.toString ${someUser.toString}")
 
     someUser match {
       case Some(d: DemoUser) => {
         demoUserVar = d
-        Logger.debug(s"demoUser = d ${demoUserVar.toString}")
-        Logger.debug(s"d = d ${d.toString}")
       }
       case other => {
         // TODO SecurityException because no DemoUser found so probably forgery
@@ -107,15 +71,9 @@ class IrcWebController @Inject()(
       }
     }
 
-    Logger.debug(s"demoUser before = null ${demoUserVar.toString}")
-
     if (demoUserVar == null) {
-      Logger.debug(s"demoUser = null")
       throw new NullPointerException("NullPointerException")
     }
-    Logger.debug(s"user.main.userId ${demoUserVar.main.userId}")
-
-    Logger.debug(s"demoUserVar.toString2 ${demoUserVar.toString}")
     demoUserVar
   }
 
@@ -179,19 +137,8 @@ class IrcWebController @Inject()(
     WebSocket.acceptOrResult[JsValue, JsValue] {
       case request if sameOriginCheck(request) =>
 
-        //import play.api.Play
-        //Play.configuration.
-        //import Play.current
-        //Play.application().configuration().getString("").
-        //Future.successful(websocketChatFlow("userBot","#TheName")).map { flow =>
-
-        // actorSystem.settings.config.getString("app.irc.server")
         var demoUserFutOpt: Future[Option[MyEnvironment#U]] = null
-        //if (actorSystem.settings.config.getBoolean("app.server.users.authSecureSocialEnabled")) {
         demoUserFutOpt = SecureSocial.currentUser(request, env, executionContext)
-        //}
-        Logger.debug("demoUserFutOpt")
-        //   Logger.debug(demoUserFutOpt)
         Future.successful(myChatFlow(botName, actorSystem.settings.config.getString("app.irc.defaultChannel"), demoUserFutOpt)).map { flow =>
           Right(flow)
         }

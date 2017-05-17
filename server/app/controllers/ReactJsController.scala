@@ -3,11 +3,8 @@ package controllers
 import javax.inject.Singleton
 
 import play.api.Logger
-import securesocial.core.SecureSocial
 import service.MyEnvironment
-import shared.Shared
 
-import scala.collection.Iterator
 import scala.collection.mutable.ListBuffer
 
 //
@@ -15,11 +12,8 @@ import scala.collection.mutable.ListBuffer
 import javax.inject.Inject
 
 import akka.actor.ActorSystem
-import akka.stream.Materializer
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.mvc._
-
-import scala.concurrent.ExecutionContext
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 
@@ -42,21 +36,8 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
 
   def reactNotSecured(any: String) = Action {
     implicit request =>
-
-      Logger.debug(this.getClass.getName)
-      Logger.debug(request.toString())
-      Logger.debug("Path: " + any)
-
-      // Ok(views.html.reactJs(request.user, actorSystem.settings.config.getString("app.websocket.url")))
-
-      //      val dataStr:String = upickle.default.write[](data)
-      //val dataStr:String = upickle.default.write(data)
-
       val topMenuList = actorSystem.settings.config.getStringList("app.client.adminPages")
       val channelsList = actorSystem.settings.config.getStringList("app.irc.defaultChannels")
-      Logger.info("lists:")
-      Logger.info(topMenuList.toString)
-      Logger.info(channelsList.toString)
 
       val asJson: String = s"""["topMenuList":${upickle.default.write(listToListBuffer(topMenuList))}, "channelsList":${upickle.default.write(listToListBuffer(channelsList))}]"""
       Logger.info(asJson)
@@ -70,20 +51,8 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
   def react(any: String) = SecuredAction {
     implicit request =>
 
-      Logger.info(this.getClass.getName)
-      Logger.info(request.toString())
-      Logger.info("Path:" + any)
-
-      // Ok(views.html.reactJs(request.user, actorSystem.settings.config.getString("app.websocket.url")))
-
-      //      val dataStr:String = upickle.default.write[](data)
-      //val dataStr:String = upickle.default.write(data)
-
       val topMenuList = actorSystem.settings.config.getStringList("app.client.adminPages")
       val channelsList = actorSystem.settings.config.getStringList("app.irc.defaultChannels")
-      Logger.info("lists:")
-      Logger.info(topMenuList.toString)
-      Logger.info(channelsList.toString)
 
       val asJson: String = s"""{"topMenuList":${upickle.default.write(listToListBuffer(topMenuList))}, "channelsList":${upickle.default.write(listToListBuffer(channelsList))}}"""
 
@@ -102,5 +71,4 @@ class ReactJsController @Inject()(implicit actorSystem: ActorSystem,
     topMenuItems
   }
 
-  //actorSystem.settings.config.getString("app.irc.defaultChannel")
 }

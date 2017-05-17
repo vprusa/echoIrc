@@ -29,12 +29,7 @@ import securesocial.core.providers._
 import scala.collection.immutable.ListMap
 
 //import com.github.tototoshi.slick.H2JodaSupport._
-import org.joda.time.DateTime
-import securesocial.core._
 import scala.language.implicitConversions
-import slick.jdbc.H2Profile._
-import slick.lifted.ProvenShape
-import scala.concurrent._
 
 @Singleton
 class MyEnvironment @Inject()(override val configuration: Configuration, override val messagesApi: MessagesApi, tokenDao: TokenDAO,

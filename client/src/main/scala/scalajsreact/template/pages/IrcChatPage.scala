@@ -2,28 +2,17 @@ package scalajsreact.template.pages
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
-import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
+import org.scalajs.dom
 import org.scalajs.dom._
 import shared.SharedMessages._
-import sun.text.normalizer.Utility
 import upickle.default.{read, _}
 
 import scala.collection.mutable.ListBuffer
-import scala.reflect.runtime
-import scala.scalajs.js.JSConverters.genTravConvertible2JSRichGenTrav
-import scala.util.control.TailCalls.Call
 import scala.util.{Failure, Success}
-import scalajsreact.template.components.LeftNav.Style.{&, style, styleF}
-import scalajsreact.template.models.IrcChatProps
-import scalajsreact.template.pages.IrcChatPage.ChatState
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
-import org.scalajs.dom
-
-import scalacss.internal.Attrs.fontWeight
-import japgolly.scalajs.react.extra.Reusability
-import org.scalajs.dom.ext.Ajax
+import scalajsreact.template.models.IrcChatProps
 
 /**
   * Information base

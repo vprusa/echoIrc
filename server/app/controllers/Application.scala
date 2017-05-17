@@ -18,20 +18,13 @@ package controllers
 
 import javax.inject.Inject
 
-import akka.actor.ActorSystem
-import akka.stream.Materializer
 import play.api.i18n.{I18nSupport, MessagesApi}
-import securesocial.core._
-import service.{DemoUser, MyEnvironment, MyEventListener}
 import play.api.mvc.{Action, RequestHeader}
+import securesocial.core._
+import service.{DemoUser, MyEnvironment}
 //import play.api.db.slick.DatabaseConfigProvider
-import play.db.NamedDatabase
 //import slick.jdbc.JdbcProfile
-import slick.driver.JdbcProfile
 
-import scala.concurrent.ExecutionContext
-
-//class Application @Inject() (override implicit val env: MyEnvironment)
 class Application @Inject()
 (
   //@NamedDatabase("<db-name>")
@@ -41,7 +34,6 @@ class Application @Inject()
   implicit val messagesApi: MessagesApi
 )
   extends securesocial.core.SecureSocial with I18nSupport {
-  //val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   def index = SecuredAction {
     implicit request =>

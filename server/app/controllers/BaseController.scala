@@ -3,14 +3,7 @@ package controllers
 import java.util.concurrent.TimeoutException
 import javax.inject.Singleton
 
-import models._
-import play.api.Logger
-import play.api.data.Forms._
-import play.api.data._
-import play.api.i18n.I18nSupport
 import play.api.libs.concurrent.Promise
-import play.api.libs.json.Json
-import play.api.mvc.Controller
 import service.MyEnvironment
 
 import scala.concurrent.duration._
@@ -18,18 +11,11 @@ import scala.concurrent.duration._
 
 //
 
-import java.net.URL
 import javax.inject.Inject
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props, Terminated}
-import akka.stream.scaladsl.{Flow, Sink, Source}
-import akka.stream.{Materializer, OverflowStrategy}
-import play.api.i18n.{I18nSupport, MessagesApi}
-import play.api.libs.json.JsValue
-import play.api.mvc._
-import utils.{IrcListener, Protocol}
+import play.api.i18n.MessagesApi
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.Future
 
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
@@ -43,31 +29,9 @@ class BaseController @Inject()  (
                                 override implicit val webJarAssets: WebJarAssets,
                                 override implicit val messagesApi: MessagesApi
                               )
-
-//  extends Controller with I18nSupport {
-//  extends Application(env)(actorSystem, webJarAssets, mat, messagesApi) {
-//extends Application(env, actorSystem, webJarAssets, mat, executionContext, messagesApi) {
   extends Application()(env, webJarAssets, messagesApi) {
 
-  /*
-
-  override implicit val env: MyEnvironment,
-                                 override implicit val actorSystem: ActorSystem,
-                                 override implicit val webJarAssets: WebJarAssets,
-                                 override implicit val mat: Materializer,
-                                 override implicit val executionContext: ExecutionContext,
-                                 override val messagesApi: MessagesApi
-
-  */
   implicit val timeout = 10.seconds
-
-  /*override def index = Action {
-    Ok(views.html.index("Your new application is ready."))
-  }*/
-
-  def dashboard = Action {
-    Ok(views.html.dashboard("Your new application is ready."))
-  }
 
   object TimeoutFuture {
 

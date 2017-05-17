@@ -5,17 +5,11 @@ import shared.SharedMessages.JsMessageBase
 import scala.collection.mutable.ListBuffer
 
 object SharedMessages {
-  def itWorks = "It works!"
 
-  object JsMessageTypes extends Enumeration {
-    val Message, JoinChannel, LeaveChannel = Value
-  }
-
-  case class TargetParticipant(name: String)
 
   sealed trait JsMessageBase
 
-  //  trait JsMessageBase
+  case class TargetParticipant(name: String)
 
   case class JsMessage(sender: String, target: String, msg: String) extends JsMessageBase
 

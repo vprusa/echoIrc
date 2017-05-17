@@ -1,5 +1,13 @@
 package dao
 
+import securesocial.core.providers.MailToken
+
+import scala.concurrent.ExecutionContext
+
+//import models.User
+//import models.Users
+
+//import slick.lifted._ //{ProvenShape, TableQuery, Tag}
 import java.sql.Timestamp
 import javax.inject.Inject
 
@@ -7,61 +15,15 @@ import org.joda.time.{DateTime, DateTimeZone}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import slick.jdbc.JdbcProfile
 
-import scala.concurrent.{ExecutionContext, Future}
-import securesocial.core.providers.MailToken
-import javax.inject.Inject
-
-import securesocial.core.PasswordInfo
-import slick.dbio.DBIOAction
-
-//import models.User
-//import models.Users
-import org.joda.time.{DateTime}
-import org.joda.time.DateTimeZone
-import java.sql.Timestamp
-import org.joda.time.LocalDateTime
-import play.api.db.slick.DatabaseConfigProvider
-import play.api.db.slick.HasDatabaseConfigProvider
-import securesocial.core.{AuthenticationMethod, OAuth1Info, OAuth2Info}
-import slick.jdbc.JdbcProfile
-import slick.jdbc.H2Profile.api._
-import slick.util.TupleMethods._
-
-//import slick.lifted._ //{ProvenShape, TableQuery, Tag}
-import slick.lifted._ //{ProvenShape, TableQuery, Tag}
-
-import java.util.Date
-import javax.inject.{Inject, Singleton}
-import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import slick.jdbc.JdbcProfile
-
-import scala.concurrent.Future
-
-import org.joda.time._
-
 import scala.concurrent.ExecutionContext.Implicits.global
-import slick.jdbc.{GetResult, H2Profile, JdbcProfile}
-import slick.jdbc.ActionBasedSQLInterpolation._
-import java.util.{Locale, TimeZone}
-
-import org.joda.time.{DateTime}
-import org.joda.time.DateTimeZone
-import java.sql.Timestamp
-import org.joda.time.LocalDateTime
-import play.api.db.slick.DatabaseConfigProvider
-import play.api.db.slick.HasDatabaseConfigProvider
-import securesocial.core.{AuthenticationMethod, OAuth1Info, OAuth2Info}
-import slick.jdbc.JdbcProfile
-import slick.jdbc.H2Profile.api._
-import slick.util.TupleMethods._
+import scala.concurrent.Future
 
 /**
   * Created by vprusa on 4/28/17.
   */
 class TokenDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
 
-  import profile.api.{_}
+  import profile.api._
 
   private val Tokens = TableQuery[MailTokens]
 
@@ -85,18 +47,6 @@ class TokenDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
   }
 
   def deleteExpiredTokens() = {
-    /*val query = for {
-      u <- Tokens if u.expirationTime < currentDate
-    } yield u
-    */
-    //val q1 = Tokens.filter(_.expirationTime < currentDate)
-    //val q1 = Tokens.filter(_.expirationTime < new LocalDate(2012, 12, 5))
-    //val q1 = Tokens.filter(_.expirationTime < new LocalDate(2012, 12, 5))
-    //db.run(q1.result).map { _ => () }
-    //db.run(Tokens.filter(_.expirationTime isBefore < currentDate ).delete).map { _ => () }
-    //db.run(query.result).map{ _ => () }
-    //db.run(sql"DELETE ").map{ _ => () }
-    // db.run(sql"delete from tokens where expirationTime < #${currentDate}".result)
     val currentDate: DateTime = new DateTime
     Tokens.shaped.value.deleteExpiredTokens(currentDate)
   }

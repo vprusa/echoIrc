@@ -1,14 +1,13 @@
 package models
 
-import play.api.Logger
-import java.io.File
-
-import scala.io.Source
-import java.io._
+import java.io.{File, _}
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
+import play.api.Logger
 import shared.SharedMessages._
+
+import scala.io.Source
 
 /**
   * Created by vprusa on 4/21/17.
@@ -16,8 +15,8 @@ import shared.SharedMessages._
 
 class LogsBase(uniqueId: (String, String), LOG_FILENAME: String = s"ircLog-${new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss").format(Calendar.getInstance().getTime())}.log") {
 
-  import java.util.Calendar
   import java.text.SimpleDateFormat
+  import java.util.Calendar
 
   val now = Calendar.getInstance().getTime()
   val dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss")

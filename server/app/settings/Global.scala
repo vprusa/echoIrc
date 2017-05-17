@@ -1,26 +1,21 @@
 package settings
 
 import akka.actor.ActorSystem
-import play.Logger
-import play.api._
 import com.typesafe.config._
-import dao.UserDAO
+import play.api._
 import securesocial.core.{AuthenticationMethod, BasicProfile}
 import shared._
 import utils.Planner
 
-import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
-import scala.concurrent.duration.DurationInt
 //import org.specs2.mutable.Specification
 import dao.UserDAO
-import models.WebsocketUser
 import play.api.Application
 //import play.api.test.WithApplicationLoader
-import securesocial.core._
 import play.Logger
-
+import securesocial.core._
+import scala.concurrent.duration.DurationInt
+import scala.concurrent.ExecutionContext.Implicits.global
 
 import scala.concurrent.{Await, Future}
 //import utils.

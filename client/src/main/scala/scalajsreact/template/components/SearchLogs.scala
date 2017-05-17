@@ -1,18 +1,14 @@
 package scalajsreact.template.components
 
-import japgolly.scalajs.react.{Callback, _}
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
-import jdk.nashorn.tools.ShellFunctions
+import japgolly.scalajs.react.{Callback, _}
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.ext.Ajax.InputData
-
-import scalajsreact.template.models.IrcChatProps
 import shared.SharedMessages._
 
-import scala.collection.mutable.ListBuffer
-import scalajsreact.template.components.SearchLogs.SearchState
-import scalajsreact.template.pages.IrcChatPage.ChatState
+import scalajsreact.template.models.IrcChatProps
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object SearchLogs {
 
@@ -180,7 +176,6 @@ object SearchLogs {
 
     def callSearchLogFilesUrl(props: IrcChatProps, state: SearchState): Option[Callback] = {
       org.scalajs.dom.console.log(s"callSearchLogFiles")
-      import scala.concurrent.ExecutionContext.Implicits.global
       org.scalajs.dom.console.log(s"regex")
       org.scalajs.dom.console.log(state.inputRegex)
       // TODO error
@@ -213,7 +208,6 @@ object SearchLogs {
       org.scalajs.dom.console.log(target)
       org.scalajs.dom.console.log("file")
       org.scalajs.dom.console.log(file)
-      import scala.concurrent.ExecutionContext.Implicits.global
       /*val req = JsMessageGetLogRequest(target, file)
       var data = Ajax.InputData.str2ajax(upickle.default.write(req))
       org.scalajs.dom.console.log(s"data")

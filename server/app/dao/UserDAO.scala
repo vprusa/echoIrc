@@ -1,26 +1,18 @@
 package dao
 
-import scala.concurrent.{ExecutionContext, Future}
 import javax.inject.Inject
 
-import akka.actor.Status.Success
-import securesocial.core.{BasicProfile, GenericProfile, PasswordInfo}
+import securesocial.core.BasicProfile
+
+import scala.concurrent.{ExecutionContext, Future}
 
 //import models.User
 //import models.Users
-import org.joda.time.{DateTime}
-import org.joda.time.DateTimeZone
-import java.sql.Timestamp
-import org.joda.time.LocalDateTime
-import play.api.db.slick.DatabaseConfigProvider
-import play.api.db.slick.HasDatabaseConfigProvider
+import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import securesocial.core.{AuthenticationMethod, OAuth1Info, OAuth2Info}
 import slick.jdbc.JdbcProfile
-import slick.jdbc.H2Profile.api._
-import slick.util.TupleMethods._
 
-//import slick.lifted._ //{ProvenShape, TableQuery, Tag}
-import slick.lifted._ //{ProvenShape, TableQuery, Tag}
+//import slick.lifted._ //{ProvenShape, TableQuery, Tag} //{ProvenShape, TableQuery, Tag}
 
 /*
 case class User(
@@ -73,7 +65,7 @@ case class BasicProfile(
 class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
 
   // import profile.api._
-  import profile.api.{_}
+  import profile.api._
 
   private val Users = TableQuery[Users]
   //private val Tokens = TableQuery[MailTokens]

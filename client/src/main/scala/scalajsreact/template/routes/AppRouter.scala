@@ -1,27 +1,16 @@
 package scalajsreact.template.routes
 
+import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.router.{Resolution, RouterConfigDsl, RouterCtl, _}
-
-import scalajsreact.template.pages.{AdminPage, ErrorPage, HomePage, LogsPage, StatsPage, TodoPage, LogsStatsPage}
-import scalajsreact.template.components.TopNav
-import scalajsreact.template.components.Footer
-import scalajsreact.template.models.{AppConfig, Menu, MenuInner, MenuOutisde}
+import japgolly.scalajs.react.vdom.html_<^._
 import org.scalajs.dom
 
-import scalacss.Defaults._
-import scalacss.ScalaCssReact._
-import scala.scalajs.js.JSApp
-import scala.scalajs.js.annotation.JSExport
-import japgolly.scalajs.react._
-import vdom.html_<^._
-import japgolly.scalajs.react.extra._
-import japgolly.scalajs.react.extra.router._
-import upickle.Js
-
 import scala.collection.mutable.ListBuffer
-import scalajsreact.template.pages.IrcChatPage
-import scalajsreact.template.models.IrcChatProps
+import scalacss.ScalaCssReact._
+import scalajsreact.template.components.{Footer, TopNav}
 import scalajsreact.template.css.GlobalStyle
+import scalajsreact.template.models.{AppConfig, Menu, MenuInner, MenuOutisde}
+import scalajsreact.template.pages.{ErrorPage, HomePage, IrcChatPage, LogsPage}
 
 object AppRouter {
 
@@ -29,45 +18,24 @@ object AppRouter {
 
   case object Home extends AppPage
 
-  case object Todo extends AppPage
-
   case object IrcChat extends AppPage
 
-  case object Admin extends AppPage
-
   case object Logs extends AppPage
-
-  case object LogsStats extends AppPage
-
-  //case object Stats extends AppPage
 
   case object Logout extends AppPage
 
   case object Login extends AppPage
-
-  //case class IrcChat(username: String) extends AppPage
-  case class Items(p: MenuItem) extends AppPage
 
   case object Error extends AppPage
 
   val routerConfig = RouterConfigDsl[AppPage].buildConfig { dsl =>
     import dsl._
 
-    val itemRoutes: Rule =
-      MenuItem.routes.prefixPath_/("#items").pmap[AppPage](Items) {
-        case Items(p) => p
-      }
-    (trimSlashes
+       (trimSlashes
       | staticRoute("home", Home) ~> render(HomePage.component())
-      | staticRoute("todo", Todo) ~> render(TodoPage.component())
       | staticRoute("logs", Logs) ~> render(LogsPage.component(AppConfig.ircChatPropsTest))
       | staticRoute(root, IrcChat) ~> render(IrcChatPage.WebSocketsApp(AppConfig.ircChatPropsTest))
-      | staticRoute("admin", Admin) ~> render(AdminPage.component())
-      //| staticRoute("stats", LogsStats) ~> render(LogsStatsPage.component())
       | staticRoute("error", Error) ~> render(ErrorPage.component())
-      //   | staticRoute("login", Login) ~> redirectToPath("/custom/login")
-      //   | staticRoute("logout", Logout) ~> redirectToPath("/custom/logout")
-      | itemRoutes
       )
       .notFound(redirectToPage(Error)(Redirect.Replace))
       .renderWith(layout)
@@ -123,24 +91,7 @@ object AppRouter {
 
     topMenu.arr.foreach(item => {
       org.scalajs.dom.console.log(item.toString())
-      if (item.str.matches("todo")) {
-        org.scalajs.dom.console.log(".todo")
-        val newMenuItem = MenuInner("Todo", Todo)
-        if (!mainMenu.contains(newMenuItem))
-          mainMenu += newMenuItem
-
-      } /*else if (item.str.matches("stats")) {
-        org.scalajs.dom.console.log(".stats")
-        val newMenuItem = MenuInner("Stats", Items(MenuItem.Info))
-        if (!mainMenu.contains(newMenuItem))
-          mainMenu += newMenuItem
-      }*/
-      else if (item.str.matches("stats")) {
-        org.scalajs.dom.console.log(".stats")
-        val newMenuItem = MenuInner("Stats", Items(MenuItem.Info))
-        if (!mainMenu.contains(newMenuItem))
-          mainMenu += newMenuItem
-      } else if (item.str.matches("logs")) {
+      if (item.str.matches("logs")) {
         org.scalajs.dom.console.log(".logs")
         val newMenuItem = MenuInner("Logs", Logs)
         if (!mainMenu.contains(newMenuItem))

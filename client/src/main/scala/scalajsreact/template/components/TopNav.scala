@@ -3,26 +3,13 @@ package scalajsreact.template.components
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.extra.router.RouterCtl
+import japgolly.scalajs.react.vdom.html_<^._
 
-import scala.scalajs.js
+import scala.collection.mutable.ListBuffer
 import scalacss.Defaults._
 import scalacss.ScalaCssReact._
 import scalajsreact.template.models.{Menu, MenuInner, MenuOutisde}
-import scalajsreact.template.routes.AppRouter.{AppPage, mainMenu}
-import org.scalajs.dom
-
-import scala.scalajs.js.JSApp
-import scala.scalajs.js.annotation.JSExport
-import japgolly.scalajs.react._
-import vdom.html_<^._
-import japgolly.scalajs.react.extra._
-import japgolly.scalajs.react.extra.router._
-import jdk.nashorn.internal.parser.JSONParser
-
-import scala.collection.mutable.ListBuffer
-
-//import scalacss.ScalatagsCss._
-
+import scalajsreact.template.routes.AppRouter.AppPage
 
 object TopNav {
 

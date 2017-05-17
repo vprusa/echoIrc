@@ -1,8 +1,8 @@
 package models
 
-import securesocial.Routes
-import service.MyEnvironment
 import javax.inject.Inject
+
+import securesocial.Routes
 
 @Inject
 class MyRoutes(errorHandler: play.api.http.HttpErrorHandler,
@@ -16,5 +16,4 @@ class MyRoutes(errorHandler: play.api.http.HttpErrorHandler,
                prefix: scala.Predef.String)
   extends Routes(errorHandler, LoginPage_2, Registration_5, PasswordReset_6, PasswordChange_3, ProviderController_4, LoginApi_1, Assets_0, prefix) {
 
-  //implicit val myEnvironment: MyEnvironment,
 }
