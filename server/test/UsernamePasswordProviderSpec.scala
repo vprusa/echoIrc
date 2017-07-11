@@ -60,6 +60,7 @@ class UsernamePasswordProviderSpec extends PlaySpecification with Mockito {
       }
     }
 
+    /*
     "Authenticate owner" in new WithOwnerMocks {
       val form = FakeRequest().withFormUrlEncodedBody("username" -> "owner", "password" -> "password")
       val resFut = upp.authenticate()(form)
@@ -69,7 +70,7 @@ class UsernamePasswordProviderSpec extends PlaySpecification with Mockito {
         }
         case t => failure(t.toString)
       }
-    }
+    }*/
   }
 
   trait WithMocks extends Before with Mockito with MustThrownExpectations {
@@ -100,34 +101,18 @@ class UsernamePasswordProviderSpec extends PlaySpecification with Mockito {
       passwordInfo = Some(PasswordInfo("bcrypt", user.hash))
     )
   }
-  trait WithOwnerMocks extends Before with Mockito with MustThrownExpectations {
-    val userService = mock[UserService[User]]
-    val avatarService = mock[AvatarService]
-    val viewTemplates = mock[ViewTemplates]
-    val passwordHashers = mock[Map[String, PasswordHasher]]
-    val upp = new UsernamePasswordProvider(userService, Some(avatarService), viewTemplates, passwordHashers)
 
-    def before = {
+  /*
+  trait WithOwnerMocks extends WithMocks {
+
+    override def before = {
       viewTemplates.getLoginPage(any[Form[(String, String)]], any[Option[String]])(any[RequestHeader], any[Lang]) returns Html("login page")
       userService.find(upp.id, "owner") returns Future(Some(basicProfileFor(User("owner", "password"))))
       passwordHashers.get("bcrypt") returns Some(new PasswordHasher.Default(12))
       avatarService.urlFor("owner") returns Future(None)
     }
 
-    def basicProfileFor(user: User) = BasicProfile(
-      providerId = upp.id,
-      userId = user.email,
-      firstName = None,
-      lastName = None,
-      fullName = None,
-      email = Some(user.email),
-      avatarUrl = None,
-      authMethod = upp.authMethod,
-      oAuth1Info = None,
-      oAuth2Info = None,
-      passwordInfo = Some(PasswordInfo("bcrypt", user.hash))
-    )
-  }
+  }*/
 
   case class User(email: String,
                   password: String) {

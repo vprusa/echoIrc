@@ -133,7 +133,7 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
       fut match {
         case v: Option[BasicProfile] => {
           if (v.isEmpty) {
-            Logger.debug("save found None")
+//            Logger.debug("save found None")
             // added new
             val res = db.run(Users += user).map { _ => () }
 
@@ -142,8 +142,8 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
             import scala.concurrent.{Await, Future}
 
             val storedUsers = Await.result(db.run(Users.result), 1 seconds)
-            Logger.debug("DB test2")
-            Logger.debug(storedUsers.toString())
+//            Logger.debug("DB test2")
+//            Logger.debug(storedUsers.toString())
           } else {
             v
             v.map((b: BasicProfile) => {
@@ -154,7 +154,7 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
         }
         // todo remove, should not be necessary
         case None => {
-          Logger.debug("save found None")
+//          Logger.debug("save found None")
           // added new
           db.run(Users += user).map { _ => () }
         }
@@ -250,13 +250,13 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
         passwordInfo
       ).shaped
 
-      Logger.debug("* converting shapedValue")
-      Logger.debug(shapedValue.toString)
+//      Logger.debug("* converting shapedValue")
+//      Logger.debug(shapedValue.toString)
 
       shapedValue.<>({
         tuple =>
-          Logger.debug("* converting shapedValue to tuples")
-          Logger.debug(tuple.toString)
+//          Logger.debug("* converting shapedValue to tuples")
+//          Logger.debug(tuple.toString)
 
           val bp = BasicProfile(
             //uid = tuple._1,
@@ -272,15 +272,15 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
             oAuth2Info = (tuple._12, tuple._13, tuple._14, tuple._15)
             , passwordInfo = Some(PasswordInfo(hasher = "bcrypt", password = tuple._16.getOrElse("default")))
           )
-          Logger.debug("* converting bp")
-          Logger.debug(bp.toString)
+//          Logger.debug("* converting bp")
+//          Logger.debug(bp.toString)
 
           bp
       }, { (u: BasicProfile) => {
-        Logger.debug("* converting u: BasicProfile")
-        Logger.debug(u.toString)
-        Logger.debug("u.passwordInfo")
-        Logger.debug(u.passwordInfo.toString)
+//        Logger.debug("* converting u: BasicProfile")
+//        Logger.debug(u.toString)
+//        Logger.debug("u.passwordInfo")
+//        Logger.debug(u.passwordInfo.toString)
 
         val somePassword = Some(u.passwordInfo.getOrElse(PasswordInfo("", "")).password) //(u.passwordInfo.isEmpty) //Some(u.passwordInfo.get.password)
 
@@ -305,8 +305,8 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
             //, u.oAuth2Info.flatMap(_.refreshToken)
           )
         }
-        Logger.debug("* converting opt")
-        Logger.debug(retOpt.toString)
+//        Logger.debug("* converting opt")
+//        Logger.debug(retOpt.toString)
         retOpt
       }
       })

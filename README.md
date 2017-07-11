@@ -22,6 +22,12 @@
 sbt run
 ```
 
+### Run
+```
+docker build ./docker
+docker run <buildId>
+```
+
 For irc chat/bot go to [http://localhost:9000/ircChat](http://localhost:9000/ircChat)
 
 or ReactJS on top of Scala.js [http://localhost:9000/react](http://localhost:9000/react)
@@ -41,22 +47,4 @@ https://github.com/search?utf8=%E2%9C%93&q=securesocial&type=
 ### to get size of project
 ```bash
 du -sh --exclude=./client/target --exclude=./server/target --exclude=./target --exclude=./shared/.js --exclude=./shared/.jvm --exclude=./project/target --exclude=./project/project --exclude=./.idea --exclude=./server/public/images --exclude=./server/public/javascripts/flot ./
-```
-
-### Db evolutions inserts
-
-```SQL
-insert into user(userId,providerId,firstName,lastName,email,avatarUrl,authMethod,token,secret,accessToken,accessToken,expiresIn,refreshToken)
-VALUES ("admin","db","admin","admin","admin@localhost","","","userpass","","","",3600,"")
-;
-
-insert into user(userId,providerId,firstName,lastName,email,avatarUrl,authMethod,token,secret,accessToken,accessToken,expiresIn,refreshToken) VALUES ("admin2","db","admin","admin","user1@demo.com","","","userpass","","","",3600,"");
-
-insert into user(userId,providerId,firstName,lastName,email,avatarUrl,authMethod,token,secret,accessToken,accessToken,expiresIn,refreshToken) VALUES ("user1","db","admin","admin","user1@demo.com","","","userpass","","","",3600,"");
-```
-
-### Run
-```
-docker build ./docker
-docker run <buildId>
 ```

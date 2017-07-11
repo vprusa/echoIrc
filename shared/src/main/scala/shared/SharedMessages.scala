@@ -1,17 +1,18 @@
 package shared
 
+
+
 import shared.SharedMessages.JsMessageBase
 
 import scala.collection.mutable.ListBuffer
 
 object SharedMessages {
 
-
   sealed trait JsMessageBase
 
   case class TargetParticipant(name: String)
 
-  case class JsMessage(sender: String, target: String, msg: String) extends JsMessageBase
+  case class JsMessage(sender: String, target: String, msg: String, var timeSend: String = "", var timeReceived: String = "") extends JsMessageBase
 
   case class JsMessageOther(sender: String, target: String, msg: String) extends JsMessageBase
 

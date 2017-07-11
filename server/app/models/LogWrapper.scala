@@ -3,10 +3,12 @@ package models
 import java.io.{File, _}
 import java.text.SimpleDateFormat
 import java.util.Calendar
-
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import com.typesafe.config.{ConfigList, ConfigObject}
 import play.api.Logger
 import shared.SharedMessages._
+import scala.util.matching.Regex
 
 import scala.io.Source
 
@@ -57,10 +59,10 @@ class LogWrapper(uniqueId: (String, String), targetName: String, LOG_FILENAME: S
   }
 
   def logLineAndExecuteScriptAction(line: JsMessageBase): Unit = {
-    import scala.util.matching.Regex
 
     createDirIfNotExists()
     createLogFileIfNotExists()
+
     Logger.debug(s"LogLine: ${line}")
 
     val fw = new FileWriter(USER_LOG_JS_FILEPATH, true)
@@ -68,44 +70,50 @@ class LogWrapper(uniqueId: (String, String), targetName: String, LOG_FILENAME: S
       Logger.debug(s"Added line: '${line}' to ${USER_LOG_JS_FILEPATH}")
 
       // execute script if regex matches something
+      if (line.isInstanceOf[JsMessage]) {
+        line.asInstanceOf[JsMessage].timeReceived = s"${new SimpleDateFormat("yyyy-MM-dd'T'HH_mm_ss").format(Calendar.getInstance().getTime())}"
+      }
       val lineStr = upickle.default.write(line)
 
       val scriptBase: ScriptBase = ScriptBase.getScriptBase(uniqueId)
 
-      val mappers = scriptBase.scriptsConfig.getObject("mappers")
-      Logger.debug("mappers.toString")
-      Logger.debug(mappers.toString)
-      /*
-          mappers.forEach({
-              case (k, v) => {
-                Logger.debug("k,v")
-              }
-              case (s) => {
-                Logger.debug("k")
-              }
-            })
+      if (!scriptBase.scriptsConfig.isEmpty || scriptBase.scriptsConfig.hasPath("mappers")) {
+
+        val mappers = scriptBase.scriptsConfig.getObject("mappers")
+        Logger.debug("mappers.toString")
+        Logger.debug(mappers.toString)
+        /*
+            mappers.forEach({
+                case (k, v) => {
+                  Logger.debug("k,v")
+                }
+                case (s) => {
+                  Logger.debug("k")
+                }
+              })
+          */
+        /*
+        case (k: String, v: ConfigObject) => {
+          Logger.debug("k")
+          Logger.debug(k)
+          Logger.debug("v")
+          Logger.debug(v.toString)
+          val filename = v.toConfig.getString("filename")
+          val regex = v.toConfig.getString("regex")
+          // new ScriptWrapper()
+
+          val pattern = new Regex(regex)
+          Logger.debug("Regex")
+          Logger.debug(pattern.toString())
+
+          pattern.findAllIn(lineStr).foreach(foundString => {
+            // add to result with line
+            Logger.debug(s"Executing script ${filename} with regex ${regex} for string: ${foundString}")
+          })
+        }
         */
-      /*
-      case (k: String, v: ConfigObject) => {
-        Logger.debug("k")
-        Logger.debug(k)
-        Logger.debug("v")
-        Logger.debug(v.toString)
-        val filename = v.toConfig.getString("filename")
-        val regex = v.toConfig.getString("regex")
-        // new ScriptWrapper()
 
-        val pattern = new Regex(regex)
-        Logger.debug("Regex")
-        Logger.debug(pattern.toString())
-
-        pattern.findAllIn(lineStr).foreach(foundString => {
-          // add to result with line
-          Logger.debug(s"Executing script ${filename} with regex ${regex} for string: ${foundString}")
-        })
       }
-      */
-
 
       fw.write(lineStr + '\n')
     }

@@ -149,4 +149,10 @@ class RestController @Inject()(
     Ok("test SecuredAction")
   }
 
+  //  def searchLogs(regex: String) = SecuredAction { request =>
+  def testUnsecured = Action { request =>
+    Logger.debug("test testUnsecured")
+    Ok("test testUnsecured")
+  }
+
 }

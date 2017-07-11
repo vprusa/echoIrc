@@ -22,7 +22,7 @@ class IrcLogBot(config: Configuration) extends PircBotX(config) {
 
 }
 
-class IrcListener(server: String, channel: String, identity: (String, String), var listenersUserActor: ActorRef) extends ListenerAdapter {
+class IrcListener(server: String, channels: java.util.List[String], identity: (String, String), var listenersUserActor: ActorRef) extends ListenerAdapter {
 
   var logHandlers = Map.empty[String, LogWrapper]
 

@@ -89,7 +89,7 @@ class IrcWebController @Inject()(
     Shared.ircLogBotMap.getOrElse(identityId, null)
   }
 
-  def myChatFlow(sender: String, channel: String, demoUserFutOpt: Future[Option[MyEnvironment#U]]): Flow[JsValue, JsValue, _] = {
+  def myChatFlow(sender: String, demoUserFutOpt: Future[Option[MyEnvironment#U]]): Flow[JsValue, JsValue, _] = {
     var demoUserVar: DemoUser = null
     if (demoUserFutOpt != null) {
       demoUserVar = unpackUser(demoUserFutOpt)
@@ -109,7 +109,7 @@ class IrcWebController @Inject()(
 
     // here i need to check if bot for this user already started or start new stared
     if (userActor == null) {
-      userActor = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar, channel = channel,
+      userActor = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar,
         ircBot = getIrcBotByUser(demoUserVar)
         //ircBot = getIrcBotByUserName(uniqueName)
       )), uniqueName)
@@ -141,9 +141,7 @@ class IrcWebController @Inject()(
     WebSocket.acceptOrResult[JsValue, JsValue] {
       case request if sameOriginCheck(request) =>
 
-        var demoUserFutOpt: Future[Option[MyEnvironment#U]] = null
-        demoUserFutOpt = SecureSocial.currentUser(request, env, executionContext)
-        Future.successful(myChatFlow(botName, actorSystem.settings.config.getString("app.irc.defaultChannel"), demoUserFutOpt)).map { flow =>
+        Future.successful(myChatFlow(botName, SecureSocial.currentUser(request, env, executionContext))).map { flow =>
           Right(flow)
         }
           .recover {

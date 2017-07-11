@@ -49,7 +49,6 @@ class MyEnvironment @Inject()(override val configuration: Configuration, overrid
     //include(new GoogleProvider(routes, cacheService,oauth2ClientFor(GoogleProvider.Google))),
 
     // username password
-    //,include(new MyUsernamePasswordProvider[DemoUser](userService, avatarService, viewTemplates, passwordHashers))
     ,include(new UsernamePasswordProvider[DemoUser](userService, avatarService, viewTemplates, passwordHashers))
   )
 

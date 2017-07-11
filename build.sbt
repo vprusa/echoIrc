@@ -35,8 +35,10 @@ lazy val server = (project in file("server")).settings(
     evolutions,
     specs2 % Test,
     "com.h2database" % "h2" % "1.4.191",
+    "io.backchat.hookup" %% "hookup" % "0.4.2",
 
-    //"com.typesafe.play" %% "anorm" 				% "2.4.0",
+
+//"com.typesafe.play" %% "anorm" 				% "2.4.0",
     //"com.typesafe.play" %% "anorm" % "2.5.0",
     //"org.webjars" 			%% "webjars-play" % "2.4.0-1",
     "org.webjars" %% "webjars-play" % "2.5.0-1",

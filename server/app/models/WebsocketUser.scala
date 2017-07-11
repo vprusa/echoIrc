@@ -1,6 +1,8 @@
 package models
 
 
+import java.util
+
 import org.pircbotx.Configuration
 import org.pircbotx.hooks.events.ActionEvent
 import org.pircbotx.hooks.types.{GenericChannelEvent, GenericChannelUserEvent, GenericMessageEvent}
@@ -35,7 +37,7 @@ object WebsocketUser {
 
 }
 
-class WebsocketUser(system: ActorSystem, name: String, channel: String, var demoUser: DemoUser, var ircBot: IrcLogBot = null) extends Actor {
+class WebsocketUser(system: ActorSystem, name: String, var demoUser: DemoUser, var ircBot: IrcLogBot = null) extends Actor {
 
   import WebsocketUser._
 
@@ -58,6 +60,8 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
 
   def receive = {
     case IrcNewParticipant(name, subscriber) => {
+      val conf = play.api.Play.current.configuration
+      val channels = conf.getStringList("app.irc.defaultChannels")
 
       if (ircBot != null) {
         Logger.debug(s"IrcNewParticipant( name: ${name} ,subscriber: ${subscriber} ) with running ircBot")
@@ -65,8 +69,8 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         // update subscriber for listener
         ircBot.defaultListener.listenersUserActor = subscriber
         // welcome message - but ircbot may not be ready yet
-        subscriber ! Json.parse(write[JsMessage](JsMessage(
-          sender = name, target = channel, msg = "Connected to web server")))
+        //        subscriber ! Json.parse(write[JsMessage](JsMessage(
+        //          sender = name, target = channel, msg = "Connected to web server")))
         ircBot.defaultListener.listenersUserActor ! Json.parse(write(JsMessageIrcBotReady()))
       } else {
         Logger.debug(s"IrcNewParticipant( name: ${name} ,subscriber: ${subscriber} )")
@@ -76,8 +80,8 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         userActor = subscriber
 
         // welcome message - but ircbot may not be ready yet
-        subscriber ! Json.parse(write[JsMessage](JsMessage(
-          sender = name, target = channel, msg = "Connected to web server")))
+        //        subscriber ! Json.parse(write[JsMessage](JsMessage(
+        //          sender = name, target = channel, msg = "Connected to web server")))
 
         var uniqueName: (String, String) = (system.settings.config.getString("app.irc.defaultUserName"), "default")
         if (demoUser != null) {
@@ -87,7 +91,8 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         Logger.debug(s"SecureSocial User id ( name: ${name} )")
         // Logger.debug(demoUser.toString)
 
-        listener = new IrcListener(server, channel, uniqueName, subscriber) {
+        //todo
+        listener = new IrcListener(server, channels.get, uniqueName, subscriber) {
           override def onAction(event: ActionEvent): Unit = {
             Logger.debug(s"onAction: ${event.toString}")
             if (event.getAction == "/part" || event.getAction == "/leave") {
@@ -159,7 +164,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
         }
 
         val configParams: Configuration.Builder = new Configuration.Builder()
-          .addAutoJoinChannel(channel)
+          .addAutoJoinChannels(channels.get)
           .setRealName(name)
           .setAutoReconnect(true)
           .setVersion("0.0.1")
