@@ -25,7 +25,8 @@ create table "user" (
   "accessToken" VARCHAR,
   "tokenType" VARCHAR,
   "expiresIn" INTEGER,
-  "refreshToken" VARCHAR
+  "refreshToken" VARCHAR,
+  "passwordInfo" VARCHAR
 );
 
 

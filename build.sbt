@@ -25,6 +25,8 @@ lazy val server = (project in file("server")).settings(
   resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases",
   resolvers += "jboss repo" at "https://repository.jboss.org/nexus/content/repositories/public/",
 
+  libraryDependencies += filters,
+
   libraryDependencies ++= Seq(
     "com.vmunier" %% "scalajs-scripts" % "1.0.0",
     //jdbc,

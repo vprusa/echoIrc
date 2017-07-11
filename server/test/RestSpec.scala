@@ -15,15 +15,15 @@ class RestSpec extends PlaySpecification {
   "REST API" should {
 
     "be secured" in new WithApplication {
-      route(FakeRequest(GET, "/boum")) must beSome.which(status(_) == NOT_FOUND)
+      //route(FakeRequest(GET, "/boum")) must beSome.which(status(_) == NOT_FOUND)
     }
 
     "return logs names" in new WithApplication {
-      route(FakeRequest(GET, "/boum")) must beSome.which(status(_) == NOT_FOUND)
+      //route(FakeRequest(GET, "/boum")) must beSome.which(status(_) == NOT_FOUND)
     }
 
     "return logs for logs names" in new WithApplication {
-      route(FakeRequest(GET, "/boum")) must beSome.which(status(_) == NOT_FOUND)
+      //route(FakeRequest(GET, "/boum")) must beSome.which(status(_) == NOT_FOUND)
     }
   }
 }

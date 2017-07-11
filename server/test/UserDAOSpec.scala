@@ -52,7 +52,6 @@ class UserDAOSpec extends Specification {
       Logger.debug("DB test")
       Logger.debug(storedUsers.toString())
 
-
       storedUsers.toSet must equalTo(testUsers)
     }
   }

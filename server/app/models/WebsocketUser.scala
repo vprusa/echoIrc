@@ -95,7 +95,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
               // TODO leave channel
               // https://github.com/TheLQ/pircbotx/wiki/MigrationGuide2
               //event.getBot[IrcLogBot].partChannel(event.getChannel, "Goodbye")
-              getCurrentLog(event).logLine(JsMessage(event.getUser.getNick, event.getUser.getNick, "Leaving channel"))
+              getCurrentLog(event).logLineAndExecuteScriptAction(JsMessage(event.getUser.getNick, event.getUser.getNick, "Leaving channel"))
               event.getChannel.send().part("Leaving with love")
             }
           }
@@ -110,7 +110,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
               //    Logger.debug("JsMessage")
 
               if (listenersUserActor != null) {
-                getCurrentLog(event).logLine(jsmsg)
+                getCurrentLog(event).logLineAndExecuteScriptAction(jsmsg)
                 listenersUserActor ! Json.parse(write(jsmsg))
               } else {
                 Logger.debug(s"onGenericMessage sub missing")
@@ -137,7 +137,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
                 sender = eventGeneric.getUser.getNick, target = event.getChannel.getName, msg = event.getClass.getName)
 
               if (listenersUserActor != null) {
-                getCurrentLog(event).logLine(jsmsg)
+                getCurrentLog(event).logLineAndExecuteScriptAction(jsmsg)
                 listenersUserActor ! Json.parse(write(jsmsg))
               } else {
                 Logger.debug(s"onGenericMessage sub missing")
@@ -148,7 +148,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
                 sender = "unknown", target = event.getChannel.getName, msg = event.toString)
 
               if (listenersUserActor != null) {
-                getCurrentLog(event).logLine(jsmsg)
+                getCurrentLog(event).logLineAndExecuteScriptAction(jsmsg)
                 // listenersUserActor ! Json.parse(write(jsmsg))
               } else {
                 Logger.debug(s"onGenericMessage sub missing")
@@ -208,7 +208,7 @@ class WebsocketUser(system: ActorSystem, name: String, channel: String, var demo
             Logger.debug(s"JsMessage")
 
             // log to file
-            ircBot.defaultListener.getCurrentLog(jsmsg.target).logLine(jsmsg)
+            ircBot.defaultListener.getCurrentLog(jsmsg.target).logLineAndExecuteScriptAction(jsmsg)
             // send to irc
             ircBot.send().message(jsmsg.target, s"${jsmsg.msg}")
             sendJsMessage(jsmsg)

@@ -2,12 +2,13 @@ package dao
 
 import javax.inject.Inject
 
+import play.Logger
+import securesocial.core.PasswordInfo
+//import play.api.Logger
 import securesocial.core.BasicProfile
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{Await, ExecutionContext, Future}
 
-//import models.User
-//import models.Users
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 import securesocial.core.{AuthenticationMethod, OAuth1Info, OAuth2Info}
 import slick.jdbc.JdbcProfile
@@ -64,11 +65,9 @@ case class BasicProfile(
 
 class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(implicit executionContext: ExecutionContext) extends HasDatabaseConfigProvider[JdbcProfile] {
 
-  // import profile.api._
   import profile.api._
 
   private val Users = TableQuery[Users]
-  //private val Tokens = TableQuery[MailTokens]
 
   def all() /* : Future[Seq[UserDAO]] */ = db.run(Users.result)
 
@@ -76,7 +75,6 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
 
   def autoInc = Users.map(_.uid)
 
-  //def findById(id: Long) = withSession { implicit session =>
   def findById(id: Long) = {
     /*      val q = for {
             user <- this if user.uid === id
@@ -97,23 +95,8 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
   }
 
   def findByUserId(userId: String): Future[Option[BasicProfile]] = {
-    val q = for {
-      user <- Users
-      if user.userId === userId
-    } yield user
-    //db.run(Users.filter(_.userId === userId).filter(_.providerId === providerId).result.headOption).map { _ => () }
-    db.run(q.result.headOption) //.map { _ => () }
+    db.run(Users.filter(_.email === userId).result.headOption)
   }
-
-  /*
-  def waitForFuture[T](f: Future[T]): Unit = {
-    val result: Try[T] = Await.ready(f, Duration.Inf).value.get
-
-    val resultEither = result match {
-      case Success(t) => Right(t)
-      case Failure(e) => Left(e)
-    }
-  }*/
 
   // def findByEmailAndProvider(email: String, providerId: String): Option[User] = withSession { implicit session =>
   def findByEmailAndProvider(email: String, providerId: String): Future[Option[BasicProfile]] = {
@@ -149,12 +132,29 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
     find(user.userId, user.providerId).map { fut =>
       fut match {
         case v: Option[BasicProfile] => {
-          v.map((b: BasicProfile) => {
-            // update
-            db.run(Users.filter(t => t.userId === b.userId && t.providerId === b.providerId).map(k => ()).update(user))
-          })
+          if (v.isEmpty) {
+            Logger.debug("save found None")
+            // added new
+            val res = db.run(Users += user).map { _ => () }
+
+            import scala.concurrent.duration.DurationInt
+            //            import scala.concurrent.ExecutionContext.Implicits.global
+            import scala.concurrent.{Await, Future}
+
+            val storedUsers = Await.result(db.run(Users.result), 1 seconds)
+            Logger.debug("DB test2")
+            Logger.debug(storedUsers.toString())
+          } else {
+            v
+            v.map((b: BasicProfile) => {
+              // update
+              db.run(Users.filter(t => t.userId === b.userId && t.providerId === b.providerId).map(k => ()).update(user))
+            })
+          }
         }
+        // todo remove, should not be necessary
         case None => {
+          Logger.debug("save found None")
           // added new
           db.run(Users += user).map { _ => () }
         }
@@ -227,6 +227,9 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
 
     def refreshToken = column[Option[String]]("refreshToken")
 
+    //def passwordInfo = column[Option[PasswordInfo]]("passwordInfo")
+    def passwordInfo = column[Option[String]]("passwordInfo")
+
 
     def * = {
       val shapedValue = (uid.?,
@@ -243,11 +246,19 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
         accessToken,
         tokenType,
         expiresIn,
-        refreshToken).shaped
+        refreshToken,
+        passwordInfo
+      ).shaped
+
+      Logger.debug("* converting shapedValue")
+      Logger.debug(shapedValue.toString)
 
       shapedValue.<>({
         tuple =>
-          BasicProfile(
+          Logger.debug("* converting shapedValue to tuples")
+          Logger.debug(tuple.toString)
+
+          val bp = BasicProfile(
             //uid = tuple._1,
             userId = tuple._2,
             providerId = tuple._3,
@@ -259,11 +270,23 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
             authMethod = tuple._9,
             oAuth1Info = (tuple._10, tuple._11),
             oAuth2Info = (tuple._12, tuple._13, tuple._14, tuple._15)
+            , passwordInfo = Some(PasswordInfo(hasher = "bcrypt", password = tuple._16.getOrElse("default")))
           )
+          Logger.debug("* converting bp")
+          Logger.debug(bp.toString)
+
+          bp
       }, { (u: BasicProfile) => {
-        Option {
+        Logger.debug("* converting u: BasicProfile")
+        Logger.debug(u.toString)
+        Logger.debug("u.passwordInfo")
+        Logger.debug(u.passwordInfo.toString)
+
+        val somePassword = Some(u.passwordInfo.getOrElse(PasswordInfo("", "")).password) //(u.passwordInfo.isEmpty) //Some(u.passwordInfo.get.password)
+
+        val retOpt = Option {
           (
-            Option(0),
+            Option(0.toLong),
             u.userId,
             u.providerId,
             u.firstName.getOrElse(""),
@@ -278,8 +301,13 @@ class UserDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)(
             u.oAuth2Info.flatMap(_.tokenType),
             u.oAuth2Info.flatMap(_.expiresIn),
             u.oAuth2Info.flatMap(_.refreshToken)
+            , somePassword
+            //, u.oAuth2Info.flatMap(_.refreshToken)
           )
         }
+        Logger.debug("* converting opt")
+        Logger.debug(retOpt.toString)
+        retOpt
       }
       })
     }

@@ -1,26 +1,22 @@
-import org.specs2.mutable._
-import org.specs2.runner._
-import org.junit.runner._
+import controllers.Application
+import org.specs2.matcher.ShouldMatchers
+import play.api.http.HeaderNames
+import play.api.mvc.{Request, AnyContent}
+import play.api.test.{PlaySpecification, FakeApplication, FakeRequest}
 
-import play.api.test._
-import play.api.test.Helpers._
+class ApplicationSpec extends PlaySpecification with ShouldMatchers {
+  /*
+    import WithLoggedUser._
 
-/**
-  * Add your spec here.
-  * You can mock out a whole application including requests, plugins etc.
-  * For more information, consult the wiki.
-  */
-@RunWith(classOf[JUnitRunner])
-class ApplicationSpec extends Specification {
+    def minimalApp = FakeApplication(withoutPlugins = excludedPlugins, additionalPlugins = includedPlugins)
 
-  "Application" should {
-
-    "render the index page" in new WithApplication {
-      val home = route(FakeRequest(GET, "/custom/login")).get
-
-      status(home) must equalTo(OK)
-      contentType(home) must beSome.which(_ == "text/html")
-      contentAsString(home) must contain("Your new application is ready.")
+    "Access secured index " in new WithLoggedUser(minimalApp) {
+      val req: Request[AnyContent] = FakeRequest().
+        withHeaders((HeaderNames.CONTENT_TYPE, "application/x-www-form-urlencoded")).
+        withCookies(cookie) // Fake cookie from the WithloggedUser trait
+      val result = Application.index.apply(req)
+      val actual: Int = status(result)
+      actual must be equalTo OK
     }
-  }
+    */
 }

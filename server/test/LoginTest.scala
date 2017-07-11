@@ -42,7 +42,7 @@ object LoginTest extends PlaySpecification /* or whatever OneApp */ with CSRFTes
 
       uservice.save(
         BasicProfile(
-          "database",
+          "userpass",
           "test",
           Some(""),
           Some(""),
@@ -52,7 +52,7 @@ object LoginTest extends PlaySpecification /* or whatever OneApp */ with CSRFTes
           AuthenticationMethod.UserPassword,
           None,
           None,
-          Some(PasswordInfo("hasher", "userpass", None))
+          Some(PasswordInfo("hasher", "password", None))
         ),
         SaveMode.SignUp
       )
@@ -63,7 +63,7 @@ object LoginTest extends PlaySpecification /* or whatever OneApp */ with CSRFTes
 
       val loginPageRequest = addToken(FakeRequest(Helpers.GET, "/custom/login"))
       val loginRequest = addToken(FakeRequest(Helpers.POST, "/auth/authenticate/userpass"))
-        .withFormUrlEncodedBody(("username", "test"), ("password", "userpass"))
+        .withFormUrlEncodedBody(("username", "test"), ("password", "password"))
 
 
       Logger.debug("login page")
@@ -75,9 +75,9 @@ object LoginTest extends PlaySpecification /* or whatever OneApp */ with CSRFTes
       Logger.debug(loginPagesCookies.toString)
 
       val loginRequestWithCookies = loginRequest.withCookies(loginPagesCookies.get("PLAY_SESSION").get)
-      Logger.debug("loginRequestWithCookies")
+      Logger.debug("loginRequestWithCookies2")
       Logger.debug(loginRequestWithCookies.toString())
-      Logger.debug("login")
+      Logger.debug("login2")
       Logger.debug(loginRequest.toString())
       val credentials = cookies(route(loginRequestWithCookies).get)
       Logger.debug(credentials.toString)

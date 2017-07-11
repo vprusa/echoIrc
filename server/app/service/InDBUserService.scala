@@ -17,6 +17,8 @@
 package service
 
 import dao.{TokenDAO, UserDAO}
+import org.mindrot.jbcrypt.BCrypt
+//import play.Logger
 import play.api.Logger
 import securesocial.core._
 import securesocial.core.providers.MailToken
@@ -56,46 +58,9 @@ class InDBUserService(
     val conf = play.api.Play.current.configuration
     if (userId.contains("@")) {
       // find for email and userid is redirected here as password, username...
-
-      // import scala.concurrent.duration._
-
-      val ret = userDao.findByEmailAndProvider(userId, "database")
-      Logger.debug(userDao.toString)
-      ret
-    } else if (userId != null
-      && userId.matches(conf.getString("app.server.users.owner.username").getOrElse(null))
-      && providerId.matches(conf.getString("app.server.users.owner.password").getOrElse(null))) {
-
-      val ownerProfile = BasicProfile(
-        "ownerProvider",
-        "owner",
-        Some(""),
-        Some(""),
-        Some(""),
-        Some("owner@localhost"),
-        None,
-        AuthenticationMethod.UserPassword,
-        None,
-        None,
-        Some(PasswordInfo("hasher", conf.getString("app.server.users.owner.password").getOrElse(null), None))
-      )
-
-      val findRes = userDao.find(providerId, userId)
-      val findResWaited = Await.result(findRes, 5 seconds)
-      Logger.debug("findResWaited.toString")
-      Logger.debug(findResWaited.toString)
-      if (findResWaited.isEmpty) {
-        val storedUser = Await.result(userDao.insert(ownerProfile), 5 seconds)
-        Logger.debug("storedUser.toString")
-        Logger.debug(storedUser.toString)
-        val findRes2 = userDao.find(providerId, userId)
-        findRes2
-      } else {
-        Logger.debug("userDao.find(providerId, userId)")
-        userDao.find(providerId, userId)
-      }
+      userDao.findByUserId(userId /*"userpass"*/)
     } else {
-      userDao.findByUserId(userId)
+      userDao.findByIdentityId(userId)
     }
   }
 
@@ -145,6 +110,7 @@ class InDBUserService(
         // val newUser = DemoUser(profile, List(profile))
         // users = users + ((profile.providerId, profile.userId) -> newUser)
         userDao.save(profile)
+        //userDao.insert(profile)
         Future.successful(DemoUser(profile))
       case SaveMode.LoggedIn =>
         // first see if there is a user with this BasicProfile already.
@@ -158,7 +124,6 @@ class InDBUserService(
             }
             case None => {
               val newUser = DemoUser(profile)
-
               //if (profile.isInstanceOf[DBUser])
               userDao.save(profile)
               //users = users + ((user.providerId, user.userId) -> newUser)

@@ -68,8 +68,6 @@ class RestController @Inject()(
     }
   }
 
-  //  def getUsersLogPart(fromDateTime: String, toDateTime: String, fromLine: Int, linesCount: Int) = SecuredAction { implicit request =>
-
   def getLogsNames(target: String) = SecuredAction { request =>
     //val body: AnyContent = request.body
 

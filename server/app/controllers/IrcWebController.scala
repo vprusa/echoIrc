@@ -19,6 +19,7 @@ import utils.IrcLogBot
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Future, _}
+import scala.xml.dtd.ContentModel
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 
@@ -37,7 +38,6 @@ class IrcWebController @Inject()(
   def ircChat = SecuredAction { implicit request =>
     Ok(views.html.ircChat("url"))
   }
-
 
   def unpackUser(demoUserFutOpt: Future[Option[MyEnvironment#U]]): DemoUser = {
     var demoUserVar: DemoUser = null //TODO ..hate to use null but should be safe cause of Exception below
@@ -98,7 +98,11 @@ class IrcWebController @Inject()(
 
     var uniqueName: String = actorSystem.settings.config.getString("app.irc.defaultUserName")
     if (demoUserVar != null) {
-      uniqueName = demoUserVar.main.userId
+      if (actorSystem.settings.config.getBoolean("app.server.users.keepUsernameAsLogin")) {
+        uniqueName = demoUserVar.main.userId
+      } else {
+        uniqueName = sender
+      }
     }
 
     var userActor: ActorRef = null

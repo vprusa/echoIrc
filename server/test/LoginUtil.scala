@@ -54,7 +54,6 @@ trait CSRFTest {
 
 object LoginUtil extends RouteInvokers with Writeables with CSRFTest {
 
-
   var _cookie: Cookie = _
 
   def cookie = _cookie
@@ -62,7 +61,7 @@ object LoginUtil extends RouteInvokers with Writeables with CSRFTest {
   def login() {
     val loginPageRequest = FakeRequest(Helpers.GET, "/custom/login")
     val loginRequest = FakeRequest(Helpers.POST, "/auth/authenticate/userpass")
-      .withFormUrlEncodedBody(("username", "test"), ("password", "userpass"))
+      .withFormUrlEncodedBody(("username", "owner"), ("password", "password"))
 
 
     Logger.debug("login page")
@@ -73,10 +72,14 @@ object LoginUtil extends RouteInvokers with Writeables with CSRFTest {
     Logger.debug("credentials2.toString")
     Logger.debug(loginPagesCookies.toString)
 
+    Logger.debug("loginPagesCookies.get(PLAY_SESSION).get.toString")
+    Logger.debug(loginPagesCookies.get("PLAY_SESSION").get.toString)
+
     val loginRequestWithCookies = loginRequest.withCookies(loginPagesCookies.get("PLAY_SESSION").get)
+    
     Logger.debug("loginRequestWithCookies")
     Logger.debug(loginRequestWithCookies.toString())
-    Logger.debug("login")
+    Logger.debug("login1")
     Logger.debug(loginRequest.toString())
     val credentials = cookies(route(loginRequestWithCookies).get)
     Logger.debug(credentials.toString)
