@@ -48,7 +48,9 @@ import scalaz.stream.Process.Await
 
 
 //class LoginTest extends Specification {
-object LoginTest extends PlaySpecification /* or whatever OneApp */ with CSRFTest with Mockito with Results {
+object LoginTest extends PlaySpecification /* or whatever OneApp */
+  //with CSRFTest with Mockito with Results
+{
 
   "Login " should {
 
@@ -76,7 +78,7 @@ object LoginTest extends PlaySpecification /* or whatever OneApp */ with CSRFTes
       //Logger.debug("bodyText.toString()")
       //Logger.debug(bodyText)
       status(reactPage) mustEqual OK
-      bodyText matches(".*websocketUrl.*")
+      bodyText matches (".*websocketUrl.*")
     }
 
   }

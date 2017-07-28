@@ -49,15 +49,10 @@ object Global extends GlobalSettings {
     // set initial value for shared
     Shared.setData(initialValue)
 
-    // Logger.info(s"persistentObj: ${persistentObj}")
-
     import service._
     val envCache = Application.instanceCache[MyEnvironment]
 
-    // Logger.debug("envCache.toString()")
-    // Logger.debug(envCache.toString())
     val env = envCache(app)
-    // Logger.debug(env.toString())
     val upp = env.providers.getOrElse("userpass", new UsernamePasswordProvider[DemoUser](env.userService, env.avatarService, env.viewTemplates, env.passwordHashers))
     val conf = play.api.Play.current.configuration
 
@@ -82,7 +77,12 @@ object Global extends GlobalSettings {
 
       val futDemoURes = Await.result(futDemoU, 5 seconds)
       Logger.debug("Added owner user")
-      //Logger.debug(futDemoURes.toString())
+      Logger.debug(futDemoURes.toString())
+
+      // start default bot
+      // val botAlwaysRunning = conf.getBoolean("app.server.users.owner.alwaysRunning").getOrElse(false)
+      //Shared.ircLogBotMap += (("","") -> )
+
     }
 
     val app2dao = Application.instanceCache[UserDAO]
@@ -92,7 +92,7 @@ object Global extends GlobalSettings {
     //import scala.concurrent.ExecutionContext.Implicits.global
     //import scala.concurrent.{Await, Future}
 
-    val storedUsers = Await.result(dao.all(), 1 seconds)
+    val storedUsers = Await.result(dao.all(), 5 seconds)
     Logger.debug("Stored Users list")
     Logger.debug(storedUsers.toString())
 
