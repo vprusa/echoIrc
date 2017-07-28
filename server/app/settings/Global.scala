@@ -3,7 +3,9 @@ package settings
 import akka.actor.ActorSystem
 import com.typesafe.config._
 import org.mindrot.jbcrypt.BCrypt
-import service.DemoUser
+import org.pircbotx.Configuration
+import service.{DemoUser, MyEnvironment}
+import utils.IrcLogBot
 //import org.specs2.matcher.MustThrownExpectations
 //import org.specs2.mock.Mockito
 //import org.specs2.mutable.Before
@@ -80,8 +82,9 @@ object Global extends GlobalSettings {
       Logger.debug(futDemoURes.toString())
 
       // start default bot
-      // val botAlwaysRunning = conf.getBoolean("app.server.users.owner.alwaysRunning").getOrElse(false)
-      //Shared.ircLogBotMap += (("","") -> )
+      //
+      val botAlwaysRunning = conf.getBoolean("app.server.users.owner.alwaysRunning").getOrElse(false)
+      //Shared.ircLogBotMap += ((ownerUsername, upp.id) -> new Irc)
 
     }
 
@@ -99,5 +102,7 @@ object Global extends GlobalSettings {
     val planner = new Planner(app, cfg)
     planner.planFutureLogRotation()
   }
+
+
 
 }

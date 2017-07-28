@@ -2,6 +2,9 @@ package scalajsreact.template.pages
 
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.component.Generic.MountedWithRoot
+import japgolly.scalajs.react.component.ScalaBuilder.Lifecycle
+import japgolly.scalajs.react.component.ScalaBuilder.Lifecycle.{ComponentWillMount, ComponentWillMountFn}
+import japgolly.scalajs.react.extra.Reusability
 import japgolly.scalajs.react.vdom.html_<^.{<, _}
 import org.scalajs.dom
 import org.scalajs.dom._
@@ -131,8 +134,6 @@ object IrcChatPage {
 
   case class ChatState(var targets: ListBuffer[TargetState], sender: String,
                        var channelJoin: String, /*channelJoinPassword : String,*/ var selectedTarget: Option[TargetState], var ready: Boolean, var props: Option[IrcChatProps]) {
-
-
     def setReadyAndRequestParticipants() = {
       org.scalajs.dom.console.log("setReadyAndGetParticipants")
       var targetsArr = Array.empty[String]
@@ -151,7 +152,6 @@ object IrcChatPage {
       this
     }
 
-
     def updateTargetsParticipants(targetsParticipants: Map[String, Array[TargetParticipant]]) = {
       org.scalajs.dom.console.log("updateTargetsParticipants ")
       org.scalajs.dom.console.log(targetsParticipants.toString())
@@ -165,11 +165,10 @@ object IrcChatPage {
           }
         })
       })
-      org.scalajs.dom.console.log("updateTargetsParticipants ")
+      org.scalajs.dom.console.log("updateTargetsParticipants")
       org.scalajs.dom.console.log(newTargets.toString)
       newTargets
     }
-
 
     // if no target view is selected and targets list is not empty then set the first target as selected view
     def setDefaultSelectedTargetIfNone(): Unit = {
@@ -177,7 +176,6 @@ object IrcChatPage {
         this.selectedTarget = Some(targets(0))
       }
     }
-
 
     def setInputMessageAndReturnAllTargets(target: TargetState, inputMessage: String): ListBuffer[TargetState] = {
       // logThisMethodJs()
@@ -332,6 +330,10 @@ object IrcChatPage {
 
     def mounted = {
       org.scalajs.dom.console.log(s"mounted")
+
+      org.scalajs.dom.console.log("direct.toString $")
+      org.scalajs.dom.console.log($.toString)
+
       /*import scala.concurrent.ExecutionContext.Implicits.global
       Ajax.get(s"/rest/getParticipants/${target}").foreach {
         xhr =>
@@ -611,7 +613,7 @@ object IrcChatPage {
         // Create WebSocket and setup listeners
         props.username = s.sender
 
-        val urlWithUserName = url + "/" + s.sender //props.username
+        val urlWithUserName = url // + "/" + s.sender //props.username
         val ws: WebSocket = new WebSocket(urlWithUserName)
         ws.onopen = onopen _
         ws.onclose = onclose _
@@ -635,7 +637,7 @@ object IrcChatPage {
       org.scalajs.dom.console.log("method: end")
       org.scalajs.dom.console.log(direct.toString)
       org.scalajs.dom.console.log($.toString)
-      // setPersistentChatState(direct)
+      setPersistentChatState(direct)
 
       //def closeWebSocket = $.state.map(_.ws.foreach(_.close()))
       //def clearWebSocket = $.modState(_.copy(ws = None))
@@ -695,17 +697,30 @@ object IrcChatPage {
     }
   }
 
+
+  def loadPersistentChatState(f: Option[ComponentWillMount[IrcChatProps, IrcChatPage.ChatState, IrcChatPage.Backend]] = None): ChatState = {
+    org.scalajs.dom.console.log("method: loadPersistentChatState")
+    val state = getPersistentChatState()
+
+    if (!f.isEmpty) {
+      state.copy(sender = f.get.props.username)
+    } else
+      state
+  }
+
   val WebSocketsApp = ScalaComponent.builder[IrcChatProps]("WebSocketsApp")
-    // .initialState(getPersistentChatState())
-    .initialState(ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false, None))
+    .initialState(getPersistentChatState())
+    //.initialState(ChatState(ListBuffer(defaultTargetStateInside), "", "", None, false, None))
     .renderBackend[Backend]
     // set username (username has to be as chat state atr because it can be changed via /anick command)
     .componentWillMount(f => {
+    //  loadPersistentChatState(Some(f))
     f.modState(_.copy(sender = f.props.username))
   })
     .componentDidMount(_.backend.mounted)
     .componentWillUnmount(_.backend.end)
     //.configure(Reusability.shouldComponentUpdate)
+    .configure()
     .build
 
 }

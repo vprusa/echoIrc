@@ -16,7 +16,7 @@ class CustomLoginController @Inject()(val csrfAddToken: CSRFAddToken, implicit o
   override def login: Action[AnyContent] = csrfAddToken {
     UserAwareAction {
       implicit request => {
-        //        Logger.debug("using CustomLoginController")
+        Logger.debug("using CustomLoginController")
         // from BaseLoginPage
         if (request.user.isDefined) {
           // if the user is already logged in, a referer is set and we handle the

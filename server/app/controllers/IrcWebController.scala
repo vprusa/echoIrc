@@ -3,12 +3,13 @@ package controllers
 import java.net.URL
 import javax.inject.{Inject, Singleton}
 
-import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.actor.{ActorNotFound, ActorRef, ActorSystem, Props}
 import akka.stream.OverflowStrategy
 import akka.stream.scaladsl.{Flow, Sink, Source}
+import akka.util.Timeout
 import models.WebsocketUser
 import models.WebsocketUser._
-import play.api.Logger
+import play.Logger
 import play.api.i18n.{I18nSupport, MessagesApi}
 import play.api.libs.json.JsValue
 import play.api.mvc._
@@ -20,6 +21,8 @@ import utils.IrcLogBot
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Future, _}
 import scala.xml.dtd.ContentModel
+import scala.concurrent.duration.Duration
+import shared.Shared
 
 // http://stackoverflow.com/questions/37371698/could-not-find-implicit-value-for-parameter-messages-play-api-i18n-messages-in
 
@@ -39,88 +42,46 @@ class IrcWebController @Inject()(
     Ok(views.html.ircChat("url"))
   }
 
-  def unpackUser(demoUserFutOpt: Future[Option[MyEnvironment#U]]): DemoUser = {
-    var demoUserVar: DemoUser = null //TODO ..hate to use null but should be safe cause of Exception below
-    Logger.debug("unpackUser")
 
-    val maybeCurUser = for {
-      f1Result <- demoUserFutOpt
-    } yield (f1Result)
+  def myChatFlow(demoUser: DemoUser): Flow[JsValue, JsValue, _] = {
+    Logger.debug("myChatFlow.toString")
 
-    maybeCurUser onComplete {
-      case f => {}
-    }
-    maybeCurUser // this will make it wait for result
-    if (maybeCurUser == None) {
-      Logger.debug(s"maybeCurUser1 None")
-      return null
-    }
-    import scala.concurrent.duration.Duration
+    // actorSystem.settings.config.getString("app.irc.defaultUserName")
 
-    val result = Await.result(maybeCurUser, Duration.Inf)
-    val someUser: Some[DemoUser] = result.asInstanceOf[Some[DemoUser]]
+    var userActor: Option[ActorRef] = None
 
-    someUser match {
-      case Some(d: DemoUser) => {
-        demoUserVar = d
+    import scala.concurrent.duration._
+    implicit val timeout = 10.seconds
+
+    try {
+      val existingActorFut = actorSystem.actorSelection(s"akka://application/user/${demoUser.main.userId}").resolveOne(timeout)
+      val result = Await.result(existingActorFut, Duration.Inf)
+      //Logger.debug(s"result")
+      //Logger.debug(result.toString)
+
+      if (result != null) {
+        userActor = Some(result)
       }
-      case other => {
-        // TODO SecurityException because no DemoUser found so probably forgery
-        Logger.debug(s"SecurityException ${someUser.toString}")
-        throw new Exception("SecurityException")
-      }
+    } catch {
+      case e: ActorNotFound => Logger.debug(s"ActorNotFound: WS Actor for ${demoUser.main.userId} not found")
+      case e: Exception => Logger.debug(s"Exception when looking for existing WS Actor with name: ${demoUser.main.userId}")
     }
-
-    if (demoUserVar == null) {
-      throw new NullPointerException("NullPointerException")
-    }
-    demoUserVar
-  }
-
-  def getIrcBotByUser(demoUser: DemoUser): IrcLogBot = {
-    if (demoUser == null) {
-      null
-    } else {
-      Shared.ircLogBotMap.getOrElse((demoUser.main.userId, demoUser.main.providerId), null)
-    }
-  }
-
-  def getIrcBotByUserName(identityId: (String, String)): IrcLogBot = {
-    Shared.ircLogBotMap.getOrElse(identityId, null)
-  }
-
-  def myChatFlow(sender: String, demoUserFutOpt: Future[Option[MyEnvironment#U]]): Flow[JsValue, JsValue, _] = {
-    var demoUserVar: DemoUser = null
-    if (demoUserFutOpt != null) {
-      demoUserVar = unpackUser(demoUserFutOpt)
-    }
-    Logger.debug("demoUserFutOpt.toString")
-
-    var uniqueName: String = actorSystem.settings.config.getString("app.irc.defaultUserName")
-    if (demoUserVar != null) {
-      if (actorSystem.settings.config.getBoolean("app.server.users.keepUsernameAsLogin")) {
-        uniqueName = demoUserVar.main.userId
-      } else {
-        uniqueName = sender
-      }
-    }
-
-    var userActor: ActorRef = null
-
+    //try {
     // here i need to check if bot for this user already started or start new stared
-    if (userActor == null) {
-      userActor = actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, name = sender, demoUser = demoUserVar,
-        ircBot = getIrcBotByUser(demoUserVar)
+    if (userActor.isEmpty) {
+      userActor = Some(actorSystem.actorOf(Props(new WebsocketUser(system = actorSystem, demoUser = demoUser
+        //,ircBot = getIrcBotByUser(demoUser)
         //ircBot = getIrcBotByUserName(uniqueName)
-      )), uniqueName)
+      )), demoUser.main.userId))
+
     }
 
     val in =
       Flow[JsValue]
         .map(
-          IrcReceivedMessage(sender, _)
+          IrcReceivedMessage(demoUser.main.userId, _)
         )
-        .to(Sink.actorRef[IrcChatEvent](userActor, IrcParticipantLeft(sender)))
+        .to(Sink.actorRef[IrcChatEvent](userActor.get, IrcParticipantLeft(demoUser.main.userId)))
 
     // The counter-part which is a source that will create a target ActorRef per
     // materialization where the userActor will send its messages to.
@@ -130,27 +91,45 @@ class IrcWebController @Inject()(
     Source.actorRef[JsValue](100, OverflowStrategy.dropNew)
       .mapMaterializedValue(
         // give the user actor a way to send messages out
-        userActor ! IrcNewParticipant(sender, _)
+        // todo requires not None
+        userActor.get ! IrcNewParticipant(demoUser.main.userId, _)
       )
     Logger.debug(s"myChatFlow: \n${in}\n${out}")
     Flow.fromSinkAndSource(in, out)
   }
 
-  def chat(botName: String): WebSocket = {
+  def chat: WebSocket = {
     Logger.debug("IrcController.chat")
     WebSocket.acceptOrResult[JsValue, JsValue] {
       case request if sameOriginCheck(request) =>
+        Logger.debug("IrcWebController.chat.request")
+        Logger.debug(request.toString())
+        Logger.debug(request.headers.toString())
+        Logger.debug(request.headers.toSimpleMap.toString())
+        Logger.debug("request.cookies.toString()")
+        Logger.debug(request.cookies.toString())
+        Logger.debug("request.session.toString()")
+        Logger.debug(request.session.toString())
 
-        Future.successful(myChatFlow(botName, SecureSocial.currentUser(request, env, executionContext))).map { flow =>
+        Logger.debug("env.toString()")
+        Logger.debug(env.toString())
+
+        Logger.debug("env.toString()")
+        Logger.debug(env.toString())
+
+
+        Logger.debug("executionContext.toString()")
+        Logger.debug(executionContext.toString())
+
+        Future.successful(myChatFlow(Shared.unpackUser(SecureSocial.currentUser(request, env, executionContext)))).map { flow =>
           Right(flow)
+        }.recover {
+          case e: Exception =>
+            val msg = "Can not create WebSocket"
+            Logger.error(msg, e)
+            val result = InternalServerError(msg)
+            Left(result)
         }
-          .recover {
-            case e: Exception =>
-              val msg = "Cannot create websocket"
-              Logger.error(msg, e)
-              val result = InternalServerError(msg)
-              Left(result)
-          }
 
       case rejected =>
         Logger.error(s"Request ${rejected} failed same origin check")

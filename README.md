@@ -37,12 +37,18 @@ https://github.com/jandro-es/demo-securesocial
 https://github.com/search?utf8=%E2%9C%93&q=securesocial&type=
 
 ## TODO
-- Add logging irc to files in dirs by userId
-- and rotate logs using by parallel/Future task 
--- on server start, 
--- on cli command
-- add cli (change this to multiproject)
-- login template with menu
+### current fixes
+add WebSocket reconnect - either: 
+- stop actor on lost connection - (frontend disconnect)
+- keep actor running and reconnect to it?
+
+fix the frontend switch channel bug when participants are not visible for old channels - refactor messages
+
+### future
+Add logging irc to files in dirs by userId (done)
+
+and rotate logs using by parallel/Future task (done) 
+- on server start (done - by default new logs)
 
 ### to get size of project
 ```bash

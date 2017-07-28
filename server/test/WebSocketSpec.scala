@@ -42,7 +42,7 @@ object WebSocketSpec extends PlaySpecification /* or whatever OneApp */ {
 
       val testName = "testName"
 
-      val uri = URI.create(s"ws://localhost:9000/chat/${testName}")
+      val uri = URI.create(s"ws://localhost:9000/chat")
 
       Logger.debug("uri")
       Logger.debug(uri.toString)
@@ -87,7 +87,7 @@ object WebSocketSpec extends PlaySpecification /* or whatever OneApp */ {
             val jsval = upickle.default.write[JsMessageBase](JsMessageStarBotRequest(testName, Array.empty[String]))
             Logger.debug(jsval.toString())
             send(jsval)
-            // send("Hello Server")
+            messages += ""
           }
         }
       }

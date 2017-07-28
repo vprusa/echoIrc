@@ -16,7 +16,7 @@ GET         /assets/*file                             controllers.Assets.version
 GET         /webjars/*file                            controllers.WebJarAssets.at(file)
 
 
-GET         /chat/:botName                            controllers.IrcWebController.chat(botName:String)
+GET         /chat                                     controllers.IrcWebController.chat
 GET         /ircChat                                  controllers.IrcWebController.ircChat
 
 # ReactJs Example - not secured (testing only)
