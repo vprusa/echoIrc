@@ -103,24 +103,25 @@ class IrcWebController @Inject()(
     WebSocket.acceptOrResult[JsValue, JsValue] {
       case request if sameOriginCheck(request) =>
         Logger.debug("IrcWebController.chat.request")
-        Logger.debug(request.toString())
-        Logger.debug(request.headers.toString())
-        Logger.debug(request.headers.toSimpleMap.toString())
-        Logger.debug("request.cookies.toString()")
-        Logger.debug(request.cookies.toString())
-        Logger.debug("request.session.toString()")
-        Logger.debug(request.session.toString())
+        /*
+          Logger.debug(request.toString())
+          Logger.debug(request.headers.toString())
+          Logger.debug(request.headers.toSimpleMap.toString())
+          Logger.debug("request.cookies.toString()")
+          Logger.debug(request.cookies.toString())
+          Logger.debug("request.session.toString()")
+          Logger.debug(request.session.toString())
 
-        Logger.debug("env.toString()")
-        Logger.debug(env.toString())
+          Logger.debug("env.toString()")
+          Logger.debug(env.toString())
 
-        Logger.debug("env.toString()")
-        Logger.debug(env.toString())
+          Logger.debug("env.toString()")
+          Logger.debug(env.toString())
 
 
-        Logger.debug("executionContext.toString()")
-        Logger.debug(executionContext.toString())
-
+          Logger.debug("executionContext.toString()")
+          Logger.debug(executionContext.toString())
+        */
         Future.successful(myChatFlow(Shared.unpackUser(SecureSocial.currentUser(request, env, executionContext)))).map { flow =>
           Right(flow)
         }.recover {

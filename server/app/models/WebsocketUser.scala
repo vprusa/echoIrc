@@ -160,17 +160,25 @@ class WebsocketUser(system: ActorSystem, demoUser: DemoUser) extends Actor {
               //userActor ! jsmsg
               sendJsMessage(JsMessageLeaveChannelResponse(jsmsg.sender, jsmsg.target))
             }
-            case jsmsg: JsMessageStarBotRequest => {
-              Logger.debug("JsMessageStarBotRequest")
+            case jsmsg: JsMessageRequestTargetsParticipants => {
+              Logger.debug("JsMessageRequestTargetsParticipants")
 
-              var resp = ircBot.defaultListener.getJsMessageStarBotResponse(jsmsg, ircBot)
+              var resp = ircBot.defaultListener.getJsMessageResponseTargetParticipants(jsmsg, ircBot)
               sendJsMessage(resp)
             }
-            case jsmsg: JsMessageStarBotResponse => {
+            case jsmsg: JsMessageResponseTargetsParticipants => {
               // nothing
               Logger.debug("JsMessageStarBotResponse")
             }
-
+            case jsmsg: JsMessageTestRequest => {
+              // nothing
+              Logger.debug("JsMessageTestRequest - replying with JsMessageTestResponse")
+              sendJsMessage(JsMessageTestResponse(jsmsg.sender, jsmsg.target, jsmsg.msg))
+            }
+            case jsmsg: JsMessageTestResponse => {
+              // nothing
+              Logger.debug("JsMessageTestResponse")
+            }
           }
 
         })

@@ -1,51 +1,15 @@
-
-import javax.inject.Inject
-
-import LoginUtil.route
-import org.specs2.mutable.Specification
-import org.specs2.mutable._
-import play.api.test.WithApplication
-import play.api.test._
-import play.api.test.Helpers.{cookies, defaultAwaitTimeout, _}
-import play.api.mvc._
-import securesocial.core._
-import play.Play
-import controllers.{RestController, WebJarAssets, routes}
-import dao.{TokenDAO, UserDAO}
-import play.api.Logger
-import play.api.Application
+import java.net.URI
 import play.api.test.FakeRequest
-import play.filters.csrf.CSRF.Token
-import play.filters.csrf.{CSRFConfigProvider, CSRFFilter}
-import play.api.mvc._
-import play.api.test._
-import securesocial.core.services.SaveMode
-import service.{InDBUserService, MyEnvironment}
-
-import scala.concurrent.{Await, Future}
 import scala.language.postfixOps
-import org.specs2.mutable.Specification
-import org.specs2.mutable._
-import play.api.test.WithApplication
-import play.api.test._
-import play.api.test.Helpers._
-import play.api.mvc._
-import securesocial.core._
-import play.Play
-import controllers.routes._
-import play.api.test.Helpers.defaultAwaitTimeout
-import org.specs2.mutable._
-import org.joda.time.DateTime
-import play.api.Logger
-import akka.actor.ActorSystem
-import com.typesafe.config.ConfigFactory
+import io.backchat.hookup.{Connected, DefaultHookupClient, Disconnected, HookupClientConfig, JsonMessage, Success, TextMessage}
+import scala.concurrent.ExecutionContext.Implicits.global
 import org.specs2.matcher.MustThrownExpectations
 import org.specs2.mock.Mockito
-import play.api.i18n.MessagesApi
-
-import scala.concurrent.ExecutionContext.Implicits.global
-import scalaz.stream.Process.Await
-
+import play.api.inject.guice.GuiceApplicationBuilder
+import play.api.Logger
+import play.api.test._
+import shared.SharedMessages.{JsMessageBase, JsMessageRequestTargetsParticipants}
+import scala.collection.mutable.ListBuffer
 
 //class LoginTest extends Specification {
 object LoginTest extends PlaySpecification /* or whatever OneApp */
@@ -79,6 +43,73 @@ object LoginTest extends PlaySpecification /* or whatever OneApp */
       //Logger.debug(bodyText)
       status(reactPage) mustEqual OK
       bodyText matches (".*websocketUrl.*")
+    }
+
+    "make WebSocket accessible" in new WithServer(app = GuiceApplicationBuilder().configure("logger.application" -> "DEBUG").build(), port = 9000) {
+      Logger.debug("Test websocket")
+      LoginUtil.login
+      //LoginUtil.cookie
+
+      val loggedRequest = FakeRequest(Helpers.GET, "/react").withCookies(LoginUtil.cookie)
+
+      //val user = SecureSocial.currentUser(loggedRequest, app.injector.instanceOf[MyEnvironment] , app.injector.instanceOf[ExecutionContext])
+
+      val testName = "testName"
+
+      val uri = URI.create(s"ws://localhost:9000/chat")
+
+      Logger.debug("uri")
+      Logger.debug(uri.toString)
+
+      val tokenHeaderAndTokenNameAndValue = LoginUtil.getTokenNameValue()
+
+
+      val hookupConfig = HookupClientConfig(uri = uri, initialHeaders = FakeRequest(Helpers.GET, "/").withCookies(LoginUtil.cookie).headers.toSimpleMap)
+
+      Logger.debug("hookupConfig")
+      Logger.debug(hookupConfig.toString)
+
+      Logger.debug("LoginUtil.cookie")
+      Logger.debug(LoginUtil.cookie.toString)
+
+      Logger.debug("hookupConfig.initialHeaders")
+      Logger.debug(hookupConfig.initialHeaders.toString)
+
+      val hookupClient = new DefaultHookupClient(hookupConfig) {
+        val messages = ListBuffer[String]()
+
+        def receive = {
+          case Connected =>
+            Logger.debug("Connected")
+
+          case Disconnected(_) =>
+            Logger.debug("Disconnected")
+
+          case JsonMessage(json) =>
+            Logger.debug("Json message = " + json)
+
+          case TextMessage(text) =>
+            messages += text
+            Logger.debug("Text message = " + text)
+        }
+
+        connect() onSuccess {
+          case Success => {
+            Logger.debug("connect Success")
+            // send(JsMessageStarBotRequest("testName",Array.empty[String]))
+            // val jsval: JsValue = Json.parse(upickle.default.write[JsMessageBase](JsMessageStarBotRequest("testName", Array.empty[String])))
+            val jsval = upickle.default.write[JsMessageBase](JsMessageRequestTargetsParticipants(testName, Array.empty[String]))
+            Logger.debug(jsval.toString())
+            send(jsval)
+            messages += ""
+          }
+        }
+      }
+      Logger.debug("hookupClient.messages")
+      Logger.debug(hookupClient.toString)
+      Logger.debug(hookupClient.messages.toString)
+      hookupClient.messages.contains("") must beTrue.eventually
+      Logger.debug(hookupClient.messages.toString)
     }
 
   }

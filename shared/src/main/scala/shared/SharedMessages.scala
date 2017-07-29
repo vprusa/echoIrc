@@ -1,16 +1,13 @@
 package shared
 
-
-
-import shared.SharedMessages.JsMessageBase
-
-import scala.collection.mutable.ListBuffer
-
 object SharedMessages {
 
   sealed trait JsMessageBase
 
   case class TargetParticipant(name: String)
+
+  case class JsMessageTestRequest(sender: String, target: String, msg: String) extends JsMessageBase
+  case class JsMessageTestResponse(sender: String, target: String, msg: String) extends JsMessageBase
 
   case class JsMessage(sender: String, target: String, msg: String, var timeSend: String = "", var timeReceived: String = "") extends JsMessageBase
 
@@ -37,9 +34,9 @@ object SharedMessages {
   // TODO
   //case class JsMessageStarBot(botName: String, autoJoinChannels: Array[String]) extends JsMessageBase
 
-  case class JsMessageStarBotRequest(botName: String, targets: Array[String]) extends JsMessageBase
+  case class JsMessageRequestTargetsParticipants(botName: String, targets: Array[String]) extends JsMessageBase
 
-  case class JsMessageStarBotResponse(targetsParticipants: Map[String, Array[TargetParticipant]]) extends JsMessageBase
+  case class JsMessageResponseTargetsParticipants(targetsParticipants: Map[String, Array[TargetParticipant]]) extends JsMessageBase
 
   // REST
   case class JsMessageSearchLogsRequest(regex: String, target: String) extends JsMessageBase

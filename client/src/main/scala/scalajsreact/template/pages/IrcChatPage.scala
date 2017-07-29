@@ -140,7 +140,7 @@ object IrcChatPage {
       targets.foreach(t => {
         targetsArr +:= t.target
       })
-      val msg: JsMessageStarBotRequest = JsMessageStarBotRequest(sender, targetsArr)
+      val msg: JsMessageRequestTargetsParticipants = JsMessageRequestTargetsParticipants(sender, targetsArr)
       org.scalajs.dom.console.log("JsMessageIrcBotReady msg.toString")
       org.scalajs.dom.console.log(msg.toString)
       props.map(P => {
@@ -149,6 +149,7 @@ object IrcChatPage {
           wsV.send(write(msg))
         })
       })
+      ready = true
       this
     }
 
@@ -220,7 +221,7 @@ object IrcChatPage {
       targets.foreach(f => {
         arrayTargets +:= f.target
       })
-      val request: JsMessageStarBotRequest = JsMessageStarBotRequest(sender, arrayTargets)
+      val request: JsMessageRequestTargetsParticipants = JsMessageRequestTargetsParticipants(sender, arrayTargets)
       this.logLine("Connected.")
 
       this.callJsMessageAndReturnCallback(props, request)
@@ -583,10 +584,9 @@ object IrcChatPage {
               //  direct.modState(_.copy(ready = true))
               this.direct = getDirect()
               direct.modState(_.setReadyAndRequestParticipants())
-
-              direct.modState(_.copy(ready = true))
+              // direct.modState(_.copy(ready = true)) // todo rmv this line, ready set in setReadyAndRequestParticipants
             }
-            case jsmsg: JsMessageStarBotResponse => {
+            case jsmsg: JsMessageResponseTargetsParticipants => {
               org.scalajs.dom.console.log("JsMessageStarBotResponse")
 
               direct.modState(g => {

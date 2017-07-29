@@ -17,7 +17,7 @@ class CustomLoginController @Inject()(val csrfAddToken: CSRFAddToken, implicit o
     UserAwareAction {
       implicit request => {
         Logger.debug("using CustomLoginController")
-        // from BaseLoginPage
+        // from BaseLoginPageui
         if (request.user.isDefined) {
           // if the user is already logged in, a referer is set and we handle the
           // referer the same way as an OriginalUrl in the session, we redirect back

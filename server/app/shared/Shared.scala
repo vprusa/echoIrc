@@ -8,7 +8,7 @@ import play.Logger
 import play.api.libs.json.Json
 import securesocial.core.java
 import service.{DemoUser, MyEnvironment}
-import shared.SharedMessages.{JsMessage, JsMessageIrcBotReady, JsMessageOther, JsMessageStarBotRequest}
+import shared.SharedMessages.{JsMessage, JsMessageIrcBotReady, JsMessageOther, JsMessageRequestTargetsParticipants}
 import upickle.default.write
 import utils.{IrcListener, IrcLogBot}
 
@@ -80,8 +80,8 @@ object Shared {
               targets +:= n.getName
             }
 
-            val jsmsg = JsMessageStarBotRequest(event.getBot[IrcLogBot].getNick, targets)
-            val resp = getJsMessageStarBotResponse(jsmsg, event.getBot[IrcLogBot])
+            val jsmsg = JsMessageRequestTargetsParticipants(event.getBot[IrcLogBot].getNick, targets)
+            val resp = getJsMessageResponseTargetParticipants(jsmsg, event.getBot[IrcLogBot])
             //sendJsMessage(resp)
             //JsMessageStarBotRequest
             listenersUserActor ! Json.parse(write(resp))

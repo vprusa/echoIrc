@@ -6,7 +6,7 @@ import org.pircbotx.hooks.ListenerAdapter
 import org.pircbotx.hooks.types.GenericChannelEvent
 import org.pircbotx.{Configuration, PircBotX}
 import play.api.Logger
-import shared.SharedMessages.{JsMessageStarBotRequest, JsMessageStarBotResponse, TargetParticipant}
+import shared.SharedMessages.{JsMessageRequestTargetsParticipants, JsMessageResponseTargetsParticipants, TargetParticipant}
 
 class IrcLogBot(config: Configuration) extends PircBotX(config) {
 
@@ -44,8 +44,8 @@ class IrcListener(server: String, channels: java.util.List[String], identity: (S
     getCurrentLog(event.getChannel.getName)
   }
 
-
-  def getJsMessageStarBotResponse(jsmsg: JsMessageStarBotRequest, ircBot: IrcLogBot): JsMessageStarBotResponse = {
+  // this method returns JsMessageResponseTargetsParticipants containing map with targets participants described in jsmsg
+  def getJsMessageResponseTargetParticipants(jsmsg: JsMessageRequestTargetsParticipants, ircBot: IrcLogBot): JsMessageResponseTargetsParticipants = {
     var map = Map.empty[String, Array[TargetParticipant]]
     val iterator = ircBot.getUserBot.getChannels.iterator()
     Logger.debug(iterator.toString)
@@ -54,7 +54,7 @@ class IrcListener(server: String, channels: java.util.List[String], identity: (S
         var participantsNames: Array[TargetParticipant] = Array.empty[TargetParticipant]
         val channel = iterator.next()
         if (channel.getName.matches(target)) {
-          var channelIterator = channel.getUsers.iterator()
+          val channelIterator = channel.getUsers.iterator()
           while (channelIterator.hasNext) {
             val user = channelIterator.next
             participantsNames +:= TargetParticipant(name = user.getNick)
@@ -63,7 +63,7 @@ class IrcListener(server: String, channels: java.util.List[String], identity: (S
         map += (channel.getName -> participantsNames)
       }
     })
-    JsMessageStarBotResponse(map)
+    JsMessageResponseTargetsParticipants(map)
   }
 
 
